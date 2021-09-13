@@ -13,22 +13,21 @@
 @import './layout/header';
 @import './layout/foooter';
 
-//Bootstrap
 
+// bootstrap
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../../node_modules/bootstrap/scss/functions";
-// @import "../../node_modules/bootstrap/scss/variables";  //BS原檔 (變數更動用)
+// @import "../../node_modules/bootstrap/scss/variables"; // BS變數scss原檔
 @import "../../node_modules/bootstrap/scss/mixins";
 
-// -------
 
 .box{
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 500px;
   border: 1px solid red;
   p{
     font-size: $fontsize_big;
   }
 }
 
-@import 'base/variables'; //BS的變數 記得要放在最底下
+@import "./base/variables"; // BS變數 須放在最底下

@@ -3,3 +3,6 @@
 1. 新增contact.html
 2. 在dev新增js資料夾
 3. dev/js資料夾新增contact.js -> contact.html使用
+
+江
+dev/sass/base/新增_variables.scss, 是改bootstrap用的
