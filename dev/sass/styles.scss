@@ -13,6 +13,15 @@
 @import './layout/header';
 @import './layout/foooter';
 
+//Bootstrap
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap/scss/functions";
+// @import "../../node_modules/bootstrap/scss/variables";  //BS原檔 (變數更動用)
+@import "../../node_modules/bootstrap/scss/mixins";
+
+// -------
+
 .box{
   height: 200px;
   width: 200px;
@@ -21,3 +30,5 @@
     font-size: $fontsize_big;
   }
 }
+
+@import 'base/variables'; //BS的變數 記得要放在最底下
