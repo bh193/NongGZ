@@ -1,0 +1,18 @@
+// 各種置中
+
+@mixin margincenter {
+  margin: 0 auto; 
+}
+
+@mixin  flexcenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+@mixin positioncenter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(50% , 50%);
+}

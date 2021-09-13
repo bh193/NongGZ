@@ -1,0 +1,22 @@
+// base 
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+@import 'base/reset';
+
+// mixin
+
+@import 'mixin/mixin';
+
+// layout 
+
+@import './layout/header';
+@import './layout/foooter';
+
+.box{
+  height: 200px;
+  width: 200px;
+  p{
+    font-size: $fontsize_big;
+  }
+}
