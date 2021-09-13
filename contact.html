@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dev/js/contact.js"></script>
+</head>
+<body>
+    <div class="form">
+        <form>
+            <div class="item">
+                <select  id="qa">
+                    <option selected value>請選擇意見和反應類型</option>
+                    <option value="訂單問題">訂單問題</option>
+                    <option value="系統操作問題">系統操作問題</option>
+                    <option value="意見與回饋">意見與回饋</option>
+                    <option value="舉報不實貼文">舉報不實貼文</option>
+                    <option value="其他">其他</option>
+                </select>
+            </div>
+            <div class="item">
+                <label for="name">Name</label>
+                <input type="text" id="name">
+            </div>
+            <div class="item">
+                <label for="email">Email</label>
+                <input type="email" id="email">
+            </div>
+            <div class="item">
+                <label for="message">Message</label>
+                <textarea id="message"></textarea>
+            </div>
+
+            <input type="submit" value="送出" id="btn" onclick="send()">
+        </form>
+        
+    </div>
+</body>
+</html>
