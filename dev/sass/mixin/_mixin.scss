@@ -1,18 +1,151 @@
-// 各種置中
+//螢幕RWD函式
+//d:電腦 t:平板 m:手機
+@mixin d {
+  @media all and (min-width:$d_minWidth) {
+      html{
+          font-size: $d_htmlfontSize;
+      }
+      @content;
+  }
+}
+@mixin t {
+  @media all and (min-width:$t_minWidth) and (max-width:$t_maxWidth) {
+      html{
+          font-size: $t_htmlfontSize;
+      }
+      @content;
+  }
 
-@mixin margincenter {
-  margin: 0 auto; 
+}
+@mixin m {
+  @media all and (max-width:$m_maxWidth) {
+      html{
+          font-size: $m_htmlfontSize;
+      }
+      @content;
+  }
 }
 
-@mixin  flexcenter {
+
+//正常版面
+//layout(上下margin)
+@mixin layout($var:0){
+  max-width: 960px;
+  min-width: 350px;
+  width: 75%;
+  @include margincenter($var);
+}
+
+
+//置中方式
+@mixin flexcenter() {
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
+}
+//margincenter(上下margin)
+@mixin margincenter($var:0) {
+  margin: $var auto;
+}
+@mixin positioncenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-@mixin positioncenter {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50% , -50%);
+
+//按鈕
+//大按鈕(一般)
+@mixin bigbtn{
+  width: $bigbtn_w;
+  padding: $bigbtn_p;
+  color: $bigbtn_color;
+  background-color: $main_color;
+  font-size: $bigbtn_size;
+  font-weight:$bigbtn_weight;
+  letter-spacing: $h3_letter;
+  border-radius: $bigbtn_bR;
+  text-align: center;
+  cursor: pointer;
+  &:hover{
+      background-color: $focus_color;
+  }
+}
+//小按鈕(一般)
+@mixin smallbtn_m{
+  width: $smallbtn_w;
+  padding: $smallbtn_p;
+  color: $smallbtn_color;
+  background-color: $main_color;
+  font-size: $smallbtn_size;
+  font-weight:$smallbtn_weight;
+  letter-spacing: $p_letter;
+  border-radius: $smallbtn_bR;
+  text-align: center;
+  cursor: pointer;
+  &:hover{
+      background-color: $focus_color;
+  }
+}
+//小按鈕(關閉/取消)
+@mixin smallbtn_c{
+  width: $smallbtn_w;
+  padding: $smallbtn_p;
+  color: $smallbtn_color;
+  background-color: $cancel_color;
+  font-size: $smallbtn_size;
+  font-weight:$smallbtn_weight;
+  border-radius: $smallbtn_bR;
+  text-align: center;
+  cursor: pointer;
+  &:hover{
+      background-color: $focus_color;
+  }
+}
+
+
+//篩選鈕
+@mixin select($w:10rem){
+  width: $w;
+  padding: $select_p;
+  color: $select_color;
+  font-size: $select_size;
+  border-radius: $select_bR;
+  border: none;
+  text-align: center;
+}
+
+
+//填寫框
+//label
+@mixin label{
+  color: $label_color;
+  font-size: $label_size;
+  font-weight: $label_weight;
+  margin-bottom: $label_mb;
+}
+//一般
+@mixin text($w:20rem,$h:null){
+  width: $w;
+  height: $h;
+  padding: $text_p;
+  font-size: $text_size;
+  border-radius: $text_bR;
+  border: $text_b;
+  resize: none;
+}
+
+
+//跳窗標頭
+@mixin title{
+  width: $title_w;
+  padding: $title_p;
+  color: $title_color;
+  background-color: $second_color;
+  font-size: $title_size;
+  font-weight: $title_weight;
+  letter-spacing: $h3_letter;
+  border-radius: $title_bR;
+  text-align: center;
 }

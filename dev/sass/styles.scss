@@ -25,9 +25,6 @@
   height: 300px;
   width: 500px;
   border: 1px solid red;
-  p{
-    font-size: $fontsize_big;
-  }
 }
 
 @import "./base/variables"; // BS變數 須放在最底下

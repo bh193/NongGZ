@@ -1,0 +1,100 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+
+
+// mixin
+
+@import 'mixin/mixin';
+
+
+.box {
+    background-color: antiquewhite
+}
+
+.content {
+    @include layout();
+    background-color: $bg_color;
+}
+
+.bigbtn {
+    @include bigbtn;
+    @include margincenter(20px);
+}
+
+.smallbtn_c {
+    @include smallbtn_c;
+    @include margincenter(20px);
+    display: inline-block;
+}
+
+.smallbtn_m {
+    @include smallbtn_m;
+    @include margincenter(20px);
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.box2 {
+    @include layout();
+    background-color: $bg_color;
+    text-align: center;
+}
+
+.city {
+    @include select();
+    @include margincenter(20px);
+}
+
+.box3 {
+    @include layout();
+    background-color: $bg_color;
+    @include flexcenter();
+}
+
+.box4 {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+label {
+    @include label;
+}
+
+#user_name {
+    @include text();
+}
+
+.price {
+    @include text(6rem);
+    margin: 10px 0;
+    display: inline-block;
+}
+
+.card {
+    @include text(3.4rem);
+    margin: 10px 0;
+    display: inline-block;
+}
+
+#con {
+    @include text(20rem, 18rem);
+    display: inline-block;
+   
+}
+
+.people {
+    @include select(20rem);
+}
+
+.title {
+    @include title;
+    @include margincenter()
+}
+
+
+@include t;
+@include d;

@@ -1,5 +1,109 @@
-// font setting
+//螢幕介面設定
+//d:電腦 t:平板 m:手機
+$d_minWidth:1025px;
+$t_maxWidth:1024px;
+$t_minWidth:769px;
+$m_maxWidth:768px;
 
-$fontsize_big: 40px;
-$fontsize_mid: 24px;
-$fontsize_sm: 16px;
+//RWD-html字體大小
+$d_htmlfontSize:16px;
+$t_htmlfontSize:14px;
+$m_htmlfontSize:12px;
+
+//字體大小
+$h2_size:2.5rem;
+$h3_size:1.5rem;
+$p_size:1rem;
+$h4_size:12px;
+
+//字粗體
+$h2_weight:700;
+
+//字型
+$ct_fontFamily:"微軟正黑體";
+$e_fontFamily:"Times-New-Roman";
+
+//字體顏色
+$h2_color:#2b2929;
+$h3_color:#2b2929;
+$p_color:#2b2929;
+$h4_color:#2b2929;
+
+//行高
+$h2_line:1.5;
+$h3_line:1.5;
+$p_line:1.5;
+$h4_line:1.5;
+
+//字距
+$h2_letter:1px;
+$h3_letter:1px;
+$p_letter:1px;
+$h4_letter:1px;
+
+
+//顏色
+//主色
+$main_color:#84A59D;
+//強調色
+$focus_color:#17C3B2;
+//關閉取消色
+$cancel_color:#BB9590;
+//次色(二):
+$second_color:#F6BD60;
+//次色(三):
+$third_color:#DFE5DC;
+//底色
+$bg_color:#F7F6F2;
+//header色
+$header_color:#fff;
+//footer色
+$footer_color:#fff;
+//視窗外底色
+$black_color:rgba(0, 0, 0, 0.2);
+
+
+
+// 按鈕
+//大
+$bigbtn_w:10rem;  //120px/140px/160px
+$bigbtn_p:1rem;  //12px/14px/16px
+$bigbtn_color:#fff;
+$bigbtn_size:1.5rem; //18px/21px/24px
+$bigbtn_weight:700;
+$bigbtn_bR:8px;
+//小
+$smallbtn_w:6rem;  //72px/84px/96px
+$smallbtn_p:0.5rem;  //6px/7px/8px
+$smallbtn_color:#fff;
+$smallbtn_size:1rem;  //12px/14px/16px
+$smallbtn_weight:700;
+$smallbtn_bR:8px;
+
+
+//篩選鈕
+$select_p:0.5rem;  //6px/7px/8px
+$select_color:#2b2929;
+$select_size:1.5rem; //18px/21px/24px
+$select_bR:8px;
+
+
+//填寫框
+$text_p:0.5rem;  //6px/7px/8px
+$text_size:1.5rem; //18px/21px/24px
+$text_bR:8px;
+$text_b:1px solid #ebe7e7;
+//label
+$label_color:#2b2929;
+$label_size:1.5rem; //18px/21px/24px
+$label_weight:700;
+$label_mb:5px;
+
+
+//跳窗標頭
+$title_w:20rem;  // 240px/280px/320px
+$title_p:1rem;  //12px/14px/16px
+$title_color:#fff;
+$title_size:1.5rem; //18px/21px/24px
+$title_weight:700;
+$title_bR:8px;
