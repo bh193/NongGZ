@@ -1,0 +1,32 @@
+// base 
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+@import 'base/reset';
+
+// mixin
+
+@import 'mixin/mixin';
+
+// layout 
+
+body{
+  background-color: rgb(243, 237, 229)
+}
+@include container;
+
+select{
+  @include select()
+}
+option{
+  @include flexcenter
+}
+
+@include t{
+  
+};
+
+@include d{
+  
+};
+

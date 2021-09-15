@@ -12060,4 +12060,9 @@ fieldset:disabled .btn {
     display: none !important;
   }
 }
-/*# sourceMappingURL=styles.css.map */
+
+.form {
+  max-width: 1025px;
+  background-color: #F7F6F2;
+}
+/*# sourceMappingURL=contact.css.map */

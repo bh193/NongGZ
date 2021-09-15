@@ -28,8 +28,8 @@
 
 
 //正常版面
-//layout(上下margin)
-@mixin layout($var:0){
+//container(上下margin)
+@mixin container($var:0){
   max-width: 960px;
   min-width: 350px;
   width: 75%;
@@ -108,7 +108,7 @@
 //篩選鈕
 @mixin select($w:10rem){
   width: $w;
-  padding: $select_p;
+  padding: $select_p 0px;
   color: $select_color;
   font-size: $select_size;
   border-radius: $select_bR;

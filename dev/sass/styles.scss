@@ -21,10 +21,7 @@
 @import "../../node_modules/bootstrap/scss/mixins";
 
 
-.box{
-  height: 300px;
-  width: 500px;
-  border: 1px solid red;
-}
 
-@import "./base/variables"; // BS變數 須放在最底下
+
+
+@import "./base/variables"; // BS變數 須放在此檔案最底下
