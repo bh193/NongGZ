@@ -10,16 +10,18 @@
 
 // layout 
 
-body{
-  background-color: rgb(243, 237, 229)
-}
-@include container;
+
+
 
 select{
   @include select()
 }
 option{
-  @include flexcenter
+  @include flexcenter()
+}
+body{
+  @include container();
+  background-color: rgb(243, 237, 229)
 }
 
 @include t{

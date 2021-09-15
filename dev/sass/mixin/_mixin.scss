@@ -108,7 +108,7 @@
 //篩選鈕
 @mixin select($w:10rem){
   width: $w;
-  padding: $select_p 0px;
+  padding: $select_p 0;
   color: $select_color;
   font-size: $select_size;
   border-radius: $select_bR;
