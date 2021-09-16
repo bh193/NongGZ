@@ -16,17 +16,25 @@
 }
 
 .content {
-    @include layout();
+    @include container();
     background-color: $bg_color;
 }
 
-.bigbtn {
-    @include bigbtn;
+.bigbtn_s {
+    @include bigbtn_s;
     @include margincenter(20px);
+    display: inline-block;
 }
 
-.smallbtn_c {
-    @include smallbtn_c;
+.bigbtn_m {
+    @include bigbtn_m;
+    @include margincenter(20px);
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.smallbtn_s {
+    @include smallbtn_s;
     @include margincenter(20px);
     display: inline-block;
 }
@@ -39,7 +47,7 @@
 }
 
 .box2 {
-    @include layout();
+    @include container();
     background-color: $bg_color;
     text-align: center;
 }
@@ -50,7 +58,7 @@
 }
 
 .box3 {
-    @include layout();
+    @include container();
     background-color: $bg_color;
     @include flexcenter();
 }
@@ -69,7 +77,7 @@ label {
 }
 
 .price {
-    @include text(6rem);
+    @include text(8.4rem);
     margin: 10px 0;
     display: inline-block;
 }
