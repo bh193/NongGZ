@@ -3,6 +3,7 @@
 @import 'base/color';
 @import 'base/font';
 @import 'base/reset';
+@import 'base/variables';
 
 // mixin
 
@@ -20,7 +21,10 @@
 // @import "../../node_modules/bootstrap/scss/variables"; // BS變數scss原檔
 @import "../../node_modules/bootstrap/scss/mixins";
 
-.form{
-    max-width:$d_minWidth;
-    background-color: $bg_color;
+
+@include d{
+    .box{
+        background: #000;
+    }
+
 }
