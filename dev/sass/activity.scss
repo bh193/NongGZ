@@ -11,9 +11,10 @@
 // layout 
 
 body{
-  background-color: rgb(243, 237, 229)
+  background-color: rgb(243, 237, 229);
+  @include container();
 }
-@include container;
+
 
 select{
   @include select()
