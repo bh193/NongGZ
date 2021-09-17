@@ -85,6 +85,12 @@ function browser(done) {
 exports.default = browser; // dev
 exports.packageall = series(clear, parallel (styles ,jsmin ,includeHTML));  // 打包上線
 
+function min_images() {
+    return src('dev/img/*.*')
+        .pipe(dest('dist/img'))
+}
+exports.img = min_images;
+
 
 
 

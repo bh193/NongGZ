@@ -1,3 +1,9 @@
+//字體匯入
+@font-face{
+    font-family:"GloberSemiBold";/* 名稱隨意填 */
+    src:url(../font-size/GloberSemiBold.otf);
+  }
+
 //螢幕介面設定
 //d:電腦 t:平板 m:手機
 $d_minWidth:1025px;
@@ -21,8 +27,7 @@ $h2_weight:700;
 $h3_weight:700;
 
 //字型
-$ct_fontFamily:"微軟正黑體";
-$e_fontFamily:"Times-New-Roman";
+$fontFamily:"GloberSemiBold";
 
 //字體顏色
 $h2_color:#2b2929;
