@@ -1,0 +1,72 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+//mixin
+@import 'mixin/mixin';
+
+// layout
+@import 'layout/header';
+@import 'layout/foooter';
+
+body{
+    background-color: $bg_color;
+    background: url(./img/92.svg);
+}
+.container{
+    @include container();
+    margin-bottom: 60px;
+    background-color: $header_color;
+    border-radius: 30px;
+}
+.container-2{
+    @include container();
+    @include flexcenter();
+    justify-content: space-between;
+    background-color: $header_color;
+    border-radius: 30px;
+}
+.memname{
+    @include flexcenter();
+}
+.memname .pic{
+    /* border: 1px solid red; */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px 40px;
+}
+.memname .pic img{
+    width: 100%;
+    margin-top: -10px;
+}
+h2{
+    color: $h2_color;
+    font-size: $h2_size;
+    font-weight: $h2_weight;
+    line-height: $h2_line;
+    letter-spacing: $h2_letter;
+    margin: 10px 0 0;
+}
+p{
+    font-size: 24px;
+    letter-spacing:$p_letter;
+    color: #b5b5b5;
+    font-family: "GloberSemiBold";
+    margin: 0;
+}
+textarea{
+    width: 800px;
+    height: 150px;
+    margin-left: 50px;
+}
+.card{
+    width: 300px;
+    height: 430px;
+    border-radius: 10px;
+    background-color: $header_color;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 16%);
+}
