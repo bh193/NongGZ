@@ -10750,9 +10750,24 @@ fieldset:disabled .btn {
   }
 }
 
-.box {
-  height: 300px;
-  width: 500px;
-  border: 1px solid red;
+.form {
+  max-width: 1025px;
+  background-color: #F7F6F2;
 }
-/*# sourceMappingURL=styles.css.map */
+
+body {
+  background-color: #F7F6F2;
+}
+
+@media all and (min-width: 769px) and (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media all and (min-width: 1025px) {
+  html {
+    font-size: 16px;
+  }
+}
+/*# sourceMappingURL=contact.css.map */

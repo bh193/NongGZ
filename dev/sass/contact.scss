@@ -24,3 +24,8 @@
     max-width:$d_minWidth;
     background-color: $bg_color;
 }
+body{
+    background-color:$bg_color;
+}
+@include t;
+@include d;

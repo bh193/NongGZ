@@ -1,41 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact Form</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/integration
+            emailjs.init("user_aMjH5KHo9lvpKrwcByHs4");
+        })();
+    </script>
+    <script src=""></script>
     <script src="./js/contact.js"></script>
+    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="../css/contact.css">
 </head>
 <body>
-    <div class="form">
-        <form>
-            <div class="item">
-                <select  id="qa">
-                    <option selected value>請選擇意見和反應類型</option>
-                    <option value="訂單問題">訂單問題</option>
-                    <option value="系統操作問題">系統操作問題</option>
-                    <option value="意見與回饋">意見與回饋</option>
-                    <option value="舉報不實貼文">舉報不實貼文</option>
-                    <option value="其他">其他</option>
-                </select>
-            </div>
-            <div class="item">
-                <label for="name"  required>Name</label>
-                <input type="text" id="name">
-            </div>
-            <div class="item">
-                <label for="email">Email</label>
-                <input type="email" id="email" required >
-            </div>
-            <div class="item">
-                <label for="message">Message</label>
-                <textarea id="message" placeholder="請描述問題與建議" style="min-height: 300px;min-width: 500px;max-height: 300px; max-width: 500px;"></textarea>
-            </div>
+    <div class="wrap">
+        <div class="item">
+            <div class="title">找農果子</div>
+            <p>如果您在我們的網站上尋找資訊時遇到問題或有任何意見，請使用以下表格與我們聯絡。我們會仔細閱讀所有回應，但請了解我們無法回覆您提出的意見。</p>
+        </div>
+            <form class="form">
+              
+                <div class="item">
+                    <label for="name">姓名</label>
+                    <input type="text" id="name">
+                </div>
+                 <div class="item">
+                     <label for="qa">問題類型</label>
+                    <select  id="qa">
+                        <option selected value>請選擇意見和反應類型</option>
+                        <option value="訂單問題">訂單問題</option>
+                        <option value="系統操作問題">系統操作問題</option>
+                        <option value="意見與回饋">意見與回饋</option>
+                        <option value="舉報不實貼文">舉報不實貼文</option>
+                        <option value="其他">其他</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <label for="email">信箱</label>
+                    <input type="email" id="email">
+                </div>
 
-            <input type="submit" value="送出" id="btn" onclick="send()">
-        </form>
-        
+                <div class="item">
+                    <label for="message">內容</label>
+                    <textarea id="message"></textarea>
+                </div>
+                <div class="item">
+                    <button class="btn">清除</button>
+                    <button id="btn" class="btn" onclick="send()">送出</button>
+                </div>
+            </form>
     </div>
+    <!-- <div class="info">
+        <div class="infobox">
+            <h2>聯絡我們</h2>
+        </div>
+        <div class="infobox">
+            <ul>
+                <li>農果子客戶服務專線：+886-1-234-5678</li>
+                <li>服務時間：周一至周五: 09:00 ~ 17:00</li>
+                <li>客服信箱：NongGuoZi@gmail.com</li>
+                <li>地址：桃園市中壢區復興路55688號</li>
+            </ul>
+        </div>
+    </div> -->
+
 </body>
 </html>
