@@ -18,6 +18,7 @@ $h4_size:12px;
 
 //字粗體
 $h2_weight:700;
+$h3_weight:700;
 
 //字型
 $ct_fontFamily:"微軟正黑體";
@@ -43,15 +44,17 @@ $h4_letter:1px;
 
 
 //顏色
-//主色
-$main_color:#84A59D;
+//主色:
+$main_color:#F6BD60;
 //強調色
 $focus_color:#17C3B2;
-//關閉取消色
-$cancel_color:#BB9590;
+//按鈕主色
+$btn_m_color:#84A59D;
+//按鈕次色
+$btn_s_color:#fff;
+//次色(一):
+$second_color:#BAC7B5;
 //次色(二):
-$second_color:#F6BD60;
-//次色(三):
 $third_color:#DFE5DC;
 //底色
 $bg_color:#F7F6F2;
@@ -65,26 +68,20 @@ $black_color:rgba(0, 0, 0, 0.2);
 
 
 // 按鈕
-//大
-$bigbtn_w:10rem;  //120px/140px/160px
+//大按鈕
+$bigbtn_w:11rem;  //132px/154px/176px
 $bigbtn_p:1rem;  //12px/14px/16px
-$bigbtn_color:#fff;
-$bigbtn_size:1.5rem; //18px/21px/24px
-$bigbtn_weight:700;
 $bigbtn_bR:8px;
-//小
+$bigbtn_b:2px solid $btn_m_color;
+//小按鈕
 $smallbtn_w:6rem;  //72px/84px/96px
 $smallbtn_p:0.5rem;  //6px/7px/8px
-$smallbtn_color:#fff;
-$smallbtn_size:1rem;  //12px/14px/16px
-$smallbtn_weight:700;
 $smallbtn_bR:8px;
+$smallbtn_b:2px solid $btn_m_color;
 
 
-//篩選鈕
+//篩選鈕(包含排序鈕)
 $select_p:0.5rem;  //6px/7px/8px
-$select_color:#2b2929;
-$select_size:1.5rem; //18px/21px/24px
 $select_bR:8px;
 
 
@@ -94,9 +91,6 @@ $text_size:1.5rem; //18px/21px/24px
 $text_bR:8px;
 $text_b:1px solid #ebe7e7;
 //label
-$label_color:#2b2929;
-$label_size:1.5rem; //18px/21px/24px
-$label_weight:700;
 $label_mb:5px;
 
 
@@ -104,6 +98,4 @@ $label_mb:5px;
 $title_w:20rem;  // 240px/280px/320px
 $title_p:1rem;  //12px/14px/16px
 $title_color:#fff;
-$title_size:1.5rem; //18px/21px/24px
-$title_weight:700;
 $title_bR:8px;

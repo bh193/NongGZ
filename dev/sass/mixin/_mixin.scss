@@ -1,35 +1,40 @@
-//螢幕RWD函式
+//---------------螢幕RWD函式----------------//
 //d:電腦 t:平板 m:手機
 @mixin d {
   @media all and (min-width:$d_minWidth) {
-      html{
-          font-size: $d_htmlfontSize;
-      }
-      @content;
+    html {
+      font-size: $d_htmlfontSize;
+    }
+
+    @content;
   }
 }
+
 @mixin t {
   @media all and (min-width:$t_minWidth) and (max-width:$t_maxWidth) {
-      html{
-          font-size: $t_htmlfontSize;
-      }
-      @content;
+    html {
+      font-size: $t_htmlfontSize;
+    }
+
+    @content;
   }
 
 }
+
 @mixin m {
   @media all and (max-width:$m_maxWidth) {
-      html{
-          font-size: $m_htmlfontSize;
-      }
-      @content;
+    html {
+      font-size: $m_htmlfontSize;
+    }
+
+    @content;
   }
 }
 
 
-//正常版面
+//---------------版面----------------//
 //container(上下margin)
-@mixin container($var:0){
+@mixin container($var:0) {
   max-width: 960px;
   min-width: 350px;
   width: 75%;
@@ -37,16 +42,18 @@
 }
 
 
-//置中方式
+//---------------置中方式----------------//
 @mixin flexcenter() {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 //margincenter(上下margin)
 @mixin margincenter($var:0) {
   margin: $var auto;
 }
+
 @mixin positioncenter() {
   position: absolute;
   top: 50%;
@@ -55,97 +62,116 @@
 }
 
 
-//按鈕
-//大按鈕(一般)
+//---------------按鈕----------------//
+//大按鈕(主要與次要共用)
 @mixin bigbtn{
   width: $bigbtn_w;
-  padding: $bigbtn_p;
-  color: $bigbtn_color;
-  background-color: $main_color;
-  font-size: $bigbtn_size;
-  font-weight:$bigbtn_weight;
-  letter-spacing: $h3_letter;
+  padding: $bigbtn_p 0;
+  font-size: $h3_size; //與h3相同
+  font-weight: $h3_weight; //與h3相同
+  letter-spacing: $h3_letter; //與h3相同
+  border: $bigbtn_b;
   border-radius: $bigbtn_bR;
   text-align: center;
   cursor: pointer;
-  &:hover{
-      background-color: $focus_color;
+  &:hover {
+    background-color: $focus_color;
+    border-color:  $focus_color;
   }
 }
-//小按鈕(一般)
-@mixin smallbtn_m{
+//大按鈕(主要)
+@mixin bigbtn_m {
+  @include bigbtn;
+  color: $btn_s_color; //按鈕次色
+  background-color: $btn_m_color; //按鈕主色
+}
+//大按鈕(次要)
+@mixin bigbtn_s {
+  @include bigbtn;
+  color: $btn_m_color; //按鈕主色
+  background-color: $btn_s_color; //按鈕次色
+  &:hover {
+    color: $btn_s_color; //按鈕次色
+  }
+}
+
+//小按鈕(主要與次要共用)
+@mixin smallbtn{
   width: $smallbtn_w;
-  padding: $smallbtn_p;
-  color: $smallbtn_color;
-  background-color: $main_color;
-  font-size: $smallbtn_size;
-  font-weight:$smallbtn_weight;
-  letter-spacing: $p_letter;
+  padding: $smallbtn_p 0;
+  font-size: $p_size; //與p相同
+  letter-spacing: $p_letter; //與p相同
+  border: $smallbtn_b;
   border-radius: $smallbtn_bR;
   text-align: center;
   cursor: pointer;
-  &:hover{
-      background-color: $focus_color;
+  &:hover {
+    background-color: $focus_color;
+    border-color:  $focus_color;
   }
 }
-//小按鈕(關閉/取消)
-@mixin smallbtn_c{
-  width: $smallbtn_w;
-  padding: $smallbtn_p;
-  color: $smallbtn_color;
-  background-color: $cancel_color;
-  font-size: $smallbtn_size;
-  font-weight:$smallbtn_weight;
-  border-radius: $smallbtn_bR;
-  text-align: center;
-  cursor: pointer;
-  &:hover{
-      background-color: $focus_color;
+//小按鈕(主要)
+@mixin smallbtn_m {
+  @include smallbtn;
+  color: $btn_s_color; //按鈕次色
+  background-color: $btn_m_color; //按鈕主色
+}
+//小按鈕(次要)
+@mixin smallbtn_s {
+ @include smallbtn;
+  color: $btn_m_color; //按鈕主色
+  background-color: $btn_s_color; //按鈕次色
+  &:hover {
+    color: $btn_s_color; //按鈕次色
   }
 }
 
 
-//篩選鈕
-@mixin select($w:10rem){
+//---------------篩選鈕(包含排序鈕)----------------//
+@mixin select($w:10rem) {
   width: $w;
-  padding: $select_p 0px;
-  color: $select_color;
-  font-size: $select_size;
+  padding: $select_p 0;
+  color: $h3_color; //與h3相同
+  font-size: $h3_size; //與h3相同
+  font-weight: $h3_weight; //與h3相同
+  letter-spacing: $h3_letter; //與h3相同
   border-radius: $select_bR;
   border: none;
   text-align: center;
 }
 
 
-//填寫框
+//---------------填寫框----------------//
 //label
-@mixin label{
-  color: $label_color;
-  font-size: $label_size;
-  font-weight: $label_weight;
+@mixin label {
+  color:$h3_color; //與h3相同
+  font-size: $h3_size; //與h3相同
+  font-weight: $h3_weight; //與h3相同
+  letter-spacing: $h3_letter; //與h3相同
   margin-bottom: $label_mb;
 }
+
 //一般
-@mixin text($w:20rem,$h:null){
+@mixin text($w:20rem, $h:null) {
   width: $w;
   height: $h;
   padding: $text_p;
-  font-size: $text_size;
-  border-radius: $text_bR;
+  font-size: $p_size; //與p相同
+  letter-spacing: $p_letter; //與p相同
   border: $text_b;
-  resize: none;
+  resize: none;//因包含內容框
 }
 
 
-//跳窗標頭
-@mixin title{
+//---------------跳窗標頭----------------//
+@mixin title {
   width: $title_w;
   padding: $title_p;
   color: $title_color;
   background-color: $second_color;
-  font-size: $title_size;
-  font-weight: $title_weight;
-  letter-spacing: $h3_letter;
+  font-size: $h3_size; //與h3相同
+  font-weight: $h3_weight; //與h3相同
+  letter-spacing: $h3_letter; //與h3相同
   border-radius: $title_bR;
   text-align: center;
 }
