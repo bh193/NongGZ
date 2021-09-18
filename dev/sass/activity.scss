@@ -8,19 +8,49 @@
 
 @import 'mixin/mixin';
 
-// layout 
+
 
 body{
   background-color: rgb(243, 237, 229);
   @include container();
+  ul.breadcrumb{
+    padding: 10px 16px;
+    list-style: none;
+  }
+  ul.breadcrumb li{
+    display: inline;
+    font-size: 16px;
+  }
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    content: "/\00a0";
+  }
+  ul.breadcrumb li a {
+    text-decoration: none;
+  }
+}
+
+.filter{
+  @include flexcenter;
+  justify-content: space-between;
+  width: 700px;
+
+    select{
+      @include select();
+      margin:40px 0;
+      
+        option{
+          @include flexcenter
+        }
+  }
 }
 
 
-select{
-  @include select()
-}
-option{
-  @include flexcenter
+
+.background{
+  width: 700px;
+  height: 450px;
+  background-color: #BAC7B5;
 }
 
 @include t{
