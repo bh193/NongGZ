@@ -1,8 +1,8 @@
 // base 
+@import 'base/reset';
 @import 'base/var';
 @import 'base/color';
 @import 'base/font';
-@import 'base/reset';
 
 // mixin
 
@@ -11,7 +11,7 @@
 
 
 body{
-  background-color: rgb(243, 237, 229);
+  background-color: $bg_color;
   @include container();
   ul.breadcrumb{
     padding: 10px 16px;
@@ -33,26 +33,76 @@ body{
 .filter{
   @include flexcenter;
   justify-content: space-between;
-  width: 700px;
-
+  width: 650px;
     select{
       @include select();
-      margin:40px 0;
-      
+      margin:30px 0 0 0;
         option{
-          @include flexcenter
+          @include flexcenter;
         }
   }
 }
 
-
-
-.background{
-  width: 700px;
-  height: 450px;
-  background-color: #BAC7B5;
+.post{
+  display: flex;
+  margin: 60px 0;
 }
 
+.text{
+  width: 300px;
+  box-sizing: border-box;
+  margin: 52px 0;
+  padding: 0 20px;
+  position: relative;
+    .position{
+      display: flex;
+    }
+    .date{
+      display: flex;
+      padding: 10px 0;
+    }
+    .more{
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+}
+
+.background{
+  width: 650px;
+  height: 450px;
+  background-color: #BAC7B5;
+  position: relative;
+    img{
+      width: 80%;
+      margin: 52px 0;
+    }
+}
+.more{
+  @include smallbtn_m;
+}
+
+
+// h2{
+//   color: $h2_color;
+//   font-size: $h2_size;
+//   font-weight: $h2_weight;
+//   line-height: $h2_line;
+//   letter-spacing: $h2_letter;
+// }
+// h3 {
+//   color: $h3_color;
+//   font-size: $h3_size;
+//   font-weight: $h3_weight;
+//   line-height: $h3_line;
+//   letter-spacing: $h3_letter;
+// }
+// p{
+//   color: $p_color;
+//   font-size: $p_size;
+//   line-height: $p_line;
+//   letter-spacing: $p_letter;
+// }
 @include t{
   
 };
