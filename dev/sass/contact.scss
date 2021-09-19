@@ -10,7 +10,52 @@
 
 @import 'mixin/mixin';
 @include d{
-    .box{
-        background-color: rgb(119, 26, 26);
+    .wrap{
+        width: 100%;
+        margin: auto;
+        display: flex;
     }
+    .box{
+        width: 50%;
+    }
+    .item{
+        width: 450px;
+    }
+    .box:nth-child(1){
+        background-color:#DFE5DC;
+        display: flex;
+        justify-content: flex-end;
+        .item{
+            background-image: url('../img/post/apples-1872997_1920.jpg');
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            box-sizing: border-box;
+            .text{
+                
+            }
+        }
+    }
+    .box:nth-child(2){
+        background-color: #BAC7B5;
+        .item{
+            
+        }
+        
+    }
+    label{
+        @include label;
+        display: block;
+    }
+    input,textarea{
+        @include text(350px);
+        border-radius: 10px
+    }
+    select{
+        @include select(350px);
+    }
+    textarea{
+        
+    }
+
 }
