@@ -95,6 +95,11 @@ function images_post() {
         .pipe(imagemin())
         .pipe(dest('dist/images/post'))
 }
+function images_map() {
+    return src(['dev/images/map/*.*'])
+        .pipe(imagemin())
+        .pipe(dest('dist/images/map'))
+}
 function images_common() {
     return src(['dev/images/common/*.*'])
         .pipe(imagemin())
@@ -122,6 +127,7 @@ function images(){
     images_tree();
     images_activity();
     images_post();
+    images_map();
     images_common();
     images_img();
     images_png();
@@ -153,7 +159,7 @@ function browser(done) {
 }
 
 exports.default = series(browser, font, images); // dev
-exports.packageall = series(clear, parallel(styles, jsmin, includeHTML, font), parallel(images_mem, images_farm, images_fruit, images_tree, images_activity, images_post, images_common, images_img, images_png, images_svg));  // 打包上線
+exports.packageall = series(clear, parallel(styles, jsmin, includeHTML, font), parallel(images_mem, images_farm, images_fruit, images_tree, images_activity, images_post, images_map, images_common, images_img, images_png, images_svg));  // 打包上線
 
 
 
