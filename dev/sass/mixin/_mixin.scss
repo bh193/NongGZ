@@ -11,7 +11,7 @@
 }
 
 @mixin t {
-  @media all and (min-width:$t_minWidth) and (max-width:$t_maxWidth) {
+  @media all and (min-width:$t_minWidth){
     html {
       font-size: $t_htmlfontSize;
     }
