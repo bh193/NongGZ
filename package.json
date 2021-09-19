@@ -8,8 +8,7 @@
     "安裝 bootstrap": "npm install bootstrap",
     "開發": "gulp",
     "刪除舊檔案": "gulp del",
-    "打包上線": "gulp packageall",
-    "圖片": "gulp img"
+    "打包上線": "gulp packageall"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +33,7 @@
     "sass": "^1.39.0"
   },
   "dependencies": {
-    "bootstrap": "^5.1.1"
+    "bootstrap": "^5.1.1",
+    "jquery": "^3.6.0"
   }
 }

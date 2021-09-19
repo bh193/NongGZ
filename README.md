@@ -10,3 +10,8 @@ dev/sass/base/新增_variables.scss, 是改bootstrap用的
 1. 新增contact.scss
 2. 移動contact.html至dev
 3. contact.js修改
+
+9/18 
+江
+1. 更改img資料夾名稱為images, 才能對應gulpfile.js的壓圖路徑
+
