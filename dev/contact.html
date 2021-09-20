@@ -4,14 +4,69 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>找農果子</title>
     <script src="./js/contact.js"></script>
+    <script src="./js/bootstrap.bundle.min.js" ></script> 
     <link rel="stylesheet" href="css/contact.css">
+    
 </head>
 <body>
     <div class="wrap">
-        <div class="box">a</div>
-        <div class="box">b</div>
+        <div class="content">
+            <div class="box">
+                <div class="img"></div>
+                <div class="text">
+                    <h3>找農果子</h3>
+                    <p>如果您在我們的網站上尋找資訊時遇到問題或有任何意見，請使用以下表格與我們聯絡。我們會仔細閱讀所有回應，但請了解我們無法回覆您提出的意見。</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="form">
+                    <div class="col">
+                        <label for="name">姓名</label>
+                        <input type="text"id="name">
+                    </div>              
+                    <div class="col">
+                        <label for="qa">問題類型</label>
+                        <select  id="qa">
+                            <option value="" disabled selected>請選擇意見和反應類型</option>
+                            <option value="訂單問題">訂單問題</option>
+                            <option value="系統操作問題">系統操作問題</option>
+                            <option value="意見與回饋">意見與回饋</option>
+                            <option value="舉報不實貼文">舉報不實貼文</option>
+                            <option value="其他">其他</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="email">信箱</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="col">
+                        <label for="message">內容</label>
+                        <textarea id="message"></textarea>
+                    </div>
+                    <div class="btnbox">
+                        <div class="btn">清除</div>
+                        <div class="btn">送出</div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="info">
+            <div class="box">
+                <h3>聯絡資料</h3>
+            </div>
+            <div class="box">
+                <ul>
+                    <li>農果子客戶服務專線：+886-1-234-5678</li>
+                    <li>服務時間：周一至周五: 09:00 ~ 17:00</li>
+                    <li>客服信箱：NongGuoZi@gmail.com</li>
+                    <li>地址：桃園市中壢區復興路55688號</li>
+                </ul>
+            </div>
+        </div>
     </div>
+       
 </body>
 </html>
