@@ -10,13 +10,13 @@
 
 @import 'mixin/mixin';
 .wrap{
-    max-width: 1280px;
+    // max-width: 1280px;
     width: 100%;
     margin: auto;
-    background-color: $main_color; 
+    // background-color: $main_color; 
 }
 
-.content{
+.content,.info{
     @include container;
     display: flex;
     background-color: red;
@@ -84,6 +84,26 @@
         }
         .btn:nth-child(2){
             @include smallbtn_m;
+        }
+    }
+    .info{
+        .box{
+            background-color:$main_color;
+            
+            
+        }
+        .box:nth-child(1){
+            
+        }
+        .box:nth-child(2){
+            ul{
+                li{
+                    color: $p_color;
+                    font-size: $p_size;
+                    line-height: $p_line;
+                    letter-spacing: $p_letter;
+                }
+            }
         }
     }
 
