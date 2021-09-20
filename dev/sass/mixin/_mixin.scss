@@ -155,10 +155,12 @@
 @mixin text($w:20rem, $h:null) {
   width: $w;
   height: $h;
-  padding: $text_p;
+  padding: $text_p 0;
   font-size: $p_size; //與p相同
   letter-spacing: $p_letter; //與p相同
+  border-radius: $text_bR;
   border: $text_b;
+  box-sizing: border-box;
   resize: none;//因包含內容框
 }
 
