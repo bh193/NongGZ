@@ -9,8 +9,77 @@
 // mixin
 
 @import 'mixin/mixin';
+body{
+    background-image: url('../images/svg/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .wrap{
     max-width: 1100px;
     width: 100%;
+    margin: auto;
+    // background-color: $main_color;
+    .box:nth-child(1){}
+    .box:nth-child(2){
+        display: flex;
+        margin-top: 30px;
+        .item:nth-child(1){
+            width: 650px;
+            height: 610px;
+            border: 15px solid $second_color;
+            box-sizing: border-box;
+        }
+        .item:nth-child(2){
+            width: 374px;
+            height: 610px;
+            overflow: auto;
+            margin-left: 32px;
+            .col{
+                width: 374px;
+                height: 192px;
+                margin-bottom: 17px;
+                position: relative;
+                .bg{
+                    width: 348px;
+                    height: 181px;
+                    background-color:$second_color;
+                    position: absolute;
+                    z-index: 1;
+                    bottom: 0;
+                }
+                .img{
+                    width: 177px;
+                    height: 169px; 
+                    background-color: salmon;
+                    position: absolute;
+                    z-index: 2;
+                    left: 23px;
+                   
+                }
+                .info{
+                    width: 174px;
+                    height: 146px;
+                    background-color:#fff;
+                    position: absolute;
+                    z-index: 2;
+                    top:9px;
+                    right: 0;
+                    // box-sizing: border-box;
+                    .btn{
+                        @include bigbtn_m;
+                    }
+                }
+            }
+        }
+    }
+}
+
+label{
+    @include label;
+}
+select{
+    @include select;
+    margin-left: 10px;
+    margin-right: 30px;
 }
