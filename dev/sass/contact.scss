@@ -1,0 +1,146 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+
+
+// mixin
+
+@import 'mixin/mixin';
+.wrap{
+    // max-width: 1280px;
+    width: 100%;
+    margin: auto;
+    // background-color: $main_color; 
+}
+
+.content,.info{
+    @include container;
+    display: flex;
+    background-color: red;
+}
+    .box{
+        width: 50%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    .box:nth-child(1){
+        background-color: rosybrown;
+        .img{
+            width: 100%;
+            height: 500px;
+            background-image: url('../images/post/apples-1872997_1920.jpg');
+        }
+        .text{
+            margin-top: 20px;
+            text-align: center;
+            h3{
+                
+            }
+        }
+        
+    }
+    .box:nth-child(2){
+        background-color: rgb(104, 167, 172);
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .col{
+            text-align: left;
+        }
+    }
+    label{
+        @include label;
+        display: block;
+        margin-top: 10px;
+    }
+    input,textarea{
+        @include text(350px);
+        border-radius: 10px;
+    
+    }
+    select{
+    @include select(350px);
+    // border-radius: 10px;
+    }
+    textarea{
+        max-width: 350px;
+        min-width: 350px;
+        max-height: 295px;
+        min-height: 295px;
+    }
+    .btnbox{
+        width: 350px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-evenly;
+        .btn:nth-child(1){
+            @include smallbtn_s;
+            
+        }
+        .btn:nth-child(2){
+            @include smallbtn_m;
+        }
+    }
+    .info{
+        .box{
+            background-color:$main_color;
+            
+            
+        }
+        .box:nth-child(1){
+            
+        }
+        .box:nth-child(2){
+            ul{
+                li{
+                    color: $p_color;
+                    font-size: $p_size;
+                    line-height: $p_line;
+                    letter-spacing: $p_letter;
+                }
+            }
+        }
+    }
+
+/*RWD*/
+@include t{
+    .content{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .box{
+        width: 100%;
+    }
+    .box:nth-child(1){
+        position: relative;
+        .img{
+            height: 300px;
+        }
+        .text{
+            @include positioncenter();
+            h3{
+                text-align: center;
+            }
+        }
+    }
+}
+@include m{
+    .content{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .box{
+        width: 100%;
+    }
+    .box:nth-child(1){
+        .img{
+            display: none;
+        }
+    }
+}
+
