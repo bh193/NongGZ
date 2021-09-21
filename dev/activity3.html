@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="css/activity3.css">
+  
+  <link rel="stylesheet" href="font/activity3_fancybox.css">
+
+  <link rel="stylesheet" href="font/activity3_slider.css">
+
+  <script src="js/jquery.min.js"></script>
+  
+  <script src="js/activity3_fancybox.min.js"></script>
+  
+
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <link rel="stylesheet" href="css/slick-theme.css">
+</head>
+
+<body>
+  
+      <ul class="breadcrumb">
+        <li><a href="">首頁</a></li>
+        <li><a href="">探索體驗</a></li>
+        <li><a href="">夏日採桃趣</a></li>
+      </ul>
+    
+    <div class="slider">
+      <div class="thumbs">
+        <div class="preview">
+          <a href="#" class="selected" data-full="images/activity/peach1.jpg" data-title=""> <img src="images/activity/peach1.jpg"/>
+          </a>
+        </div>
+        
+    
+        <div class="preview">
+          <a href="#" data-full="images/activity/peach2.jpg" data-title=""> <img src="images/activity/peach2.jpg"/>
+          </a>
+        </div>
+        <div class="preview">
+          <a href="#" data-full="images/activity/peach3.jpg" data-title=""> <img src="images/activity/peach3.jpg">
+          </a>
+        </div>
+        <div class="preview">
+          <a href="#" data-full="images/activity/peach4.jpg" data-title=""> <img src="images/activity/peach4.jpg"/> </a>
+        </div>
+      </div>
+    
+      <!-- first image is viewable to start -->
+      <a href="images/activity/peach1.jpg" class="full" title=""> <img src="images/activity/peach1.jpg">
+      </a>
+    </div>
+  
+    <div class="slider2">
+      <div class="pic">
+        <img src="images/activity/peach1.jpg" alt="">
+      </div>
+      <div class="pic">
+        <img src="images/activity/peach2.jpg" alt="">
+        </div>
+      <div class="pic">
+        <img src="images/activity/peach3.jpg" alt="">
+        </div>
+      <div class="pic">
+        <img src="images/activity/peach4.jpg" alt="">
+        </div>
+    </div>
+
+
+    <div class="main">
+      <div class="left">
+        <h2 id="activity_name">夏日採桃趣</h2>
+        <div class="position">
+          <h3 id="city_name">桃園市 │&nbsp</h3>
+          <h3 id="farm_name">復興農場</h3>
+        </div>
+        <div>
+          <p id="activity_content">
+            阿成果園的水蜜桃特色是底部渾圓，柄部有道溝，果形大、多汁、甜度高，色澤風味均佳，不像一般水蜜桃的尾部呈尖凹狀。 歡迎全家大小一起來參與採桃活動，新鮮的水蜜桃剛採下來，可以很清楚的看到水蜜桃的表面有一層薄薄的水蜜桃保護毛。以進口或冷凍過的水蜜桃而言，你是不會看到這些毛的，因為水蜜桃的保護毛代表的就是新鮮的象徵。
+          </p>
+        </div>
+      </div>
+      <div class="right">
+        <div class="date">
+          <p>活動日期：</p>
+          <p id="activity_date">110/8/1</p>
+        </div>
+        <div class="now">
+          <p>目前報名人數：</p>
+          <p id="activity_people">20</p>
+        </div>
+        <div class="max">
+          <p>報名上限人數：</p>
+          <p id="activity_max">20</p>
+        </div>
+        <button class="sign">立即報名</button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+<!-- 輪播圖 -->
+  <script>
+    $(document).ready(function(){
+  
+        $(".preview a").on("click", function(){
+            $(".selected").removeClass("selected");
+            $(this).addClass("selected");
+            var picture = $(this).data();
+            
+            event.preventDefault(); //prevents page from reloading every time you click a thumbnail
+  
+            $(".full img").fadeOut( 100, function() { 
+              $(".full img").attr("src", picture.full);
+              $(".full").attr("href", picture.full);
+              $(".full").attr("title", picture.title);
+  
+          }).fadeIn();
+   
+        });// end on click
+  
+        $(".full").fancybox({
+            helpers : {
+                title: {
+                    type: 'inside'
+                }
+            },
+            closeBtn : true,
+        });
+  
+    });//end doc ready
+  
+  </script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+  
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+<script>
+  $('.slider2').slick({
+ //   prevArrow:"<img class='a-left control-c prev slick-prev' src='' id='left-arrow'>",
+ //  nextArrow:"<img class='a-right control-c next slick-next' src='' id='right-arrow'>",
+ dots: true,
+ infinite: true,
+ speed: 500,
+ fade: true,
+ cssEase: 'linear'
+});
+ </script>
+</body>
+</html>
