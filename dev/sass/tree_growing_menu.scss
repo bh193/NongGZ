@@ -1,0 +1,155 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+
+
+// mixin
+
+@import 'mixin/mixin';
+
+@include d{
+body {
+    display: flex;
+    justify-content: end;
+    background-color: $bg_color;
+}
+
+.header{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    background-color: #fff;
+    position: fixed;
+    padding-top: 1rem;
+    top:0;
+    left: 0;
+}
+
+.logo{
+    width: 50%;
+    @include margincenter();
+    margin-bottom: 2rem;
+    img{
+        width: 100%;
+    }
+}
+
+.nav{
+    width: 100%;
+    text-align: center;
+    li{
+        font-size: $h3_size;
+        font-weight:$h3_weight;
+        color: $h3_color;
+        letter-spacing: $h3_letter;
+        padding: 1rem;
+        &:hover{
+            color: #fff;
+            background-color: $focus_color;
+        }
+    }
+}
+
+.web_up{
+    flex-grow: 1;
+    @include flexcenter();
+}
+
+.bigbtn_m{
+    @include bigbtn_m
+}
+
+article{
+    width: 75%;
+}
+
+section{
+    @include container();
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+
+.sign_out{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+    .sign_out_icon{
+        width: 35%;
+        img{
+            width: 100%;
+        }
+    }
+    .sign_out_name{
+        width: 55%;
+    }
+}
+
+.content{
+    width: 100%;
+    border-radius: 15px;
+    background-color: #F7EDE2;
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+    .con_title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $main_color;
+        padding: 0.5rem 1rem;
+        .minus_sign{
+            width: 5%;
+            position: relative;
+            cursor: pointer;
+            img{
+                width: 100%;
+                vertical-align:top;
+            }
+            .turn{
+                width: 100%;
+                transform: rotate(-90deg);
+                position: absolute;
+                top:0;
+                transition: all .5s;
+                img{
+                    width: 100%;
+                    vertical-align:top;
+                }
+            }
+            .turn_zero{
+                transform: rotate(0deg);
+            }
+        }
+    }
+    .con_text{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 1rem;
+        box-sizing: border-box;
+
+        .item{
+            width: 50%;
+            display: flex;
+            .item_title{
+                width: 50%;
+            }
+            .item_text{
+                width: 50%;
+            }
+        }
+
+    }
+}
+
+}
+

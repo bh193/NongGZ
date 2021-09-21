@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>果樹生長狀況</title>
+    <link rel="stylesheet" type="text/css" href="css/tree_growing.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/orange.min.js"></script>
+    <script src="js/cursor_map.min.js"></script>
+
+   
+
+</head>
+
+<body>
+    <div class="back_img">
+        <img src="./images/svg/background.svg" alt="網站背景">
+    </div>
+    <article>
+        <div class="breadcrumbs"> </div>
+        <section>
+            <canvas id="orange" width="2000" height="2000"></canvas>
+            <div class="container">
+                <div class="content_top">
+                    <p class="update">資料更新日期: 110/11/11</p>
+                    <div class="con_imgbox">
+                        <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                        <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                    </div>
+                    <input class="smallbtn_s" type="button" value="查看更多">
+                </div>
+                <div class="content_bottom">
+                    <p class="update">資料更新日期: 110/11/11</p>
+                    <div class="con_text">
+                        <h2 class="con_text_title">吃不完海梨</h2>
+                        <div class="id">
+                            <span>秀水農場</span>
+                            <span>果樹編號: 8</span>
+                        </div>
+                        <div class="data">
+                            <div class="data_text">
+                                <h3>大小 </h3>
+                                <h2>中</h2>
+                            </div>
+                            <div class="data_text">
+                                <h3>數量</h3>
+                                <h2>45</h2>
+                            </div>
+                        </div>
+                        <h3 class="price">認養價格: 3200$/年</h3>
+                    </div>
+                    <div class="con_btnbox">
+                        <input class="bigbtn_s" type="button" value="查看更多果樹">
+                        <input class="bigbtn_m" type="button" value="我要認養">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="map">
+
+                <div class="black_bg">
+                    <div class="cursor"></div>
+                </div>
+
+                <div class="map_img"><img src="./images/map/map_1.svg" alt="農園地圖"></div>
+                <div class="map_text">
+                    <h2>秀水農場果樹</h2>
+                    <p>歡迎來到碧水農場，請點選你想認養之果樹~</p>
+                </div>
+            </div>
+            <div class="more_tree">
+                <h3>查看其它農場果樹</h3>
+                <div class="more_btnbox">
+                    <input class="bigbtn_s" type="button" value="秀水農場">
+                    <input class="bigbtn_s" type="button" value="來玉農場">
+                    <input class="bigbtn_s" type="button" value="松春海農場">
+                    <input class="bigbtn_s" type="button" value="奇花異草農場">
+                    <input class="bigbtn_s" type="button" value="古溯源農場">
+                </div>
+            </div>
+        </section>
+
+    </article>
+</body>
+
+</html>
