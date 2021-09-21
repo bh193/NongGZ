@@ -19,8 +19,9 @@ body{
     max-width: 1100px;
     width: 100%;
     margin: auto;
-    // background-color: $main_color;
-    .box:nth-child(1){}
+    .box:nth-child(1){
+        display: flex;
+    }
     .box:nth-child(2){
         display: flex;
         margin-top: 30px;
@@ -77,9 +78,37 @@ body{
 
 label{
     @include label;
+    margin-left: 25px;
 }
 select{
     @include select;
     margin-left: 10px;
     margin-right: 30px;
+}
+/*RWD*/
+@include m{
+    .wrap{
+        .box:nth-child(1){
+            flex-wrap: wrap;
+            flex-direction: column;
+           
+            .item{
+                margin-bottom: 10px;
+            }
+        }
+        .box:nth-child(2){
+            flex-wrap: wrap;
+            width: 100%;
+            margin: auto;
+            .item:nth-child(1){
+                height: 400px;
+            }
+            .item:nth-child(2){
+                margin-top: 20px;
+                margin-left: 0px;
+    
+            }
+        }
+    }
+    
 }
