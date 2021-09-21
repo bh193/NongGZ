@@ -38,12 +38,13 @@ body{
 
 
 
-
+p{
+  font-size: 14px;
+}
 .main{
   width: 100%;
   display: flex;
   margin: 30px 0;
-  // border: 1px solid blue;
   .left{
     width: 80%;
       .position{
@@ -53,13 +54,10 @@ body{
       #activity_content{
         box-sizing: border-box;
         padding-right: 30px;
-        font-size: 14px;
       }
   }
   .right{
     width: 20%;
-    font-size: 14px;
-    // border: 1px solid red;
     font-weight: bold;
     box-sizing: border-box;
     padding: 90px 0 0 57px;
@@ -70,6 +68,7 @@ body{
       
       .sign{
         @include bigbtn_m;
+        margin-top: 15px;
       }
   }
 }
@@ -83,6 +82,18 @@ body{
     margin: 60px 0;
       .left{
         width: 100%;
+      }
+      .right{
+        width: 100%;
+        padding: 25px 0;
+        @include flexcenter;
+        flex-direction: column;
+          .date{
+            padding-left: 8px;
+          }
+          .sign {
+            width: 200px;  //RWD後按鈕增長?
+          }  
       }
   }
 }
