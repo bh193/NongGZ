@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>果樹認養資訊</title>
+    <link rel="stylesheet" type="text/css" href="css/tree_growing_data.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="./images/common/logo.svg" alt="logo">
+        </div>
+        <ul class="nav">
+            <li>農場資訊管理</li>
+            <li>果樹認養資訊</li>
+            <li>果樹認養訂單</li>
+            <li>體驗活動資訊</li>
+            <li>體驗活動訂單</li>
+        </ul>
+        <div class="web_up">
+            <input class="bigbtn_m" type="button" value="網站上架">
+        </div>
+    </div>
+    <article>
+        <section>
+            <div class="sign_out">
+                <div class="sign_out_icon">
+                    <img src="./images/common/farmer-2.svg" alt="farmer_icon">
+                </div>
+                <div class="sign_out_name">
+                    <p>小農名稱</p>
+                    <p>登出</p>
+                </div>
+            </div>
+            <div class="content_new">
+                <div class="content_new_status">
+                    <input class="smallbtn_m" type="button" value="新增一筆">
+                    <p>目前認養狀態: 未認養: 2筆 / 已認養: 3筆 / 已下架 1筆 </p>
+                </div>
+                <div class="content_new_text">
+                    <div class="item">
+                        <label>果樹名稱
+                            <input class="item_text" name="tree_name" type="text"></label>
+                    </div>
+                    <div class="item">
+                        <label>水果種類
+                            <select name="fruit_name">
+                                <option value="請選擇">請選擇</option>
+                                <option value="水蜜桃">水蜜桃</option>
+                                <option value="芒果">芒果</option>
+                                <option value="紅棗">紅棗</option>
+                                <option value="蘋果">蘋果</option>
+                                <option value="橘子">橘子</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>大小
+                            <select name="size">
+                                <option value="大">大</option>
+                                <option value="中">中</option>
+                                <option value="小">小</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>數量
+                            <input class="item_text" name="amount" type="text">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養開始日
+                            <input class="item_text" name="tree_start" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養結束日
+                            <input class="item_text" name="tree_end" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(1)
+                            <input class="item_text" name="treehistory_img1" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(2)
+                            <input class="item_text" name="treehistory_img2" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>果樹價格(年)
+                            <input class="item_text" name="tree_price" type="text">
+                        </label>
+                    </div>
+                    <div class="btnbox">
+                        <input class="smallbtn_s" type="button" value="清除">
+                        <input class="smallbtn_m" type="button" value="新增">
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="con_title">
+                    <h3>果樹編號: 1</h3>
+                    <div class="status">未認養</div>
+                </div>
+                <div class="con_text">
+                    <div class="item">
+                        <label>果樹名稱
+                            <input class="item_text" name="tree_name" type="text" value="香甜金蜜芒果" disabled></label>
+                    </div>
+                    <div class="item">
+                        <label>水果種類
+                            <input class="item_text" name="tree_name" type="text" value="芒果"  disabled></label>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>大小
+                            <select name="size">
+                                <option value="大">大</option>
+                                <option value="中">中</option>
+                                <option value="小">小</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>數量
+                            <input class="item_text" name="amount" type="text">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養開始日
+                            <input class="item_text" name="tree_start" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養結束日
+                            <input class="item_text" name="tree_end" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(1)
+                            <input class="item_text" name="treehistory_img1" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(2)
+                            <input class="item_text" name="treehistory_img2" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>果樹價格(年)
+                            <input class="item_text" name="tree_price" type="text">
+                        </label>
+                    </div>
+                    <div class="photo">
+                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                    </div>
+                    <div class="update">
+                        <h3>更新日期: 2021/9/15</h3>
+                    </div>
+                    <div class="btnbox">
+                        <input class="smallbtn_s" type="button" value="下架">
+                        <input class="smallbtn_m" type="button" value="恢復">
+                        <input class="smallbtn_m" type="button" value="確認更新">
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="con_title">
+                    <h3>果樹編號: 2</h3>
+                    <div class="status">未認養</div>
+                </div>
+                <div class="con_text">
+                    <div class="item">
+                        <label>果樹名稱
+                            <input class="item_text" name="tree_name" type="text" value="香甜金蜜芒果" disabled></label>
+                    </div>
+                    <div class="item">
+                        <label>水果種類
+                            <input class="item_text" name="tree_name" type="text" value="芒果"  disabled></label>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>大小
+                            <select name="size">
+                                <option value="大">大</option>
+                                <option value="中">中</option>
+                                <option value="小">小</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>數量
+                            <input class="item_text" name="amount" type="text">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養開始日
+                            <input class="item_text" name="tree_start" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養結束日
+                            <input class="item_text" name="tree_end" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(1)
+                            <input class="item_text" name="treehistory_img1" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(2)
+                            <input class="item_text" name="treehistory_img2" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>果樹價格(年)
+                            <input class="item_text" name="tree_price" type="text">
+                        </label>
+                    </div>
+                    <div class="photo">
+                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                    </div>
+                    <div class="update">
+                        <h3>更新日期: 2021/9/15</h3>
+                    </div>
+                    <div class="btnbox">
+                        <input class="smallbtn_s" type="button" value="下架">
+                        <input class="smallbtn_m" type="button" value="恢復">
+                        <input class="smallbtn_m" type="button" value="確認更新">
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="con_title">
+                    <h3>果樹編號: 3</h3>
+                    <div class="status">已認養</div>
+                </div>
+                <div class="con_text">
+                    <div class="item">
+                        <label>果樹名稱
+                            <input class="item_text" name="tree_name" type="text" value="香甜金蜜芒果" disabled></label>
+                    </div>
+                    <div class="item">
+                        <label>水果種類
+                            <input class="item_text" name="tree_name" type="text" value="芒果"  disabled></label>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>大小
+                            <select name="size">
+                                <option value="大">大</option>
+                                <option value="中">中</option>
+                                <option value="小">小</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>數量
+                            <input class="item_text" name="amount" type="text">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養開始日
+                            <input class="item_text" name="tree_start" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養結束日
+                            <input class="item_text" name="tree_end" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(1)
+                            <input class="item_text" name="treehistory_img1" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(2)
+                            <input class="item_text" name="treehistory_img2" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>果樹價格(年)
+                            <input class="item_text" name="tree_price" type="text">
+                        </label>
+                    </div>
+                    <div class="photo">
+                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                    </div>
+                    <div class="update">
+                        <h3>更新日期: 2021/9/15</h3>
+                    </div>
+                    <div class="btnbox">
+                        <input class="smallbtn_s" type="button" value="下架">
+                        <input class="smallbtn_m" type="button" value="恢復">
+                        <input class="smallbtn_m" type="button" value="確認更新">
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="con_title">
+                    <h3>果樹編號: 4</h3>
+                    <div class="status">已認養</div>
+                </div>
+                <div class="con_text">
+                    <div class="item">
+                        <label>果樹名稱
+                            <input class="item_text" name="tree_name" type="text" value="香甜金蜜芒果" disabled></label>
+                    </div>
+                    <div class="item">
+                        <label>水果種類
+                            <input class="item_text" name="tree_name" type="text" value="芒果"  disabled></label>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>大小
+                            <select name="size">
+                                <option value="大">大</option>
+                                <option value="中">中</option>
+                                <option value="小">小</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>數量
+                            <input class="item_text" name="amount" type="text">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養開始日
+                            <input class="item_text" name="tree_start" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養結束日
+                            <input class="item_text" name="tree_end" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(1)
+                            <input class="item_text" name="treehistory_img1" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(2)
+                            <input class="item_text" name="treehistory_img2" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>果樹價格(年)
+                            <input class="item_text" name="tree_price" type="text">
+                        </label>
+                    </div>
+                    <div class="photo">
+                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                    </div>
+                    <div class="update">
+                        <h3>更新日期: 2021/9/15</h3>
+                    </div>
+                    <div class="btnbox">
+                        <input class="smallbtn_s" type="button" value="下架">
+                        <input class="smallbtn_m" type="button" value="恢復">
+                        <input class="smallbtn_m" type="button" value="確認更新">
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="con_title">
+                    <h3>果樹編號: 5</h3>
+                    <div class="status">已認養</div>
+                </div>
+                <div class="con_text">
+                    <div class="item">
+                        <label>果樹名稱
+                            <input class="item_text" name="tree_name" type="text" value="香甜金蜜芒果" disabled></label>
+                    </div>
+                    <div class="item">
+                        <label>水果種類
+                            <input class="item_text" name="tree_name" type="text" value="芒果"  disabled></label>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>大小
+                            <select name="size">
+                                <option value="大">大</option>
+                                <option value="中">中</option>
+                                <option value="小">小</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>數量
+                            <input class="item_text" name="amount" type="text">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養開始日
+                            <input class="item_text" name="tree_start" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養結束日
+                            <input class="item_text" name="tree_end" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(1)
+                            <input class="item_text" name="treehistory_img1" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(2)
+                            <input class="item_text" name="treehistory_img2" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>果樹價格(年)
+                            <input class="item_text" name="tree_price" type="text">
+                        </label>
+                    </div>
+                    <div class="photo">
+                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                    </div>
+                    <div class="update">
+                        <h3>更新日期: 2021/9/15</h3>
+                    </div>
+                    <div class="btnbox">
+                        <input class="smallbtn_s" type="button" value="下架">
+                        <input class="smallbtn_m" type="button" value="恢復">
+                        <input class="smallbtn_m" type="button" value="確認更新">
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="con_title">
+                    <h3>果樹編號: 6</h3>
+                    <div class="status" id="none">已下架</div>
+                </div>
+                <div class="con_text">
+                    <div class="item">
+                        <label>果樹名稱
+                            <input class="item_text" name="tree_name" type="text" value="香甜金蜜芒果" disabled></label>
+                    </div>
+                    <div class="item">
+                        <label>水果種類
+                            <input class="item_text" name="tree_name" type="text" value="芒果"  disabled></label>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>大小
+                            <select name="size">
+                                <option value="大">大</option>
+                                <option value="中">中</option>
+                                <option value="小">小</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>數量
+                            <input class="item_text" name="amount" type="text">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養開始日
+                            <input class="item_text" name="tree_start" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>可認養結束日
+                            <input class="item_text" name="tree_end" type="date">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(1)
+                            <input class="item_text" name="treehistory_img1" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>新增照片(2)
+                            <input class="item_text" name="treehistory_img2" type="file">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>果樹價格(年)
+                            <input class="item_text" name="tree_price" type="text">
+                        </label>
+                    </div>
+                    <div class="photo">
+                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                    </div>
+                    <div class="update">
+                        <h3>更新日期: 2021/9/15</h3>
+                    </div>
+                    <div class="btnbox">
+                        <input class="smallbtn_s" type="button" value="下架">
+                        <input class="smallbtn_m" type="button" value="恢復">
+                        <input class="smallbtn_m" type="button" value="確認更新">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+</body>
+
+</html>
