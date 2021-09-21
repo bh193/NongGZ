@@ -1,0 +1,78 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+//mixin
+@import 'mixin/mixin';
+
+// layout
+@import 'layout/header';
+@import 'layout/foooter';
+
+@include d{
+    *{
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+    body{
+        background-image: url('../images/svg/background.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .page{
+        @include margincenter();
+    }
+    .menu{
+        width: 100%;
+        height: 70px;
+        background-color: $header_color;
+        padding: 10px 0;
+        margin-bottom: 35px;
+        .container{
+            width: 1100px;
+            min-width: 350px;
+            width: 75%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .logo{
+                width: 136px;
+            }
+            ul{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                li{
+                    font-size: $p_size;
+                    font-weight: $h3_weight;
+                    color: $p_color;
+                    letter-spacing: $p_letter;
+                    display: block;
+                    padding: 0 10px;
+                    a{
+                        color: #84A59D;
+                    }
+                }
+            }
+            ol{
+                display: flex;
+                :first-child{
+                    width: 26px;
+                    margin-left: 5px;
+                }
+                :last-child{
+                    width: 19px;
+                }
+            }
+        }
+    }
+    .farminfo-nav{
+        .container{
+            @include container();
+            display: flex;
+        }
+    }
+}
