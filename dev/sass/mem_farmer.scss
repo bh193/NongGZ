@@ -1,0 +1,41 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+// mixin
+
+@import 'mixin/mixin';
+
+
+// .banner{
+//   width: 100%;
+//   height: 200px;
+//   img{
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//   }
+// }
+.banner{
+  background-image: url(/images/common/banner_farmer.jpg);
+  width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-position: 100%;
+}
+
+.main{
+  @include flexcenter;
+  .pic{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgb(159, 159, 212);
+    position: absolute;
+    top: 100px;
+
+  }
+}
