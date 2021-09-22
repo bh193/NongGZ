@@ -8,10 +8,11 @@
 
 @import 'mixin/mixin';
 
+// layout
+@import 'layout/header';
+@import 'layout/foooter';
 
-
-  body{
-    background-color: $bg_color;
+  article{
     p{
       font-size: 16px;
     }
@@ -21,7 +22,7 @@
     h3{
       font-size: 21px;
     }
-    @include container();
+    @include container(10rem);
     ul.breadcrumb{
       padding: 10px 0;
       list-style: none;

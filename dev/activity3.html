@@ -5,14 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>探索體驗分頁</title>
+  <script src="js/jquery.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="css/activity3.css">
   
   <link rel="stylesheet" href="font/activity3_fancybox.css">
 
   <link rel="stylesheet" href="font/activity3_slider.css">
 
-  <script src="js/jquery.min.js"></script>
-  
   <script src="js/activity3_fancybox.min.js"></script>
   
 
@@ -23,89 +23,84 @@
 </head>
 
 <body>
-  
-      <ul class="breadcrumb">
-        <li><a href="">首頁</a></li>
-        <li><a href="">探索體驗</a></li>
-        <li><a href="">夏日採桃趣</a></li>
-      </ul>
-    
-    <div class="slider">
-      <div class="thumbs">
-        <div class="preview">
-          <a href="#" class="selected" data-full="images/activity/peach1.jpg" data-title=""> <img src="images/activity/peach1.jpg"/>
-          </a>
-        </div>
+  @@include('layout/header.html')
+      <article>
+        <ul class="breadcrumb">
+          <li><a href="">首頁</a></li>
+          <li><a href="">探索體驗</a></li>
+          <li><a href="">夏日採桃趣</a></li>
+        </ul>
+            
+            <div class="slider">
+        <div class="thumbs">
+          <div class="preview">
+            <a href="#" class="selected" data-full="images/activity/peach1.jpg" data-title=""> <img src="images/activity/peach1.jpg"/>
+            </a>
+          </div>
         
-    
-        <div class="preview">
-          <a href="#" data-full="images/activity/peach2.jpg" data-title=""> <img src="images/activity/peach2.jpg"/>
-          </a>
+          <div class="preview">
+            <a href="#" data-full="images/activity/peach2.jpg" data-title=""> <img src="images/activity/peach2.jpg"/>
+            </a>
+          </div>
+          <div class="preview">
+            <a href="#" data-full="images/activity/peach3.jpg" data-title=""> <img src="images/activity/peach3.jpg">
+            </a>
+          </div>
+          <div class="preview">
+            <a href="#" data-full="images/activity/peach4.jpg" data-title=""> <img src="images/activity/peach4.jpg"/> </a>
+          </div>
         </div>
-        <div class="preview">
-          <a href="#" data-full="images/activity/peach3.jpg" data-title=""> <img src="images/activity/peach3.jpg">
-          </a>
+        <!-- first image is viewable to start -->
+        <a href="images/activity/peach1.jpg" class="full" title=""> <img src="images/activity/peach1.jpg">
+        </a>
+            </div>
+          
+            <div class="slider2">
+        <div class="pic">
+          <img src="images/activity/peach1.jpg" alt="">
         </div>
-        <div class="preview">
-          <a href="#" data-full="images/activity/peach4.jpg" data-title=""> <img src="images/activity/peach4.jpg"/> </a>
+        <div class="pic">
+          <img src="images/activity/peach2.jpg" alt="">
+          </div>
+        <div class="pic">
+          <img src="images/activity/peach3.jpg" alt="">
+          </div>
+        <div class="pic">
+          <img src="images/activity/peach4.jpg" alt="">
+          </div>
+            </div>
+        
+        
+            <div class="main">
+        <div class="left">
+          <h2 id="activity_name">夏日採桃趣</h2>
+          <div class="position">
+            <h3 id="city_name">桃園市 │&nbsp</h3>
+            <h3 id="farm_name">復興農場</h3>
+          </div>
+          <div>
+            <p id="activity_content">
+              阿成果園的水蜜桃特色是底部渾圓，柄部有道溝，果形大、多汁、甜度高，色澤風味均佳，不像一般水蜜桃的尾部呈尖凹狀。 歡迎全家大小一起來參與採桃活動，新鮮的水蜜桃剛採下來，可以很清楚的看到水蜜桃的表面有一層薄薄的水蜜桃保護毛。以進口或冷凍過的水蜜桃而言，你是不會看到這些毛的，因為水蜜桃的保護毛代表的就是新鮮的象徵。
+            </p>
+          </div>
         </div>
-      </div>
-    
-      <!-- first image is viewable to start -->
-      <a href="images/activity/peach1.jpg" class="full" title=""> <img src="images/activity/peach1.jpg">
-      </a>
-    </div>
-  
-    <div class="slider2">
-      <div class="pic">
-        <img src="images/activity/peach1.jpg" alt="">
-      </div>
-      <div class="pic">
-        <img src="images/activity/peach2.jpg" alt="">
+        <div class="right">
+          <div class="date">
+            <p>活動日期：</p>
+            <p id="activity_date">110/8/1</p>
+          </div>
+          <div class="now">
+            <p>目前報名人數：</p>
+            <p id="activity_people">20</p>
+          </div>
+          <div class="max">
+            <p>報名上限人數：</p>
+            <p id="activity_max">30</p>
+          </div>
+          <button class="sign">立即報名</button>
         </div>
-      <div class="pic">
-        <img src="images/activity/peach3.jpg" alt="">
-        </div>
-      <div class="pic">
-        <img src="images/activity/peach4.jpg" alt="">
-        </div>
-    </div>
-
-
-    <div class="main">
-      <div class="left">
-        <h2 id="activity_name">夏日採桃趣</h2>
-        <div class="position">
-          <h3 id="city_name">桃園市 │&nbsp</h3>
-          <h3 id="farm_name">復興農場</h3>
-        </div>
-        <div>
-          <p id="activity_content">
-            阿成果園的水蜜桃特色是底部渾圓，柄部有道溝，果形大、多汁、甜度高，色澤風味均佳，不像一般水蜜桃的尾部呈尖凹狀。 歡迎全家大小一起來參與採桃活動，新鮮的水蜜桃剛採下來，可以很清楚的看到水蜜桃的表面有一層薄薄的水蜜桃保護毛。以進口或冷凍過的水蜜桃而言，你是不會看到這些毛的，因為水蜜桃的保護毛代表的就是新鮮的象徵。
-          </p>
-        </div>
-      </div>
-      <div class="right">
-        <div class="date">
-          <p>活動日期：</p>
-          <p id="activity_date">110/8/1</p>
-        </div>
-        <div class="now">
-          <p>目前報名人數：</p>
-          <p id="activity_people">20</p>
-        </div>
-        <div class="max">
-          <p>報名上限人數：</p>
-          <p id="activity_max">30</p>
-        </div>
-        <button class="sign">立即報名</button>
-      </div>
-    </div>
-
-
-
-
-
+            </div>
+      </article>
 
 
 <!-- 輪播圖 -->

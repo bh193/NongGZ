@@ -8,6 +8,9 @@
 
 @import 'mixin/mixin';
 
+// layout
+@import 'layout/header';
+@import 'layout/foooter';
 
 // .banner{
 //   width: 100%;
@@ -19,9 +22,35 @@
 //   }
 // }
 
-body{
-  font-family: Arial, Helvetica, sans-serif;
+.header .header_con #nav li {
+  font-size: 19.2px;
 }
+article{
+  @include container(10rem);
+  font-family: Arial, Helvetica, sans-serif;
+  p{
+    font-size: 16px;
+  }
+}  
+
+  ul.breadcrumb{
+    padding: 10px 0;
+    list-style: none;
+    @include container(10rem);
+  }
+  ul.breadcrumb li{
+    display: inline;
+    font-size: 16px;
+  }
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    content: "/\00a0";
+  }
+  ul.breadcrumb li a {
+    text-decoration: none;
+  }
+
+
 .banner{
   background-image: url(/images/common/banner_farmer.jpg);
   width: 100%;
