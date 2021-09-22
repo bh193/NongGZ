@@ -1,0 +1,182 @@
+.header {
+    width: 100%;
+    background-color: #fff;
+
+    position: fixed;
+    top: 0;
+    z-index: 100;
+
+    .header_con {
+        width: 85%;
+        max-width: 1088px;
+        min-width: 350px;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        @include margincenter();
+
+        .logo {
+            width: 8rem;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        #nav {
+            width: 80%;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+            background-color: #F6BD60;
+            padding-top: 10rem;
+            position: absolute;
+            top: 100%;
+            left: -100%;
+            transition: all 1s;
+
+            li {
+                width: 100%;
+                font-size: 1.5rem;
+                font-weight: $h3_weight;
+                letter-spacing: $h3_letter;
+                text-align: center;
+
+                a {
+                    display: block;
+                    color: rgb(238, 238, 238);
+                    text-decoration: none;
+                    padding: 18px 0;
+
+                    &:hover {
+                        background-color: $focus_color;
+                    }
+                }
+            }
+        }
+
+        #mem_icon {
+            width: 8rem;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            transform: translateX(-50%);
+            top: 140%;
+            left: -40%;
+            transition: all 1s;
+
+            li {
+                cursor: pointer;
+                width: 50%;
+
+                img {
+                    width: 100%;
+                }
+
+                &:last-child {
+                    margin-left: 20px;
+                }
+
+                h4 {
+                    text-align: center;
+                }
+
+            }
+        }
+    }
+}
+
+.hamberger {
+    width: 3rem;
+    height: 3rem;
+    background-color: #84A59D;
+    position: relative;
+    cursor: pointer;
+
+    .line {
+        width: 65%;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 10px;
+        transform-origin: top left;
+        @include positioncenter();
+        transition: all 1s;
+    }
+
+    #line_1 {
+        top: 25%;
+    }
+
+    #line_3 {
+        top: 75%;
+    }
+}
+
+@include t {
+    .header {
+        .header_con {
+            .logo {
+                width: 15%;
+            }
+
+            #nav {
+                width: auto;
+                height: auto;
+                flex-direction: row;
+                justify-content: space-between;
+                background-color: transparent;
+                align-items: center;
+                padding-top: 0;
+                position: static;
+
+                li {
+                    font-size: 1.2rem;
+                    padding: 0;
+
+                    a {
+                        color: #84A59D;
+                        padding: 1rem 10px;
+                        border-radius: 5px;
+
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+
+            #mem_icon {
+                width: 10%;
+                position: static;
+                transform: none;
+
+                li {
+                    width: 50%;
+
+                    &:last-child {
+                        margin-left: 10px;
+                    }
+                }
+            }
+
+
+        }
+
+    }
+
+    .hamberger {
+        display: none;
+    }
+}
+
+@include d {
+    #nav {
+        li {
+            padding: 1rem 15px;
+        }
+    }
+
+    #mem_icon {
+        width: 8%;
+    }
+}
