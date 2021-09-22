@@ -72,7 +72,26 @@
     .farminfo-nav{
         .container{
             @include container();
-            display: flex;
+            .breadcrumb{
+                display: flex;
+                li{
+                    padding: 0 0.5rem 1rem;
+                    &::before{
+                        content: '❭';
+                        margin-right: 1rem;
+                    }
+                    &:last-child a{
+                        color: $main_color;
+                    }
+                }
+                a{
+                    color: $p_color;
+                    font-weight: $h3_weight;
+                    &:hover{
+                        color: $main_color;
+                    }
+                }
+            }
         }
     }
 }

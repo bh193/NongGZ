@@ -91,18 +91,23 @@ body{
         display: flex;
         justify-content: flex-start;
         margin-bottom: 3rem;
-        .search{
+        .search_item{
             @include text();
             background-color: $header_color;
-            margin-right: 3rem;
+        }
+        .item{
+            position: relative;
             img{
                 width: 1.2rem;
-                float: right;
+                position: absolute;
+                top: 30%;
+                right: 10%;
             }
         }
         .selectfont{
             @include select();
             font-size: $p_size;
+            margin-left: 3rem;
         }
     }
 }
