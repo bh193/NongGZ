@@ -4,11 +4,12 @@
 @import 'base/color';
 @import 'base/font';
 
-
-
 // mixin
-
 @import 'mixin/mixin';
+
+// layout
+@import 'layout/header';
+@import 'layout/foooter';
 
 // body {
 //     background-color: $bg_color;
@@ -22,7 +23,7 @@
 }
 
 article {
-    @include container();
+    @include container(10rem);
 }
 
 .search {
