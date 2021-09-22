@@ -18,8 +18,6 @@ body{
     @include container;
     display: flex;
     flex-direction: column;
-
-}
     .box{
         width: 100%;
         padding: 20px;
@@ -43,58 +41,63 @@ body{
         
     }
     .box:nth-child(2){
-    }
-    .form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .col{
-            text-align: left;
+        .form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .col{
+                text-align: left;
+            }
+        }
+        label{
+            @include label;
+            display: block;
+            margin-top: 10px;
+        }
+        input,textarea{
+            @include text(350px);
+            border-radius: 10px;
+        
+        }
+        select{
+        @include select(350px);
+        // border-radius: 10px;
+        }
+        textarea{
+            max-width: 350px;
+            min-width: 350px;
+            max-height: 295px;
+            min-height: 295px;
+        }
+        .btnbox{
+            width: 350px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            .btn:nth-child(1){
+                @include smallbtn_s;
+                
+            }
+            .btn:nth-child(2){
+                @include smallbtn_m;
+            }
         }
     }
-    label{
-        @include label;
-        display: block;
-        margin-top: 10px;
-    }
-    input,textarea{
-        @include text(350px);
-        border-radius: 10px;
-    
-    }
-    select{
-    @include select(350px);
-    // border-radius: 10px;
-    }
-    textarea{
-        max-width: 350px;
-        min-width: 350px;
-        max-height: 295px;
-        min-height: 295px;
-    }
-    .btnbox{
-        width: 350px;
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-around;
-        .btn:nth-child(1){
-            @include smallbtn_s;
+}
+.info{
+    @include container;
+    background-color:$main_color;
+    display: flex;
+    margin-bottom: 20px;
+        .box{
+            width: 50%;
+            padding: 20px;
             
         }
-        .btn:nth-child(2){
-            @include smallbtn_m;
-        }
-    }
-    .info{
-        @include container;
-        background-color:$main_color;
-        display: flex;
-        position: relative;
         .box:nth-child(1){
             @include flexcenter();
         }
         .box:nth-child(2){
-
             ul{
                 li{
                     color: $p_color;
