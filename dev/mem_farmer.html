@@ -14,10 +14,26 @@
   </div> -->
   <div class="banner"></div>
 
-  <div class="main">
-    <div class="pic">
-      <img id="mem_img" src="" alt="">
-    </div>
-  </div>
+  <ol class="main">
+    <li class="pic">
+      <img id="mem_img" src="images/mem/farmer.jpg" alt="">
+      <label class="camera">
+        <input id="upload_img" style="display:none;" type="file">
+        <img src="images/common/update-camera.png" alt="">
+      </label>
+    </li>
+    <li class="info">
+      <label>會員名稱</label>
+      <input type="text" id="mem_name">
+      <label>電子信箱</label>
+      <input type="text" id="mem_email">
+      <label>連絡電話</label>
+      <input type="text" id="mem_tel">
+    </li>
+    <li class="btn">
+      <button id="edit">修改密碼</button>
+      <button id="save">儲存資料</button>
+    </li>
+  </ol>
 </body>
 </html>
