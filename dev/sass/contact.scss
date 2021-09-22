@@ -9,91 +9,93 @@
 // mixin
 
 @import 'mixin/mixin';
-.wrap{
-    // max-width: 1280px;
-    width: 100%;
-    margin: auto;
-    // background-color: $main_color; 
+body{
+    background-image: url('../images/svg/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
-.content,.info{
+.content{
     @include container;
     display: flex;
-    background-color: red;
-}
+    flex-direction: column;
     .box{
-        width: 50%;
+        width: 100%;
         padding: 20px;
         box-sizing: border-box;
     }
     .box:nth-child(1){
-        background-color: rosybrown;
+        position: relative;
         .img{
             width: 100%;
-            height: 500px;
-            background-image: url('../images/post/apples-1872997_1920.jpg');
+            height: 200px;
+            background-image: url('../images/post/post_farm_5.png');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         .text{
-            margin-top: 20px;
-            text-align: center;
+            @include positioncenter();
             h3{
-                
+                text-align: center;
             }
         }
         
     }
     .box:nth-child(2){
-        background-color: rgb(104, 167, 172);
-    }
-    .form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .col{
-            text-align: left;
+        .form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .col{
+                text-align: left;
+            }
+        }
+        label{
+            @include label;
+            display: block;
+            margin-top: 10px;
+        }
+        input,textarea{
+            @include text(350px);
+            border-radius: 10px;
+        
+        }
+        select{
+        @include select(350px);
+        // border-radius: 10px;
+        }
+        textarea{
+            max-width: 350px;
+            min-width: 350px;
+            max-height: 295px;
+            min-height: 295px;
+        }
+        .btnbox{
+            width: 350px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            .btn:nth-child(1){
+                @include smallbtn_s;
+                
+            }
+            .btn:nth-child(2){
+                @include smallbtn_m;
+            }
         }
     }
-    label{
-        @include label;
-        display: block;
-        margin-top: 10px;
-    }
-    input,textarea{
-        @include text(350px);
-        border-radius: 10px;
-    
-    }
-    select{
-    @include select(350px);
-    // border-radius: 10px;
-    }
-    textarea{
-        max-width: 350px;
-        min-width: 350px;
-        max-height: 295px;
-        min-height: 295px;
-    }
-    .btnbox{
-        width: 350px;
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-evenly;
-        .btn:nth-child(1){
-            @include smallbtn_s;
-            
-        }
-        .btn:nth-child(2){
-            @include smallbtn_m;
-        }
-    }
-    .info{
+}
+.info{
+    @include container;
+    background-color:$main_color;
+    display: flex;
+    margin-bottom: 20px;
         .box{
-            background-color:$main_color;
-            
+            width: 50%;
+            padding: 20px;
             
         }
         .box:nth-child(1){
-            
+            @include flexcenter();
         }
         .box:nth-child(2){
             ul{
@@ -110,37 +112,15 @@
 /*RWD*/
 @include t{
     .content{
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
-    .box{
-        width: 100%;
-    }
-    .box:nth-child(1){
-        position: relative;
-        .img{
-            height: 300px;
+        flex-direction: row;
+        .box{
+            width: 50%;
+            
         }
-        .text{
-            @include positioncenter();
-            h3{
-                text-align: center;
+        .box:nth-child(1){
+            .img{
+                height: 550px;
             }
         }
     }
 }
-@include m{
-    .content{
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
-    .box{
-        width: 100%;
-    }
-    .box:nth-child(1){
-        .img{
-            display: none;
-        }
-    }
-}
-
