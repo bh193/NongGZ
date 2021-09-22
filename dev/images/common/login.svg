@@ -3,7 +3,8 @@
 <svg version="1.1" id="avatar26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 31 31" style="enable-background:new 0 0 31 31;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#45413C;}
+	.st0{fill:#939393;}
+	.st1{display:none;fill:#FFFFFF;}
 </style>
 <g>
 	<path class="st0" d="M15.5,0C7,0,0,7,0,15.5S7,31,15.5,31S31,24,31,15.5S24,0,15.5,0z M9,28.3c0.3-0.4,0.6-0.7,1-1v1.5
