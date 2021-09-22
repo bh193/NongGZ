@@ -14,12 +14,14 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
-.content,.info{
+.content{
     @include container;
     display: flex;
+    flex-direction: column;
+
 }
     .box{
-        width: 50%;
+        width: 100%;
         padding: 20px;
         box-sizing: border-box;
     }
@@ -27,7 +29,7 @@ body{
         position: relative;
         .img{
             width: 100%;
-            height: 550px;
+            height: 200px;
             background-image: url('../images/post/post_farm_5.png');
             background-repeat: no-repeat;
             background-size: cover;
@@ -74,7 +76,7 @@ body{
         width: 350px;
         margin-top: 20px;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         .btn:nth-child(1){
             @include smallbtn_s;
             
@@ -84,15 +86,15 @@ body{
         }
     }
     .info{
-        .box{
-            background-color:$main_color;
-            
-            
-        }
+        @include container;
+        background-color:$main_color;
+        display: flex;
+        position: relative;
         .box:nth-child(1){
-            
+            @include flexcenter();
         }
         .box:nth-child(2){
+
             ul{
                 li{
                     color: $p_color;
@@ -105,26 +107,17 @@ body{
     }
 
 /*RWD*/
-@include m{
+@include t{
     .content{
-        flex-wrap: wrap;
-        flex-direction: column;
-        .box:nth-child(1){
-            height: auto;
-           .img{
-            height: 200px;           }
-           .text{
-               bottom: 0;
-           }
+        flex-direction: row;
+        .box{
+            width: 50%;
+            
         }
-
+        .box:nth-child(1){
+            .img{
+                height: 550px;
+            }
+        }
     }
-    .box{
-        width: 100%;
-    }
-    
- 
 }
-
-
-
