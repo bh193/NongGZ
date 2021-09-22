@@ -7,8 +7,8 @@
 
 
 // mixin
-
 @import 'mixin/mixin';
+@import 'layout/header';
 body{
     background-image: url('../images/svg/background.svg');
     background-repeat: no-repeat;
@@ -16,16 +16,16 @@ body{
 }
 
 .wrap{
-    @include container();
-    margin: auto;
-    width: 100%;
+    @include container(10rem);
+    // width: 100%;
     .box:nth-child(1){
-        margin: auto;
         display: flex;
         flex-direction: column;
         padding: 1rem;
+        
         @include flexcenter();
         .item{
+            
             @include margincenter($var:0.625rem);
         }
     }
@@ -99,9 +99,10 @@ body{
     .wrap{
         .box:nth-child(1){
             flex-direction: row;
-            text-align: center;
+            // width: 65%;
+            background-color: forestgreen;
             .item{
-                width: 50%;
+                width: 100%;
             }
         }
         .box:nth-child(2){

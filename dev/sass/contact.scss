@@ -7,18 +7,17 @@
 
 
 // mixin
-
 @import 'mixin/mixin';
+@import 'layout/header';
 body{
     background-image: url('../images/svg/background.svg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 .content{
-    @include container;
+    @include container(10rem);
     display: flex;
     flex-direction: column;
-    margin: auto;
     // width: 100%;
     .box{
         width: 100%;
@@ -43,9 +42,7 @@ body{
             h3{
                 text-align: center;
             }
-            p{
-       
-            }
+ 
         }
         
     }
@@ -70,7 +67,11 @@ body{
         }
         select{
         @include select(350px);
-        // border-radius: 10px;
+        color: #b5b5b5;
+        font-size: 1rem;
+            option{
+               
+            }
         }
         textarea{
             max-width: 350px;
