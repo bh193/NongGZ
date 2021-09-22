@@ -18,6 +18,10 @@
 //     object-fit: cover;
 //   }
 // }
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
 .banner{
   background-image: url(/images/common/banner_farmer.jpg);
   width: 100%;
@@ -27,9 +31,10 @@
   // background-position: 100%;
 }
 
-.main{
+.member{
+  position: relative;
   @include flexcenter;
-    flex-direction: column;
+  flex-direction: column;
   .pic{
     @include flexcenter;
     flex-direction: column;
@@ -39,7 +44,7 @@
       border-radius: 50%;
       // background-color: rgb(159, 159, 212);
       position: absolute;
-      top: 85px;
+      // top: 85px;
       object-fit: cover;
     }
     .camera{
@@ -69,6 +74,10 @@
       }
   }
   .btn{
+    >*{
+      margin: 0 10px;
+      font-family: inherit;
+    }
     #edit{
       @include smallbtn_s;
     }
@@ -76,4 +85,67 @@
       @include smallbtn_m;
     }
   }
+}
+
+
+#app {
+  overflow: hidden;
+  height: 600px;
+  display: block;
+  margin: 30px 0;
+    .top{
+      @include flexcenter;
+        >*{
+          background-color: #EDECEC;
+          width: 200px;
+          margin: 0 5px;
+          cursor: pointer;
+          h2{
+            font-size: 18px;
+            text-align: center;
+          }
+        }
+    }
+}
+.channel{
+  width: 90%;
+  margin: 15px auto;
+  .item{
+    font-size: 16px;
+    font-weight: bold;
+    height: 50px;
+    background-color: #F7EDE2;
+    @include flexcenter;
+    justify-content: space-between;
+    cursor: pointer;
+      img{
+        width: 20px;
+        padding: 2px 10px;
+      }
+      #minus{
+        display: none;
+      }
+      >*{
+        padding: 0 10px;
+        @include flexcenter;
+      }
+      
+  }
+}
+
+.test{
+  display: none;
+}
+@include t{
+  .btn{
+    @include container;
+    position: absolute;
+    width: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+@include m{
+
 }

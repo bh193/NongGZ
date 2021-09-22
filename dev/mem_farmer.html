@@ -7,14 +7,14 @@
   <title>小農會員中心</title>
   <link rel="stylesheet" type="text/css" href="css/mem_farmer.css">
   <script src="js/jquery.min.js"></script>
+  <script src="js/vue.min.js"></script>
+  
 </head>
 <body>
-  <!-- <div class="banner">
-    <img src="./images/common/banner_farmer.jpg" alt="">
-  </div> -->
+  
   <div class="banner"></div>
 
-  <ol class="main">
+  <ol class="member">
     <li class="pic">
       <img id="mem_img" src="images/mem/farmer.jpg" alt="">
       <label class="camera">
@@ -35,5 +35,131 @@
       <button id="save">儲存資料</button>
     </li>
   </ol>
+
+
+  <div id="app">
+
+    <div class="top">
+      <div class="select_1" @click="currentView = 'channel-1'"><h2>認養果樹訂單</h2></div>
+      <div class="select_2" @click="currentView = 'channel-2'"><h2>果農體驗訂單</h2></div>
+      <div class="select_3" @click="currentView = 'channel-3'"><h2>折扣券</h2></div>
+    </div>
+
+    <div class="show">
+      <keep-alive>         
+        <component :is="currentView"></component>
+      </keep-alive>
+    </div>
+
+  </div>
+
+  <!-- 認養果樹訂單 -->
+  <script type="text/x-template" id="channel_1">
+    <div class="channel">
+      <div class="item">
+        <div class="left">
+          <img id="plus" src="images/common/plus.png" alt="">
+          <img id="minus" src="images/common/minus.png" alt="">
+          <span>水果種類：</span>
+          <span id="fruit_name">蘋果</span>
+        </div>
+        <div class="right">
+          <span>訂單編號：</span>
+          <span id="t_order_id">123456</span>
+        </div>
+      </div>
+      <div class="test">我是內文!</div>
+      <div class="item">
+        <div class="left">
+          <img id="plus" src="images/common/plus.png" alt="">
+          <img id="minus" src="images/common/minus.png" alt="">
+          <span>水果種類：</span>
+          <span id="fruit_name">蘋果</span>
+        </div>
+        <div class="right">
+          <span>訂單編號：</span>
+          <span id="t_order_id">123456</span>
+        </div>
+      </div>
+      <div class="test">我是內文!</div>
+    </div>
+  </script>
+
+  <!-- 探索體驗訂單 -->
+  <script type="text/x-template" id="channel_2">
+    <div class="channel">
+      <div class="item">
+        <div class="left">
+          <img id="plus" src="images/common/plus.png" alt="">
+          <img id="minus" src="images/common/minus.png" alt="">
+          <span>行程名稱：</span>
+          <span id="activity_name">夏日採桃趣</span>
+        </div>
+        <div class="right">
+          <span>訂單編號：</span>
+          <span id="a_order_id">666666</span>
+        </div>
+      </div>
+      <div class="test">我是內文!</div>
+    </div>
+  </script>
+
+
+  <!-- 折扣券 -->
+  <script type="text/x-template" id="channel_3">
+    <div class="channel">
+      <h1>333</h1>
+    </div>
+  </script>
+
+  <script>
+    Vue.component('channel-1', {
+      template: '#channel_1',
+      activated() {                   //activated是專門給keep-alive使用的
+        this.count++;
+      },
+      data() {
+        return {
+          count: 0
+        };
+      }
+    });
+
+    Vue.component('channel-2', {
+      template: '#channel_2',
+      activated() {
+        this.count++;
+      },
+      data() {
+        return {
+          count: 0
+        };
+      }
+    });
+
+    Vue.component('channel-3', {
+      template: '#channel_3',
+      activated() {
+        this.count++;
+      },
+      data() {
+        return {
+          count: 0
+        };
+      }
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+        currentView: 'channel-1'            //預設一開始的頁面
+      },
+      mounted() {
+        
+      },
+    })
+  </script>
+
+<script src="js/mem_farmer.min.js"></script>
 </body>
 </html>
