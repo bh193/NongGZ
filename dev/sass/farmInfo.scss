@@ -9,7 +9,7 @@
 
 // layout
 @import 'layout/header';
-@import 'layout/foooter';
+@import 'layout/footer';
 
 *{
     box-sizing: border-box;
@@ -130,13 +130,14 @@ body{
     }
     .activity{
         @include container();
+        position: relative;
         .title{
             margin: 3.5rem auto 6.75rem;
             text-align: center;
             width: 45rem;
         }
         .content{
-            @include margincenter();
+            margin: 0 2.5rem 7.5rem;
             width: 51rem;
             height: 28rem;
             background-color: $btn_m_color;
@@ -169,6 +170,48 @@ body{
                             @include smallbtn_m;
                         }
                     }
+                }
+            }
+        }
+        .arrow{
+            display: flex;
+            .left{
+                position: absolute;
+                width: 20px;
+                top: 55%;
+                left: 0;
+                &:hover{
+                    background-image: url("../images/svg/left-btn-y.svg");
+                }
+            }
+            .right{
+                position: absolute;
+                width: 20px;
+                top: 55%;
+                right: 0;
+                &:hover{
+                    background-image: url("../images/svg/right-btn-y.svg");
+                }
+            }
+        }
+    }
+    .post{
+        .container{
+            @include container();
+            .title{
+                text-align: center;
+                margin-bottom: 3.75rem;
+            }
+            .pic{
+                width: 30rem;
+                height: 30rem;
+                border-radius: 50%;
+                overflow: hidden;
+                background: url();
+                img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
                 }
             }
         }
