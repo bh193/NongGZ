@@ -7,108 +7,112 @@
 
 
 // mixin
-
 @import 'mixin/mixin';
+@import 'layout/header';
 body{
     background-image: url('../images/svg/background.svg');
     background-repeat: no-repeat;
     background-size: cover;
 }
+button{
+    @include smallbtn_m;
 
+}
+#map{
+    background-color: #ccc;
+    min-height: 350px;
+    .col{
+        padding: 1rem;
+        background-color:$second_color;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        @include flexcenter();
+        .img{
+            width: 10rem;
+            height: 10rem;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: none;
+           
+        }
+        .info{
+                padding: 1rem;
+               
+        }
+    }
+}
 .wrap{
-    max-width: 1100px;
-    width: 100%;
-    margin: auto;
+    @include container(10rem);
     .box:nth-child(1){
         display: flex;
-    }
-    .box:nth-child(2){
-        display: flex;
-        margin-top: 30px;
-        .item:nth-child(1){
-            width: 650px;
-            height: 610px;
-            border: 15px solid $second_color;
-            box-sizing: border-box;
-        }
-        .item:nth-child(2){
-            width: 374px;
-            height: 610px;
-            overflow: auto;
-            margin-left: 32px;
-            .col{
-                width: 374px;
-                height: 192px;
-                margin-bottom: 17px;
-                position: relative;
-                .bg{
-                    width: 348px;
-                    height: 181px;
-                    background-color:$second_color;
-                    position: absolute;
-                    z-index: 1;
-                    bottom: 0;
-                }
-                .img{
-                    width: 177px;
-                    height: 169px; 
-                    background-color: salmon;
-                    position: absolute;
-                    z-index: 2;
-                    left: 23px;
-                   
-                }
-                .info{
-                    width: 174px;
-                    height: 146px;
-                    background-color:#fff;
-                    position: absolute;
-                    z-index: 2;
-                    top:9px;
-                    right: 0;
-                    // box-sizing: border-box;
-                    .btn{
-                        @include bigbtn_m;
-                    }
-                }
-            }
+        flex-direction: column;
+        padding: 1rem;
+        @include flexcenter();
+        margin: auto;
+        .item{
+            @include flexcenter();
+            @include margincenter($var:0.625rem);
+            width: 100%;
         }
     }
+    // .box:nth-child(2){
+    //     display: flex;
+    //     .item{
+    //         @include margincenter($var:1.25rem);
+    //         width: 100%;
+
+    //         border: 1rem solid $second_color;
+    //         box-sizing: border-box;
+    //     }
+
+    // }
 }
 
-label{
-    @include label;
-    margin-left: 25px;
-}
-select{
-    @include select;
-    margin-left: 10px;
-    margin-right: 30px;
-}
+        label{
+            @include label;
+
+        }
+        select{
+            @include select;
+            margin-left: 1rem;
+        }
+
 /*RWD*/
-@include m{
+@include t{
     .wrap{
         .box:nth-child(1){
-            flex-wrap: wrap;
-            flex-direction: column;
-           
+            flex-direction: row;
+            width: 70%;
             .item{
-                margin-bottom: 10px;
+                width: 100%;
             }
         }
         .box:nth-child(2){
-            flex-wrap: wrap;
-            width: 100%;
-            margin: auto;
-            .item:nth-child(1){
-                height: 400px;
-            }
             .item:nth-child(2){
-                margin-top: 20px;
-                margin-left: 0px;
-    
+                
+                
+                width: 35%;
+                position: relative;
+                .col{
+                    position: absolute;
+                    right: 0;
+                }
+                
             }
         }
     }
-    
+    #map{
+        
+        .col{
+            flex-direction: row;
+            .img{
+                display:block;
+            }
+            .info{
+                background-color: #fff;
+            }
+        }
+    }
+
 }

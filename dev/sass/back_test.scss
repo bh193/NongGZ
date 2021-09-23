@@ -1,0 +1,16 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+// mixin
+@import 'mixin/mixin';
+
+//layout
+@import 'layout/header_back';
+@import 'layout/footer_back';
+
+@include d {
+    //內文css
+}

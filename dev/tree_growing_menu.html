@@ -10,36 +10,13 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/tree_menu.min.js"></script>
-
 </head>
 
 <body>
-    <div class="header">
-        <div class="logo">
-            <img src="./images/common/logo.svg" alt="logo">
-        </div>
-        <ul class="nav">
-            <li>農場資訊管理</li>
-            <li>果樹認養資訊</li>
-            <li>果樹認養訂單</li>
-            <li>體驗活動資訊</li>
-            <li>體驗活動訂單</li>
-        </ul>
-        <div class="web_up">
-            <input class="bigbtn_m" type="button" value="網站上架">
-        </div>
-    </div>
+    @@include('layout/header_back_f.html')
     <article>
         <section>
-            <div class="sign_out">
-                <div class="sign_out_icon">
-                    <img src="./images/common/farmer-2.svg" alt="farmer_icon">
-                </div>
-                <div class="sign_out_name">
-                    <p>小農名稱</p>
-                    <p>登出</p>
-                </div>
-            </div>
+            @@include('layout/farm_icon.html')
             <div class="content">
                 <div class="con_title">
                     <div class="minus_sign">
@@ -475,6 +452,7 @@
                 </div>
             </div>
         </section>
+        @@include('layout/footer_back.html')
     </article>
 </body>
 

@@ -1,0 +1,96 @@
+@include d {
+    body {
+        display: flex;
+        justify-content: end;
+        background-color: $bg_color;
+    }
+
+    .header {
+        width: 25%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-content: flex-start;
+        background-color: #fff;
+        position: fixed;
+        padding-top: 1rem;
+        top: 0;
+        left: 0;
+
+        .logo {
+            width: 50%;
+            @include margincenter();
+            margin-bottom: 2rem;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        #nav {
+            width: 100%;
+            text-align: center;
+
+            li {
+                font-size: 1.2rem;
+                font-weight: $h3_weight;
+                color: $h3_color;
+                letter-spacing: $h3_letter;
+                padding: 1rem;
+                cursor: pointer;
+
+                &:hover {
+                    color: #fff;
+                    background-color: $focus_color;
+                }
+            }
+
+            //點選顯示目前位置
+            .active {
+                color: #fff;
+                background-color: $main_color;
+            }
+        }
+
+        .web_up {
+            flex-grow: 1;
+            @include flexcenter();
+
+            .bigbtn_m {
+                @include bigbtn_m
+            }
+        }
+    }
+
+    article {
+        width: 75%;
+    }
+
+    section {
+        @include container();
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: end;
+    }
+
+    .sign_out {
+        width: 20%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+        margin-bottom: 3rem;
+
+        .sign_out_icon {
+            width: 35%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .sign_out_name {
+            width: 55%;
+        }
+    }
+}
