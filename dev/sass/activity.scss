@@ -13,15 +13,15 @@
 @import 'layout/foooter';
 
 
-.header .header_con #nav li {
-  font-size: 19.2px;
-}
+// .header .header_con #nav li {
+//   font-size: 19.2px;
+// }
 
 article{
+  @include container(10rem);
   p{
     font-size: 16px;
   }
-  @include container(10rem);
   ul.breadcrumb{
     padding: 10px 0;
     list-style: none;
@@ -39,15 +39,11 @@ article{
   }
 }
 
-@include d{
-  .filter{
-    width: 711px;
-  }
-}
+
 
 .filter{
   @include flexcenter;
-  justify-content: space-between;
+  justify-content: center;
   // width: 711px;
     select{
       @include select();
@@ -59,36 +55,14 @@ article{
 }
 
 .main{
-  margin-top: -25px;
+  // margin-top: -25px;
     .post{
       display: flex;
-      margin: 60px 0;
+      flex-direction: column;
+      margin: 35px 0 55px;
         &:nth-child(4n+0){
           padding-bottom: 28px;
         }
-    }
-}
-
-.text{
-  width: 300px;
-  box-sizing: border-box;
-  padding: 36px 20px;
-  position: relative;
-    // p{
-    //   font-size: 14px;
-    // }
-    .position{
-      display: flex;
-    }
-    .date{
-      display: flex;
-      padding: 10px 0;
-    }
-    .more{
-      @include smallbtn_m;
-      position: absolute;
-      right: 0;
-      // font-family : inherit;
     }
 }
 
@@ -113,33 +87,50 @@ article{
           height: 100%;
         }
     }
-
 }
 
+.text{
+  // width: 42%;
+  box-sizing: border-box;
+  padding: 30px 0;
+  position: relative;
+    .position{
+      display: flex;
+    }
+    .date{
+      display: flex;
+      padding: 10px 0;
+    }
+    .more{
+      @include smallbtn_m;
+      position: absolute;
+      right: 0;
+      margin-top: 5px;      
+      // font-size: 16px;
+      // font-family : inherit;
+    }
+}
 
-@include t{
-  // .filter{
-    // width: 100%;
-    // border: 1px solid green;
-  // }
-};
-
-@include m{
+@include d{
   .filter{
-    width: 100%;
-    margin-bottom: 55px;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
   }
   .main{
     .post{
-      display: block;
-      margin: 0;
-      // border: 1px solid red;
+      flex-direction: row;
+        .background{
+          width: 70%;
+        }
         .text{
-          width: 100%;
-          margin: 0;
-          padding: 20px 20px 80px;
+          width: 30%;
+          box-sizing: border-box;
+          padding-top: 37px;
+          padding-left: 20px;
         }
     }
-  }    
-};
+  }
+}
+
 
