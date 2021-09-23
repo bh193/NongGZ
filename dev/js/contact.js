@@ -7,6 +7,7 @@ function send(){
         message: document.querySelector("#message").value,
         }).then(response=>{
             console.log("succes",response.status);
+
         },(error)=>{
             console.log(error);
         })
