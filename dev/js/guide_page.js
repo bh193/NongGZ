@@ -16,16 +16,24 @@ $(function () {
             });
             $('#cover_controller').show();
             $('#cover_farm').hide();
-            open= true;
+            open = true;
         }
     });
 
     $('.after').click(function () {
-        $('.backstage_login').css({"display":"flex",});
+        $('.backstage_login').css({ "display": "flex", });
     });
 
     $('.close').click(function () {
-        $('.backstage_login').css({"display":"none",});
+        $('.backstage_login').css({ "display": "none", });
+    });
+
+    $('#con_toggle_f').click(function () {
+        $('.farm_login').css({ "margin-left": "-100%", });
+    });
+
+    $('#con_toggle_c').click(function () {
+        $('.farm_login').css({ "margin-left": 0, });
     });
 
 });

@@ -1,5 +1,6 @@
 $(function () {
-    $(document).mousemove(function (event) {
+    //光圈
+    $('.map').mousemove(function (event) {
         var map_offset=$(".black_bg").offset();
         var map_w=$(".black_bg").outerWidth();
         var map_h=$(".black_bg").outerHeight();
@@ -21,5 +22,10 @@ $(function () {
         }else{
             return false;
         }
+    });
+
+    //點選顯示目前位置
+    $('.more_btnbox .bigbtn_s').click(function(){
+        $(this).addClass('active').siblings().removeClass('active')
     });
 });

@@ -1,0 +1,19 @@
+.footer {
+    width: 100%;
+    background-color: $footer_color;
+
+    .footer_con {
+        @include container();
+        padding: 1rem 0;
+
+        p {
+            font-size: $h4_size;
+            color: #939393;
+            text-align: center;
+
+            &:last-child {
+                text-align: justify;
+            }
+        }
+    }
+}

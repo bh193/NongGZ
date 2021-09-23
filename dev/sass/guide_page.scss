@@ -4,8 +4,6 @@
 @import 'base/color';
 @import 'base/font';
 
-
-
 // mixin
 
 @import 'mixin/mixin';
@@ -135,38 +133,347 @@
     }
 }
 
-@include d {
-    body {
-        background-color: $bg_color;
+@keyframes AB_top {
+    0% {
+        transform: rotate(0deg);
     }
 
-    article {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        overflow: hidden;
+    25% {
+        transform: rotate(5deg);
+    }
 
-        .tree_back {
-            width: 43%;
-            position: relative;
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes fruit_phone {
+    0% {
+        top: 5%;
+        left: 50%;
+        transform: rotate(0deg);
+    }
+
+    15% {
+        top: 80%;
+        left: 50%;
+        transform: rotate(1turn);
+    }
+
+    30% {
+        top: 60%;
+        left: 70%;
+        transform: rotate(1.5turn);
+    }
+
+    45% {
+        top: 30%;
+        left: 120%;
+        transform: rotate(2turn);
+    }
+
+    46% {
+        top: -10%;
+        left: 120%;
+        transform: rotate(2turn);
+    }
+
+    47% {
+        top: -10%;
+        left: -20%;
+        transform: rotate(2turn);
+    }
+
+    48% {
+        top: 130%;
+        left: -20%;
+        transform: rotate(2turn);
+    }
+
+    60% {
+        top: 140%;
+        left: 10%;
+        transform: rotate(2.5turn);
+    }
+
+    75% {
+        top: 160%;
+        left: 40%;
+        transform: rotate(3turn);
+    }
+
+    90% {
+        top: 140%;
+        left: 60%;
+        transform: rotate(3.5turn);
+    }
+
+    100% {
+        top: 151%;
+        left: 77%;
+        transform: rotate(4turn);
+    }
+}
+
+//RWD
+body {
+    background-color: $bg_color;
+}
+
+article {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-content: space-between;
+    position: relative;
+    overflow: hidden;
+
+    .tree_back {
+        width: 100%;
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        .fruit {
+            width: 9%;
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            z-index: 1;
+            animation: fruit_wave 1s 2, fruit_phone .8s 1s forwards;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .farm {
+            display: none;
+        }
+    }
+
+    .text {
+        width: 30%;
+        align-self: end;
+        margin: 1rem;
+        position: relative;
+        order: 1;
+
+        img {
+            width: 100%;
+        }
+
+        .hat {
+            width: 30%;
+            position: absolute;
+            top: -10%;
+            left: -5%;
 
             img {
                 width: 100%;
             }
 
+        }
+
+        .shovel {
+            width: 10%;
+            position: absolute;
+            top: 30%;
+            left: 20%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .water {
+            width: 15%;
+            position: absolute;
+            top: 30%;
+            left: 70%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-top: -60%;
+        margin-bottom: 1rem;
+        padding: 2rem;
+ 
+        .before {
+            width: 50%;
+            align-self: flex-start;
+            position: relative;
+            cursor: pointer;
+            animation: AB_top 1s linear infinite;
+
+            img {
+                width: 100%;
+            }
+
+            h2 {
+                @include positioncenter();
+                top: 60%;
+            }
+
+
+        }
+
+        .after {
+            width: 50%;
+            align-self: flex-end;
+            position: relative;
+            margin-top: -20%;
+            cursor: pointer;
+            animation: AB_top 1s .75s linear infinite;
+
+            img {
+                width: 100%;
+            }
+
+            h2 {
+                @include positioncenter();
+                top: 60%;
+            }
+        }
+    }
+
+}
+
+.backstage_login {
+    width: 280px;
+    display: flex;
+    position: fixed;
+    border-radius: 15px;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+}
+
+.farm_login {
+    width: 100%;
+    transition: all .5s;
+}
+
+.controller_login {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #E8EAE6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .con_img {
+        width: 40%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    h2 {
+        width: 100%;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .con_text {
+        .item {
+            margin: 0.5rem;
+        }
+
+        label {
+            @include label;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item_text {
+            @include text();
+        }
+    }
+
+    .con_btnbox {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 2rem 0 1rem;
+
+        .smallbtn_m {
+            @include smallbtn_m
+        }
+
+        .smallbtn_s {
+            @include smallbtn_s
+        }
+    }
+
+    .con_toggle {
+        margin-top: 1.5rem;
+        color: $btn_m_color;
+        font-size: $h4_size;
+        letter-spacing: $h4_letter;
+    }
+}
+
+.cover {
+    display: none;
+}
+
+.close {
+    width: 7%;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
+
+    img {
+        width: 100%;
+    }
+}
+
+#cover_farm {
+    display: none;
+}
+
+
+@include t {
+
+    article {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-content:stretch;
+
+        .tree_back {
+            width: 43%;
+
             .fruit {
-                width: 9%;
-                position: absolute;
-                top: 5%;
-                left: 50%;
-                z-index: 1;
                 animation: fruit_wave 1s 2, fruit_fall .5s 1s forwards, fruit_up .5s 1.5s forwards;
-
-
-                img {
-                    width: 100%;
-                }
             }
 
             .farm {
@@ -188,53 +495,12 @@
 
         .text {
             width: 15%;
-            align-self: end;
-            margin: 1rem;
-            position: relative;
-
-            img {
-                width: 100%;
-            }
-
-            .hat {
-                width: 30%;
-                position: absolute;
-                top: -10%;
-                left: -5%;
-
-                img {
-                    width: 100%;
-                }
-
-            }
-
-            .shovel {
-                width: 10%;
-                position: absolute;
-                top: 30%;
-                left: 20%;
-
-                img {
-                    width: 100%;
-                }
-            }
-
-            .water {
-                width: 15%;
-                position: absolute;
-                top: 30%;
-                left: 70%;
-
-                img {
-                    width: 100%;
-                }
-            }
+            order:0;
         }
 
         section {
-            width: 100%;
-            height: 100%;
-            position: relative;
+            margin-top: 0;
+            margin-bottom: 0;
             z-index: 1;
             @include positioncenter();
 
@@ -245,17 +511,7 @@
                 top: 50%;
                 left: -100%;
                 transition: all 1s;
-                cursor: pointer;
                 animation: B_show 1s 2s forwards;
-
-                img {
-                    width: 100%;
-                }
-
-                h2 {
-                    @include positioncenter();
-                    top: 60%;
-                }
 
                 &::after {
                     content: "";
@@ -283,22 +539,13 @@
 
             .after {
                 width: 25%;
+                margin-top:0;
                 position: absolute;
                 transform: translate(-50%, -50%);
                 top: 50%;
                 left: 200%;
                 transition: all 1s;
-                cursor: pointer;
                 animation: A_show 1s 2s forwards;
-
-                img {
-                    width: 100%;
-                }
-
-                h2 {
-                    @include positioncenter();
-                    top: 60%;
-                }
 
                 &::after {
                     content: "";
@@ -328,19 +575,12 @@
     }
 
     .backstage_login {
-        display: none;
         width: 75%;
-        position: fixed;
-        border-radius: 15px;
-        overflow: hidden;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
-        z-index: 2;
     }
 
     .farm_login {
         width: 50%;
+        transition: none;
     }
 
     .controller_login {
@@ -348,57 +588,8 @@
     }
 
     .content {
-        width: 100%;
-        padding: 1rem;
-        box-sizing: border-box;
-        background-color: #E8EAE6;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
-        .con_img {
-            width: 40%;
-
-            img {
-                width: 100%;
-            }
-        }
-
-        h2 {
-            width: 100%;
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .con_text {
-            .item {
-                margin: 0.5rem;
-            }
-
-            label {
-                @include label;
-                display: flex;
-                flex-direction: column;
-            }
-
-            .item_text {
-                @include text();
-            }
-        }
-
-        .con_btnbox {
-            width: 100%;
-            display: flex;
-            justify-content: space-evenly;
-            margin: 2rem 0 1rem;
-
-            .smallbtn_m {
-                @include smallbtn_m
-            }
-
-            .smallbtn_s {
-                @include smallbtn_s
-            }
+        .con_toggle {
+            display: none;
         }
     }
 
@@ -469,19 +660,8 @@
 
     }
 
-    .close{
+    .close {
         width: 3%;
-        position: absolute;
-        top:0.5rem;
-        right:0.5rem;
-        cursor: pointer;
-        img{
-            width: 100%;
-        }
-    }
-
-    #cover_farm {
-        display: none;
     }
 
 }

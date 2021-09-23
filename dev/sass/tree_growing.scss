@@ -189,8 +189,16 @@ canvas {
             @include bigbtn_s;
             margin: 0 0.5rem 1rem;
         }
+        
+        //點選顯示目前位置
+        .active{
+            color: $btn_s_color;
+            background-color: $btn_m_color;
+        }
     }
 }
+
+
 
 @include d {
     canvas {

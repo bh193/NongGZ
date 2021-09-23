@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>小農後台樣板</title>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/back_test.css">
+</head>
+
+<body>
+    @@include('layout/header_back_f.html')
+   <!-- 管理員後台改成 -->
+   <!--  @@include('layout/header_back_c.html') -->
+    <article>
+        <section>
+            @@include('layout/farm_icon.html')
+            <!-- 放置內文 -->
+            <!-- 管理員後台改成 -->
+   <!--  @@include('layout/controller_icon.html') -->
+        </section>
+        @@include('layout/footer_back.html')
+    </article>
+</body>
+
+</html>
