@@ -14,6 +14,9 @@
 *{
     box-sizing: border-box;
     text-decoration: none;
+    img{
+        display: block;
+    }
 }
 body{
     background-image: url('../images/svg/background.svg');
@@ -53,7 +56,6 @@ body{
         position: relative;
         img{
             width: 100%;
-            display: block;
         }
         .bagr{
             width: 100%;
@@ -66,19 +68,20 @@ body{
         }
     }
     .describe{
-        margin-top: 0px;
+        position: relative;
+        z-index: 10;
+        margin-top: -6.5rem;
         margin-bottom: 7.5rem;
         .container{
             @include container();
             .info{
                 @include flexcenter();
                 justify-content: space-between;
-                img{
-                    display: block;
-                }
+                padding-bottom: 2rem;
                 .txt{
                     width: 28rem;
                     text-align: center;
+                    padding: 0 2rem;
                     p{
                         text-align: start;
                     }
@@ -107,6 +110,9 @@ body{
                 width: 16.5rem;
                 margin-bottom: 4.5rem;
             }
+            .pic{
+                padding-bottom: 2rem;
+            }
             .txt{
                 h3{
                     position: relative;
@@ -125,15 +131,45 @@ body{
     .activity{
         @include container();
         .title{
-            @include margincenter(3rem);
+            margin: 3.5rem auto 6.75rem;
             text-align: center;
             width: 45rem;
         }
         .content{
-            .block-un{
-                width: 51rem;
-                height: 31rem;
-                background-color: $btn_m_color;
+            @include margincenter();
+            width: 51rem;
+            height: 28rem;
+            background-color: $btn_m_color;
+            position: relative;
+            .block{
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: -3rem;
+                left: 3rem;
+                right: -3rem;
+                .pic{
+                    width: 51%;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .txt{
+                    width: 49%;
+                    padding: 4rem 5.5rem 3rem 3.75rem;
+                    background-color: $header_color;
+                    .word{
+                        h2,h3{
+                            padding-bottom: 1rem;
+                        }
+                        p{
+                            padding-bottom: 0.5rem;
+                        }
+                        button{
+                            @include smallbtn_m;
+                        }
+                    }
+                }
             }
         }
     }
