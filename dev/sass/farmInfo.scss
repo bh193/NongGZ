@@ -11,73 +11,28 @@
 @import 'layout/header';
 @import 'layout/foooter';
 
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    background-image: url('../images/svg/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.page{
+    @include margincenter(8rem);
+}
 @include d{
-    *{
-        box-sizing: border-box;
-        text-decoration: none;
-    }
-    body{
-        background-image: url('../images/svg/background.svg');
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .page{
-        @include margincenter();
-    }
-    .menu{
-        width: 100%;
-        height: 70px;
-        background-color: $header_color;
-        padding: 10px 0;
-        margin-bottom: 35px;
-        .container{
-            width: 1100px;
-            min-width: 350px;
-            width: 75%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            .logo{
-                width: 136px;
-            }
-            ul{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                li{
-                    font-size: $p_size;
-                    font-weight: $h3_weight;
-                    color: $p_color;
-                    letter-spacing: $p_letter;
-                    display: block;
-                    padding: 0 10px;
-                    a{
-                        color: #84A59D;
-                    }
-                }
-            }
-            ol{
-                display: flex;
-                :first-child{
-                    width: 26px;
-                    margin-left: 5px;
-                }
-                :last-child{
-                    width: 19px;
-                }
-            }
-        }
-    }
     .farminfo-nav{
         .container{
             @include container();
             .breadcrumb{
                 display: flex;
+                padding: 0 0.5rem 1rem;
                 li{
-                    padding: 0 0.5rem 1rem;
                     &::before{
-                        content: '❭';
+                        content: '⁄';
                         margin-right: 1rem;
                     }
                     &:last-child a{
@@ -92,6 +47,63 @@
                     }
                 }
             }
+        }
+    }
+    .banner{
+        position: relative;
+        img{
+            width: 100%;
+            display: block;
+        }
+        .bagr{
+            width: 100%;
+            height: 18.5rem;
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.7;
+        }
+    }
+    .describe{
+        margin-top: 0px;
+        margin-bottom: 5rem;
+        .container{
+            @include container();
+            .info{
+                @include flexcenter();
+                justify-content: space-between;
+                img{
+                    display: block;
+                }
+                .txt{
+                    width: 28rem;
+                    text-align: center;
+                    p{
+                        text-align: start;
+                    }
+                }
+                &:nth-child(even){
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+        
+    }
+    .adopt{
+        @include container();
+        .title{
+            @include margincenter();
+            text-align: center;
+            width: 45rem;
+        }
+    }
+    .activity{
+        @include container();
+        .title{
+            @include margincenter();
+            text-align: center;
+            width: 45rem;
         }
     }
 }
