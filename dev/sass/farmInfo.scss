@@ -67,7 +67,7 @@ body{
     }
     .describe{
         margin-top: 0px;
-        margin-bottom: 5rem;
+        margin-bottom: 7.5rem;
         .container{
             @include container();
             .info{
@@ -92,18 +92,49 @@ body{
     }
     .adopt{
         @include container();
+        margin-bottom: 4.5rem;
         .title{
             @include margincenter();
             text-align: center;
             width: 45rem;
+            margin-bottom: 3.75rem;
+        }
+        .fruit{
+            @include flexcenter;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .card{
+                width: 16.5rem;
+                margin-bottom: 4.5rem;
+            }
+            .txt{
+                h3{
+                    position: relative;
+                    &::after{
+                        content: '';
+                        margin-left: 10px;
+                        position: absolute;
+                        top: 50%;
+                        border: 2px solid #2b2929;
+                        width: 3rem;
+                    }
+                }
+            }
         }
     }
     .activity{
         @include container();
         .title{
-            @include margincenter();
+            @include margincenter(3rem);
             text-align: center;
             width: 45rem;
+        }
+        .content{
+            .block-un{
+                width: 51rem;
+                height: 31rem;
+                background-color: $btn_m_color;
+            }
         }
     }
 }
