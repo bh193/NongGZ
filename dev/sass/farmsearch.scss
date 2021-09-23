@@ -14,76 +14,59 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+button{
+    @include smallbtn_m;
 
+}
+#map{
+    background-color: #ccc;
+    min-height: 350px;
+    .col{
+        padding: 1rem;
+        background-color:$second_color;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        @include flexcenter();
+        .img{
+            width: 10rem;
+            height: 10rem;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: none;
+           
+        }
+        .info{
+                padding: 1rem;
+               
+        }
+    }
+}
 .wrap{
     @include container(10rem);
-    // width: 100%;
     .box:nth-child(1){
         display: flex;
         flex-direction: column;
         padding: 1rem;
-        
         @include flexcenter();
+        margin: auto;
         .item{
-            
+            @include flexcenter();
             @include margincenter($var:0.625rem);
-        }
-    }
-    .box:nth-child(2){
-        display: flex;
-        flex-direction: column;
-        .item{
-            @include margincenter($var:1.25rem);
-        }
-        .item:nth-child(1){
             width: 100%;
-            height:38rem;
-            border: 1rem solid $second_color;
-            box-sizing: border-box;
-            background-color: #fff;
-        }
-        .item:nth-child(2){
-            // @include flexcenter();
-            .col{
-                width: 23rem;
-                height: 12rem;
-                position: relative;
-                .bg{
-                    width: 22rem;
-                    height: 11rem;
-                    background-color:$second_color;
-                    position: absolute;
-                    z-index: 1;
-                    bottom: 0;
-                }
-                .img{
-                    width: 11rem;
-                    height: 10rem; 
-                    background-image: url('../images/post/apples-1872997_1920.jpg');
-                    background-position: center;
-                    position: absolute;
-                    z-index: 2;
-                    left: 1.5rem;
-                   
-                }
-                .info{
-                    width: 10.5rem;
-                    height: 9rem;
-                    background-color:#fff;
-                    position: absolute;
-                    padding: 1rem;
-                    z-index: 2;
-                    top:0.5rem;
-                    right: 0;
-                    box-sizing: border-box;
-                    text-align: center;
-                    .btn{
-                        @include smallbtn_m;
-                    }
-                }
-            }
         }
     }
+    // .box:nth-child(2){
+    //     display: flex;
+    //     .item{
+    //         @include margincenter($var:1.25rem);
+    //         width: 100%;
+
+    //         border: 1rem solid $second_color;
+    //         box-sizing: border-box;
+    //     }
+
+    // }
 }
 
         label{
@@ -94,24 +77,18 @@ body{
             @include select;
             margin-left: 1rem;
         }
+
 /*RWD*/
 @include t{
     .wrap{
         .box:nth-child(1){
             flex-direction: row;
-            // width: 65%;
-            background-color: forestgreen;
+            width: 70%;
             .item{
                 width: 100%;
             }
         }
         .box:nth-child(2){
-            flex-direction: row;
-            
-            .item:nth-child(1){
-                width: 65%;
-                
-            }
             .item:nth-child(2){
                 
                 
@@ -125,4 +102,17 @@ body{
             }
         }
     }
+    #map{
+        
+        .col{
+            flex-direction: row;
+            .img{
+                display:block;
+            }
+            .info{
+                background-color: #fff;
+            }
+        }
+    }
+
 }
