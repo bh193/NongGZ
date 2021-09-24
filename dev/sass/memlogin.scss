@@ -16,22 +16,57 @@ body{
 }
 .wrap{
     @include container(10rem);
-    .memimg{
-        background-image: url('/images/common/mem_login_img.jpg');
+    display: flex;
+    flex-direction: column;
+    .box{
+        display: flex;
+        @include margincenter($var:1rem)
     }
-    form{
-        .box{
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-            @include flexcenter();
-            .item:nth-child(1){
-
+    .box:nth-child(1){
+        .logo{
+            width:13rem ;
+            height:10rem ;
+           background-image: url('../images/common/mem_login_img.svg');
+           background-repeat: no-repeat;
+        }
+    }
+    .box:nth-child(2){
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+        button{
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .item:nth-child(1){
+        width: 46%;
+        text-align: right;
+        }
+        .item:nth-child(2){
+            width: 8%;
+            text-align: center;
+        }
+        .item:nth-child(3){
+            width: 46%;
+        }
+    }
+    .box:nth-child(3)
+    {
+        .login,.register{
+            .text{
+                @include margincenter($var:1rem);
+              
             }
-            .item:nth-child(2){
-
+            .text:last-child{
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+                .btn:nth-child(1){@include smallbtn_s;}
+                .btn:nth-child(2){@include smallbtn_m;}
             }
         }
+
     }
 }
 label{
@@ -44,3 +79,16 @@ input{
     border-radius: 10px;
 
 }
+.login{display: block;}
+.register{
+    display: none;
+    .text:nth-child(5){
+    
+
+
+    }
+
+    
+}
+
+
