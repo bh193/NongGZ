@@ -7,5 +7,41 @@
 
 
 // mixin
-
 @import 'mixin/mixin';
+@import 'layout/header';
+body{
+    background-image: url('../images/svg/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.wrap{
+    @include container(10rem);
+    .box{
+
+        background-image: url('');
+    }
+    form{
+        .box{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            @include flexcenter();
+            .item:nth-child(1){
+
+            }
+            .item:nth-child(2){
+
+            }
+        }
+    }
+}
+label{
+    @include label;
+    display: block;
+    margin-top: 10px;
+}
+input{
+    @include text(350px);
+    border-radius: 10px;
+
+}
