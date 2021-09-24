@@ -1,0 +1,75 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.86586716852548, 121.29379065434284]
+      },
+      "properties": {
+        "id": 1,
+        "name": "山頂厝",
+        "site": "335桃園市大溪區復興路一段39巷100號",
+        "image":"./images/activity/apple1.jpg",
+        "location":"http://localhost:3000/farminfo.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.045718200134885, 121.5456121560669]
+      },
+      "properties": {
+        "id": 2,
+        "name": "百果園",
+        "site": "105台北市松山區敦化南路一段100巷7弄2號",
+        "image":"./images/activity/apple1.jpg",
+        "location":"http://localhost:3000/farminfo.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.959575811515265, 121.39485474187818]
+      },
+      "properties": {
+        "id": 3,
+        "name": "土城第三市民農園",
+        "site": "236新北市土城區忠義路55巷64號",
+        "image":"./images/activity/Jujube1.jpg",
+        "location":"http://localhost:3000/farminfo.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.97429, 121.492739]
+      },
+      "properties": {
+        "id": 4,
+        "name": "阿煌橘園",
+        "site": "235新北市中和區興南路三段73巷5號",
+        "image":"./images/activity/orange1.jpg",
+        "location":"http://localhost:3000/farminfo.html"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.831461, 121.3165887]
+      },
+      "properties": {
+        "id": 5,
+        "name": "春富果園水蜜桃",
+        "site": "336桃園市復興區丸山2鄰3-7號",
+        "image":"./images/activity/peach2.jpg",
+        "location":"http://localhost:3000/farminfo.html"
+      }
+    }
+  ]
+}
