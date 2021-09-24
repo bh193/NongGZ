@@ -10,6 +10,12 @@
 // layout
 @import 'layout/header';
 @import 'layout/footer';
+@mixin title {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 3.75rem;
+    @content;
+}
 
 *{
     box-sizing: border-box;
@@ -26,138 +32,130 @@ body{
 .page{
     @include margincenter(8rem);
 }
-@include d{
-    .farminfo-nav{
-        .container{
-            @include container();
-            .breadcrumb{
-                display: flex;
-                padding: 0 0.5rem 1rem;
-                li{
-                    &::before{
-                        content: '⁄';
-                        margin-right: 1rem;
-                    }
-                    &:last-child a{
-                        color: $main_color;
-                    }
-                }
-                a{
-                    color: $p_color;
-                    font-weight: $h3_weight;
-                    &:hover{
-                        color: $main_color;
-                    }
-                }
-            }
-        }
-    }
-    .banner{
-        position: relative;
-        img{
-            width: 100%;
-        }
-        .bagr{
-            width: 100%;
-            height: 18.5rem;
-            background-color: #fff;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0.7;
-        }
-    }
-    .describe{
-        position: relative;
-        z-index: 10;
-        margin-top: -6.5rem;
-        margin-bottom: 7.5rem;
-        .container{
-            @include container();
-            .info{
-                @include flexcenter();
-                justify-content: space-between;
-                padding-bottom: 2rem;
-                .txt{
-                    width: 28rem;
-                    text-align: center;
-                    padding: 0 2rem;
-                    p{
-                        text-align: start;
-                    }
-                }
-                &:nth-child(even){
-                    flex-direction: row-reverse;
-                }
-            }
-        }
-        
-    }
-    .adopt{
+
+.farminfo-nav{
+    .container{
         @include container();
-        margin-bottom: 4.5rem;
-        .title{
-            @include margincenter();
-            text-align: center;
-            width: 45rem;
-            margin-bottom: 3.75rem;
-        }
-        .fruit{
-            @include flexcenter;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            .card{
-                width: 16.5rem;
-                margin-bottom: 4.5rem;
+        .breadcrumb{
+            display: flex;
+            padding: 0 0.5rem 1rem;
+            li{
+                &::before{
+                    content: '⁄';
+                    margin-right: 1rem;
+                }
+                &:last-child a{
+                    color: $main_color;
+                }
             }
-            .pic{
-                padding-bottom: 2rem;
+            a{
+                color: $p_color;
+                font-weight: $h3_weight;
+                &:hover{
+                    color: $main_color;
+                }
+            }
+        }
+    }
+}
+.banner{
+    position: relative;
+    img{
+        width: 100%;
+    }
+    .bagr{
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.7;
+    }
+}
+.describe{
+    position: relative;
+    z-index: 10;
+    margin-top: -3rem;
+    margin-bottom: 7.5rem;
+    .container{
+        @include container();
+        .info{
+            @include flexcenter();
+            justify-content: space-between;
+            flex-direction: column-reverse;
+            padding-bottom: 3rem;
+            img{
+                width: 100%;
             }
             .txt{
-                h3{
-                    position: relative;
-                    &::after{
-                        content: '';
-                        margin-left: 10px;
-                        position: absolute;
-                        top: 50%;
-                        border: 2px solid #2b2929;
-                        width: 3rem;
-                    }
+                width: 28rem;
+                text-align: center;
+                padding: 0 2rem;
+                p{
+                    text-align: start;
                 }
             }
         }
     }
-    .activity{
+}
+.adopt{
+    @include container();
+    margin-bottom: 4.5rem;
+    .title{
+        @include title;
+    }
+    .fruit{
+        @include flexcenter;
+        flex-wrap: wrap;
+        .card{
+            width: 16.5rem;
+            margin-bottom: 4.5rem;
+        }
+        .pic{
+            padding-bottom: 2rem;
+        }
+        .txt{
+            text-align: center;
+            h3{
+                position: relative;
+                &::before,
+                &::after{
+                    content: '';
+                    position: absolute;
+                    top: 30%;
+                    border: 1.5px solid #2b2929;
+                    width: 1rem;
+                }
+                &::before{
+                    left: 23%;
+                }
+                &::after{
+                    right: 23%;
+                }
+            }
+        }
+    }
+}
+.activity{
+    .container{
         @include container();
         position: relative;
         .title{
-            margin: 3.5rem auto 6.75rem;
-            text-align: center;
-            width: 45rem;
+            @include title;
         }
         .content{
             margin: 0 2.5rem 7.5rem;
-            width: 51rem;
-            height: 28rem;
-            background-color: $btn_m_color;
-            position: relative;
             .block{
-                display: flex;
-                align-items: center;
-                position: absolute;
-                top: -3rem;
-                left: 3rem;
-                right: -3rem;
                 .pic{
-                    width: 51%;
+                    width: 100%;
                     img{
                         width: 100%;
                     }
                 }
                 .txt{
-                    width: 49%;
-                    padding: 4rem 5.5rem 3rem 3.75rem;
+                    width: 100%;
+                    padding: 2rem 3rem 1.5rem 1.5rem;
                     background-color: $header_color;
                     .word{
                         h2,h3{
@@ -177,7 +175,7 @@ body{
             display: flex;
             .left{
                 position: absolute;
-                width: 20px;
+                width: 1.25rem;
                 top: 55%;
                 left: 0;
                 &:hover{
@@ -186,7 +184,7 @@ body{
             }
             .right{
                 position: absolute;
-                width: 20px;
+                width: 1.25rem;
                 top: 55%;
                 right: 0;
                 &:hover{
@@ -195,23 +193,197 @@ body{
             }
         }
     }
-    .post{
-        .container{
+}
+.post{
+    .container{
+        width: 100%;
+        overflow: hidden;
+        .title{
             @include container();
-            .title{
-                text-align: center;
-                margin-bottom: 3.75rem;
-            }
+            text-align: center;
+            margin-bottom: 3.75rem;
+        }
+        .content{
+            display: flex;
+        }
+        .card{
+            width: 43%;
+            margin: 0 5rem 2rem;
+            position: relative;
+            left: -33.3%;
             .pic{
-                width: 30rem;
-                height: 30rem;
-                border-radius: 50%;
+                width: 34rem;
+                height: 34rem;
                 overflow: hidden;
-                background: url();
+                border-radius: 50%;
+                background-image: url("../images/svg/postbg.svg");
+                padding: 4rem;
+                box-shadow: 0 3px 30px rgba(0, 0, 0, 20%);
                 img{
                     height: 100%;
                     width: 100%;
                     object-fit: cover;
+                    border-radius: 50%;
+                }
+            }
+            .mempic{
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+            }
+            .txt{
+                width: 22rem;
+                padding: 2rem 1.5rem 1rem;
+                border-radius: 0.5rem;
+                background-color: $header_color;
+                opacity: 0.9;
+                position: absolute;
+                bottom: 1.5rem;
+                right: -1rem;
+                p{
+                    text-align: justify;
+                    padding-bottom: 0.5rem;
+                }
+                .tag{
+                    padding-bottom: 0.5rem;
+                }
+                .icon{
+                    display: flex;
+                    float: right;
+                    img{
+                        height: 1.25rem;
+                    }
+                    span{
+                        color: #939393;
+                        font-size: $h3_size;
+                        padding-left: 0.3rem;
+                        padding-right: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+@include t{
+    .adopt{
+        .fruit{
+            justify-content: space-evenly;
+        }
+    }
+}
+@include d{
+    .describe{
+        margin-top: -6.5rem;
+        .container{
+            .info{
+                flex-direction: row;
+                padding-bottom: 2rem;
+                &:nth-child(even){
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+    }
+    .adopt{
+        .title{
+            width: 45rem;
+        }
+        .fruit{
+            justify-content: space-between;
+        }
+    }
+    .activity{
+        .title{
+            width: 45rem;
+        }
+        .content{
+            width: 51rem;
+            height: 28rem;
+            background-color: $btn_m_color;
+            position: relative;
+            .block{
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: -3rem;
+                left: 3rem;
+                right: -3rem;
+                .pic{
+                    width: 51%;
+                }
+                .txt{
+                    width: 49%;
+                    padding: 4rem 5.5rem 3rem 3.75rem;
+                }
+            }
+        }
+    }
+    .post{
+        .container{
+            width: 100%;
+            overflow: hidden;
+            .title{
+                @include container();
+                text-align: center;
+                margin-bottom: 3.75rem;
+            }
+            .content{
+                display: flex;
+            }
+            .card{
+                width: 43%;
+                margin: 0 5rem 2rem;
+                position: relative;
+                left: -33.3%;
+                .pic{
+                    width: 34rem;
+                    height: 34rem;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    background-image: url("../images/svg/postbg.svg");
+                    padding: 4rem;
+                    box-shadow: 0 3px 30px rgba(0, 0, 0, 20%);
+                    img{
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                        border-radius: 50%;
+                    }
+                }
+                .mempic{
+                    position: absolute;
+                    top: 1rem;
+                    left: 1rem;
+                }
+                .txt{
+                    width: 22rem;
+                    padding: 2rem 1.5rem 1rem;
+                    border-radius: 0.5rem;
+                    background-color: $header_color;
+                    opacity: 0.9;
+                    position: absolute;
+                    bottom: 1.5rem;
+                    right: -1rem;
+                    p{
+                        text-align: justify;
+                        padding-bottom: 0.5rem;
+                    }
+                    .tag{
+                        padding-bottom: 0.5rem;
+                    }
+                    .icon{
+                        display: flex;
+                        float: right;
+                        img{
+                            height: 1.25rem;
+                        }
+                        span{
+                            color: #939393;
+                            font-size: $h3_size;
+                            padding-left: 0.3rem;
+                            padding-right: 1rem;
+                        }
+                    }
                 }
             }
         }
