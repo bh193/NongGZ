@@ -1,6 +1,9 @@
-var el = document.getElementById("btn");
+
     function pressBtn(){
-       alert('你按到我了');
+        document.getElementsByTagName("input").value="";
+        document.getElementsByTagName("selet").value="";
+        document.getElementsByTagName("textarea").value="";
+        alert('成功');
     }
     function pressBtn2(){
            emailjs.send("service_9mcavrt","template_ymf7nzc",{
@@ -11,10 +14,9 @@ var el = document.getElementById("btn");
         message: document.querySelector("#message").value,
         }).then(response=>{
             console.log("succes",response.status);
-
         },(error)=>{
             console.log(error);
         })
     }
-    el.addEventListener('click',pressBtn2,false);
-    el.addEventListener('click',pressBtn,false);
+
+
