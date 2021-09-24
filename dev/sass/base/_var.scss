@@ -1,13 +1,7 @@
 //字體匯入
   @font-face {
-    font-family: "GloberSemiBold";
-    src: url(../font/微軟正黑體.ttf);
-    unicode-range: U+4E00-9FFF ;
-    }
-    @font-face {
-    font-family: "GloberSemiBold";
-    src: url(../font/GloberSemiBold.ttf);
-    unicode-range: U+00-024F;
+    font-family: "Noto";
+    src: local('Noto Sans CJK TC'), local('Noto Sans TC') ,local(sans-serif) ;
     }
 
 
@@ -34,7 +28,7 @@ $h2_weight:700;
 $h3_weight:700;
 
 //字型
-$fontFamily:"GloberSemiBold";
+$fontFamily:"Noto";
 
 //字體顏色
 $h2_color:#2b2929;
