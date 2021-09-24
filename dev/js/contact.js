@@ -1,5 +1,9 @@
-function send(){
-    emailjs.send("service_9mcavrt","template_ymf7nzc",{
+var el = document.getElementById("btn");
+    function pressBtn(){
+       alert('你按到我了');
+    }
+    function pressBtn2(){
+           emailjs.send("service_9mcavrt","template_ymf7nzc",{
         subject: "[農果子]問題回報",
         name: document.querySelector("#name").value,
         option: document.querySelector("#qa").value,
@@ -11,7 +15,6 @@ function send(){
         },(error)=>{
             console.log(error);
         })
-        
-}
-window.addEventListener("load", function(send) {
-  });
+    }
+    el.addEventListener('click',pressBtn2,false);
+    el.addEventListener('click',pressBtn,false);
