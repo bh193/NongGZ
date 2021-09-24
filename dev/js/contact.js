@@ -1,5 +1,12 @@
-function send(){
-    emailjs.send("service_9mcavrt","template_ymf7nzc",{
+
+    function pressBtn(){
+        document.getElementsByTagName("input").value="";
+        document.getElementsByTagName("selet").value="";
+        document.getElementsByTagName("textarea").value="";
+        alert('成功');
+    }
+    function pressBtn2(){
+           emailjs.send("service_9mcavrt","template_ymf7nzc",{
         subject: "[農果子]問題回報",
         name: document.querySelector("#name").value,
         option: document.querySelector("#qa").value,
@@ -7,11 +14,9 @@ function send(){
         message: document.querySelector("#message").value,
         }).then(response=>{
             console.log("succes",response.status);
-
         },(error)=>{
             console.log(error);
         })
-        
-}
-window.addEventListener("load", function(send) {
-  });
+    }
+
+

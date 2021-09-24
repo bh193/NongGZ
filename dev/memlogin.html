@@ -5,11 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員登入</title>
-    <script src="./js/contact.js"></script>
-    <script src="./js/bootstrap.bundle.min.js" ></script> 
-    <link rel="stylesheet" href="css/memlogin.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/memlogin.min.js"></script>
 </head>
 <body>
-    
+    @@include('layout/header.html')
+    <div class="wrap">
+        <div class="box">
+            <div class="logo"></div>
+        </div>
+        <div class="box">
+            <div class="item">
+                <button onclick="openLogin()"><h3 id="loginfont" style="color: #17C3B2;">登入</h3></button>
+            </div>
+            <div class="item">
+                <h3>|</h3>
+            </div>
+            <div class="item">
+                <button onclick="openRegister()"><h3 id="registerfont">註冊</h3></button>
+            </div>
+        </div>
+        <div class="box">
+            <!-- 登入 -->
+            <form action="" id="login"class="login">
+                <div class="text">
+                    <label for="">電子信箱</label>
+                    <input type="mail" required="required">
+                </div>
+                <div class="text">
+                    <label for="">密碼</label>
+                    <input type="password" required="required">
+                </div>
+                <div class="text">
+                        <button type="reset" class="btn">清除</button>
+                        <button class="btn">登入</button>
+
+                </div>
+            </form>
+            <!-- 註冊 -->
+            <form action="" id="register" class="register">
+                <div class="text">
+                    <label for="">姓名</label>
+                    <input type="text">
+                </div>
+                <div class="text">
+                    <label for="">電子信箱</label>
+                    <input type="text">
+                </div>
+                <div class="text">
+                    <label for="">密碼</label>
+                    <input type="text">
+                </div>
+                <div class="text">
+                    <label for="">確認密碼</label>
+                    <input type="text">
+                </div>
+                <!-- <div class="text">
+                    <input type="radio" name="gender" value="male" required>
+                 <p>點擊註冊代表您同意 之 會員條款 與 客戶隱私權條款</p>
+                   
+                    
+                </div> -->
+                <div class="text">
+                    <button class="btn">清除</button>
+                    <button class="btn">送出</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="css/memlogin.css">
 </body>
 </html>
