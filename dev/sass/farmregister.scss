@@ -1,0 +1,77 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+
+
+// mixin
+@import 'mixin/mixin';
+@import 'layout/header';
+body{
+    background-image: url('../images/svg/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+label{
+    @include label;
+    display: block;
+    margin-top: 10px;
+}
+input{
+    @include text(350px);
+    border-radius: 10px;
+
+}
+select{
+    @include select(350px);
+    color: #b5b5b5;
+    font-size: 1rem;
+
+    }
+
+
+.wrap{
+    @include container(10rem);
+    display: flex;
+    flex-direction: column;
+    .box{
+        display: flex;
+        @include margincenter($var:1.5rem)
+    }
+    .box:nth-child(1){
+        .logo{
+            width:13rem ;
+            height:10rem ;
+           background-image: url('../images/common/farm_login_img.svg');
+           background-repeat: no-repeat;
+        }
+    }
+    .box:nth-child(2){
+        h3{color:#248427;}
+    }
+    .box:nth-child(3){
+        .item{
+            @include margincenter($var:1rem);
+        }
+        .item:nth-child(10){
+            // display: flex;
+            input[type=radio]{
+                width: 1rem;
+                vertical-align: baseline;
+            }
+            span{
+               font-size: $h4_size;
+               vertical-align: middle;
+            }
+        }
+        .item:last-child{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            .btn:nth-child(1){@include smallbtn_s;}
+            .btn:nth-child(2){@include smallbtn_m;}
+        }
+    }
+}

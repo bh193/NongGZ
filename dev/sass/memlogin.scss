@@ -14,13 +14,23 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+label{
+    @include label;
+    display: block;
+    margin-top: 10px;
+}
+input{
+    @include text(350px);
+    border-radius: 10px;
+
+}
 .wrap{
     @include container(10rem);
     display: flex;
     flex-direction: column;
     .box{
         display: flex;
-        @include margincenter($var:1rem)
+        @include margincenter($var:1.5rem)
     }
     .box:nth-child(1){
         .logo{
@@ -66,29 +76,28 @@ body{
                 .btn:nth-child(2){@include smallbtn_m;}
             }
         }
+        .login{
+            display: block;
+        }
+        .register{
+            display: none;
+            .text:nth-child(5){
 
+                display: flex;
+            input[type=radio]{
+                width: 1rem;
+                vertical-align: middle;
+            }
+            span{
+               font-size: $h4_size;
+               vertical-align:text-top;
+               
+            }
+        }
     }
 }
-label{
-    @include label;
-    display: block;
-    margin-top: 10px;
 }
-input{
-    @include text(350px);
-    border-radius: 10px;
-
-}
-.login{display: block;}
-.register{
-    display: none;
-    .text:nth-child(5){
-    
 
 
-    }
-
-    
-}
 
 
