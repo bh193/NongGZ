@@ -16,9 +16,8 @@ body{
 }
 .wrap{
     @include container(10rem);
-    .box{
-
-        background-image: url('');
+    .memimg{
+        background-image: url('/images/common/mem_login_img.jpg');
     }
     form{
         .box{
