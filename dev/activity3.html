@@ -21,8 +21,12 @@
 
   <link rel="stylesheet" href="css/slick-theme.css">
 
-
+  <!-- jQuery Modal -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
+
+
 
 <body>
   @@include('layout/header.html')
@@ -99,69 +103,51 @@
             <p>報名上限人數：</p>
             <p id="activity_max">30</p>
           </div>
-          <button class="sign">立即報名</button>
+          <a href="#popOrder" rel="modal:open"><button id="sign">立即報名</button></a>
         </div>
+            </div>
+
+            <div id="popOrder" class="modal order">
+              <h3>探索體驗訂單</h3>
+              
+              <table> 
+                <tr> 
+                  <td>行程名稱:</td> 
+                  <td>夏日採桃去</td>
+                </tr> 
+                <tr> 
+                  <td>行程日期:</th> 
+                  <td>2021/11/11</td> 
+                </tr> 
+                <tr> 
+                  <td>會員姓名</th> 
+                  <td>Biran Jiang</td> 
+                </tr>
+                <tr> 
+                  <td>Email:</th> 
+                  <td>good@gmail.com</td> 
+                </tr> 
+                <tr> 
+                  <td>報名人數:</th> 
+                  <td><select value="">
+                      <option name="" id="">1</option>
+                      <option name="" id="">2</option>
+                      <option name="" id="">3</option>
+                      <option name="" id="">4</option>
+                      <option name="" id="">5</option>
+                      <option name="" id="">6</option>
+                    </select>
+                  </td> 
+              </table>
+              <div class="btn">
+                <a href="#" rel="modal:close"><button id="cancel">取消</button></a>
+                <button id="send">報名</button>
+              </div>
             </div>
   </article>
 
   @@include('layout/footer.html')
-<!-- 輪播圖 -->
-  <!-- <script>
-    $(document).ready(function(){
   
-        $(".preview a").on("click", function(){
-            $(".selected").removeClass("selected");
-            $(this).addClass("selected");
-            var picture = $(this).data();
-            
-            event.preventDefault(); //prevents page from reloading every time you click a thumbnail
-  
-            $(".full img").fadeOut( 100, function() { 
-              $(".full img").attr("src", picture.full);
-              $(".full").attr("href", picture.full);
-              $(".full").attr("title", picture.title);
-  
-          }).fadeIn();
-   
-        });// end on click
-  
-        $(".full").fancybox({
-            helpers : {
-                title: {
-                    type: 'inside'
-                }
-            },
-            closeBtn : true,
-        });
-  
-    });//end doc ready
-  
-  </script>
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36251023-1']);
-    _gaq.push(['_setDomainName', 'jqueryscript.net']);
-    _gaq.push(['_trackPageview']);
-  
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-<script>
-  $('.slider2').slick({
- dots: true,
- infinite: true,
- speed: 500,
- fade: true,
- cssEase: 'linear'
-});
- </script> -->
-
 <script src="js/activity3.min.js"></script>
 </body>
 </html>

@@ -12,6 +12,10 @@
 @import 'layout/header';
 @import 'layout/footer';
 
+// 彈跳視窗
+@import 'layout/modal_login';
+
+
   article{
     p{
       font-size: 16px;
@@ -71,12 +75,74 @@
           padding-bottom: 6px;
         }
         
-        .sign{
+        #sign{
           @include bigbtn_m;
           margin-top: 15px;
+          width: 9rem;
+          padding: 8px 0;
+            // a{
+            //   text-decoration: none;    
+            //   color: #fff;
+            // }
         }
     }
   }
+
+//彈跳訂單視窗
+  .order{
+    width: 390px;
+    height: 340px;
+    // font-weight: bold;
+    background-color: #F7F6F2;
+      h3{
+        width: 100%;    
+        height: 55px;
+        background-color: #84A59D;
+        color: #fff;
+        border-radius: 8px;
+        @include flexcenter;
+      }
+      table{
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 1px;
+        @include flexcenter;
+        text-align: left;
+        margin: 17px 0;
+        color: #3d3b3b;
+        td{
+          padding: 5px 15px;
+            select{
+              width: 50px;
+              height: 25px;
+            }
+        }
+      }
+      .btn{
+        text-align: center;
+        button{
+          width: 100px;
+          height: 35px;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          color: #fff;
+          font-weight: bolder;
+          margin: 6px 20px;
+        }
+        button:hover{
+          opacity: .8;
+        }
+        #cancel{
+          background-color: #BB9590;
+        }
+        #send{
+          background-color:#84A59D;
+        }
+      }
+  }
+
+
 
 @media (max-width: 1025px){
   .slider{
@@ -96,21 +162,13 @@
           .date{
             padding-left: 8px;
           }
-          .sign {
-            width: 200px;  //RWD後按鈕增長?
-          }  
+          a{
+            width: 100%;
+              #sign{
+                width: 100%;
+              }
+          }
       }
   }
 }
-// @include t{
-//   .slider{
-//     display: none;
-//   }
-// }
-// @include m{
-//   .slider{
-//     display: none;
-//   }
-// }
-
 

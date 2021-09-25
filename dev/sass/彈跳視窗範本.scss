@@ -1,0 +1,49 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+// mixin
+
+@import 'mixin/mixin';
+
+// 彈跳視窗
+@import 'layout/modal_login';
+
+h1{
+  font-size: 24px;
+  margin: 50px 0;
+}
+
+// 彈跳視窗空白範本
+.order{
+  width: 390px;
+  height: 340px;
+  background-color: #F7F6F2;
+    .btn{
+      text-align: center;
+      button{
+        width: 100px;
+        height: 35px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        font-weight: bolder;
+        margin: 6px 20px;
+      }
+      button:hover{
+        opacity: .8;
+      }
+      #cancel{
+        background-color: #BB9590;
+      }
+      #send{
+        background-color:#84A59D;
+      }
+    }
+}
+
+
+

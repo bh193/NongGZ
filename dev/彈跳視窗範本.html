@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <!-- 記得引入jQuery -->
+  <script src="js/jquery.min.js"></script>
+
+  <!-- 記得引入jQuery Modal -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+  <link rel="stylesheet" href="./css/彈跳視窗範本.css">
+</head>
+<body>
+<h1>此為"請登入會員"彈跳視窗</h1>
+
+<!-- 從這開始複製 -->  
+<!-- 用a標籤 包觸發的按鈕 -->
+<a href="#pop_1" rel="modal:open"><button id="modal_btn_1">按我</button></a>
+  
+@@include('layout/modal_login.html')
+<!-- 複製到這 -->
+
+<hr>
+<hr>
+<hr>
+
+
+  <h1>彈跳視窗空白格式</h1>
+
+  <!-- 觸發的按鈕  須以a包外面-->
+  <a href="#popOrder" rel="modal:open"><button id="sign">立即報名</button></a>
+  
+  <div id="popOrder" class="modal order">  <!-- modal不能刪, 多寫一個class名來設長寬-->
+    <!-- 視窗內容 -->
+    <h1>我是內容</h1>
+    <p>靜靜基金首頁可是平時四個有一種從事，學院格式配套意大利前面味道具體聯繫電話地點。</p>
+
+
+    <!-- 底下二個按鍵 -->
+    <div class="btn">
+      <a href="#" rel="modal:close"><button id="cancel">取消</button></a>  
+      <button id="send">報名</button>
+    </div>
+
+  </div>
+
+
+
+
+
+
+<script>
+
+// $('a[href="#ex7"]').click(function(event) {
+//   event.preventDefault();
+//   $(this).modal({
+//     fadeDuration: 250
+//   });
+// });
+
+</script>
+</body>
+</html>
