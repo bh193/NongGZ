@@ -1,0 +1,44 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+// mixin
+@import 'mixin/mixin';
+
+//layout
+@import 'layout/header_back';
+@import 'layout/footer_back';
+
+@include d {
+    
+        .item{
+            @include margincenter($var:1rem);
+            width: 100%;
+            table{
+                font-size: 14px;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+                th{background-color: #84A59D;padding: 20px;color:#fff}
+                th:nth-child(1){border-top-left-radius:35%;}
+                th:last-child{border-top-right-radius:35%;}
+                tr:nth-child(odd){background-color:#fff;}
+                tr:nth-child(even){background-color:#E9E9E9;}
+                td{padding: 8px;}
+                button{
+                    border:none;
+                    width: 50px;
+                    height: 24px;
+                    border-radius: 10%;
+                    background-color: #F6BD60;
+                    color: #fff;
+                    font-weight:600;
+                }
+            }
+
+        }
+
+
+}
