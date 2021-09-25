@@ -1,7 +1,7 @@
 //字體匯入
   @font-face {
     font-family: "Noto";
-    src: local('Noto Sans CJK TC'), local('Noto Sans TC') ,local(sans-serif) ;
+    src:url(../font/NotoSansCJKtc-Regular.otf);
     }
 
 
@@ -25,16 +25,16 @@ $h4_size:12px;
 
 //字粗體
 $h2_weight:700;
-$h3_weight:700;
+$h3_weight:500;
 
 //字型
 $fontFamily:"Noto";
 
 //字體顏色
-$h2_color:#2b2929;
-$h3_color:#2b2929;
-$p_color:#2b2929;
-$h4_color:#2b2929;
+$h2_color:#3d3b3b;
+$h3_color:#3d3b3b;
+$p_color:#3d3b3b;
+$h4_color:#3d3b3b;
 
 //行高
 $h2_line:1.5;
