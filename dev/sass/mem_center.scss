@@ -1,0 +1,232 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+// mixin
+
+@import 'mixin/mixin';
+
+// layout
+@import 'layout/header';
+@import 'layout/footer';
+
+body{
+  background-color: #F7F6F2;
+  // background-image: url(/images/svg/background.svg);
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-position: 100%;
+}
+
+.header .header_con #nav li {
+  font-size: 19.2px;
+}
+article{
+  @include container();
+  font-family: Arial, Helvetica, sans-serif;
+  color: #2b2929;
+  p{
+    font-size: 16px;
+  }
+}  
+
+  ul.breadcrumb{
+    padding: 10px 0;
+    list-style: none;
+    @include container(10rem);
+  }
+  ul.breadcrumb li{
+    display: inline;
+    font-size: 16px;
+  }
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    content: "/\00a0";
+  }
+  ul.breadcrumb li a {
+    text-decoration: none;
+  }
+
+
+.banner{
+  background-image: url(/images/common/banner_farmer.jpg);
+  width: 100%;
+  height: 140px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // background-position: 100%;
+  margin: 5rem auto 0;
+}
+
+.member{
+  position: relative;
+  @include flexcenter;
+  flex-direction: column;
+  .pic{
+    @include flexcenter;
+    flex-direction: column;
+    #mem_img{
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      position: absolute;
+      object-fit: cover;
+    }
+    .camera{
+      cursor: pointer;
+      border: 1px solid;
+      position: relative;
+      img{
+        width: 25px;
+        position: absolute;
+        top: 32px;
+        left: 43px;
+      }
+    }
+  }
+  .info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 70px 0 30px;
+      label{
+        @include label; 
+        padding-top: 17px;
+      }
+      input{
+        @include text;
+      }
+  }
+  .btn{
+    >*{
+      margin: 0 10px;
+      font-family: inherit;
+    }
+    #edit{
+      @include smallbtn_s;
+    }
+    #save{
+      @include smallbtn_m;
+    }
+  }
+}
+
+// #app{
+.order-select {
+  overflow: hidden;
+  padding-top: 50px;
+  display: block;
+  margin: 30px 0;
+  @include container();
+    .tabs{
+      @include flexcenter;
+      // margin-bottom: 20px;
+        >*{
+          width: 33.3%;
+          background-color: #EDECEC;
+          cursor: pointer;
+          box-sizing: border-box;
+          padding: 8px;
+          // margin: 0 10px;
+          height: 70px;
+          @include flexcenter;
+            p{
+              font-size: 18px;
+              font-weight: bold;
+              color: #5f5f5f;
+              text-align: center;
+            }
+            &:nth-child(2){
+              margin: 0 20px;
+            }  
+        }
+        a.active{
+          background: #FFF;
+            p{
+              color: #17C3B2;
+            }
+        }
+    }
+}
+
+.orders{
+  width: 100%;
+  margin: 15px auto;
+  >li{
+    display: none;
+    .item{
+      font-size: 16px;
+      font-weight: bold;
+      height: 50px;
+      margin-bottom: 10px;
+      background-color: #F7EDE2;
+      @include flexcenter;
+      justify-content: space-between;
+      cursor: pointer;
+        img{
+          width: 18px;
+          padding: 0 10px;
+        }
+        #minus{
+          display: none;
+        }
+        >*{
+          padding: 0 10px;
+          @include flexcenter;
+        }
+    }
+    .detail{
+      display: none;
+      background-color: #E8EAE6;
+      box-sizing: border-box;
+      padding: 20px;
+      margin-bottom: 10px;
+    }    
+  } 
+}
+
+
+.detail.activity{
+    >*{
+      font-size: 16px;
+      display: inline-block;
+      width: 100%;
+    }
+}
+      
+
+@include t{
+  .order-select {
+    margin: 30px auto;
+      .tabs{
+        >*{
+          height: auto;
+        }
+      }
+  }
+
+  .detail.activity{
+    >*{
+      width: 240px;
+      // border: 1px solid red;
+    }
+    // >*:nth-child(odd){
+    //   margin-right: 26px;
+    // }
+  }
+}
+
+@include d{
+  .detail.activity{
+    >*{
+      width: 340px;
+      // border: 1px solid blue;
+    }
+    // >*:nth-child(odd){
+    //   margin-right: 26px;
+    // }
+  }
+}

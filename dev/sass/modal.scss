@@ -1,0 +1,43 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+// mixin
+
+@import 'mixin/mixin';
+
+#modal_btn_1{
+  @include bigbtn;
+  //自行修改按鈕樣式
+}
+
+#pop_1{
+  width: 370px;
+  height: 140px;
+  background-color: #F7F6F2;
+  text-align: center;
+    h3{
+      margin: 14px auto;    
+    }
+    button{
+      width: 100px;
+      height: 35px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      font-weight: bolder;
+      margin: 6px 20px;
+    }
+    button:hover{
+      opacity: .8;
+    }
+    #off{
+      background-color: #BB9590;
+    }
+    #logIn{
+      background-color:#84A59D;
+    }
+}

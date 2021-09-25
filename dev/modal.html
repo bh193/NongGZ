@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <!-- jQuery -->
+  <script src="js/jquery.min.js"></script>
+
+  <!-- jQuery Modal -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+  <link rel="stylesheet" href="./css/modal.css">
+</head>
+<body>
+  
+  <!-- Link to open the modal -->
+  <a href="#pop_1" rel="modal:open"><button id="modal_btn_1">此為"請登入會員"彈跳視窗，按鈕請自行修改</button></a>
+  
+  <div id="pop_1" class="modal">
+    <h3>請登入會員</h3>
+    <div class="btn">
+      <button id="off">關閉</button>
+      <button id="logIn">登入</button>
+    </div>
+  </div>
+
+<script>
+
+// $('a[href="#ex7"]').click(function(event) {
+//   event.preventDefault();
+//   $(this).modal({
+//     fadeDuration: 250
+//   });
+// });
+
+</script>
+</body>
+</html>

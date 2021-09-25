@@ -1,22 +1,16 @@
 //字體匯入
   @font-face {
-    font-family: "GloberSemiBold";
-    src: url(../font/微軟正黑體.ttf);
-    unicode-range: U+4E00-9FFF ;
-    }
-    @font-face {
-    font-family: "GloberSemiBold";
-    src: url(../font/GloberSemiBold.ttf);
-    unicode-range: U+00-024F;
+    font-family: "Noto";
+    src:url(../font/NotoSansCJKtc-Regular.otf);
     }
 
 
 //螢幕介面設定
 //d:電腦 t:平板 m:手機
-$d_minWidth:1025px;
-$t_maxWidth:1024px;
-$t_minWidth:769px;
-$m_maxWidth:768px;
+$d_minWidth:1024px;
+$t_maxWidth:1023px;
+$t_minWidth:768px;
+$m_maxWidth:767px;
 
 //RWD-html字體大小
 $d_htmlfontSize:16px;
@@ -31,16 +25,16 @@ $h4_size:12px;
 
 //字粗體
 $h2_weight:700;
-$h3_weight:700;
+$h3_weight:500;
 
 //字型
-$fontFamily:"GloberSemiBold";
+$fontFamily:"Noto";
 
 //字體顏色
-$h2_color:#2b2929;
-$h3_color:#2b2929;
-$p_color:#2b2929;
-$h4_color:#2b2929;
+$h2_color:#3d3b3b;
+$h3_color:#3d3b3b;
+$p_color:#727070;
+$h4_color:#727070;
 
 //行高
 $h2_line:1.5;

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>會員中心</title>
+  <script src="js/jquery.min.js"></script>
+  
+  <script src="js/orange.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/mem_center.css">
+
+  <link rel="stylesheet" href="css/tree_growing.css">
+
+  <style>
+    /* 覆蓋認養果樹訂單tree_growing.scss */
+    section{
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  @@include('layout/header.html')
+  <!-- <ul class="breadcrumb">
+    <li><a href="">首頁</a></li>
+    <li><a href="">會員中心</a></li>
+  </ul> -->
+
+  <div class="banner"></div>
+
+  <div class="all">
+    <ol class="member">
+      <li class="pic">
+        <img id="mem_img" src="images/mem/farmer.jpg" alt="">
+        <label class="camera">
+          <input id="upload_img" style="display:none;" type="file">
+          <img src="images/common/update-camera.png" alt="">
+        </label>
+      </li>
+      <li class="info">
+        <label>會員名稱</label>
+        <input type="text" id="mem_name">
+        <label>電子信箱</label>
+        <input type="text" id="mem_email">
+        <label>連絡電話</label>
+        <input type="text" id="mem_tel">
+      </li>
+      <li class="btn">
+        <button id="edit">修改密碼</button>
+        <button id="save">儲存資料</button>
+      </li>
+    </ol>
+
+    <div class="order-select">
+      <div class="tabs">
+        <a class="select_1"><p>認養果樹訂單</p></a>
+        <a class="select_2"><p>體驗行程訂單</p></a>
+        <a class="select_3"><p>折扣券</p></a>
+      </div>
+      <ul class="orders">
+        <!-- 認養果樹訂單 -->
+        <li> 
+          <div class="item">
+            <div class="left">
+              <img id="plus" src="images/common/plus.png" alt="">
+                <img id="minus" src="images/common/minus.png" alt="">
+              <span>種類：</span>
+              <span id="fruit_name">蘋果</span>
+            </div>
+            <div class="right">
+              <span>訂單編號：</span>
+              <span id="t_order_id">123456</span>
+            </div>
+          </div>
+          <div class="detail">
+            <!-- 訂單內容  -->
+            <section>
+             <canvas id="orange" width="2000" height="2000"></canvas>
+             <div class="container">
+                 <div class="content_top">
+                     <p class="update">資料更新日期: 110/11/11</p>
+                     <div class="con_imgbox">
+                         <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                         <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                     </div>
+                     <input class="smallbtn_s" type="button" value="查看更多">
+                 </div>
+                 <div class="content_bottom">
+                     <p class="update">資料更新日期: 110/11/11</p>
+                     <div class="con_text">
+                         <h2 class="con_text_title">吃不完海梨</h2>
+                         <div class="id">
+                             <span>秀水農場</span>
+                             <span>果樹編號: 8</span>
+                         </div>
+                         <div class="data">
+                             <div class="data_text">
+                                 <h3>大小 </h3>
+                                 <h2>中</h2>
+                             </div>
+                             <div class="data_text">
+                                 <h3>數量</h3>
+                                 <h2>45</h2>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </section>
+ 
+           </div>
+          <div class="item">
+            <div class="left">
+              <img id="plus" src="images/common/plus.png" alt="">
+                <img id="minus" src="images/common/minus.png" alt="">
+              <span>種類：</span>
+              <span id="fruit_name">蘋果</span>
+            </div>
+            <div class="right">
+              <span>訂單編號：</span>
+              <span id="t_order_id">123456</span>
+            </div>
+          </div>
+          <div class="detail">
+           <!-- 認養訂單內容  -->
+           <section>
+            <canvas id="orange" width="2000" height="2000"></canvas>
+            <div class="container">
+                <div class="content_top">
+                    <p class="update">資料更新日期: 110/11/11</p>
+                    <div class="con_imgbox">
+                        <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                        <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                    </div>
+                    <input class="smallbtn_s" type="button" value="查看更多">
+                </div>
+                <div class="content_bottom">
+                    <p class="update">資料更新日期: 110/11/11</p>
+                    <div class="con_text">
+                        <h2 class="con_text_title">吃不完海梨</h2>
+                        <div class="id">
+                            <span>秀水農場</span>
+                            <span>果樹編號: 8</span>
+                        </div>
+                        <div class="data">
+                            <div class="data_text">
+                                <h3>大小 </h3>
+                                <h2>中</h2>
+                            </div>
+                            <div class="data_text">
+                                <h3>數量</h3>
+                                <h2>45</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+          </div>
+        </li>
+        <!-- 體驗行程訂單 -->
+        <li>
+          <div class="item">
+            <div class="left">
+              <img id="plus" src="images/common/plus.png" alt="">
+                <img id="minus" src="images/common/minus.png" alt="">
+              <span>名稱：</span>
+              <span id="activity_name">夏日採桃趣</span>
+            </div>
+            <div class="right">
+              <span>訂單編號：</span>
+              <span id="a_order_id">666666</span>
+            </div>
+          </div>
+          <!-- 訂單細節 -->
+          <div class="detail activity">
+            <h4 class="order-date">訂單日期: 2021/11/11</h4>
+            <h4 class="activity-date">行程日期: 2021/12/12</h4>
+            <h4 class="name">會員姓名: XXXX</h4>
+            <h4 class="email">會員信箱: ooxx@gmail.com</h4>
+            <h4 class="amount">人數: 2</h4>
+            <h4 class="status">報名狀態: 已報名</h4>
+          </div>
+
+          <div class="item">
+            <div class="left">
+              <img id="plus" src="images/common/plus.png" alt="">
+                <img id="minus" src="images/common/minus.png" alt="">
+              <span>名稱：</span>
+              <span id="activity_name">夏日採桃趣</span>
+            </div>
+            <div class="right">
+              <span>訂單編號：</span>
+              <span id="a_order_id">666666</span>
+            </div>
+          </div>
+          <!-- 訂單細節 -->
+          <div class="detail activity">
+            <h4 class="order-date">訂單日期: 2021/11/11</h4>
+            <h4 class="activity-date">行程日期: 2021/12/12</h4>
+            <h4 class="name">會員姓名: XXXX</h4>
+            <h4 class="email">會員信箱: ooxx@gmail.com</h4>
+            <h4 class="amount">人數: 2</h4>
+            <h4 class="status">報名狀態: 已報名</h4>
+          </div>
+        </li>
+        <!-- 折扣券 -->
+        <li>
+          <p>333333333</p>
+          <p>4444444444</p>
+        </li>
+      </ul>
+    </div>
+
+  </div>  
+  @@include('layout/footer.html')
+  
+  <script src="js/mem_center.min.js"></script>
+ 
+    
+     
+</body>
+</html>
