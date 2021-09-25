@@ -28,7 +28,6 @@ select{
     @include select(350px);
     color: #b5b5b5;
     font-size: 1rem;
-
     }
 
 
@@ -36,9 +35,11 @@ select{
     @include container(10rem);
     display: flex;
     flex-direction: column;
+
     .box{
         display: flex;
-        @include margincenter($var:1.5rem)
+        @include margincenter($var:1.5rem);
+        @include flexcenter();
     }
     .box:nth-child(1){
         .logo{
@@ -66,11 +67,12 @@ select{
                vertical-align: middle;
             }
         }
-        .item:last-child{
-            width: 100%;
+        .btnbox{
+            width: 350px;
+            margin-top: 20px;
             display: flex;
-            justify-content: space-evenly;
-            .btn:nth-child(1){@include smallbtn_s;}
+            justify-content: space-around;
+           .btn:nth-child(1){@include smallbtn_s;}
             .btn:nth-child(2){@include smallbtn_m;}
         }
     }

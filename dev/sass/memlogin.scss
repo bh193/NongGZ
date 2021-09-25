@@ -4,8 +4,6 @@
 @import 'base/color';
 @import 'base/font';
 
-
-
 // mixin
 @import 'mixin/mixin';
 @import 'layout/header';
@@ -28,9 +26,11 @@ input{
     @include container(10rem);
     display: flex;
     flex-direction: column;
+    
     .box{
         display: flex;
-        @include margincenter($var:1.5rem)
+        @include margincenter($var:1rem);
+        @include margincenter($var:1rem);
     }
     .box:nth-child(1){
         .logo{
@@ -76,28 +76,20 @@ input{
                 .btn:nth-child(2){@include smallbtn_m;}
             }
         }
-        .login{
-            display: block;
-        }
-        .register{
-            display: none;
-            .text:nth-child(5){
 
-                display: flex;
-            input[type=radio]{
-                width: 1rem;
-                vertical-align: middle;
-            }
-            span{
-               font-size: $h4_size;
-               vertical-align:text-top;
-               
-            }
-        }
     }
 }
+
+.login{display: block;}
+.register{
+    display: none;
+    .text:nth-child(5){
+    
+
+
+    }
+
+    
 }
-
-
 
 
