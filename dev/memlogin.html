@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員登入</title>
     <script src="js/jquery.min.js"></script>
-    <script src="js/memlogin.min.js"></script>
+    <!-- <script src="./js/memlogin.js"></script> -->
 </head>
 <body>
     @@include('layout/header.html')
@@ -60,14 +60,13 @@
                     <label for="">確認密碼</label>
                     <input type="text">
                 </div>
-                <!-- <div class="text">
-                    <input type="radio" name="gender" value="male" required>
-                 <p>點擊註冊代表您同意 之 會員條款 與 客戶隱私權條款</p>
-                   
-                    
-                </div> -->
                 <div class="text">
-                    <button class="btn">清除</button>
+                    <input type="radio">
+                    <span>點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></span>
+                    
+                </div>
+                <div class="text">
+                    <button class="btn" type="reset">清除</button>
                     <button class="btn">送出</button>
                 </div>
             </form>
@@ -75,5 +74,19 @@
     </div>
 
     <link rel="stylesheet" href="css/memlogin.css">
+    <script>
+        var openLogin = () => {
+    document.getElementById("loginfont").style.color = "#17C3B2"; 
+    document.getElementById("registerfont").style.color = "black";     
+    document.getElementById('login').style.display = "block";
+    document.getElementById('register').style.display = "none";
+    }
+    var openRegister = () => {
+    document.getElementById("loginfont").style.color = "black";     
+    document.getElementById("registerfont").style.color = "#17C3B2"; 
+    document.getElementById('register').style.display = "block";
+    document.getElementById('login').style.display = "none";
+    }
+    </script>
 </body>
 </html>

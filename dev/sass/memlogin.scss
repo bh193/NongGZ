@@ -4,8 +4,6 @@
 @import 'base/color';
 @import 'base/font';
 
-
-
 // mixin
 @import 'mixin/mixin';
 @import 'layout/header';
@@ -14,13 +12,25 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+label{
+    @include label;
+    display: block;
+    margin-top: 10px;
+}
+input{
+    @include text(350px);
+    border-radius: 10px;
+
+}
 .wrap{
     @include container(10rem);
     display: flex;
     flex-direction: column;
+    
     .box{
         display: flex;
-        @include margincenter($var:1rem)
+        @include margincenter($var:1rem);
+        @include margincenter($var:1rem);
     }
     .box:nth-child(1){
         .logo{
@@ -69,16 +79,7 @@ body{
 
     }
 }
-label{
-    @include label;
-    display: block;
-    margin-top: 10px;
-}
-input{
-    @include text(350px);
-    border-radius: 10px;
 
-}
 .login{display: block;}
 .register{
     display: none;

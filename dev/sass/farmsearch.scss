@@ -15,12 +15,12 @@ body{
     background-size: cover;
 }
 button{
-    @include smallbtn_m;
+    @include smallbtn_s;
 
 }
 #map{
     background-color: #ccc;
-    min-height: 350px;
+    min-height: 400px;
     .col{
         padding: 1rem;
         background-color:$second_color;
@@ -47,13 +47,11 @@ button{
     .box:nth-child(1){
         display: flex;
         flex-direction: column;
-        padding: 1rem;
-        @include flexcenter();
-        margin: auto;
         .item{
-            @include flexcenter();
             @include margincenter($var:0.625rem);
             width: 100%;
+            justify-content: space-evenly;
+
         }
     }
     // .box:nth-child(2){

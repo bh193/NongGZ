@@ -12,17 +12,21 @@
 <body>
     @@include('layout/header.html')
     <div class="wrap">
-        
             <div class="box">
                 <div class="item">
-                    <label for="">選擇水果</label>
+                  <button>橘子</button>
+                  <button>蘋果</button>
+                  <button>水蜜桃</button>
+                  <button>芒果</button>
+                  <button>紅棗</button>
+                    <!-- <label for="">選擇水果</label>
                     <select>
                         <option>橘子</option>
                         <option>蘋果</option>
                         <option>水蜜桃</option>
                         <option>芒果</option>
                         <option>紅棗</option>
-                    </select> 
+                    </select>  -->
                 </div>
 
             </div>
@@ -36,8 +40,6 @@
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv2stNGlktQxxtTVKeDxvMrizohjEK1uI" async defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
-
-    
     <script>
       const googleMap = new Vue({
         el: '#app',
@@ -52,11 +54,10 @@
             
             // 預設顯示的地點：山頂厝
             let location = {
-              lat: 24.97429, // 經度
-              lng: 121.492739 // 緯度
+              lat: 24.959575811515265, // 經度
+              lng: 121.39485474187818 // 緯度
             };
             
-         
             this.map = new google.maps.Map(document.getElementById('map'), {
               center: location,
               zoom: 10,

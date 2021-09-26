@@ -47,6 +47,7 @@ body{
         
     }
     .box:nth-child(2){
+        
         .form{
             display: flex;
             flex-direction: column;
@@ -93,13 +94,10 @@ body{
     }
 }
 .info{
-    margin-top: 80px;
-    @include container;
-    width: 100%;
+    // @include margincenter($var:3rem);
     background-color:$main_color;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 20px;
         .box{
             width: 100%;
             margin: auto;
@@ -129,8 +127,10 @@ body{
 @include t{
     .content{
         flex-direction: row;
+        width: 100%;
         .box{
             width: 50%;
+            @include flexcenter();
         }
         .box:nth-child(1){
             .img{
@@ -140,7 +140,7 @@ body{
     }
     .info{
         flex-wrap: nowrap;
-        padding: 20px;
+        padding: 1rem;
         .box{
             width: 50%;
         }
