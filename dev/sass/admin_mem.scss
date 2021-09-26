@@ -12,18 +12,19 @@
 @import 'layout/footer_back';
 
 @include d {
-    
-        .item{
+        
+        .item,.table{
             @include margincenter($var:1rem);
             width: 100%;
+    
             table{
                 font-size: 14px;
                 width: 100%;
                 box-sizing: border-box;
                 text-align: center;
                 th{background-color: #84A59D;padding: 20px;color:#fff}
-                th:nth-child(1){border-top-left-radius:35%;}
-                th:last-child{border-top-right-radius:35%;}
+                th:nth-child(1){border-top-left-radius:23%;}
+                th:last-child{border-top-right-radius:23%}
                 tr:nth-child(odd){background-color:#fff;}
                 tr:nth-child(even){background-color:#E9E9E9;}
                 td{padding: 8px;}
@@ -38,6 +39,26 @@
                 }
             }
 
+        }
+        .item{
+            display: flex;
+            justify-content: space-between;
+            .box:nth-child(1){
+                input{
+                    width: 20rem;
+                    padding: .75rem 10px;
+                    font-size: 1rem;
+                    letter-spacing: 1px;
+                    border-radius: 8px;
+                    border: 1px solid #ebe7e7;
+                    box-sizing: border-box;
+                    background-color: #fff;
+                    position: relative;
+                }
+            }
+            .box:nth-child(2){
+                .btn:nth-child(1){@include smallbtn_s;}
+                .btn:nth-child(2){@include smallbtn_m;}}
         }
 
 
