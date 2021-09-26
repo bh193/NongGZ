@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="banner-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 704 580" style="enable-background:new 0 0 704 580;" xml:space="preserve">
+<style type="text/css">
+	.st0{clip-path:url(#SVGID_2_);}
+	.st1{fill:#E2C0AA;}
+	.st2{fill:#D8BDA7;}
+	.st3{fill:#DBB8AF;}
+	.st4{fill:#FFEDE2;}
+	.st5{fill:#DBAB9C;}
+	.st6{fill:#A37467;}
+	.st7{fill:#E5B1A9;}
+	.st8{fill:#FFE1DC;}
+	.st9{fill:#B3917D;}
+	.st10{fill:#F6D4B7;}
+	.st11{fill:#E7C4AA;}
+	.st12{fill:#EECDB2;}
+	.st13{fill:#A58573;}
+	.st14{fill:#B5917C;}
+	.st15{fill:#F0CDB0;}
+	.st16{fill:#C6A48E;}
+	.st17{fill:#B4917D;}
+	.st18{fill:#FBDABD;}
+	.st19{fill:#F1D4BC;}
+	.st20{fill:#AB8879;}
+	.st21{fill:#A77D70;}
+	.st22{fill:#CEAB93;}
+	.st23{fill:#C3A592;}
+	.st24{fill:#FFE1CD;}
+	.st25{fill:#EECDB4;}
+	.st26{fill:#F6D4BE;}
+	.st27{fill:#EACAB6;}
+	.st28{fill:#AD8072;}
+	.st29{fill:#B48777;}
+	.st30{fill:#FCE5D4;}
+	.st31{fill:#F6DCC9;}
+	.st32{fill:#B79785;}
+	.st33{fill:#BD9C8E;}
+	.st34{fill:#BA8C7A;}
+	.st35{fill:#F0D6C3;}
+	.st36{fill:#F4D8C6;}
+	.st37{fill:#FCE2CF;}
+	.st38{fill:#F9DCCE;}
+	.st39{fill:#CFB5A7;}
+	.st40{fill:#B28377;}
+	.st41{fill:#EBCDB7;}
+	.st42{fill:#C59B8D;}
+	.st43{fill:#C0978B;}
+	.st44{fill:#C09F94;}
+	.st45{fill:#CFB1AB;}
+	.st46{fill:#D1BAB1;}
+	.st47{fill:#E0C5BC;}
+	.st48{fill:#FBE1D4;}
+	.st49{fill:#CCAEA7;}
+	.st50{fill:#D1B5AE;}
+	.st51{fill:#F3D7C4;}
+	.st52{fill:#FFE7DB;}
+	.st53{fill:#E0C5AF;}
+	.st54{fill:#CEAA9B;}
+	.st55{fill:#BD9386;}
+	.st56{fill:#D7B7B0;}
+	.st57{fill:#CFAEA3;}
+	.st58{fill:#D3BAAD;}
+	.st59{fill:#D1AD9E;}
+	.st60{fill:#D7B5AF;}
+	.st61{fill:#D6B5B0;}
+	.st62{fill:#DABCB6;}
+	.st63{fill:#DBBFB7;}
+	.st64{fill:#FCE6D9;}
+	.st65{fill:#C7A496;}
+	.st66{fill:#FDE7D6;}
+	.st67{fill:#FFE9D9;}
+	.st68{fill:#ECD1C4;}
+	.st69{fill:#EDCDC2;}
+	.st70{fill:#E3C8C0;}
+	.st71{fill:#FFEDE1;}
+	.st72{fill:#BF9A91;}
+	.st73{fill:#FFEFE2;}
+	.st74{fill:#F8E2D5;}
+	.st75{fill:#D7B5AD;}
+	.st76{fill:#BE9D92;}
+	.st77{fill:#C6A198;}
+	.st78{fill:#D5B5AA;}
+	.st79{fill:#F0CFC1;}
+	.st80{fill:#B78A7E;}
+	.st81{fill:#C5A298;}
+	.st82{fill:#C08F80;}
+	.st83{fill:#C09387;}
+	.st84{fill:#B18F87;}
+	.st85{fill:#CCA7A1;}
+	.st86{fill:#BC9082;}
+	.st87{fill:#C49C8C;}
+	.st88{fill:#B98F83;}
+	.st89{fill:#BB9F97;}
+	.st90{fill:#CEAB9D;}
+	.st91{fill:#C99C90;}
+	.st92{fill:#FDE3D6;}
+	.st93{fill:#FDE5DB;}
+	.st94{fill:#F4D6C3;}
+	.st95{fill:#CCA99A;}
+	.st96{fill:#C9A597;}
+	.st97{fill:#CA9D91;}
+	.st98{fill:#C1978B;}
+	.st99{fill:#F0D1C1;}
+	.st100{fill:#F7DDD0;}
+	.st101{fill:#C69F97;}
+	.st102{fill:#C8998C;}
+	.st103{fill:#D0A395;}
+	.st104{fill:#C89B8D;}
+	.st105{fill:#C59B8F;}
+	.st106{fill:#C6998D;}
+	.st107{fill:#E2B9A6;}
+	.st108{fill:#EAC6B1;}
+	.st109{fill:#C79D8F;}
+	.st110{fill:#EACABB;}
+	.st111{fill:#E9C6B7;}
+	.st112{fill:#C6998B;}
+	.st113{fill:#C2968A;}
+	.st114{fill:#CFA99C;}
+	.st115{fill:#C99A8D;}
+	.st116{fill:#C59B8E;}
+	.st117{fill:#CFA194;}
+	.st118{fill:#D7ADA1;}
+	.st119{fill:#C19B8E;}
+	.st120{fill:#D2AEA0;}
+	.st121{fill:#CBA298;}
+	.st122{fill:#C7A098;}
+	.st123{fill:#C99E99;}
+	.st124{fill:#CCA69A;}
+	.st125{fill:#CAA596;}
+	.st126{fill:#B88D86;}
+	.st127{fill:#D2A89B;}
+	.st128{fill:#F6D8CA;}
+	.st129{fill:#D7AA9C;}
+	.st130{fill:#C39789;}
+	.st131{fill:#815A55;}
+	.st132{fill:#FFFFFF;}
+	.st133{fill:#C5A091;}
+	.st134{fill:#8C6158;}
+	.st135{fill:#B5887D;}
+	.st136{fill:#C29587;}
+	.st137{fill:#BD9084;}
+	.st138{fill:#D4A79B;}
+	.st139{fill:#D4A89A;}
+	.st140{fill:#95716B;}
+	.st141{fill:#AB8578;}
+	.st142{fill:#C5988B;}
+	.st143{fill:#A5786D;}
+	.st144{fill:#937067;}
+	.st145{fill:#A37E75;}
+	.st146{fill:#CEA193;}
+	.st147{fill:#C5968B;}
+	.st148{fill:#DEB1A6;}
+	.st149{fill:#F0CAC2;}
+	.st150{fill:#B68D81;}
+	.st151{fill:#8C5F56;}
+	.st152{fill:#956F67;}
+	.st153{fill:#B48A7D;}
+	.st154{fill:#CCA295;}
+	.st155{fill:#C89B8F;}
+	.st156{fill:#BA9084;}
+	.st157{fill:#FFF6FB;}
+	.st158{fill:#C89E91;}
+	.st159{fill:#D0A698;}
+	.st160{fill:#CFA296;}
+	.st161{fill:#C69C8F;}
+	.st162{fill:#E2B5AA;}
+	.st163{fill:#E6B7AC;}
+	.st164{fill:#FFE4EB;}
+	.st165{fill:#86635B;}
+	.st166{fill:#D5A89C;}
+	.st167{fill:#C89B90;}
+	.st168{fill:#B4877A;}
+	.st169{fill:#FFF3F3;}
+	.st170{fill:#FFE9E1;}
+	.st171{fill:#C89F93;}
+	.st172{fill:#D0A699;}
+	.st173{fill:#B28678;}
+	.st174{fill:#ECC5BD;}
+	.st175{fill:#FCE0D9;}
+	.st176{fill:#A07265;}
+	.st177{fill:#B89285;}
+	.st178{fill:#CEA292;}
+	.st179{fill:#BF9385;}
+	.st180{fill:#C69A8C;}
+	.st181{fill:#BB9184;}
+	.st182{fill:#835850;}
+	.st183{fill:#C49787;}
+	.st184{fill:#B89486;}
+	.st185{fill:#C4A092;}
+	.st186{fill:#F4D2C9;}
+	.st187{fill:#D9B8A8;}
+	.st188{fill:#B2857A;}
+	.st189{fill:#B78979;}
+	.st190{fill:#A87B6B;}
+	.st191{fill:#AD8577;}
+	.st192{fill:#B2887C;}
+	.st193{fill:#97766A;}
+	.st194{fill:#BA8C82;}
+	.st195{fill:#BA9185;}
+	.st196{fill:#966C60;}
+	.st197{fill:#BE887D;}
+	.st198{fill:#FFE6DC;}
+	.st199{fill:#FFEDE4;}
+	.st200{fill:#CA9888;}
+	.st201{fill:#C99B8B;}
+	.st202{fill:#A47767;}
+	.st203{fill:#BC8E81;}
+	.st204{fill:#B28474;}
+	.st205{fill:#B58674;}
+	.st206{fill:#A7786D;}
+	.st207{fill:#C49382;}
+	.st208{fill:#C69886;}
+	.st209{fill:#A4776A;}
+	.st210{fill:#FDE1D9;}
+	.st211{fill:#EDC5B5;}
+	.st212{fill:#C19488;}
+	.st213{fill:#C69584;}
+	.st214{fill:#B07E74;}
+	.st215{fill:#B98A7D;}
+	.st216{fill:#C09184;}
+	.st217{fill:#B38978;}
+	.st218{fill:#9E7161;}
+	.st219{fill:#FFECE6;}
+	.st220{fill:#CC9B91;}
+	.st221{fill:#FFE7E0;}
+	.st222{fill:#F4C7B9;}
+	.st223{fill:#CF9A8B;}
+	.st224{fill:#D5A797;}
+	.st225{fill:#CEA090;}
+	.st226{fill:#BA8B81;}
+	.st227{fill:#C09085;}
+	.st228{fill:#A6796D;}
+	.st229{fill:#9B7163;}
+	.st230{fill:#CA9C8A;}
+	.st231{fill:#B9867A;}
+	.st232{fill:#FFEEE9;}
+	.st233{fill:#FBDBD2;}
+	.st234{fill:#BC9183;}
+	.st235{fill:#E0B2A8;}
+	.st236{fill:#DCADA0;}
+	.st237{fill:#E2B4A4;}
+	.st238{fill:#C98D80;}
+	.st239{fill:#F9CCC1;}
+	.st240{fill:#C79084;}
+	.st241{fill:#FFF0EC;}
+	.st242{fill:#FFEAE3;}
+	.st243{fill:#D29E91;}
+	.st244{fill:#D7A195;}
+	.st245{fill:#E1ABA0;}
+	.st246{fill:#D9A397;}
+	.st247{fill:#E2A99B;}
+	.st248{fill:#FFDFD8;}
+	.st249{fill:#AB7369;}
+	.st250{fill:#CC9D92;}
+	.st251{fill:#DDAA9E;}
+	.st252{fill:#FFECEB;}
+	.st253{fill:#E7B6A7;}
+	.st254{fill:#DFACA2;}
+	.st255{fill:#F2CCBF;}
+	.st256{fill:#F7C5BB;}
+	.st257{fill:#DCB2B3;}
+	.st258{fill:#D49A6C;}
+	.st259{fill:#DC682D;}
+	.st260{fill:#AE3918;}
+	.st261{fill:#DF763F;}
+	.st262{fill:#B84832;}
+	.st263{fill:#501E15;}
+	.st264{fill:#D2493F;}
+	.st265{fill:#C34E3C;}
+	.st266{fill:#87050F;}
+	.st267{fill:#B43B40;}
+	.st268{fill:#8E5D25;}
+	.st269{fill:#6B3F0E;}
+	.st270{fill:#D8B7A4;}
+	.st271{fill:#C98872;}
+	.st272{fill:#C1764F;}
+	.st273{fill:#D09A80;}
+	.st274{fill:#D49977;}
+	.st275{fill:#D79682;}
+	.st276{fill:#B47556;}
+	.st277{fill:#AB5F3D;}
+	.st278{fill:#DAAB9B;}
+	.st279{fill:#CBAF99;}
+	.st280{fill:#C65A50;}
+	.st281{fill:#D16D56;}
+	.st282{fill:#B55A48;}
+	.st283{fill:#BC4C40;}
+	.st284{fill:#B94A3F;}
+	.st285{fill:#AF613A;}
+	.st286{fill:#CB946D;}
+	.st287{fill:#A04E38;}
+	.st288{fill:#AC523A;}
+	.st289{fill:#C75147;}
+	.st290{fill:#CA5B50;}
+	.st291{fill:#B74F44;}
+	.st292{fill:#A23C30;}
+	.st293{fill:#9D3D2D;}
+	.st294{fill:#762D26;}
+	.st295{fill:#6C1A20;}
+	.st296{fill:#933930;}
+	.st297{fill:#9E3B24;}
+	.st298{fill:#8D3529;}
+	.st299{fill:#C15342;}
+	.st300{fill:#B44C3F;}
+	.st301{fill:#B24933;}
+	.st302{fill:#D16348;}
+	.st303{fill:#C85341;}
+	.st304{fill:#CB5A48;}
+	.st305{fill:#CB6137;}
+	.st306{fill:#AE3019;}
+	.st307{fill:#6C1E1E;}
+	.st308{fill:#DCB9A5;}
+	.st309{fill:#C25340;}
+	.st310{fill:#CD624E;}
+	.st311{fill:#902418;}
+	.st312{fill:#852A18;}
+	.st313{fill:#872A1B;}
+	.st314{fill:#A33828;}
+	.st315{fill:#85271F;}
+	.st316{fill:#CF764C;}
+	.st317{fill:#DDB383;}
+	.st318{fill:#CE5B49;}
+	.st319{fill:#D2664C;}
+	.st320{fill:#C1492E;}
+	.st321{fill:#D15A44;}
+	.st322{fill:#DAA176;}
+	.st323{fill:#B04231;}
+	.st324{fill:#902215;}
+	.st325{fill:#57371E;}
+	.st326{fill:#7A6957;}
+	.st327{fill:#5C3923;}
+	.st328{fill:#D86F38;}
+	.st329{fill:#AF3617;}
+	.st330{fill:#C65944;}
+	.st331{fill:#B94B3A;}
+	.st332{fill:#772017;}
+	.st333{fill:#832614;}
+	.st334{fill:#7D5800;}
+	.st335{fill:#8C510F;}
+	.st336{fill:#CD8650;}
+	.st337{fill:#855D15;}
+	.st338{fill:#DC693A;}
+	.st339{fill:#D3A162;}
+	.st340{fill:#8F5911;}
+	.st341{fill:#946D2A;}
+	.st342{fill:#BA4130;}
+	.st343{fill:#992623;}
+	.st344{fill:#A27226;}
+	.st345{fill:#B98321;}
+	.st346{fill:#CB5142;}
+	.st347{fill:#CC4A3D;}
+	.st348{fill:#7E4500;}
+	.st349{fill:#C04B3A;}
+	.st350{fill:#C74341;}
+	.st351{fill:#821A0F;}
+	.st352{fill:#7D1709;}
+	.st353{fill:#8A2C12;}
+	.st354{fill:#99291D;}
+	.st355{fill:#581D19;}
+	.st356{fill:#B33C36;}
+	.st357{fill:#8F2623;}
+	.st358{fill:#922423;}
+	.st359{fill:#801211;}
+	.st360{fill:#DB3B21;}
+	.st361{fill:#C63018;}
+</style>
+<g>
+</g>
+<g>
+	<g>
+		<defs>
+			<rect id="SVGID_1_" width="704" height="580"/>
+		</defs>
+		<clipPath id="SVGID_2_">
+			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+		</clipPath>
+		<g class="st0">
+			<g>
+				<polygon class="st1" points="446.6,660.8 460.3,632.6 474.8,604.1 495.6,558.3 507.7,526.5 507.8,501.8 493.2,471.5 474.7,444 
+					464.6,424.1 450.9,390.1 435.6,354.3 429.7,336.9 429.5,320.2 437.7,266.7 446.5,254.1 462.9,259.7 473.1,272.1 475.2,254.2 
+					481.6,228.9 497.9,203.8 505.1,190.5 519,169.7 535.8,145.2 547,135 561,137.3 568.6,151.8 582.1,141.1 601,139.2 609.3,151.6 
+					607,164.2 626.7,166.1 632.2,179.8 624.7,198.5 636.1,203.8 639,217 638,242.4 631.9,256.7 633.2,270.6 625.9,288.8 
+					627.4,302.9 623.9,332.7 629.6,348.3 634.8,381 648.2,417.3 653.3,463.9 653.8,502 637.8,535.1 627.1,568.4 613.4,611.4 
+					592.9,685.2 576.4,730.1 548.8,756.1 452.2,739.9 427.2,708.5 				"/>
+				<polygon class="st2" points="533.4,431.8 569.7,424.3 577.3,455.9 620.9,459.7 627.4,501.6 637.8,535.1 627.1,568.4 
+					613.4,611.4 592.9,685.2 560.6,642.5 563.5,599.1 551.1,538.3 561.2,497.5 546.7,456 				"/>
+				<g>
+					<polygon class="st3" points="517,370.4 540.2,376.4 537.2,352 550.5,378 560.6,355.5 583.9,378.4 623.8,380.8 648.2,417.3 
+						635.7,442.5 620.9,459.7 577.3,455.9 569.7,424.3 533.4,431.8 529.9,412.5 517,384.6 504.9,362 					"/>
+					<polygon class="st3" points="518.1,340.4 537.2,352 517,370.4 					"/>
+				</g>
+				<polygon class="st4" points="438.6,289 455.2,292.8 460.4,311.9 471.3,322.8 456.2,328.5 443.5,329.3 437.2,304.1 				"/>
+				<g>
+					<polygon class="st5" points="455.2,292.8 462.9,259.7 473.1,272.1 478.8,285.8 486.5,273.2 508.1,269.3 499.6,261.1 
+						496.3,236.8 525.7,256.5 523.1,278.8 516.9,287 503.8,293.6 518.1,299.6 548,296.3 559.9,301.1 578.5,302.3 590.9,307.6 
+						588.9,292.6 612.3,285.3 599.8,272.7 614.1,253.2 608.7,233.6 602.9,246.9 597.1,258.4 593.2,272.4 589.6,275.6 588.9,292.6 
+						578.5,302.3 571.6,287.2 555.1,270.5 572.4,265.3 556.5,255.3 560.6,244.5 581,250.6 582.4,236.1 577.4,218.6 597.9,213.9 
+						580.9,206 604.2,201.1 624.7,198.5 636.1,203.8 639,217 638,242.4 631.9,256.7 633.2,270.6 625.9,288.8 627.4,302.9 
+						623.9,332.7 629.6,348.3 634.8,381 648.2,417.3 623.8,380.8 583.9,378.4 560.6,355.5 550.5,378 537.2,352 518.1,340.4 
+						517,370.4 504.9,362 475.5,364.9 494.2,349.9 461.5,351.1 471.3,322.8 460.4,311.9 					"/>
+					<polygon class="st5" points="653.8,502 637.8,535.1 627.4,501.6 620.9,459.7 635.7,442.5 648.2,417.3 653.3,463.9 					"/>
+					<polygon class="st5" points="540.2,376.4 517,370.4 537.2,352 					"/>
+					<polygon class="st5" points="553.1,282.7 548,296.3 537.1,281.9 523.1,278.8 541.5,267.5 525.7,256.5 556.5,255.3 555.1,270.5 
+											"/>
+					<polygon class="st5" points="517.9,201.8 522.8,189.1 533.9,200.4 545.4,207.4 520.7,223.8 					"/>
+					<polygon class="st5" points="552.8,194.1 577.4,218.6 553.4,222.5 					"/>
+				</g>
+				<g>
+					<polygon class="st6" points="590.9,307.6 578.5,302.3 588.9,292.6 					"/>
+					<polygon class="st6" points="523.1,278.8 537.1,281.9 548,296.3 518.1,299.6 503.8,293.6 516.9,287 					"/>
+					<polygon class="st6" points="593.2,272.4 597.1,258.4 602.9,246.9 608.7,233.6 614.1,253.2 599.8,272.7 612.3,285.3 
+						588.9,292.6 589.6,275.6 					"/>
+					<polygon class="st6" points="555.1,270.5 571.6,287.2 578.5,302.3 559.9,301.1 548,296.3 553.1,282.7 					"/>
+					<polygon class="st6" points="523.1,278.8 525.7,256.5 541.5,267.5 					"/>
+					<polygon class="st6" points="572.4,265.3 555.1,270.5 556.5,255.3 					"/>
+					<polygon class="st6" points="496.3,236.8 520.7,223.8 545.4,207.4 533.9,200.4 528.3,177.3 564.6,170.7 578.5,185.5 
+						604.2,201.1 580.9,206 597.9,213.9 577.4,218.6 552.8,194.1 553.4,222.5 577.4,218.6 582.4,236.1 581,250.6 560.6,244.5 
+						556.5,255.3 525.7,256.5 					"/>
+					<polygon class="st6" points="568.6,151.8 583.5,162.5 564.6,170.7 546.2,156.9 					"/>
+				</g>
+				<g>
+					<polygon class="st7" points="546.2,156.9 564.6,170.7 528.3,177.3 					"/>
+					<polygon class="st7" points="568.6,151.8 582.1,141.1 601,139.2 609.3,151.6 607,164.2 626.7,166.1 632.2,179.8 624.7,198.5 
+						604.2,201.1 578.5,185.5 564.6,170.7 583.5,162.5 					"/>
+					<polygon class="st7" points="561,137.3 568.6,151.8 546.2,156.9 					"/>
+				</g>
+				<g>
+					<polygon class="st8" points="446.5,254.1 462.9,259.7 455.2,292.8 438.6,289 437.7,266.7 					"/>
+					<polygon class="st8" points="481.6,228.9 497.8,204 497.8,204 505,190.6 518.9,169.8 535.8,145.3 547,135 546.2,157 
+						528.3,177.5 522.7,189.3 517.8,202 506.6,216.1 496.3,236.8 499.6,261.1 508.1,269.3 486.5,273.2 478.8,285.8 473.1,272.1 
+						475.2,254.2 					"/>
+				</g>
+				<g>
+					<polygon class="st9" points="587,599.4 613.4,611.4 627.1,568.4 					"/>
+					<polygon class="st10" points="474.8,604.1 519.3,632.4 495.6,558.3 					"/>
+					<polygon class="st11" points="519.3,632.4 563.5,599.1 495.6,558.3 					"/>
+					<polygon class="st12" points="495.6,558.3 563.5,599.1 520.2,548.2 					"/>
+					<polygon class="st13" points="587,599.4 627.1,568.4 586.2,545.8 					"/>
+					<polygon class="st14" points="563.5,599.1 587,599.4 586.2,545.8 					"/>
+					<polygon class="st15" points="520.2,548.2 563.5,599.1 551.1,538.3 					"/>
+					<polygon class="st16" points="563.5,599.1 586.2,545.8 551.1,538.3 					"/>
+					<polygon class="st17" points="586.2,545.8 627.1,568.4 637.8,535.1 					"/>
+					<polygon class="st18" points="520.2,548.2 551.1,538.3 507.7,526.5 					"/>
+					<polygon class="st19" points="495.6,558.3 520.2,548.2 507.7,526.5 					"/>
+					<polygon class="st20" points="586.2,545.8 637.8,535.1 627.4,501.6 					"/>
+					<polygon class="st21" points="627.4,501.6 637.8,535.1 653.8,502 					"/>
+					<polygon class="st22" points="551.1,538.3 586.2,545.8 561.2,497.5 					"/>
+					<polygon class="st23" points="586.2,545.8 627.4,501.6 561.2,497.5 					"/>
+					<polygon class="st24" points="551.1,538.3 561.2,497.5 534.5,489.7 					"/>
+					<polygon class="st25" points="507.7,526.5 551.1,538.3 534.5,489.7 					"/>
+					<polygon class="st26" points="507.8,501.8 507.7,526.5 534.5,489.7 					"/>
+					<polygon class="st27" points="507.8,501.8 534.5,489.7 493.2,471.5 					"/>
+					<polygon class="st28" points="627.4,501.6 653.8,502 653.3,463.9 					"/>
+					<polygon class="st29" points="627.4,501.6 653.3,463.9 620.9,459.7 					"/>
+					<polygon class="st30" points="493.2,471.5 534.5,489.7 546.7,456 					"/>
+					<polygon class="st31" points="534.5,489.7 561.2,497.5 546.7,456 					"/>
+					<polygon class="st1" points="546.7,456 561.2,497.5 577.3,455.9 					"/>
+					<polygon class="st32" points="561.2,497.5 627.4,501.6 577.3,455.9 					"/>
+					<polygon class="st33" points="627.4,501.6 620.9,459.7 577.3,455.9 					"/>
+					<polygon class="st34" points="620.9,459.7 653.3,463.9 635.7,442.5 					"/>
+					<polygon class="st35" points="493.2,471.5 546.7,456 533.4,431.8 					"/>
+					<polygon class="st36" points="474.7,444 493.2,471.5 499.6,425.8 					"/>
+					<polygon class="st37" points="493.2,471.5 533.4,431.8 499.6,425.8 					"/>
+					<polygon class="st38" points="474.7,444 499.6,425.8 464.6,424.1 					"/>
+					<polygon class="st39" points="546.7,456 577.3,455.9 569.7,424.3 					"/>
+					<polygon class="st2" points="533.4,431.8 546.7,456 569.7,424.3 					"/>
+					<polygon class="st40" points="635.7,442.5 653.3,463.9 648.2,417.3 					"/>
+					<polygon class="st41" points="499.6,425.8 533.4,431.8 529.9,412.5 					"/>
+					<polygon class="st42" points="635.7,442.5 648.2,417.3 605.6,409.2 					"/>
+					<polygon class="st43" points="620.9,459.7 635.7,442.5 605.6,409.2 					"/>
+					<polygon class="st44" points="577.3,455.9 620.9,459.7 605.6,409.2 					"/>
+					<polygon class="st45" points="569.7,424.3 577.3,455.9 605.6,409.2 					"/>
+					<polygon class="st46" points="533.4,431.8 569.7,424.3 556.7,406.3 					"/>
+					<polygon class="st47" points="529.9,412.5 533.4,431.8 556.7,406.3 					"/>
+					<polygon class="st48" points="464.6,424.1 465,390.7 450.9,390.1 					"/>
+					<polygon class="st49" points="569.7,424.3 605.6,409.2 568.2,391.4 					"/>
+					<polygon class="st50" points="556.7,406.3 569.7,424.3 568.2,391.4 					"/>
+					<polygon class="st51" points="464.6,424.1 499.6,425.8 487.4,388.6 					"/>
+					<polygon class="st52" points="465,390.7 464.6,424.1 487.4,388.6 					"/>
+					<polygon class="st53" points="499.6,425.8 529.9,412.5 517,384.6 					"/>
+					<polygon class="st1" points="487.4,388.6 499.6,425.8 517,384.6 					"/>
+					<polygon class="st54" points="605.6,409.2 648.2,417.3 623.8,380.8 					"/>
+					<polygon class="st55" points="648.2,417.3 634.8,381 623.8,380.8 					"/>
+					<polygon class="st56" points="556.7,406.3 568.2,391.4 550.5,378 					"/>
+					<polygon class="st57" points="550.5,378 568.2,391.4 583.9,378.4 					"/>
+					<polygon class="st58" points="568.2,391.4 605.6,409.2 583.9,378.4 					"/>
+					<polygon class="st59" points="605.6,409.2 623.8,380.8 583.9,378.4 					"/>
+					<polygon class="st60" points="517,384.6 529.9,412.5 540.2,376.4 					"/>
+					<polygon class="st61" points="529.9,412.5 556.7,406.3 540.2,376.4 					"/>
+					<polygon class="st62" points="556.7,406.3 550.5,378 540.2,376.4 					"/>
+					<polygon class="st63" points="517,384.6 540.2,376.4 517,370.4 					"/>
+					<polygon class="st64" points="450.9,390.1 465,390.7 446.5,368.5 					"/>
+					<polygon class="st65" points="583.9,378.4 623.8,380.8 593.9,367.2 					"/>
+					<polygon class="st66" points="465,390.7 487.4,388.6 475.5,364.9 					"/>
+					<polygon class="st67" points="446.5,368.5 465,390.7 475.5,364.9 					"/>
+					<polygon class="st68" points="475.5,364.9 487.4,388.6 504.9,362 					"/>
+					<polygon class="st69" points="487.4,388.6 517,384.6 504.9,362 					"/>
+					<polygon class="st70" points="517,384.6 517,370.4 504.9,362 					"/>
+					<polygon class="st71" points="450.9,390.1 446.5,368.5 435.6,354.3 					"/>
+					<polygon class="st57" points="550.5,378 583.9,378.4 560.6,355.5 					"/>
+					<polygon class="st72" points="583.9,378.4 593.9,367.2 560.6,355.5 					"/>
+					<polygon class="st73" points="446.5,368.5 475.5,364.9 461.5,351.1 					"/>
+					<polygon class="st74" points="435.6,354.3 446.5,368.5 461.5,351.1 					"/>
+					<polygon class="st75" points="540.2,376.4 550.5,378 537.2,352 					"/>
+					<polygon class="st76" points="550.5,378 560.6,355.5 537.2,352 					"/>
+					<polygon class="st77" points="517,370.4 540.2,376.4 537.2,352 					"/>
+					<polygon class="st78" points="475.5,364.9 504.9,362 494.2,349.9 					"/>
+					<polygon class="st79" points="461.5,351.1 475.5,364.9 494.2,349.9 					"/>
+					<polygon class="st80" points="623.8,380.8 634.8,381 629.6,348.3 					"/>
+					<polygon class="st81" points="537.2,352 560.6,355.5 549.9,347 					"/>
+					<polygon class="st82" points="593.9,367.2 623.8,380.8 606.6,345 					"/>
+					<polygon class="st83" points="623.8,380.8 629.6,348.3 606.6,345 					"/>
+					<polygon class="st84" points="494.2,349.9 504.9,362 518.1,340.4 					"/>
+					<polygon class="st85" points="504.9,362 517,370.4 518.1,340.4 					"/>
+					<polygon class="st3" points="517,370.4 537.2,352 518.1,340.4 					"/>
+					<polygon class="st86" points="560.6,355.5 593.9,367.2 573.1,338.3 					"/>
+					<polygon class="st87" points="593.9,367.2 606.6,345 573.1,338.3 					"/>
+					<polygon class="st88" points="549.9,347 560.6,355.5 573.1,338.3 					"/>
+					<polygon class="st89" points="494.2,349.9 518.1,340.4 485.3,332.9 					"/>
+					<polygon class="st90" points="461.5,351.1 494.2,349.9 485.3,332.9 					"/>
+					<polygon class="st91" points="606.6,345 629.6,348.3 623.9,332.7 					"/>
+					<polygon class="st92" points="435.6,354.3 461.5,351.1 443.5,329.3 					"/>
+					<polygon class="st93" points="429.7,336.9 435.6,354.3 443.5,329.3 					"/>
+					<polygon class="st94" points="443.5,329.3 461.5,351.1 456.2,328.5 					"/>
+					<polygon class="st95" points="537.2,352 549.9,347 537,328.5 					"/>
+					<polygon class="st96" points="518.1,340.4 537.2,352 537,328.5 					"/>
+					<polygon class="st97" points="549.9,347 573.1,338.3 570.4,324.3 					"/>
+					<polygon class="st98" points="461.5,351.1 485.3,332.9 471.3,322.8 					"/>
+					<polygon class="st99" points="456.2,328.5 461.5,351.1 471.3,322.8 					"/>
+					<polygon class="st100" points="429.7,336.9 443.5,329.3 429.5,320.2 					"/>
+					<polygon class="st101" points="471.3,322.8 485.3,332.9 481.2,319.4 					"/>
+					<polygon class="st102" points="606.6,345 623.9,332.7 606.5,320 					"/>
+					<polygon class="st103" points="573.1,338.3 606.6,345 606.5,320 					"/>
+					<polygon class="st104" points="570.4,324.3 573.1,338.3 606.5,320 					"/>
+					<polygon class="st105" points="537,328.5 549.9,347 550.8,313.6 					"/>
+					<polygon class="st106" points="549.9,347 570.4,324.3 550.8,313.6 					"/>
+					<polygon class="st107" points="456.2,328.5 471.3,322.8 460.4,311.9 					"/>
+					<polygon class="st108" points="443.5,329.3 456.2,328.5 460.4,311.9 					"/>
+					<polygon class="st109" points="570.4,324.3 606.5,320 590.9,307.6 					"/>
+					<polygon class="st110" points="429.5,320.2 443.5,329.3 437.2,304.1 					"/>
+					<polygon class="st111" points="443.5,329.3 460.4,311.9 437.2,304.1 					"/>
+					<polygon class="st112" points="590.9,307.6 606.5,320 609.9,305 					"/>
+					<polygon class="st113" points="471.3,322.8 481.2,319.4 480,302.2 					"/>
+					<polygon class="st114" points="460.4,311.9 471.3,322.8 480,302.2 					"/>
+					<polygon class="st115" points="570.4,324.3 590.9,307.6 578.5,302.3 					"/>
+					<polygon class="st116" points="606.5,320 623.9,332.7 627.4,302.9 					"/>
+					<polygon class="st117" points="609.9,305 606.5,320 627.4,302.9 					"/>
+					<polygon class="st118" points="550.8,313.6 570.4,324.3 559.9,301.1 					"/>
+					<polygon class="st119" points="570.4,324.3 578.5,302.3 559.9,301.1 					"/>
+					<polygon class="st120" points="537,328.5 550.8,313.6 518.1,299.6 					"/>
+					<polygon class="st121" points="518.1,340.4 537,328.5 518.1,299.6 					"/>
+					<polygon class="st122" points="485.3,332.9 518.1,340.4 518.1,299.6 					"/>
+					<polygon class="st123" points="481.2,319.4 485.3,332.9 518.1,299.6 					"/>
+					<polygon class="st124" points="550.8,313.6 559.9,301.1 548,296.3 					"/>
+					<polygon class="st125" points="518.1,299.6 550.8,313.6 548,296.3 					"/>
+					<polygon class="st126" points="480,302.2 481.2,319.4 503.8,293.6 					"/>
+					<polygon class="st127" points="481.2,319.4 518.1,299.6 503.8,293.6 					"/>
+					<polygon class="st128" points="437.2,304.1 460.4,311.9 455.2,292.8 					"/>
+					<polygon class="st129" points="460.4,311.9 480,302.2 455.2,292.8 					"/>
+					<polygon class="st130" points="590.9,307.6 609.9,305 588.9,292.6 					"/>
+					<polygon class="st131" points="578.5,302.3 590.9,307.6 588.9,292.6 					"/>
+					<polygon class="st4" points="437.2,304.1 455.2,292.8 438.6,289 					"/>
+					<polygon class="st132" points="429.5,320.2 437.2,304.1 438.6,289 					"/>
+					<polygon class="st133" points="609.9,305 627.4,302.9 625.9,288.8 					"/>
+					<polygon class="st134" points="503.8,293.6 518.1,299.6 516.9,287 					"/>
+					<polygon class="st135" points="559.9,301.1 578.5,302.3 571.6,287.2 					"/>
+					<polygon class="st136" points="578.5,302.3 588.9,292.6 571.6,287.2 					"/>
+					<polygon class="st137" points="480,302.2 503.8,293.6 478.8,285.8 					"/>
+					<polygon class="st138" points="455.2,292.8 480,302.2 478.8,285.8 					"/>
+					<polygon class="st139" points="588.9,292.6 609.9,305 612.3,285.3 					"/>
+					<polygon class="st88" points="609.9,305 625.9,288.8 612.3,285.3 					"/>
+					<polygon class="st140" points="548,296.3 559.9,301.1 553.1,282.7 					"/>
+					<polygon class="st141" points="559.9,301.1 571.6,287.2 553.1,282.7 					"/>
+					<polygon class="st142" points="548,296.3 553.1,282.7 537.1,281.9 					"/>
+					<polygon class="st143" points="518.1,299.6 548,296.3 537.1,281.9 					"/>
+					<polygon class="st144" points="516.9,287 518.1,299.6 537.1,281.9 					"/>
+					<polygon class="st145" points="516.9,287 537.1,281.9 523.1,278.8 					"/>
+					<polygon class="st146" points="571.6,287.2 588.9,292.6 589.6,275.6 					"/>
+					<polygon class="st147" points="478.8,285.8 503.8,293.6 486.5,273.2 					"/>
+					<polygon class="st148" points="455.2,292.8 478.8,285.8 473.1,272.1 					"/>
+					<polygon class="st149" points="478.8,285.8 486.5,273.2 473.1,272.1 					"/>
+					<polygon class="st150" points="588.9,292.6 612.3,285.3 599.8,272.7 					"/>
+					<polygon class="st151" points="589.6,275.6 588.9,292.6 599.8,272.7 					"/>
+					<polygon class="st152" points="589.6,275.6 599.8,272.7 593.2,272.4 					"/>
+					<polygon class="st153" points="553.1,282.7 571.6,287.2 555.1,270.5 					"/>
+					<polygon class="st154" points="503.8,293.6 516.9,287 508.1,269.3 					"/>
+					<polygon class="st155" points="486.5,273.2 503.8,293.6 508.1,269.3 					"/>
+					<polygon class="st91" points="516.9,287 523.1,278.8 508.1,269.3 					"/>
+					<polygon class="st156" points="612.3,285.3 625.9,288.8 633.2,270.6 					"/>
+					<polygon class="st157" points="438.6,289 455.2,292.8 437.7,266.7 					"/>
+					<polygon class="st132" points="429.5,320.2 438.6,289 437.7,266.7 					"/>
+					<polygon class="st158" points="523.1,278.8 537.1,281.9 541.5,267.5 					"/>
+					<polygon class="st103" points="537.1,281.9 553.1,282.7 541.5,267.5 					"/>
+					<polygon class="st159" points="553.1,282.7 555.1,270.5 541.5,267.5 					"/>
+					<polygon class="st160" points="571.6,287.2 589.6,275.6 572.4,265.3 					"/>
+					<polygon class="st115" points="555.1,270.5 571.6,287.2 572.4,265.3 					"/>
+					<polygon class="st161" points="589.6,275.6 593.2,272.4 572.4,265.3 					"/>
+					<polygon class="st162" points="486.5,273.2 508.1,269.3 499.6,261.1 					"/>
+					<polygon class="st163" points="455.2,292.8 473.1,272.1 462.9,259.7 					"/>
+					<polygon class="st164" points="437.7,266.7 455.2,292.8 462.9,259.7 					"/>
+					<polygon class="st165" points="593.2,272.4 599.8,272.7 597.1,258.4 					"/>
+					<polygon class="st166" points="499.6,261.1 508.1,269.3 525.7,256.5 					"/>
+					<polygon class="st167" points="508.1,269.3 523.1,278.8 525.7,256.5 					"/>
+					<polygon class="st168" points="523.1,278.8 541.5,267.5 525.7,256.5 					"/>
+					<polygon class="st169" points="437.7,266.7 462.9,259.7 446.5,254.1 					"/>
+					<polygon class="st170" points="473.1,272.1 486.5,273.2 475.2,254.2 					"/>
+					<polygon class="st171" points="525.7,256.5 541.5,267.5 556.5,255.3 					"/>
+					<polygon class="st172" points="541.5,267.5 555.1,270.5 556.5,255.3 					"/>
+					<polygon class="st173" points="555.1,270.5 572.4,265.3 556.5,255.3 					"/>
+					<polygon class="st174" points="486.5,273.2 499.6,261.1 488.6,253.6 					"/>
+					<polygon class="st175" points="475.2,254.2 486.5,273.2 488.6,253.6 					"/>
+					<polygon class="st176" points="597.1,258.4 599.8,272.7 614.1,253.2 					"/>
+					<polygon class="st177" points="633.2,270.6 631.9,256.7 614.1,253.2 					"/>
+					<polygon class="st178" points="599.8,272.7 612.3,285.3 614.1,253.2 					"/>
+					<polygon class="st179" points="612.3,285.3 633.2,270.6 614.1,253.2 					"/>
+					<polygon class="st180" points="572.4,265.3 593.2,272.4 581,250.6 					"/>
+					<polygon class="st181" points="593.2,272.4 597.1,258.4 581,250.6 					"/>
+					<polygon class="st182" points="597.1,258.4 614.1,253.2 602.9,246.9 					"/>
+					<polygon class="st183" points="581,250.6 597.1,258.4 602.9,246.9 					"/>
+					<polygon class="st184" points="556.5,255.3 572.4,265.3 560.6,244.5 					"/>
+					<polygon class="st185" points="572.4,265.3 581,250.6 560.6,244.5 					"/>
+					<polygon class="st186" points="488.6,253.6 499.6,261.1 496.3,236.8 					"/>
+					<polygon class="st187" points="499.6,261.1 525.7,256.5 496.3,236.8 					"/>
+					<polygon class="st188" points="525.7,256.5 531.3,238 496.3,236.8 					"/>
+					<polygon class="st189" points="581,250.6 602.9,246.9 582.4,236.1 					"/>
+					<polygon class="st190" points="560.6,244.5 581,250.6 582.4,236.1 					"/>
+					<polygon class="st191" points="556.5,255.3 560.6,244.5 542.9,235.5 					"/>
+					<polygon class="st192" points="525.7,256.5 556.5,255.3 542.9,235.5 					"/>
+					<polygon class="st193" points="531.3,238 525.7,256.5 542.9,235.5 					"/>
+					<polygon class="st194" points="614.1,253.2 631.9,256.7 620.9,235.4 					"/>
+					<polygon class="st195" points="631.9,256.7 638,242.4 620.9,235.4 					"/>
+					<polygon class="st196" points="602.9,246.9 614.1,253.2 608.7,233.6 					"/>
+					<polygon class="st197" points="614.1,253.2 620.9,235.4 608.7,233.6 					"/>
+					<polygon class="st198" points="475.2,254.2 488.6,253.6 481.6,228.9 					"/>
+					<polygon class="st199" points="488.6,253.6 496.3,236.8 481.6,228.9 					"/>
+					<polygon class="st200" points="582.4,236.1 602.9,246.9 593.5,229.6 					"/>
+					<polygon class="st201" points="602.9,246.9 608.7,233.6 593.5,229.6 					"/>
+					<polygon class="st202" points="560.6,244.5 582.4,236.1 571.4,227.9 					"/>
+					<polygon class="st203" points="531.3,238 542.9,235.5 520.7,223.8 					"/>
+					<polygon class="st136" points="496.3,236.8 531.3,238 520.7,223.8 					"/>
+					<polygon class="st204" points="542.9,235.5 560.6,244.5 553.4,222.5 					"/>
+					<polygon class="st205" points="560.6,244.5 571.4,227.9 553.4,222.5 					"/>
+					<polygon class="st206" points="608.7,233.6 620.9,235.4 616.6,219.8 					"/>
+					<polygon class="st207" points="553.4,222.5 571.4,227.9 577.4,218.6 					"/>
+					<polygon class="st208" points="582.4,236.1 593.5,229.6 577.4,218.6 					"/>
+					<polygon class="st209" points="571.4,227.9 582.4,236.1 577.4,218.6 					"/>
+					<polygon class="st210" points="481.6,228.9 496.3,236.8 506.7,215.9 					"/>
+					<polygon class="st211" points="496.3,236.8 520.7,223.8 506.7,215.9 					"/>
+					<polygon class="st212" points="620.9,235.4 638,242.4 639,217 					"/>
+					<polygon class="st82" points="616.6,219.8 620.9,235.4 639,217 					"/>
+					<polygon class="st213" points="577.4,218.6 593.5,229.6 597.9,213.9 					"/>
+					<polygon class="st214" points="593.5,229.6 608.7,233.6 597.9,213.9 					"/>
+					<polygon class="st215" points="608.7,233.6 616.6,219.8 597.9,213.9 					"/>
+					<polygon class="st216" points="520.7,223.8 542.9,235.5 545.4,207.4 					"/>
+					<polygon class="st217" points="542.9,235.5 553.4,222.5 545.4,207.4 					"/>
+					<polygon class="st218" points="577.4,218.6 597.9,213.9 580.9,206 					"/>
+					<polygon class="st219" points="481.6,228.9 506.7,215.9 497.9,203.8 					"/>
+					<polygon class="st220" points="616.6,219.8 639,217 636.1,203.8 					"/>
+					<polygon class="st221" points="497.9,203.8 506.7,215.9 517.9,201.8 					"/>
+					<polygon class="st222" points="506.7,215.9 520.7,223.8 517.9,201.8 					"/>
+					<polygon class="st223" points="520.7,223.8 545.4,207.4 533.9,200.4 					"/>
+					<polygon class="st224" points="517.9,201.8 520.7,223.8 533.9,200.4 					"/>
+					<polygon class="st216" points="597.9,213.9 616.6,219.8 604.2,201.1 					"/>
+					<polygon class="st225" points="580.9,206 597.9,213.9 604.2,201.1 					"/>
+					<polygon class="st226" points="616.6,219.8 636.1,203.8 624.7,198.5 					"/>
+					<polygon class="st227" points="604.2,201.1 616.6,219.8 624.7,198.5 					"/>
+					<polygon class="st228" points="533.9,200.4 545.4,207.4 552.8,194.1 					"/>
+					<polygon class="st229" points="545.4,207.4 553.4,222.5 552.8,194.1 					"/>
+					<polygon class="st230" points="553.4,222.5 577.4,218.6 552.8,194.1 					"/>
+					<polygon class="st231" points="577.4,218.6 580.9,206 552.8,194.1 					"/>
+					<polygon class="st232" points="497.9,203.8 517.9,201.8 505.1,190.5 					"/>
+					<polygon class="st5" points="517.9,201.8 533.9,200.4 522.8,189.1 					"/>
+					<polygon class="st233" points="505.1,190.5 517.9,201.8 522.8,189.1 					"/>
+					<polygon class="st6" points="580.9,206 604.2,201.1 578.5,185.5 					"/>
+					<polygon class="st234" points="552.8,194.1 580.9,206 578.5,185.5 					"/>
+					<polygon class="st235" points="578.5,185.5 604.2,201.1 599.1,178.7 					"/>
+					<polygon class="st236" points="604.2,201.1 624.7,198.5 599.1,178.7 					"/>
+					<polygon class="st237" points="624.7,198.5 632.2,179.8 599.1,178.7 					"/>
+					<polygon class="st238" points="533.9,200.4 552.8,194.1 528.3,177.3 					"/>
+					<polygon class="st239" points="522.8,189.1 533.9,200.4 528.3,177.3 					"/>
+					<polygon class="st6" points="552.8,194.1 578.5,185.5 564.6,170.7 					"/>
+					<polygon class="st240" points="528.3,177.3 552.8,194.1 564.6,170.7 					"/>
+					<polygon class="st241" points="505.1,190.5 522.8,189.1 519,169.7 					"/>
+					<polygon class="st242" points="522.8,189.1 528.3,177.3 519,169.7 					"/>
+					<polygon class="st235" points="599.1,178.7 632.2,179.8 626.7,166.1 					"/>
+					<polygon class="st243" points="599.1,178.7 626.7,166.1 607,164.2 					"/>
+					<polygon class="st244" points="599.1,178.7 607,164.2 583.5,162.5 					"/>
+					<polygon class="st245" points="578.5,185.5 599.1,178.7 583.5,162.5 					"/>
+					<polygon class="st246" points="564.6,170.7 578.5,185.5 583.5,162.5 					"/>
+					<polygon class="st247" points="528.3,177.3 564.6,170.7 546.2,156.9 					"/>
+					<polygon class="st248" points="519,169.7 528.3,177.3 546.2,156.9 					"/>
+					<polygon class="st249" points="564.6,170.7 583.5,162.5 568.6,151.8 					"/>
+					<polygon class="st250" points="546.2,156.9 564.6,170.7 568.6,151.8 					"/>
+					<polygon class="st251" points="583.5,162.5 607,164.2 609.3,151.6 					"/>
+					<polygon class="st252" points="519,169.7 546.2,156.9 535.8,145.2 					"/>
+					<polygon class="st253" points="568.6,151.8 583.5,162.5 582.1,141.1 					"/>
+					<polygon class="st254" points="583.5,162.5 609.3,151.6 601,139.2 					"/>
+					<polygon class="st255" points="582.1,141.1 583.5,162.5 601,139.2 					"/>
+					<polygon class="st7" points="546.2,156.9 568.6,151.8 561,137.3 					"/>
+					<polygon class="st8" points="535.8,145.2 546.2,156.9 547,135 					"/>
+					<polygon class="st256" points="546.2,156.9 561,137.3 547,135 					"/>
+				</g>
+			</g>
+			<g>
+				<polygon class="st257" points="857.9,252.7 827.4,221.7 802.7,202.7 778.3,196.5 763.1,196.1 751.7,194.6 739.2,194.1 
+					749.3,186.4 761.3,186.9 766.8,186.7 790.2,184.7 811.6,181.3 835.2,174.4 858.9,159.1 877.1,128.1 834.8,117.2 800.8,117.7 
+					770.7,130 755.9,144.3 745,161.7 739.5,175.5 734,187.4 727.8,193.8 716,193.6 711.3,193.6 709.4,181.5 697.3,168.5 
+					691.9,162.8 684.7,163 680.5,169.4 689.7,175.6 699.3,184.7 703.7,194.3 698.8,194.8 682.8,193.6 662.1,192.6 618.9,212.1 
+					596,233.5 582,263.1 574.6,291.4 572.9,321.9 582.7,356.4 597.8,400 604.2,414.8 618.5,436.5 632.2,453.2 647.5,461.6 
+					660.3,463.1 715,467 747.1,470 773.7,459.7 805.2,445.4 828.4,421.2 843.1,392.6 856.9,362.6 866.3,333.5 864.8,284.2 				"/>
+				<g>
+					<polygon class="st258" points="582,263.1 596.3,276.9 574.6,291.4 572.9,321.9 595.8,328.8 597,306.4 631.8,278.8 606.4,255.9 
+											"/>
+					<polygon class="st258" points="648,204.4 618.9,212.1 596,233.5 606.4,255.9 631.5,227.8 					"/>
+				</g>
+				<polygon class="st259" points="682.8,193.6 675.4,204.2 648,204.4 631.5,227.8 659.1,221.4 693.6,219 				"/>
+				<polygon class="st260" points="693.6,219 659.1,221.4 631.5,227.8 606.4,255.9 650,246.6 713.3,262.3 				"/>
+				<polygon class="st261" points="704.4,201 698.8,194.8 693.6,219 717.7,206.4 				"/>
+				<polygon class="st262" points="709.1,440.9 710.1,415.3 682.5,415.8 653.4,413.3 624.9,409.9 608.4,380.1 597.8,400 
+					604.2,414.8 618.5,436.5 632.2,453.2 647.5,461.6 660.3,463.1 697.8,459.7 715,467 732.8,459.7 735.7,455.7 				"/>
+				<g>
+					<polygon class="st263" points="660.3,463.1 715,467 697.8,459.7 					"/>
+				</g>
+				<polygon class="st264" points="735.5,217.7 750.7,203.7 729.8,198.5 717.7,206.4 693.6,219 713.3,262.3 735,255.2 755.7,240.4 
+									"/>
+				<g>
+					<polygon class="st265" points="696.8,359.6 685,325.1 653.2,328.3 633.5,305.9 597,306.4 595.8,328.8 602.7,357.7 608.4,380.1 
+						624.9,409.9 653.4,413.3 682.5,415.8 710.1,415.3 682,385.3 					"/>
+				</g>
+				<polygon class="st266" points="735,255.2 713.3,262.3 650,246.6 606.4,255.9 631.8,278.8 597,306.4 633.5,305.9 653.2,328.3 
+					685,325.1 696.8,359.6 732.8,358.6 749.8,328.1 777.1,285.7 				"/>
+				<polygon class="st267" points="765.3,353.2 749.8,328.1 732.8,358.6 696.8,359.6 682,385.3 710.1,415.3 756.4,401 821,401.5 
+					829.8,376.9 843.1,342.4 				"/>
+				<g>
+					<polygon class="st268" points="711.3,193.6 709.4,181.5 697.3,168.5 691.9,162.8 684.7,163 680.5,169.4 689.7,175.6 
+						699.3,184.7 703.7,194.3 704.4,201 717.7,206.4 					"/>
+					<g>
+						<polygon class="st269" points="680.5,169.4 689.4,172.9 691.9,162.8 684.7,163 						"/>
+						<polygon class="st269" points="711.3,193.6 704.7,183.7 703.7,194.3 704.4,201 717.7,206.4 						"/>
+					</g>
+				</g>
+				<polygon class="st270" points="572.9,321.9 582.7,356.4 595.8,328.8 				"/>
+				<polygon class="st271" points="582,263.1 574.6,291.4 596.3,276.9 				"/>
+				<polygon class="st272" points="596.3,276.9 574.6,291.4 597,306.4 				"/>
+				<polygon class="st273" points="574.6,291.4 572.9,321.9 597,306.4 				"/>
+				<polygon class="st274" points="572.9,321.9 595.8,328.8 597,306.4 				"/>
+				<polygon class="st275" points="595.8,328.8 582.7,356.4 602.7,357.7 				"/>
+				<polygon class="st276" points="596,233.5 582,263.1 606.4,255.9 				"/>
+				<polygon class="st277" points="582,263.1 596.3,276.9 606.4,255.9 				"/>
+				<polygon class="st278" points="582.7,356.4 597.8,400 608.4,380.1 				"/>
+				<polygon class="st279" points="602.7,357.7 582.7,356.4 608.4,380.1 				"/>
+				<polygon class="st280" points="597,306.4 595.8,328.8 611.3,328.6 				"/>
+				<polygon class="st281" points="595.8,328.8 602.7,357.7 611.3,328.6 				"/>
+				<polygon class="st282" points="604.2,414.8 618.5,436.5 624.9,409.9 				"/>
+				<polygon class="st283" points="597.8,400 604.2,414.8 624.9,409.9 				"/>
+				<polygon class="st284" points="608.4,380.1 597.8,400 624.9,409.9 				"/>
+				<polygon class="st285" points="596,233.5 606.4,255.9 631.5,227.8 				"/>
+				<polygon class="st286" points="618.9,212.1 596,233.5 631.5,227.8 				"/>
+				<polygon class="st287" points="606.4,255.9 596.3,276.9 631.8,278.8 				"/>
+				<polygon class="st288" points="596.3,276.9 597,306.4 631.8,278.8 				"/>
+				<polygon class="st289" points="602.7,357.7 608.4,380.1 632.7,359.1 				"/>
+				<polygon class="st290" points="611.3,328.6 602.7,357.7 632.7,359.1 				"/>
+				<polygon class="st291" points="597,306.4 611.3,328.6 633.5,305.9 				"/>
+				<polygon class="st292" points="631.8,278.8 597,306.4 633.5,305.9 				"/>
+				<polygon class="st293" points="624.9,409.9 618.5,436.5 644.1,446.8 				"/>
+				<polygon class="st294" points="618.5,436.5 632.2,453.2 644.1,446.8 				"/>
+				<polygon class="st295" points="644.1,446.8 632.2,453.2 647.5,461.6 				"/>
+				<polygon class="st258" points="618.9,212.1 631.5,227.8 648,204.4 				"/>
+				<polygon class="st296" points="606.4,255.9 631.8,278.8 648.8,262.8 				"/>
+				<polygon class="st297" points="631.5,227.8 606.4,255.9 650,246.6 				"/>
+				<polygon class="st298" points="606.4,255.9 648.8,262.8 650,246.6 				"/>
+				<polygon class="st299" points="611.3,328.6 632.7,359.1 653.2,328.3 				"/>
+				<polygon class="st300" points="633.5,305.9 611.3,328.6 653.2,328.3 				"/>
+				<polygon class="st301" points="624.9,409.9 644.1,446.8 653.4,413.3 				"/>
+				<polygon class="st302" points="624.9,409.9 653.4,413.3 657.4,379.3 				"/>
+				<polygon class="st303" points="608.4,380.1 624.9,409.9 657.4,379.3 				"/>
+				<polygon class="st304" points="632.7,359.1 608.4,380.1 657.4,379.3 				"/>
+				<polygon class="st305" points="648,204.4 631.5,227.8 659.1,221.4 				"/>
+				<polygon class="st306" points="631.5,227.8 650,246.6 659.1,221.4 				"/>
+				<polygon class="st307" points="644.1,446.8 647.5,461.6 660.3,463.1 				"/>
+				<polygon class="st308" points="618.9,212.1 648,204.4 662.1,192.6 				"/>
+				<polygon class="st309" points="653.2,328.3 632.7,359.1 667.2,359.6 				"/>
+				<polygon class="st310" points="632.7,359.1 657.4,379.3 667.2,359.6 				"/>
+				<polygon class="st311" points="633.5,305.9 653.2,328.3 668.5,301.5 				"/>
+				<polygon class="st312" points="631.8,278.8 633.5,305.9 668.5,301.5 				"/>
+				<polygon class="st313" points="648.8,262.8 631.8,278.8 668.5,301.5 				"/>
+				<polygon class="st314" points="653.4,413.3 644.1,446.8 675.1,445.9 				"/>
+				<polygon class="st315" points="644.1,446.8 660.3,463.1 675.1,445.9 				"/>
+				<polygon class="st316" points="648,204.4 659.1,221.4 675.4,204.2 				"/>
+				<polygon class="st317" points="662.1,192.6 648,204.4 675.4,204.2 				"/>
+				<polygon class="st318" points="667.2,359.6 657.4,379.3 682,385.3 				"/>
+				<polygon class="st319" points="657.4,379.3 653.4,413.3 682,385.3 				"/>
+				<polygon class="st320" points="653.4,413.3 675.1,445.9 682.5,415.8 				"/>
+				<polygon class="st321" points="682,385.3 653.4,413.3 682.5,415.8 				"/>
+				<polygon class="st322" points="662.1,192.6 675.4,204.2 682.8,193.6 				"/>
+				<polygon class="st323" points="653.2,328.3 667.2,359.6 685,325.1 				"/>
+				<polygon class="st324" points="668.5,301.5 653.2,328.3 685,325.1 				"/>
+				<polygon class="st325" points="684.7,163 680.5,169.4 689.4,172.9 				"/>
+				<polygon class="st326" points="689.4,172.9 680.5,169.4 689.7,175.6 				"/>
+				<polygon class="st327" points="684.7,163 689.4,172.9 691.9,162.8 				"/>
+				<polygon class="st328" points="682.8,193.6 675.4,204.2 693.6,219 				"/>
+				<polygon class="st329" points="659.1,221.4 650,246.6 693.6,219 				"/>
+				<polygon class="st259" points="675.4,204.2 659.1,221.4 693.6,219 				"/>
+				<polygon class="st330" points="667.2,359.6 682,385.3 696.8,359.6 				"/>
+				<polygon class="st331" points="685,325.1 667.2,359.6 696.8,359.6 				"/>
+				<polygon class="st268" points="691.9,162.8 689.4,172.9 697.3,168.5 				"/>
+				<polygon class="st332" points="675.1,445.9 660.3,463.1 697.8,459.7 				"/>
+				<polygon class="st333" points="668.5,301.5 685,325.1 698,300.8 				"/>
+				<polygon class="st334" points="689.4,172.9 689.7,175.6 698.8,176.3 				"/>
+				<polygon class="st335" points="697.3,168.5 689.4,172.9 698.8,176.3 				"/>
+				<polygon class="st336" points="682.8,193.6 693.6,219 698.8,194.8 				"/>
+				<polygon class="st337" points="698.8,176.3 689.7,175.6 699.3,184.7 				"/>
+				<polygon class="st338" points="698.8,194.8 693.6,219 704.4,201 				"/>
+				<polygon class="st339" points="703.7,194.3 698.8,194.8 704.4,201 				"/>
+				<polygon class="st340" points="698.8,176.3 699.3,184.7 704.7,183.7 				"/>
+				<polygon class="st341" points="699.3,184.7 703.7,194.3 704.7,183.7 				"/>
+				<polygon class="st342" points="682.5,415.8 675.1,445.9 709.1,440.9 				"/>
+				<polygon class="st343" points="675.1,445.9 697.8,459.7 709.1,440.9 				"/>
+				<polygon class="st344" points="697.3,168.5 698.8,176.3 709.4,181.5 				"/>
+				<polygon class="st345" points="698.8,176.3 704.7,183.7 709.4,181.5 				"/>
+				<polygon class="st346" points="682,385.3 682.5,415.8 710.1,415.3 				"/>
+				<polygon class="st347" points="682.5,415.8 709.1,440.9 710.1,415.3 				"/>
+				<polygon class="st348" points="704.7,183.7 703.7,194.3 711.3,193.6 				"/>
+				<polygon class="st269" points="703.7,194.3 704.4,201 711.3,193.6 				"/>
+				<polygon class="st349" points="696.8,359.6 682,385.3 713.1,377.4 				"/>
+				<polygon class="st350" points="682,385.3 710.1,415.3 713.1,377.4 				"/>
+				<polygon class="st351" points="648.8,262.8 668.5,301.5 713.3,262.3 				"/>
+				<polygon class="st352" points="668.5,301.5 698,300.8 713.3,262.3 				"/>
+				<polygon class="st353" points="650,246.6 648.8,262.8 713.3,262.3 				"/>
+				<polygon class="st260" points="693.6,219 650,246.6 713.3,262.3 				"/>
+				<polygon class="st354" points="709.1,440.9 697.8,459.7 715,467 				"/>
+				<polygon class="st355" points="697.8,459.7 660.3,463.1 715,467 				"/>
+				<polygon class="st261" points="704.4,201 693.6,219 717.7,206.4 				"/>
+				<polygon class="st356" points="696.8,359.6 713.1,377.4 732.8,358.6 				"/>
+				<polygon class="st357" points="685,325.1 696.8,359.6 732.8,358.6 				"/>
+				<polygon class="st358" points="698,300.8 685,325.1 733,299.8 				"/>
+				<polygon class="st359" points="713.3,262.3 698,300.8 733,299.8 				"/>
+				<polygon class="st360" points="717.7,206.4 693.6,219 735.5,217.7 				"/>
+				<polygon class="st361" points="693.6,219 713.3,262.3 735.5,217.7 				"/>
+				<polygon class="st357" points="685,325.1 732.8,358.6 749.8,328.1 				"/>
+				<polygon class="st357" points="733,299.8 685,325.1 749.8,328.1 				"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

@@ -12,14 +12,17 @@
 @import 'layout/header';
 @import 'layout/footer';
 
+//跳窗
+@import 'layout/modal_login';
+
 // body {
 //     background-color: $bg_color;
 // }
 
-.back_img{
+.back_img {
     width: 100%;
     position: fixed;
-    top:0;
+    top: 0;
     z-index: -1;
 }
 
@@ -189,11 +192,86 @@ canvas {
             @include bigbtn_s;
             margin: 0 0.5rem 1rem;
         }
-        
+
         //點選顯示目前位置
-        .active{
+        .active {
             color: $btn_s_color;
             background-color: $btn_m_color;
+        }
+    }
+}
+
+
+//彈跳訂單視窗
+.blocker{ //修改彈窗背景z-index
+    z-index: 200;
+}
+#popOrder{
+    background-color: #F7F6F2;
+}
+.order {
+    width: 390px;
+
+    h3 {
+        width: 100%;
+        height: 55px;
+        background-color: #84A59D;
+        color: #fff;
+        border-radius: 8px;
+        @include flexcenter;
+    }
+
+    table {
+        font-family: $fontFamily;
+        font-size: $p_size;
+        line-height: $p_line;
+        letter-spacing: $p_letter;
+        @include flexcenter;
+        text-align: left;
+        margin: 17px 0;
+        color: #3d3b3b;
+
+        tr {
+            td {
+                padding: 5px 15px;
+                select {
+                    @include select(20rem);
+                    font-size: $p_size;
+                    line-height: $p_line;
+                    letter-spacing: $p_letter;
+                }
+
+                .item_text {
+                    @include text(4rem);
+                }
+            }
+        }
+    }
+
+    .btn {
+        text-align: center;
+
+        button {
+            width: 100px;
+            height: 35px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-weight: bolder;
+            margin: 6px 20px;
+        }
+
+        button:hover {
+            opacity: .8;
+        }
+
+        #cancel {
+            background-color: #BB9590;
+        }
+
+        #send {
+            background-color: #84A59D;
         }
     }
 }
@@ -218,11 +296,13 @@ canvas {
             .con_btnbox {
                 flex-wrap: wrap;
                 justify-content: center;
+
                 .bigbtn_s {
-                    margin-top:0.5rem;
+                    margin-top: 0.5rem;
                 }
+
                 .bigbtn_m {
-                    margin:0.5rem 0.6rem 0;
+                    margin: 0.5rem 0.6rem 0;
                 }
             }
         }
@@ -245,7 +325,7 @@ canvas {
         }
     }
 
-    .more_tree {  
+    .more_tree {
         .more_btnbox {
             .bigbtn_s {
                 margin: 0 0.3rem 1rem;
