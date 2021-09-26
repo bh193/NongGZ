@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>找農果子</title>
+    <link rel="stylesheet" href="./css/彈跳視窗範本.css">
     <link rel="stylesheet" href="css/contact.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/contact.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
@@ -57,8 +59,7 @@
                     </div>
                     <div class="btnbox">
                         <button type="reset"class="btn">清除</button>
-                        <button  id="btn" class="btn">送出</button>
-                        
+                        <a href="#popOrder" rel="modal:open"><button  id="btn" class="sub">送出</button></a>
                     </div>
                 </div>
             </form> 
@@ -66,6 +67,7 @@
             </div>
             
         </div>
+        
         <div class="info">
             <div class="box">
                 <h3>聯絡資料</h3>
@@ -79,10 +81,23 @@
                 </ul>
             </div>
         </div>
+      <!-- 視窗內容 -->
+        <div id="popOrder" class="modal dialog">
+            <p>感謝你的意見與回饋!</p>
         <script>
             var el = document.getElementById("btn");
             el.addEventListener('click',pressBtn2,false);
-            el.addEventListener('click',pressBtn,false);
+            // el.addEventListener('click',pressBtn,false);
         </script>
+        <script>
+
+            $('a[href="#pop_1"]').click(function(event) {
+              event.stopPropagation();
+              $(this).modal({
+                fadeDuration: 300
+              });
+            });
+            
+            </script>
 </body>
 </html>

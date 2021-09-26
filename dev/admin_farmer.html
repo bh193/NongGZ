@@ -23,8 +23,8 @@
                     <img src="" alt="">
                 </div>
                 <div class="box">
-                    <button class="btn">修改</button>
-                    <button class="btn">儲存</button>
+                    <button class="btn" onclick="showinput()">修改</button>
+                    <button class="btn" onclick="myFunction()">儲存</button>
                 </div>
             </div>
             <div class="table">
@@ -49,7 +49,18 @@
                           <td>林阿桃</td>
                           <td>上架</td>
                           <td>0912345678</td>
-                          <td>審核中</td>
+                          <td>
+                              <div id="option" style="display: none;"> 
+                                  <select name="" id="state">
+                                      <option value="審核中">審核中</option>
+                                      <option value="停用">停用</option>
+                                      <option value="啟用">啟用</option>
+                                  </select>
+                              </div>
+                              <div style="display:block;">
+                                  <span id="demo">啟用</span>
+                              </div>
+                          </td>
                           <td><button  onclick="detail()">詳情</button></td>
                         </tr>
                         <tr>
@@ -126,6 +137,16 @@
     <script>
         function detail() {
             document.getElementById("detail").style.display="block";
+        }
+        function myFunction() {
+         document.getElementById("option").style.display="none";
+         document.getElementById("demo").style.display="block";    
+        var x = document.getElementById("state").value;
+        document.getElementById("demo").innerHTML =x;
+        }
+        function showinput() {
+            document.getElementById("option").style.display="block";
+            document.getElementById("demo").style.display="none";
         }
     </script>
 </body>
