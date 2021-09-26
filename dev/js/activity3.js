@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 });//end doc ready
 
-/////////////////
+
 
 
 var _gaq = _gaq || [];
@@ -54,3 +54,13 @@ speed: 500,
 fade: true,
 cssEase: 'linear'
 });
+
+
+/////////// 彈跳視窗速度
+
+$('a[href="#popOrder"]').click(function(event) {
+    event.stopPropagation();
+    $(this).modal({
+      fadeDuration: 300
+    });
+  });

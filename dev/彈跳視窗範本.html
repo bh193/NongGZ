@@ -18,12 +18,12 @@
 <body>
 <h1>此為"請登入會員"彈跳視窗</h1>
 
-<!-- 從這開始複製 -->  
+<!-- 從這開始 -->  
 <!-- 用a標籤 包觸發的按鈕 -->
 <a href="#pop_1" rel="modal:open"><button id="modal_btn_1">按我</button></a>
   
 @@include('layout/modal_login.html')
-<!-- 複製到這 -->
+<!-- 到這 -->
 
 <hr>
 <hr>
@@ -49,19 +49,14 @@
 
   </div>
 
-
-
-
-
-
 <script>
 
-// $('a[href="#ex7"]').click(function(event) {
-//   event.preventDefault();
-//   $(this).modal({
-//     fadeDuration: 250
-//   });
-// });
+$('a[href="#pop_1"]').click(function(event) {
+  event.stopPropagation();
+  $(this).modal({
+    fadeDuration: 300
+  });
+});
 
 </script>
 </body>

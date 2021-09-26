@@ -45,13 +45,16 @@ article{
   @include flexcenter;
   justify-content: center;
   // width: 711px;
-    select{
+    >*{
       @include select();
       margin:30px 0 0 0;
         option{
           @include flexcenter;
         }
-  }
+    }
+    .date{
+      width: 168px;
+    }
 }
 
 .main{
