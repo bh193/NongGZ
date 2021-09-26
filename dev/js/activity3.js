@@ -58,7 +58,7 @@ cssEase: 'linear'
 
 /////////// 彈跳視窗速度
 
-$('a[href="#popOrder"]').click(function(event) {
+$('a[href="#modal_order"]').click(function(event) {
     event.stopPropagation();
     $(this).modal({
       fadeDuration: 300

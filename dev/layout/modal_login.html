@@ -1,4 +1,4 @@
-<div id="pop_login" class="modal">
+<div id="modal_login" class="modal">
   <h3>請登入會員</h3>
   <div class="btn">
     <a href="#" rel="modal:close"><button id="cancel">取消</button></a>  
@@ -7,7 +7,7 @@
 </div>
 
 <script>
-  $('a[href="#pop_login"]').click(function(event) {
+  $('a[href="#modal_login"]').click(function(event) {
     event.stopPropagation();
     $(this).modal({
       fadeDuration: 300
