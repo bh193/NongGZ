@@ -20,7 +20,7 @@
 
 <!-- 從這開始 -->  
 <!-- 用a標籤 包觸發的按鈕 -->
-<a href="#pop_1" rel="modal:open"><button id="modal_btn_1">按我</button></a>
+<a href="#pop_login" rel="modal:open"><button id="modal_btn_1">按我</button></a>
   
 @@include('layout/modal_login.html')
 <!-- 到這 -->
@@ -49,9 +49,17 @@
 
   </div>
 
+  <hr>
+  <hr>
+  <hr>
+<h1><h1>此為"已寄出訂單明細信件"彈跳視窗</h1></h1>
+  <a href="#pop_mail" rel="modal:open"><button>已寄出視窗</button></a>
+  @@include('layout/modal_mail.html')
+
+
 <script>
 
-$('a[href="#pop_1"]').click(function(event) {
+$('a[href="#popOrder"]').click(function(event) {
   event.stopPropagation();
   $(this).modal({
     fadeDuration: 300

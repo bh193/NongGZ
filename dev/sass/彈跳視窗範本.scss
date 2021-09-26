@@ -9,11 +9,13 @@
 @import 'mixin/mixin';
 
 // 彈跳視窗
+@import 'layout/modal_mail';
 @import 'layout/modal_login';
 
 h1{
   font-size: 24px;
   margin: 50px 0;
+  color: red;
 }
 
 // 彈跳視窗空白範本
