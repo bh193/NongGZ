@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員登入</title>
-    <script src="js/jquery.min.js"></script>
     <!-- <script src="./js/memlogin.js"></script> -->
+    <script src="js/jquery.min.js"></script>
+    <!-- 引入jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 <body>
     @@include('layout/header.html')
@@ -101,5 +104,15 @@
     document.getElementById('login').style.display = "none";
     }
     </script>
+    <script>
+
+        $('a[href="#popOrder"]').click(function(event) {
+          event.stopPropagation();
+          $(this).modal({
+            fadeDuration: 300
+          });
+        });
+        
+        </script>
 </body>
 </html>

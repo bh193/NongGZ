@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小農註冊</title>
     <script src="js/jquery.min.js"></script>
+    <!-- 引入jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 </head>
 <body>
     @@include('layout/header.html')
@@ -70,8 +73,22 @@
                     
                 </div>
             </form>
+            <div id="popOrder" class="modal dialog"> 
+                <h3>歡迎加入農果子</h3>
+                <p>欲申請加入小農行列，請確實填寫基本資料，審核通過後即可成為會員。</p>
+                <!-- <span><marquee behavior="slide" direction="">溫馨小提醒：此入口僅提供小農註冊</marquee></span> -->
+                
+                
         </div>
     </div>
     <link rel="stylesheet" href="css/farmregister.css">
+    <script>
+         $(window).ready(() => {
+            $('#popOrder').modal({fadeDuration: 300})
+        })
+
+
+
+      </script>
 </body>
 </html>
