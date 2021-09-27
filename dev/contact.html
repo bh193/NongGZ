@@ -81,7 +81,7 @@
                     </div>
                     <div class="btnbox">
                         <button type="reset"class="btn">清除</button>
-                        <a href="#popOrder" rel="modal:open"><button  id="btn3" class="sub">送出</button></a>
+                        <a href="#popOrder" rel="modal:open"><button  id="btn" class="sub">送出</button></a>
                     </div>
                 </div>
             </form> 
@@ -90,14 +90,6 @@
             
         </div>
         
-        <!-- <div class="info">
-            <div class="box">
-                <h3>聯絡資料</h3>
-            </div>
-            <div class="box">
-
-            </div>
-        </div> -->
         @@include('layout/footer.html')
       <!-- 視窗內容 -->
         <div id="popOrder" class="modal dialog">
@@ -105,8 +97,8 @@
             <p>已收到您給予我們的意見反應與回饋，您的寶貴建議是讓我們進步的最大動力。農果子會盡速回覆您提出的問題!</p>
 
         <script>
-            var el = document.getElementById("btn");
-            el.addEventListener('click',pressBtn2,false);
+            var el = document.getElementById("btn3");
+            // el.addEventListener('click',pressBtn2,false);
             // el.addEventListener('click',pressBtn,false);
         </script>
         <script>

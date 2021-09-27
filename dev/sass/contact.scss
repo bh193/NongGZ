@@ -152,14 +152,12 @@ body{
         }
     }
 }
-
+/*是窗框*/
     .dialog{
-        width: 150px;
-        height: 100px;
+        width: 370px;
+        height: 120px;
         background-color: #F7F6F2;
-        padding: 20px;
-        p{
-        }
+        padding: 1.25rem 1.8rem 1rem;
     }
 /*RWD*/
 
@@ -181,9 +179,6 @@ body{
         .box:nth-child(3){
             width: 50%;
             background-color: #DFE5DC;
-            .form{
-            }
-        
         }
     }
     .info{
