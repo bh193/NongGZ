@@ -48,13 +48,14 @@ button{
 .wrap{
     @include container(10rem);
     .box:nth-child(1){
+        width: 100%;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
         .item{
-            @include margincenter($var:0.625rem);
-            width: 100%;
-            justify-content: space-evenly;
-
+            @include margincenter($var:0.5rem);
+            
         }
     }
     // .box:nth-child(2){
@@ -84,9 +85,10 @@ button{
     .wrap{
         .box:nth-child(1){
             flex-direction: row;
-            width: 70%;
             .item{
-                width: 100%;
+                width: 50%;
+                text-align: center;
+
             }
         }
         .box:nth-child(2){
