@@ -9,46 +9,102 @@
 // mixin
 @import 'mixin/mixin';
 @import 'layout/header';
+@import 'layout/footer';
 body{
     background-image: url('../images/svg/background.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
+}
+*{
+    list-style: none;
+    text-decoration: none
 }
 .content{
     @include container(10rem);
     display: flex;
     flex-direction: column;
-    // width: 100%;
     .box{
         width: 100%;
-        
     }
     .box:nth-child(1){
+        .breadcrumb{
+            padding: 0 0.5rem 1rem;
+            ol{
+                display: flex;
+            }
+            li{
+                
+                padding: 0 1rem;
+                &:last-child a{
+                    color: $main_color;
+                }
+            }
+            li+li{
+                padding-left: 0;
+                &::before{
+                    content: '/';
+                    margin-right: 1rem;
+                }
+            }
+            a{
+                color: $p_color;
+                font-weight: $h3_weight;
+                &:hover{
+                    color: $main_color;
+                }
+            }
+        }
+
+    }
+    .box:nth-child(2){
         position: relative;
         .img{
             width: 100%;
-            height: 200px;
-            background-image: url('../images/img/contact_6.jpg');
-            opacity: 0.8;
-            background-color: $bg_color;
+            height: 300px;
+            background-image: url('../images/img/contact_4.jpg');
+
             background-repeat: no-repeat;
             background-size: cover;
+            position: relative;
+        }
+        .shadow{
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+            position: absolute;
+            top:0;
         }
         .text{
             @include positioncenter();
-            // background-color: $bg_color;
+            width: 20rem;
+            text-align: justify;
             padding: 10px;
             h3{text-align: center;color:#f6bd60;}
-            p{color: #fff;}
- 
+            p{
+                color:$bg_color;
+                margin-bottom: 3rem;
+            
+            }
+            ul{
+                li{
+                    // width:100%;
+                    font-size:1rem;
+                    color:$bg_color;
+                    line-height: $p_line;
+                    letter-spacing: $p_letter;
+               
+            }
+        }
         }
         
     }
-    .box:nth-child(2){
+    .box:nth-child(3){
         .form{
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 3rem 0;
             .col{
                 text-align: left;
                 @include margincenter($var:0.5rem);
@@ -57,7 +113,7 @@ body{
         label{
             @include label;
             display: block;
-            margin-top: 10px;
+            line-height: 2;
         }
         input,textarea{
             @include text(350px);
@@ -96,63 +152,33 @@ body{
         }
     }
 }
-.info{
-    // @include margincenter($var:3rem);
-    background-color:$main_color;
-    display: flex;
-    flex-wrap: wrap;
-        .box{
-            width: 100%;
-            margin: auto;
-            padding: 15px;
-            position: relative;
-            
-        }
-        .box:nth-child(1){
-            @include flexcenter();
-        }
-        .box:nth-child(2){
-
-            @include flexcenter();
-            ul{
-                li{
-                    color: $h4_color;
-                    font-size: $h4_size;
-                    line-height: $h4_line;
-                    letter-spacing: $h4_letter;
-                }
-            }
-        }
-    }
+/*是窗框*/
     .dialog{
-        width: 150px;
-        height: 100px;
+        width: 370px;
+        height: 120px;
         background-color: #F7F6F2;
-        padding: 20px;
-        p{
-
-        }
+        padding: 1.25rem 1.8rem 1rem;
     }
 /*RWD*/
 
 @include t{
     .content{
         flex-direction: row;
+        flex-wrap: wrap;
         width: 100%;
-        .box{
-            width: 50%;
-            @include flexcenter();
-        }
         .box:nth-child(1){
-            .img{
-                height: 660px;
-            }
+            width: 100%;
         }
         .box:nth-child(2){
-            background-color: #DFE5DC;
-            .form{
+            width: 50%;
+            .img{
+                // height: 660px;
+                height: 100%;
             }
-        
+        }
+        .box:nth-child(3){
+            width: 50%;
+            background-color: #DFE5DC;
         }
     }
     .info{
@@ -163,4 +189,7 @@ body{
             width: 50%;
         }
     }
+}
+@include d{
+
 }

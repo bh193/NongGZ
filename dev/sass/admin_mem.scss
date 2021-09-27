@@ -38,6 +38,16 @@
                     font-weight:600;
                     cursor: pointer;
                 }
+                .wordlimit{
+                    max-width:150px;
+                    padding: 0;
+                    vertical-align: middle;
+                    p{
+                        font-size: 12px;
+                        text-align: left;
+                        
+                    }
+                }
             }
 
         }
@@ -57,7 +67,7 @@
                 }
             }
             .box:nth-child(2){
-                .btn:nth-child(1){@include smallbtn_s;}
+                .btn:nth-child(1){@include smallbtn_s;margin-right: 10px;}
                 .btn:nth-child(2){@include smallbtn_m;}}
         }
         .order{

@@ -139,6 +139,11 @@ function font() {
     return src(['dev/font/*.*'])
         .pipe(dest('dist/font'))
 }
+//--------------json------------------//
+function gmap() {
+    return src(['dev/json/*.*'])
+        .pipe(dest('dist/json'))
+}
 
 //--------------瀏覽器同步------------------//
 const browserSync = require('browser-sync');
@@ -158,8 +163,8 @@ function browser(done) {
     done();
 }
 
-exports.default = series(browser, font, images); // dev
-exports.packageall = series(clear, parallel(styles, jsmin, includeHTML, font), parallel(images_mem, images_farm, images_fruit, images_tree, images_activity, images_post, images_map, images_common, images_img, images_png, images_svg));  // 打包上線
+exports.default = series(browser, font, images,gmap); // dev
+exports.packageall = series(clear, parallel(styles, jsmin, includeHTML, font), parallel(images_mem, images_farm, images_fruit, images_tree, images_activity, images_post, images_map, images_common, images_img, images_png, images_svg,gmap));  // 打包上線
 
 
 
