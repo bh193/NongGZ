@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/post.css">
     <script src="js/jquery.min.js"></script>
+    <!-- 引入jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <title>Document</title>
 </head>
 <body>
@@ -43,7 +46,9 @@
                                     <input type="file" hidden id="inputf">
                                 </div>
                                 <button class="tag">tag農場</button>
-                                <button class="active">發佈</button>
+                                <a href="#modal_login" rel="modal:open"><button id="modal_btn_1">發佈</button class="active"></a>
+                                @@include('layout/modal_login.html')
+                                <!-- <button class="active">發佈</button> -->
                             </div>
                         </div>
                     </div>
