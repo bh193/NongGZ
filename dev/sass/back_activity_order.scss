@@ -18,7 +18,7 @@
     background-color: #F7EDE2;
     overflow: hidden;
     margin-bottom: 2rem;
-
+    cursor: pointer;
     .con_title{
         display: flex;
         justify-content: space-between;
@@ -28,7 +28,6 @@
         .minus_sign{
             width: 5%;
             position: relative;
-            cursor: pointer;
             img{
                 width: 100%;
                 vertical-align:top;

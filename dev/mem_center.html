@@ -13,6 +13,10 @@
 
   <link rel="stylesheet" href="css/tree_growing.css">
 
+  <!-- 記得引入jQuery Modal -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
   <style>
     /* 覆蓋認養果樹訂單tree_growing.scss */
     section{
@@ -47,7 +51,8 @@
         <input type="text" id="mem_tel">
       </li>
       <li class="btn">
-        <button id="edit">修改密碼</button>
+        <a href="#modal_password" rel="modal:open"><button id="edit">修改密碼</button></a>
+        @@include('layout/modal_password.html')
         <button id="save">儲存資料</button>
       </li>
     </ol>

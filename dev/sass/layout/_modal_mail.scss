@@ -1,4 +1,4 @@
-#modal_login{
+#modal_mail{
   width: 370px;
   height: 140px;
   background-color: #F7F6F2;
@@ -19,15 +19,7 @@
     button:hover{
       opacity: .8;
     }
-    #sign{
+    #cancel{
       background-color: #BB9590;
     }
-    #logIn{
-      background-color:#84A59D;
-    }
-}
-
-//修改彈窗背景z-index
-.blocker{ 
-  z-index: 200;
 }

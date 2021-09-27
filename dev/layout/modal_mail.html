@@ -1,0 +1,13 @@
+<div id="modal_mail" class="modal">
+  <h3>訂單明細確認信已寄出，請收E-mail</h3>
+  <a href="#" rel="modal:close"><button id="cancel">關閉</button></a>  
+</div>
+
+<script>
+  $('a[href="#modal_mail"]').click(function(event) {
+    event.stopPropagation();
+    $(this).modal({
+      fadeDuration: 300
+    });
+  });
+</script>
