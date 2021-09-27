@@ -25,14 +25,14 @@
     }
 }
 body{
-    background-image: url('../images/svg/background.svg');
+    background-image: url('../images/svg/background.svg'); 
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: cover;
 }
 .page{
-    @include margincenter(8rem);
+    @include margincenter(10rem);
 }
-
 .farminfo-nav{
     .container{
         @include container();
@@ -40,12 +40,16 @@ body{
             display: flex;
             padding: 0 0.5rem 1rem;
             li{
-                &::before{
-                    content: '⁄';
-                    margin-right: 1rem;
-                }
+                padding: 0 1rem;
                 &:last-child a{
                     color: $main_color;
+                }
+            }
+            li+li{
+                padding-left: 0;
+                &::before{
+                    content: '/';
+                    margin-right: 1rem;
                 }
             }
             a{

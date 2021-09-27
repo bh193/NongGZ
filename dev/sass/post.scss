@@ -16,10 +16,42 @@
     text-decoration: none;
 }
 body{
-    background-image: url('../images/svg/background.svg') no-repeat fixed; 
+    background-image: url('../images/svg/background.svg'); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 .page{
     @include margincenter(10rem);
+}
+.post-nav{
+    .container{
+        @include container();
+        .breadcrumb{
+            display: flex;
+            padding: 0 0.5rem 1rem;
+            li{
+                padding: 0 1rem;
+                &:last-child a{
+                    color: $main_color;
+                }
+            }
+            li+li{
+                padding-left: 0;
+                &::before{
+                    content: '/';
+                    margin-right: 1rem;
+                }
+            }
+            a{
+                color: $p_color;
+                font-weight: $h3_weight;
+                &:hover{
+                    color: $main_color;
+                }
+            }
+        }
+    }
 }
 .post{
     .container{
