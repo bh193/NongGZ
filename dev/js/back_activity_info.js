@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $("#clear").click(function(){
-    $("#text_area").val("");
-    $(".item_text").val("");
+    $(this).parent().siblings(".item").find("#text_area").val("");
+    $(this).parent().siblings(".item").find(".item_text").val("");
   });
 });
