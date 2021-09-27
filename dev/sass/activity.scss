@@ -23,7 +23,7 @@ body{
   background-size: cover;
 }
 article{
-  @include container(10rem);
+  @include container(7rem);
   p{
     font-size: 16px;
   }
