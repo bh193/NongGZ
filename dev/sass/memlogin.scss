@@ -66,7 +66,7 @@ input{
         .login,.register{
             .text{
                 @include margincenter($var:1rem);
-              
+                 
             }
             .text:last-child{
                 width: 100%;
@@ -76,20 +76,25 @@ input{
                 .btn:nth-child(2){@include smallbtn_m;}
             }
         }
+        .register{
+            .text:nth-child(5){ //input radio
+                max-width: 350px;
+                width: 100%;
+                display: flex;
+                input{
+                    width: 10%;
+                }
+                label{
+                    width: 90%;
+                    font-size: 12px;
+                    margin-top: 0px;
+                }
+
+            }
+        }
 
     }
 }
 
-.login{display: block;}
-.register{
-    display: none;
-    .text:nth-child(5){
-    
-
-
-    }
-
-    
-}
 
 

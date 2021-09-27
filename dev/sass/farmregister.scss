@@ -57,15 +57,18 @@ select{
             @include margincenter($var:1rem);
         }
         .item:nth-child(10){
-            // display: flex;
-            input[type=radio]{
-                width: 1rem;
-                vertical-align: baseline;
+            max-width: 350px;
+            width: 100%;
+            display: flex;
+            input{
+                width: 10%;
             }
-            span{
-               font-size: $h4_size;
-               vertical-align: middle;
+            label{
+                width: 90%;
+                font-size: 12px;
+                margin-top: 0px;
             }
+
         }
         .btnbox{
             width: 350px;
