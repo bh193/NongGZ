@@ -1,68 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>找農果子</title>
-    <link rel="stylesheet" href="./css/彈跳視窗範本.css">
     <link rel="stylesheet" href="css/contact.css">
     <script src="js/jquery.min.js"></script>
-    <script src="js/contact.min.js"></script>
+    <!-- 引入jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+
     <script type="text/javascript">
-        (function() {
-           
+        (function () {
+
             emailjs.init("user_aMjH5KHo9lvpKrwcByHs4");
         })();
     </script>
-    
+
 </head>
+
 <body>
     @@include('layout/header.html')
 
-        <div class="content">
-            <div class="box">
-                <div class="breadcrumb">
-                    <ol>
-                        <li><a href="#">首頁</a></li>
-                        <li><a href="#">找農果子</a></li>
-                    
-                    </ol>
-                </div>
-            </div>
-            <div class="box">
-                <div class="img">
-                    <div class="shadow"></div>
-                </div>
+    <div class="content">
+        <div class="box">
+            <div class="breadcrumb">
+                <ol>
+                    <li><a href="#">首頁</a></li>
+                    <li><a href="#">找農果子</a></li>
 
-                <div class="text">
-                    <h3>找農果子</h3>
-                    <p>如果您在我們的網站上尋找資訊時遇到問題或有任何意見，請使用以下表格與我們聯絡。我們會仔細閱讀所有回應，但請了解我們無法回覆您提出的意見。</p>
-                    <h4>
-                        <ul>
-                            <li>農果子客戶服務專線：+886-1-234-5678</li>
-                            <li>服務時間：周一至周五 09:00~17:00</li>
-                            <li>客服信箱：NongGuoZi@gmail.com</li>
-                            <li>地址：桃園市中壢區復興路55688號</li>
-                        </ul>
-                    </h4>
-                </div>
-
+                </ol>
             </div>
-            <div class="box">
-                <form>
-                    <div class="form">
+        </div>
+        <div class="box">
+            <div class="img">
+                <div class="shadow"></div>
+            </div>
+
+            <div class="text">
+                <h3>找農果子</h3>
+                <p>如果您在我們的網站上尋找資訊時遇到問題或有任何意見，請使用以下表格與我們聯絡。我們會仔細閱讀所有回應，但請了解我們無法回覆您提出的意見。</p>
+                <h4>
+                    <ul>
+                        <li>農果子客戶服務專線：+886-1-234-5678</li>
+                        <li>服務時間：周一至周五 09:00~17:00</li>
+                        <li>客服信箱：NongGuoZi@gmail.com</li>
+                        <li>地址：桃園市中壢區復興路55688號</li>
+                    </ul>
+                </h4>
+            </div>
+
+        </div>
+        <div class="box">
+            <form>
+                <div class="form">
                     <div class="col">
                         <label for="name">姓名</label>
-                        <input type="text"id="name">
-                    </div>  
-                               
+                        <input type="text" id="name">
+                    </div>
+
                     <div class="col">
                         <label for="qa">問題類型</label>
-                        <select  id="qa">
+                        <select id="qa">
                             <option value="" disabled selected>請選擇意見和反應類型</option>
                             <option value="訂單問題">訂單問題</option>
                             <option value="系統操作問題">系統操作問題</option>
@@ -80,37 +86,36 @@
                         <textarea id="message"></textarea>
                     </div>
                     <div class="btnbox">
-                        <button type="reset"class="btn">清除</button>
+                        <button type="reset" class="btn">清除</button>
                         <a href="#popOrder" rel="modal:open"><button id="send" class="sub">送出</button></a>
                     </div>
                 </div>
-            </form> 
+            </form>
 
-            </div>
-            
         </div>
-        
-        @@include('layout/footer.html')
-      <!-- 視窗內容 -->
-        <div id="popOrder" class="modal dialog">
-            <h3>謝謝您的意見與回饋</h3>
-            <p>已收到您給予我們的意見反應與回饋，您的寶貴建議是讓我們進步的最大動力。農果子會盡速回覆您提出的問題!</p>
+
+    </div>
+
+    @@include('layout/footer.html')
+    <!-- 視窗內容 -->
+    <div id="popOrder" class="modal dialog">
+        <h3>謝謝您的意見與回饋</h3>
+        <p>已收到您給予我們的意見反應與回饋，您的寶貴建議是讓我們進步的最大動力。農果子會盡速回覆您提出的問題!</p>
 
         <script>
             var el = document.getElementById("send");
-            el.addEventListener('click',pressBtn2,false);
-            el.addEventListener('click',pressBtn,false);
+            // el.addEventListener('click',pressBtn2,false);
+            // el.addEventListener('click',pressBtn,false);
         </script>
         <script>
-
-            $('a[href="#popOrder"]').click(function(event) {
-              event.stopPropagation();
-              $(this).modal({
-                fadeDuration: 300
-              });
-            });
-            
- </script>
+                $('a[href="#popOrder"]').click(function (event) {
+                    event.stopPropagation();
+                    $(this).modal({
+                        fadeDuration: 300
+                    });
+                });
+        </script>
 
 </body>
+
 </html>

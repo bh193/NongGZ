@@ -21,7 +21,7 @@ body{
     text-decoration: none
 }
 .content{
-    @include container(10rem);
+    @include container(7rem);
     display: flex;
     flex-direction: column;
     .box{

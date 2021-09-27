@@ -64,7 +64,7 @@
             });
 
             
-            fetch('./map.geojson')
+            fetch('./json/map.geojson')
               .then(results => results.json())
               .then(result => {
                 this.features = result.features;
