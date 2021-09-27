@@ -13,9 +13,11 @@ body{
     background-image: url('../images/svg/background.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 button{
     @include smallbtn_s;
+    outline:none;
 
 }
 #map{
