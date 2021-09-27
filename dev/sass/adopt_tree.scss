@@ -23,14 +23,38 @@
 }
 
 article {
-    @include container(10rem);
+    @include container(7rem);
+    ul.breadcrumb{
+        list-style: none;
+        li{
+          display: inline;
+          a {
+            text-decoration: none;
+            color: #727070;
+          }
+        }
+      }
+      ul.breadcrumb li+li:before {
+        padding: 1rem;
+        content: "/\00a0";
+      }
 }
+.breadcrumb a:hover{
+    color: #f6bd60;
+  }
+  
+  .breadcrumb :last-child{
+    a{
+    color: #f6bd60;
+    }
+  }
+  
 
 .search {
     display: flex;
     flex-wrap: wrap;
     justify-content: end;
-    margin-bottom: 0.5rem;
+    margin: 1rem 0 0.5rem;
 }
 
 .select {
