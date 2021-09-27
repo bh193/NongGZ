@@ -25,10 +25,10 @@
         align-items: center;
         background-color: $main_color;
         padding: 0.5rem 1rem;
+        cursor: pointer;
         .minus_sign{
             width: 5%;
             position: relative;
-            cursor: pointer;
             img{
                 width: 100%;
                 vertical-align:top;

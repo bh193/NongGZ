@@ -5,452 +5,663 @@
 @import 'base/font';
 
 // mixin
+
 @import 'mixin/mixin';
 
-// layout
-@import 'layout/header';
-@import 'layout/footer';
+//動畫
+@keyframes fruit_wave {
+    0% {
+        transform: rotate(0deg);
+    }
 
-.back_img {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: -1;
+    25% {
+        transform: rotate(45deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-45deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes fruit_fall {
+    0% {
+        top: 5%;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        top: 50%;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes farm_down {
+    0% {
+        height: 100%;
+    }
+
+    100% {
+        height: 70%;
+    }
+}
+
+@keyframes farm_up {
+    0% {
+        height: 70%;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes fruit_up {
+    0% {
+        top: 50%;
+        left: 50%;
+        transform: rotate(0deg);
+    }
+
+    15% {
+        top: 40%;
+        left: 55%;
+        transform: rotate(1turn);
+    }
+
+    30% {
+        top: 35%;
+        left: 70%;
+        transform: rotate(1.5turn);
+    }
+
+    45% {
+        top: 50%;
+        left: 90%;
+        transform: rotate(2turn);
+    }
+
+    60% {
+        top: 80%;
+        left: 120%;
+        transform: rotate(2.5turn);
+    }
+
+    75% {
+        top: 55%;
+        left: 160%;
+        transform: rotate(3turn);
+    }
+
+    90% {
+        top: 60%;
+        left: 180%;
+        transform: rotate(3.5turn);
+    }
+
+    100% {
+        top: 77.5%;
+        left: 208%;
+        transform: rotate(4turn);
+    }
+}
+
+@keyframes B_show {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 30%;
+    }
+}
+
+@keyframes A_show {
+    0% {
+        left: 200%;
+    }
+
+    100% {
+        left: 70%;
+    }
+}
+
+@keyframes AB_top {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes fruit_phone {
+    0% {
+        top: 5%;
+        left: 50%;
+        transform: rotate(0deg);
+    }
+
+    15% {
+        top: 80%;
+        left: 50%;
+        transform: rotate(1turn);
+    }
+
+    30% {
+        top: 60%;
+        left: 70%;
+        transform: rotate(1.5turn);
+    }
+
+    45% {
+        top: 30%;
+        left: 120%;
+        transform: rotate(2turn);
+    }
+
+    46% {
+        top: -10%;
+        left: 120%;
+        transform: rotate(2turn);
+    }
+
+    47% {
+        top: -10%;
+        left: -20%;
+        transform: rotate(2turn);
+    }
+
+    48% {
+        top: 130%;
+        left: -20%;
+        transform: rotate(2turn);
+    }
+
+    60% {
+        top: 140%;
+        left: 10%;
+        transform: rotate(2.5turn);
+    }
+
+    75% {
+        top: 160%;
+        left: 40%;
+        transform: rotate(3turn);
+    }
+
+    90% {
+        top: 140%;
+        left: 60%;
+        transform: rotate(3.5turn);
+    }
+
+    100% {
+        top: 151%;
+        left: 77%;
+        transform: rotate(4turn);
+    }
+}
+
+//RWD
+body {
+    background-color: $bg_color;
 }
 
 article {
-    margin-bottom: 8rem;
-}
-
-.title_con {
-    background-color: #f8f4ef;
-    .title_text {
-        @include container();
-        height: 8.5rem;
-        padding: 8rem 0 1rem;
-    }
-}
-
-.slideshow {
-    display: flex;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 8rem;
-
-    .left_con {
-        width: 55%;
-        position: absolute;
-        bottom: 0;
-        left: -60%;
-
-        .left_con_box {
-            width: 200%;
-            position: relative;
-
-            &:nth-child(1) {
-                background-color: #f7ede3;
-            }
-
-            &:nth-child(2) {
-                background-color: $main_color;
-            }
-
-            &:nth-child(3) {
-                background-color: $btn_m_color;
-            }
-
-            img {
-                width: 100%;
-                vertical-align: top;
-            }
-
-            .title {
-                display: none;
-            }
-        }
-
-    }
-
-    .right_con {
-        width: 45%;
-        position: absolute;
-        top: 0;
-        left: 50%;
-
-        .right_con_box {
-            width: 200%;
-
-            &:nth-child(1) {
-                background-color: $main_color;
-            }
-
-            &:nth-child(2) {
-                background-color: #f7ede3;
-            }
-
-            &:nth-child(3) {
-                background-color: #dcb6af;
-            }
-
-            img {
-                width: 100%;
-                vertical-align: top;
-            }
-        }
-    }
-}
-
-
-section {
-    @include container();
-    font-weight: initial;
-}
-
-.bigbtn_m {
-    @include bigbtn_m
-}
-
-.adopt_tree {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: end;
+    align-content: space-between;
     position: relative;
-    margin-bottom: 8rem;
-}
+    overflow: hidden;
 
-.adopt_tree_img {
-    width: 100%;
-    margin-left: 5%;
-    order: 1;
-
-    .tree {
+    .tree_back {
         width: 100%;
-        display: flex;
         position: relative;
-        cursor: pointer;
 
-        &:hover .tree_o {
-            transform: scale(1.05);
-        }
-
-        .tree_o {
+        img {
             width: 100%;
-            transition: all .2s linear;
         }
 
-        //果實絕對位置
-        //範圍
-        .tree_fruit_box {
-            width: 70%;
-            height: 55%;
+        .fruit {
+            width: 9%;
             position: absolute;
             top: 5%;
-            left: 15%;
+            left: 50%;
+            z-index: 1;
+            animation: fruit_wave 1s 2, fruit_phone .8s 1s forwards;
 
-            //果實絕對位置
-            .tree_fruit {
-                width: 15%;
-                position: absolute;
-
-                &:nth-child(1) {
-                    top: 30%;
-                    left: 40%;
-                }
-
-                &:nth-child(2) {
-                    top: 60%;
-                    left: 20%;
-                }
-
-                &:nth-child(3) {
-                    top: 80%;
-                    left: 70%;
-                }
-
-                &:nth-child(4) {
-                    top: 2%;
-                    left: 58%;
-                }
-
-                &:nth-child(5) {
-                    top: 35%;
-                    left: 5%;
-                }
-
-                &:nth-child(6) {
-                    top: 80%;
-                    left: 8%;
-                }
-
-                &:nth-child(7) {
-                    top: 55%;
-                    left: 55%;
-                }
-
-                &:nth-child(8) {
-                    top: 10%;
-                    left: 15%;
-                }
-
-                &:nth-child(9) {
-                    top: 30%;
-                    left: 80%;
-                }
+            img {
+                width: 100%;
             }
         }
 
+        .farm {
+            display: none;
+        }
     }
 
-}
+    .text {
+        width: 30%;
+        align-self: end;
+        margin: 1rem;
+        position: relative;
+        order: 1;
 
-.adopt_tree_btn {
-    position: absolute;
-    top: 83%;
-}
+        img {
+            width: 100%;
+        }
 
-.adopt_tree_con {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: space-between;
-    margin-bottom: 3rem;
+        .hat {
+            width: 30%;
+            position: absolute;
+            top: -10%;
+            left: -5%;
 
-    .title {
-        width: 100%;
-        margin-bottom: 3rem;
+            img {
+                width: 100%;
+            }
+
+        }
+
+        .shovel {
+            width: 10%;
+            position: absolute;
+            top: 30%;
+            left: 20%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .water {
+            width: 15%;
+            position: absolute;
+            top: 30%;
+            left: 70%;
+
+            img {
+                width: 100%;
+            }
+        }
     }
 
-    .box {
+    section {
         width: 100%;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .left_icon {
-            width: 5%;
-            cursor: pointer;
-        }
-
-        .right_icon {
-            width: 5%;
-            cursor: pointer;
-        }
-
-        .fruit_box {
-            width: 40%;
+        flex-direction: column;
+        position: relative;
+        margin-top: -60%;
+        margin-bottom: 1rem;
+        padding: 2rem;
+ 
+        .before {
+            width: 50%;
+            align-self: flex-start;
             position: relative;
+            cursor: pointer;
+            animation: AB_top 1s linear infinite;
 
-            .fruit {
+            img {
                 width: 100%;
-                height: 100%;
-                position: relative;
-
-                img {
-                    display: none;
-                    width: 100%;
-
-                    &:first-child {
-                        display: inline;
-                    }
-                }
             }
 
-            &::before {
-                content: "";
-                width: 60%;
-                height: 10%;
-                position: absolute;
-                transform: translateX(-50%);
-                background-color: rgba(0, 0, 0, 0.05);
-                ;
-                border-radius: 50%;
-                bottom: -5%;
-                left: 50%;
-                z-index: -1;
+            h2 {
+                @include positioncenter();
+                top: 60%;
             }
 
-            .circle {
+
+        }
+
+        .after {
+            width: 50%;
+            align-self: flex-end;
+            position: relative;
+            margin-top: -20%;
+            cursor: pointer;
+            animation: AB_top 1s .75s linear infinite;
+
+            img {
                 width: 100%;
-                height: 100%;
-                border-radius: 50%;
-                background-color: #d1e6e6;
-                position: absolute;
-                top: -30%;
-                right: -30%;
-                z-index: -1;
+            }
 
-                h3 {
-                    display: none;
-                    color: #fff;
-                    position: absolute;
-                    top: 15%;
-                    left: 43%;
-
-                    &:first-child {
-                        display: block;
-                    }
-                }
+            h2 {
+                @include positioncenter();
+                top: 60%;
             }
         }
     }
+
 }
 
-.farm_map {
+.backstage_login {
+    display: none;
+    width: 280px;
+    position: fixed;
+    border-radius: 15px;
+    overflow: hidden;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+}
+
+.farm_login {
     width: 100%;
-    position: relative;
-    margin-bottom: 8rem;
+    transition: all .5s;
+}
+
+.controller_login {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: #E8EAE6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .con_img {
+        width: 40%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    h2 {
+        width: 100%;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .con_text {
+        .item {
+            margin: 0.5rem;
+        }
+
+        label {
+            @include label;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item_text {
+            @include text();
+        }
+    }
+
+    .con_btnbox {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 2rem 0 1rem;
+
+        .smallbtn_m {
+            @include smallbtn_m
+        }
+
+        .smallbtn_s {
+            @include smallbtn_s
+        }
+    }
+
+    .con_toggle {
+        margin-top: 1.5rem;
+        color: $btn_m_color;
+        font-size: $h4_size;
+        letter-spacing: $h4_letter;
+    }
+}
+
+.cover {
+    display: none;
+}
+
+.close {
+    width: 7%;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    cursor: pointer;
 
     img {
         width: 100%;
     }
-
-    .title {
-        h3 {
-            margin-bottom: 2rem;
-        }
-    }
 }
 
-.activity {
-    overflow: hidden;
+#cover_farm {
+    display: none;
 }
 
-.activity_title {
-    @include container();
 
-    .title {
-        width: 100%;
-    }
-}
+@include t {
 
-.activity_con {
-    width: 600%;
-    display: flex;
-    position: relative;
+    article {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-content:stretch;
 
-    .con_box {
-        width: 250px;
-        overflow: hidden;
-        position: relative;
-        margin: 1rem 30px 1rem 0;
-        cursor: pointer;
-        line-height: 1;
+        .tree_back {
+            width: 43%;
 
-        &:first-child {
-            margin-left: 2.2%;
-        }
+            .fruit {
+                animation: fruit_wave 1s 2, fruit_fall .5s 1s forwards, fruit_up .5s 1.5s forwards;
+            }
 
-        img {
-            width: 100%;
-            vertical-align: top;
-            transition: all .5s linear;
+            .farm {
+                width: 20%;
+                height: 30%;
+                display: flex;
+                align-items: flex-end;
+                position: absolute;
+                top: 50%;
+                left: 50%;
 
+                img {
+                    width: 100%;
+                    height: 100%;
+                    animation: farm_down .2s 1.3s forwards, farm_up .2s 1.5s forwards;
+                }
+            }
         }
 
         .text {
-            @include positioncenter();
-            width: 70%;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 1rem;
-            box-sizing: border-box;
-
-            span {
-                display: block;
-                text-align: end;
-                font-size: $p_size;
-                font-weight: 700;
-                letter-spacing: $p_letter;
-                margin-top: 3rem;
-                color: $btn_m_color;
-                text-decoration: none;
-            }
-
-            #more {
-                text-align: center;
-                padding: 42px;
-                color: $btn_m_color;
-            }
+            width: 15%;
+            order:0;
         }
-    }
-}
 
+        section {
+            margin-top: 0;
+            margin-bottom: 0;
+            z-index: 1;
+            @include positioncenter();
 
-@include d {
-    .title_con {
-        display: none;
-    }
-    .slideshow {
-        .left_con {
-            left: 0;
+            .before {
+                width: 25%;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                left: -100%;
+                transition: all 1s;
+                animation: B_show 1s 2s forwards;
 
-            .left_con_box {
-                width: 100%;
-
-                .title {
-                    display: block;
-                    width: 50%;
+                &::after {
+                    content: "";
+                    width: 0%;
+                    height: 0;
+                    background-color: rgba(0, 0, 0, 0.1);
+                    border-radius: 50%;
                     position: absolute;
-                    left: 22.72%;
-                    top: 50%;
-                    background-color: rgba(255, 255, 255, 0.555);
-                    padding: 1rem;
-                    box-sizing: border-box;
-                    border-radius: 15px;
+                    transform: translateX(-50%);
+                    bottom: 0.5rem;
+                    left: 50%;
+                    transition: all 1s;
+                }
+
+                &:hover {
+                    top: 45%;
+
+                    &::after {
+                        width: 50%;
+                        height: 1rem;
+                        bottom: -1rem;
+                    }
                 }
             }
 
-        }
+            .after {
+                width: 25%;
+                margin-top:0;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                left: 200%;
+                transition: all 1s;
+                animation: A_show 1s 2s forwards;
 
-        .right_con {
-            left: 55%;
+                &::after {
+                    content: "";
+                    width: 0%;
+                    height: 0;
+                    background-color: rgba(0, 0, 0, 0.1);
+                    border-radius: 50%;
+                    position: absolute;
+                    transform: translateX(-50%);
+                    bottom: 0.5rem;
+                    left: 50%;
+                    transition: all 1s;
+                }
 
-            .right_con_box {
-                width: 100%;
+                &:hover {
+                    top: 45%;
+
+                    &::after {
+                        width: 50%;
+                        height: 1rem;
+                        bottom: -1rem;
+                    }
+                }
             }
         }
+
     }
 
-    .adopt_tree {
-        flex-wrap: nowrap;
+    .backstage_login {
+        width: 75%;
     }
 
-    .adopt_tree_img {
-        width: 40%;
-        order: 0;
-    }
-
-    .adopt_tree_btn {
-        top: 67%;
-    }
-
-    .adopt_tree_con {
+    .farm_login {
         width: 50%;
-        margin-bottom: 0;
+        transition: none;
+    }
 
-        .title {
-            margin-bottom: 0;
+    .controller_login {
+        width: 50%;
+    }
+
+    .content {
+        .con_toggle {
+            display: none;
         }
     }
 
-    .farm_map {
-        .title {
-            width: 50%;
-            position: absolute;
-            top: 0;
+    .cover {
+        @include flexcenter();
+        width: 50%;
+        height: 100%;
+        border-radius: 15px;
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #F6BD60;
+        cursor: pointer;
+        transition: all 1s;
+
+        &:hover .cover_content .cover_text {
+            color: $focus_color;
         }
+
+        &:hover .cover_content .cover_img {
+            top: 20%;
+
+            &::after {
+                width: 50%;
+                height: 1rem;
+                bottom: -1rem;
+            }
+        }
+
+        .cover_content {
+            position: relative;
+
+            .cover_img {
+                width: 8rem;
+                position: absolute;
+                transform: translate(-50%, -100%);
+                top: 50%;
+                left: 50%;
+                transition: all 1s;
+
+                &::after {
+                    content: "";
+                    width: 0%;
+                    height: 0;
+                    background-color: rgba(0, 0, 0, 0.1);
+                    border-radius: 50%;
+                    position: absolute;
+                    transform: translateX(-50%);
+                    bottom: 0.5rem;
+                    left: 50%;
+                    transition: all 1s;
+                }
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .cover_text {
+                margin-top: 5rem;
+                color: #fff;
+                font-size: $h3_size;
+                font-weight: $h3_weight;
+                letter-spacing: $h3_letter;
+            }
+        }
+
     }
 
-    .activity_title {
-        @include container();
-
-        .title {
-            width: 50%;
-        }
+    .close {
+        width: 3%;
     }
 
-    .activity_con {
-        .con_box {
-            width: 320px;
-        }
-    }
 }
