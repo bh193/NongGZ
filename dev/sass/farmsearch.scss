@@ -9,6 +9,7 @@
 // mixin
 @import 'mixin/mixin';
 @import 'layout/header';
+@import 'layout/footer';
 body{
     background-image: url('../images/svg/background.svg');
     background-repeat: no-repeat;
@@ -114,5 +115,8 @@ button{
             }
         }
     }
+
+}
+@include d{
 
 }

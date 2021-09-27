@@ -63,25 +63,34 @@ body{
             width: 100%;
             height: 300px;
             background-image: url('../images/img/contact_4.jpg');
-            // opacity: 0.8;
-            // background-color: $bg_color;
+
             background-repeat: no-repeat;
             background-size: cover;
+            position: relative;
+        }
+        .shadow{
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+            position: absolute;
+            top:0;
         }
         .text{
             @include positioncenter();
-            // background-color: $bg_color;
-            
+            width: 20rem;
+            text-align: justify;
             padding: 10px;
             h3{text-align: center;color:#f6bd60;}
-            p{color: #fff;}
+            p{
+                color:$bg_color;
+                margin-bottom: 3rem;
+            
+            }
             ul{
-                margin-top:1rem ;
-                bottom: 0;
                 li{
                     // width:100%;
-                    color: #fff;
-                    font-size: $p_size;
+                    font-size:1rem;
+                    color:$bg_color;
                     line-height: $p_line;
                     letter-spacing: $p_letter;
                
@@ -95,6 +104,7 @@ body{
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 3rem 0;
             .col{
                 text-align: left;
                 @include margincenter($var:0.5rem);
@@ -103,7 +113,7 @@ body{
         label{
             @include label;
             display: block;
-            margin-top: 10px;
+            line-height: 2;
         }
         input,textarea{
             @include text(350px);
@@ -164,7 +174,8 @@ body{
         .box:nth-child(2){
             width: 50%;
             .img{
-                height: 660px;
+                // height: 660px;
+                height: 100%;
             }
         }
         .box:nth-child(3){
@@ -183,4 +194,7 @@ body{
             width: 50%;
         }
     }
+}
+@include d{
+
 }
