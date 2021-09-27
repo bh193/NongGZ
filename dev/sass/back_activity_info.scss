@@ -12,6 +12,13 @@
 @import 'layout/footer_back';
 
 @include d {
+    
+    body{
+        background-image: url("../images/svg/background.svg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
     .item {
         margin: 0.5rem;
     }
