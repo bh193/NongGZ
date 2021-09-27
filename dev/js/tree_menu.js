@@ -1,9 +1,9 @@
 $(function () {
-    $('.minus_sign').click(function () {
-        $(this).parent().parent().children('.con_text').slideToggle(500,"easeOutExpo");
-    }).parent().parent().children('.con_text').hide();
+    $('.con_title').click(function () {
+        $(this).next('.con_text').slideToggle(500,"easeOutExpo");
+    }).next('.con_text').hide();
 
-    $('.minus_sign').click(function () {
-        $(this).children('.turn').toggleClass('turn_zero');
+    $('.con_title').click(function () {
+        $(this).children().children('.turn').toggleClass('turn_zero');
     })
 });

@@ -2,183 +2,121 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-  <title>首頁</title>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-ui.min.js"></script>
-  <script src="js/jquery.ui.touch-punch.min.js"></script>
-  <script src="js/index.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="css/index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>引導頁</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.min.js"></script>
 </head>
 
 <body>
-  <div class="back_img">
-    <img src="./images/svg/background.svg" alt="網站背景">
-  </div>
-  @@include('layout/header.html')
-  <article>
-    <div class="title_con">
-      <div class="title_text">
-        <h2>小農合作社</h2>
-        <h3>支持在地小農，用新鮮的食材善待你我。</h3>
-      </div>
-    </div>
-    <div class="slideshow">
-      <ul class="left_con">
-        <li class="left_con_box">
-          <img src="images/svg/banner-03-left.svg" alt="左圖3">
-          <div class="title">
-            <h2>漫遊農世界</h2>
-            <h3>走出戶外享受農場自然的氣息，一同了解水果從哪來。</h3>
-          </div>
-        </li>
-        <li class="left_con_box">
-          <img src="images/svg/banner-02-left.svg" alt="左圖2">
-          <div class="title">
-            <h2>挺認養行動</h2>
-            <h3>與樹同行體悟到農作物栽種過程。</h3>
-          </div>
-        </li>
-        <li class="left_con_box">
-          <img src="images/svg/banner-01-left.svg" alt="左圖1">
-          <div class="title">
-            <h2>小農合作社</h2>
-            <h3>支持在地小農，用新鮮的食材善待你我。</h3>
-          </div>
-        </li>
-      </ul>
-      <ul class="right_con">
-        <li class="right_con_box">
-          <img src="images/svg/banner-01-right.svg" alt="右圖1">
-        </li>
-        <li class="right_con_box">
-          <img src="images/svg/banner-02-right.svg" alt="右圖2">
-        </li>
-        <li class="right_con_box">
-          <img src="images/svg/banner-03-right.svg" alt="右圖3">
-        </li>
-      </ul>
+    <article>
+        <div class="tree_back">
+            <img src="./images/svg/index_tree.svg" alt="果樹">
+            <div class="fruit">
+                <img src="./images/svg/index_fruit.svg" alt="橘子">
+            </div>
+            <div class="farm">
+                <img src="./images/png/index_farm.png" alt="農">
+            </div>
+        </div>
+        <div class="text">
+            <img src="./images/svg/index_text.svg" alt="logo字">
+            <div class="hat">
+                <img src="./images/svg/index_hat.svg" alt="斗笠">
+            </div>
+            <div class="shovel">
+                <img src="./images/svg/index_shovel.svg" alt="鏟子">
+            </div>
+            <div class="water">
+                <img src="./images/svg/index_water.svg" alt="澆水">
+            </div>
+        </div>
+        <section>
+            <div class="before">
+                <img src="./images/svg/index_before.svg" alt="前台">
+                <h2>前台</h2>
+            </div>
+            <div class="after">
+                <img src="./images/svg/index_after.svg" alt="後台">
+                <h2>後台</h2>
+            </div>
+        </section>
+    </article>
 
+    <div class="backstage_login">
+        <div class="farm_login">
+            <div class="content">
+                <div class="con_img">
+                    <img src="./images/common/farm_login_img.svg" alt="小農登入">
+                </div>
+                <h2>小農登入</h2>
+                <div class="con_text">
+                    <div class="item">
+                        <label>電子信箱
+                            <input class="item_text" name="e-mail" type="text">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>密碼
+                            <input class="item_text" name="password" type="password">
+                        </label>
+                    </div>
+                </div>
+                <div class="con_btnbox">
+                    <input class="smallbtn_s" type="button" value="清除">
+                    <input class="smallbtn_m" type="button" value="登入">
+                </div>
+                <div class="con_toggle" id="con_toggle_f">管理員進入 ❯❯</div>
+            </div>
+        </div>
+        <div class="controller_login">
+            <div class="content">
+                <div class="con_img">
+                    <img src="./images/common/controller_login_img.svg" alt="管理員登入">
+                </div>
+                <h2>管理員登入</h2>
+                <div class="con_text">
+                    <div class="item">
+                        <label>電子信箱
+                            <input class="item_text" name="e-mail" type="text">
+                        </label>
+                    </div>
+                    <div class="item">
+                        <label>密碼
+                            <input class="item_text" name="password" type="password">
+                        </label>
+                    </div>
+                </div>
+                <div class="con_btnbox">
+                    <input class="smallbtn_s" type="button" value="清除">
+                    <input class="smallbtn_m" type="button" value="登入">
+                </div>
+                <div class="con_toggle" id="con_toggle_c">❮❮ 小農進入</div>
+            </div>
+        </div>
+        <div class="cover">
+            <div class="cover_content" id="cover_controller">
+                <div class="cover_img">
+                    <img src="./images/common/controller-login.svg" alt="管理員">
+                </div>
+                <div class="cover_text">管理員進入 ❯❯</div>
+            </div>
+            <div class="cover_content" id="cover_farm">
+                <div class="cover_img">
+                    <img src="./images/common/farmer-2.svg" alt="小農">
+                </div>
+                <div class="cover_text">❮❮ 小農進入</div>
+            </div>
+        </div>
+        <div class="close">
+            <img src="./images/common/close-icon.png" alt="關掉">
+        </div>
     </div>
-    <section>
-      <div class="adopt_tree">
-        <div class="adopt_tree_img">
-          <div class="tree">
-            <img class="tree_o" src="images/fruit/tree_1.svg" alt="果樹">
-            <div class="tree_fruit_box">
-              <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-              <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-              <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-              <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-              <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-              <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-              <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-              <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-              <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-            </div>
-          </div>
-        </div>
-        <input class="bigbtn_m adopt_tree_btn" type="button" value="認養果樹">
-        <div class="adopt_tree_con">
-          <div class="title">
-            <h2>一同養樹</h2>
-            <h3>選擇您喜歡的水果，一同來認養果樹，與農友站在同一陣線，共享種植的艱辛與喜悅。</h3>
-          </div>
-          <div class="box">
-            <div class="left_icon">
-              <img src="images/svg/left-btn-g.svg" alt="左">
-            </div>
-            <div class="fruit_box">
-              <div class="fruit">
-                <img src="images/fruit/fruit_1.svg" alt="水果1">
-                <img src="images/fruit/fruit_2.svg" alt="水果2">
-                <img src="images/fruit/fruit_3.svg" alt="水果3">
-                <img src="images/fruit/fruit_4.svg" alt="水果4">
-                <img src="images/fruit/fruit_5.svg" alt="水果5">
-              </div>
-              <div class="circle">
-                <h3>橘子</h3>
-                <h3>蘋果</h3>
-                <h3>芒果</h3>
-                <h3>水蜜桃</h3>
-                <h3>紅棗</h3>
-              </div>
-            </div>
-            <div class="right_icon">
-              <img src="images/svg/right-btn-g.svg" alt="右">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="farm_map">
-        <div class="title">
-          <h2>來農場吧</h2>
-          <h3>在春夏秋冬四季分明的台灣，種植了各式各樣適合該土地的當季水果，一起來農場看看吧。</h3>
-          <input class="bigbtn_m" type="button" value="農場地圖">
-        </div>
-        <img src="images/png/index_map.png" alt="首頁地圖">
-      </div>
-    </section>
-    <div class="activity">
-      <div class="activity_title">
-        <div class="title">
-          <h2>探索體驗</h2>
-          <h3>在農場的世界一起來體驗手作行程</h3>
-        </div>
-      </div>
-      <div class="activity_con">
-        <div class="con_box">
-          <img src="images/activity/orange1.jpg" alt="體驗">
-          <div class="text">
-            <h3>夏日採果趣</h3>
-            <p>體驗手作 x 採果樂 x 親子果醬</p>
-            <span>我要報名</span>
-          </div>
-        </div>
-        <div class="con_box">
-          <img src="images/activity/apple1.jpg" alt="體驗">
-          <div class="text">
-            <h3>夏日採果趣</h3>
-            <p>體驗手作 x 採果樂 x 親子果醬</p>
-            <span>我要報名</span>
-          </div>
-        </div>
-        <div class="con_box">
-          <img src="images/activity/Jujube1.jpg" alt="體驗">
-          <div class="text">
-            <h3>夏日採果趣</h3>
-            <p>體驗手作 x 採果樂 x 親子果醬</p>
-            <span>我要報名</span>
-          </div>
-        </div>
-        <div class="con_box">
-          <img src="images/activity/peach1.jpg" alt="體驗">
-          <div class="text">
-            <h3>夏日採果趣</h3>
-            <p>體驗手作 x 採果樂 x 親子果醬</p>
-            <span>我要報名</span>
-          </div>
-        </div>
-        <div class="con_box">
-          <img src="images/activity/peach2.jpg" alt="體驗">
-          <div class="text">
-            <h3>夏日採果趣</h3>
-            <p>體驗手作 x 採果樂 x 親子果醬</p>
-            <span>我要報名</span>
-          </div>
-        </div>
-        <div class="con_box">
-          <img src="images/activity/peach4.jpg" alt="體驗">
-          <div class="text">
-            <h3 id="more">more</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </article>
-  @@include('layout/footer.html')
+
+
 </body>
 
 </html>
