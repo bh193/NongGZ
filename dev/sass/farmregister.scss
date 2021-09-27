@@ -13,6 +13,7 @@ body{
     background-image: url('../images/svg/background.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 label{
     @include label;
@@ -47,6 +48,7 @@ select{
             height:10rem ;
            background-image: url('../images/common/farm_login_img.svg');
            background-repeat: no-repeat;
+         
         }
     }
     .box:nth-child(2){
