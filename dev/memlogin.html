@@ -27,49 +27,62 @@
         </div>
         <div class="box">
             <!-- 登入 -->
-            <form action="" id="login"class="login">
-                <div class="text">
-                    <label for="">電子信箱</label>
-                    <input type="mail" required="required">
-                </div>
-                <div class="text">
-                    <label for="">密碼</label>
-                    <input type="password" required="required">
-                </div>
-                <div class="text">
-                        <button type="reset" class="btn">清除</button>
-                        <button class="btn">登入</button>
+            <div  id="login" style="display: block;">
+                <form action="" class="login">
+                    <div class="text">
+                        <label for="">電子信箱</label>
+                        <input type="mail" required="required">
+                    </div>
+                    <div class="text">
+                        <label for="">密碼</label>
+                        <input type="password" required="required">
+                    </div>
+                    <div class="text">
+                            <button type="reset" class="btn">清除</button>
+                            <button class="btn">登入</button>
+    
+                    </div>
+                </form>
+            </div>
 
-                </div>
-            </form>
             <!-- 註冊 -->
-            <form action="" id="register" class="register">
-                <div class="text">
-                    <label for="">姓名</label>
-                    <input type="text">
-                </div>
-                <div class="text">
-                    <label for="">電子信箱</label>
-                    <input type="text">
-                </div>
-                <div class="text">
-                    <label for="">密碼</label>
-                    <input type="text">
-                </div>
-                <div class="text">
-                    <label for="">確認密碼</label>
-                    <input type="text">
-                </div>
-                <div class="text">
-                    <input type="radio">
-                    <span>點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></span>
-                    
-                </div>
-                <div class="text">
-                    <button class="btn" type="reset">清除</button>
-                    <button class="btn">送出</button>
-                </div>
-            </form>
+            <div id="register"  style="display: none;">
+                <form action="" class="register">
+                    <div class="text">
+                        <label for="">姓名</label>
+                        <input type="text">
+                    </div>
+                    <div class="text">
+                        <label for="">電子信箱</label>
+                        <input type="text">
+                    </div>
+                    <div class="text">
+                        <label for="">密碼</label>
+                        <input type="text">
+                    </div>
+                    <div class="text">
+                        <label for="">確認密碼</label>
+                        <input type="text">
+                    </div>
+                    <div class="text">
+                        <input type="radio"  id="radio1" >
+                        <label for="radio1">點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></label>
+                        <!-- <div class="radiobox">
+                            <label for=""></label>
+                            <input type="radio">
+                        </div>
+                        <div class="radiobox">
+                            <p>點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></p>
+                        </div> -->
+                        
+                    </div>
+                    <div class="text">
+                        <button class="btn" type="reset">清除</button>
+                        <button class="btn">送出</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
     </div>
 

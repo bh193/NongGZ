@@ -13,7 +13,7 @@
 
 @include d {
         
-        .item,.table{
+        .item,.table,.order{
             @include margincenter($var:1rem);
             width: 100%;
     
@@ -22,12 +22,12 @@
                 width: 100%;
                 box-sizing: border-box;
                 text-align: center;
-                th{background-color: #84A59D;padding: 20px;color:#fff}
+                th{background-color: #84A59D;padding: 15px;color:#fff;font-size: 16px;}
                 th:nth-child(1){border-top-left-radius:23%;}
                 th:last-child{border-top-right-radius:23%}
                 tr:nth-child(odd){background-color:#fff;}
                 tr:nth-child(even){background-color:#E9E9E9;}
-                td{padding: 8px;}
+                td{padding: 8px; font-size:14px;}
                 button{
                     border:none;
                     width: 50px;
@@ -36,6 +36,7 @@
                     background-color: #F6BD60;
                     color: #fff;
                     font-weight:600;
+                    cursor: pointer;
                 }
             }
 
@@ -44,21 +45,28 @@
             display: flex;
             justify-content: space-between;
             .box:nth-child(1){
+                position: relative;
+                img{
+                    width: 1.2rem;
+                    position: absolute;
+                    top: 30%;
+                    right: 10%;
+                }
                 input{
-                    width: 20rem;
-                    padding: .75rem 10px;
-                    font-size: 1rem;
-                    letter-spacing: 1px;
-                    border-radius: 8px;
-                    border: 1px solid #ebe7e7;
-                    box-sizing: border-box;
-                    background-color: #fff;
-                    position: relative;
+                    @include text;
                 }
             }
             .box:nth-child(2){
                 .btn:nth-child(1){@include smallbtn_s;}
                 .btn:nth-child(2){@include smallbtn_m;}}
+        }
+        .order{
+            max-width: 710px;
+            height: 160px;
+            background-color: #F7F6F2;
+            h4{
+                padding: 5px;
+            }
         }
 
 
