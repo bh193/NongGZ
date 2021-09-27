@@ -1,7 +1,36 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+//mixin
+@import 'mixin/mixin';
+
+// layout
+@import 'layout/header';
+@import 'layout/footer';
+@mixin title {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 3.75rem;
+    @content;
+}
+
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+    img{
+        display: block;
+    }
+}
+
 .owl-theme .item {
-    height: 10rem;
+    // height: 34rem;
+    padding-top: 100%;
     background: #4dc7a0;
-    padding: 1rem;
+    // padding: 1rem;
+    position: relative;
   }
   
   .owl-carousel .item h4 {
@@ -10,3 +39,89 @@
     font-size: 1.4375rem;
     margin-top: 0rem;
   }
+  .owl-carousel .owl-stage{
+      cursor: grab;
+  }
+  .card{
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    .pic{
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        border-radius: 50%;
+        background-image: url("../images/svg/postbg.svg");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        padding: 4rem;
+        box-shadow: 0 3px 30px rgba(0, 0, 0, 20%);
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+  }
+//   .owl-carousel{
+//     .owl-item{
+//         // width: 38rem !important;
+//         .card{
+//             width: 100%;
+//             position: relative;
+//             .pic{
+//                 width: 34rem;
+//                 height: 34rem;
+//                 overflow: hidden;
+//                 border-radius: 50%;
+//                 background-image: url("../images/svg/postbg.svg");
+//                 padding: 4rem;
+//                 box-shadow: 0 3px 30px rgba(0, 0, 0, 20%);
+//                 img{
+//                     height: 100%;
+//                     width: 100%;
+//                     object-fit: cover;
+//                     border-radius: 50%;
+//                 }
+//             }
+//             .mempic{
+//                 position: absolute;
+//                 top: 1rem;
+//                 left: 1rem;
+//             }
+//             .txt{
+//                 width: 22rem;
+//                 padding: 2rem 1.5rem 1rem;
+//                 border-radius: 0.5rem;
+//                 background-color: $header_color;
+//                 opacity: 0.9;
+//                 position: absolute;
+//                 bottom: 1.5rem;
+//                 right: -1rem;
+//                 p{
+//                     text-align: justify;
+//                     padding-bottom: 0.5rem;
+//                 }
+//                 .tag{
+//                     padding-bottom: 0.5rem;
+//                 }
+//                 .icon{
+//                     display: flex;
+//                     float: right;
+//                     img{
+//                         height: 1.25rem;
+//                     }
+//                     span{
+//                         color: #939393;
+//                         font-size: $h3_size;
+//                         padding-left: 0.3rem;
+//                         padding-right: 1rem;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//   } 
+

@@ -5,55 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/farminfo-text.min.js"></script>
+    
+    
+    <!-- owl.carousel -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    </link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    </link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- <script src="js/farminfo-text.min.js"></script> -->
     <link rel="stylesheet" href="css/farminfo_text.css">
-    <link rel="stylesheet" href="font/owl.carousel.css">
-    <link rel="stylesheet" href="font/owl.theme.default.css">
-
 </head>
-<!-- <body>
-    <h1>123</h1>
-</body> -->
 <body>
     <div class="owl-carousel owl-theme">
         <div class="item">
-          <h4>1</h4>
+          <!-- <h4>1</h4> -->
         </div>
         <div class="item">
-          <h4>2</h4>
+          <!-- <h4>2</h4> -->
         </div>
         <div class="item">
-          <h4>3</h4>
+          <!-- <h4>3</h4> -->
         </div>
         <div class="item">
-          <h4>4</h4>
+          <!-- <h4>4</h4> -->
         </div>
         <div class="item">
-          <h4>5</h4>
+          <!-- <h4>5</h4> -->
         </div>
         <div class="item">
-          <h4>6</h4>
-        </div>
-        <div class="item">
-          <h4>7</h4>
-        </div>
-        <div class="item">
-          <h4>8</h4>
-        </div>
-        <div class="item">
-          <h4>9</h4>
-        </div>
-        <div class="item">
-          <h4>10</h4>
-        </div>
-        <div class="item">
-          <h4>11</h4>
-        </div>
-        <div class="item">
-          <h4>12</h4>
+          <!-- <h4>6</h4> -->
         </div>
       </div>
+    <div class="owl-carousel owl-theme">
+        <div class="item">
+            <div class="card">
+                <div class="pic">
+                    <img src="images/post/apples-1872997_1920.jpg">
+                </div>
+                <div class="mempic">
+                    <img src="images/mem/mugshot.png">
+                </div>
+                <div class="txt">
+                    <p>今天的太陽光非常的熱烈，半玩半體驗的採果夏日活動令人有一些期待，聽了農場主人的講解與他的期許</p>
+                    <div class="tag">
+                        #山頂厝農場
+                    </div>
+                    <div class="icon">
+                        <img src="images/post/heart_gray.svg">
+                        <span>5</span>
+                        <img src="images/post/loudly_gray.svg">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+      <script>
+          $(".owl-carousel").owlCarousel({
+            stagePadding: 300,
+            loop: true, // 循環播放
+            margin: 50, // 外距 10px
+            nav: true, // 顯示點點
+            responsive: {
+                0: {
+                items: 1, // 螢幕大小為 0~600 顯示 1 個項目
+                stagePadding:100,
+                margin:20
+                },
+                600: {
+                items: 1 // 螢幕大小為 600~1000 顯示 3 個項目
+                },
+                1000: {
+                items: 1 // 螢幕大小為 1000 以上 顯示 5 個項目
+                }
+            }
+            });
+      </script>
 </body>
 </html>
