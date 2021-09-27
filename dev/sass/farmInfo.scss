@@ -31,7 +31,7 @@ body{
     background-size: cover;
 }
 .page{
-    @include margincenter(10rem);
+    @include margincenter(7rem);
 }
 .farminfo-nav{
     .container{
@@ -199,8 +199,11 @@ body{
     }
 }
 .post{
+    width: 100%;
     .container{
         width: 100%;
+        max-width: 1088px;
+        min-width: 350px;
         overflow: hidden;
         .title{
             @include container();
@@ -208,13 +211,14 @@ body{
             margin-bottom: 3.75rem;
         }
         .content{
+            // @include container();
             display: flex;
+            margin-bottom: 3rem;
         }
         .card{
-            width: 43%;
-            margin: 0 5rem 2rem;
+            width: 100%;
             position: relative;
-            left: -33.3%;
+            
             .pic{
                 width: 34rem;
                 height: 34rem;
@@ -325,74 +329,72 @@ body{
             }
         }
     }
-    .post{
-        .container{
-            width: 100%;
-            overflow: hidden;
-            .title{
-                @include container();
-                text-align: center;
-                margin-bottom: 3.75rem;
-            }
-            .content{
-                display: flex;
-            }
-            .card{
-                width: 43%;
-                // margin: 0 5rem 2rem;
-                position: relative;
-                // left: -33.3%;
-                .pic{
-                    width: 34rem;
-                    height: 34rem;
-                    overflow: hidden;
-                    border-radius: 50%;
-                    background-image: url("../images/svg/postbg.svg");
-                    padding: 4rem;
-                    box-shadow: 0 3px 30px rgba(0, 0, 0, 20%);
-                    img{
-                        height: 100%;
-                        width: 100%;
-                        object-fit: cover;
-                        border-radius: 50%;
-                    }
-                }
-                .mempic{
-                    position: absolute;
-                    top: 1rem;
-                    left: 1rem;
-                }
-                .txt{
-                    width: 22rem;
-                    padding: 2rem 1.5rem 1rem;
-                    border-radius: 0.5rem;
-                    background-color: $header_color;
-                    opacity: 0.9;
-                    position: absolute;
-                    bottom: 1.5rem;
-                    right: -1rem;
-                    p{
-                        text-align: justify;
-                        padding-bottom: 0.5rem;
-                    }
-                    .tag{
-                        padding-bottom: 0.5rem;
-                    }
-                    .icon{
-                        display: flex;
-                        float: right;
-                        img{
-                            height: 1.25rem;
-                        }
-                        span{
-                            color: #939393;
-                            font-size: $h3_size;
-                            padding-left: 0.3rem;
-                            padding-right: 1rem;
-                        }
-                    }
-                }
-            }
-        }
-    }
+    // .post{
+    //     .container{
+    //         width: 100%;
+    //         overflow: hidden;
+    //         .title{
+    //             @include container();
+    //             text-align: center;
+    //             margin-bottom: 3.75rem;
+    //         }
+    //         .content{
+    //             display: flex;
+    //         }
+    //         .card{
+    //             width: 43%;
+    //             position: relative;
+    //             .pic{
+    //                 width: 34rem;
+    //                 height: 34rem;
+    //                 overflow: hidden;
+    //                 border-radius: 50%;
+    //                 background-image: url("../images/svg/postbg.svg");
+    //                 padding: 4rem;
+    //                 box-shadow: 0 3px 30px rgba(0, 0, 0, 20%);
+    //                 img{
+    //                     height: 100%;
+    //                     width: 100%;
+    //                     object-fit: cover;
+    //                     border-radius: 50%;
+    //                 }
+    //             }
+    //             .mempic{
+    //                 position: absolute;
+    //                 top: 1rem;
+    //                 left: 1rem;
+    //             }
+    //             .txt{
+    //                 width: 22rem;
+    //                 padding: 2rem 1.5rem 1rem;
+    //                 border-radius: 0.5rem;
+    //                 background-color: $header_color;
+    //                 opacity: 0.9;
+    //                 position: absolute;
+    //                 bottom: 1.5rem;
+    //                 right: -1rem;
+    //                 p{
+    //                     text-align: justify;
+    //                     padding-bottom: 0.5rem;
+    //                 }
+    //                 .tag{
+    //                     padding-bottom: 0.5rem;
+    //                 }
+    //                 .icon{
+    //                     display: flex;
+    //                     float: right;
+    //                     img{
+    //                         height: 1.25rem;
+    //                     }
+    //                     span{
+    //                         color: #939393;
+    //                         font-size: $h3_size;
+    //                         padding-left: 0.3rem;
+    //                         padding-right: 1rem;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 }
