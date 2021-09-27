@@ -16,44 +16,59 @@
 // .header .header_con #nav li {
 //   font-size: 19.2px;
 // }
-
+body{
+  background-image: url("../images/svg/background.svg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
 article{
   @include container(10rem);
   p{
     font-size: 16px;
   }
   ul.breadcrumb{
-    padding: 10px 0;
     list-style: none;
-  }
-  ul.breadcrumb li{
-    display: inline;
-    font-size: 16px;
+    li{
+      display: inline;
+      a {
+        text-decoration: none;
+        color: #727070;
+      }
+    }
   }
   ul.breadcrumb li+li:before {
-    padding: 8px;
+    padding: 1rem;
     content: "/\00a0";
   }
-  ul.breadcrumb li a {
-    text-decoration: none;
+}
+
+.breadcrumb a:hover{
+  color: #f6bd60;
+}
+
+.breadcrumb :last-child{
+  a{
+  color: #f6bd60;
   }
 }
 
 
-
 .filter{
   @include flexcenter;
-  justify-content: center;
+  justify-content: space-between;
   // width: 711px;
     >*{
       @include select();
+      width: 7rem;
       margin:30px 0 0 0;
         option{
           @include flexcenter;
         }
     }
     .date{
-      width: 168px;
+      width: 139px;
+      height: 25px;
     }
 }
 
@@ -113,11 +128,26 @@ article{
     }
 }
 
+@include t{
+  .filter{
+    .date{
+      width: 156px;
+    }
+  }
+}
+
 @include d{
   .filter{
     width: 70%;
     display: flex;
     justify-content: space-between;
+    >*{
+      @include select();
+      width: 7rem;
+    }
+    .date{
+      width: 168px;
+    }
   }
   .main{
     .post{

@@ -14,11 +14,10 @@
 @import 'layout/modal_password';
 
 body{
-  background-color: #F7F6F2;
-  // background-image: url(/images/svg/background.svg);
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // background-position: 100%;
+  background-image: url("../images/svg/background.svg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .header .header_con #nav li {
@@ -33,26 +32,38 @@ article{
   }
 }  
 
-  ul.breadcrumb{
-    padding: 10px 0;
-    list-style: none;
-    @include container(10rem);
-  }
-  ul.breadcrumb li{
+ul.breadcrumb{
+  list-style: none;
+  padding: 21px 41px;
+  font-size: 16px;
+  li{
     display: inline;
-    font-size: 16px;
+    a {
+      text-decoration: none;
+      color: #FFF;
+    }
   }
-  ul.breadcrumb li+li:before {
-    padding: 8px;
-    content: "/\00a0";
-  }
-  ul.breadcrumb li a {
-    text-decoration: none;
-  }
+}
+ul.breadcrumb li+li:before {
+  padding: 1rem;
+  content: "/\00a0";
+  color: #FFF;
+}
+
+
+.breadcrumb a:hover{
+color: #f6bd60;
+}
+
+.breadcrumb :last-child{
+a{
+color: #f6bd60;
+}
+}
 
 
 .banner{
-  background-image: url(/images/common/banner_farmer.jpg);
+  background-image: url(/images/common/banner_farmer3.jpg);
   width: 100%;
   height: 140px;
   background-repeat: no-repeat;
