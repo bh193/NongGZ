@@ -13,7 +13,7 @@
     <script src="js/cursor_map.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/tree_growing.css">
     <script src="js/tree_growing.min.js"></script>
-    
+
 </head>
 
 <body>
@@ -22,7 +22,11 @@
     </div>
     @@include('layout/header.html')
     <article>
-        <div class="breadcrumbs"> </div>
+        <ul class="breadcrumb">
+            <li><a href="./home.html">首頁</a></li>
+            <li><a href="./adopt_tree.html">一同養樹</a></li>
+            <li><a href="#">果樹生長狀況</a></li>
+        </ul>
         <section>
             <canvas id="orange" width="2000" height="2000"></canvas>
             <div class="container">
@@ -55,13 +59,14 @@
                         <h3 class="price">認養價格: 3200$/年</h3>
                     </div>
                     <div class="con_btnbox">
-                        <input class="bigbtn_s" type="button" value="查看更多果樹">
-                        <a id="buy" href="#popOrder" rel="modal:open"><input class="bigbtn_m" type="button" value="我要認養"></a>
+                        <a href="./adopt_tree.html"><input class="bigbtn_s" type="button" value="查看更多果樹"></a>
+                        <a id="buy" href="#popOrder" rel="modal:open"><input class="bigbtn_m" type="button"
+                                value="我要認養"></a>
                     </div>
                 </div>
             </div>
         </section>
-        <section>
+        <section id="map">
             <div class="map">
 
                 <div class="black_bg">
@@ -150,7 +155,7 @@
         </div>
     </div>
     @@include('layout/footer.html')
-    
+
 </body>
 
 </html>
