@@ -4,14 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="js/jquery.min.js"></script>
-    <!-- jQuery Modal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <link rel="stylesheet" type="text/css" href="css/back_test.css">
     <link rel="stylesheet" href="css/back_farminfo.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <title>Document</title>
 </head>
 <body>
     @@include('layout/header_back_f.html')
@@ -53,7 +49,7 @@
                             <label for="">農場地址</label>
                             <div>
                                 <input type="text" value="">
-                                <a href="#modal_password" rel="modal:open"><button>修改密碼</button></a>
+                                <a href="#modal_password" rel="modal:open"><button id="psbtn">修改密碼</button></a>
                                 @@include('layout/modal_password.html')
                             </div>
                         </div>
@@ -96,16 +92,7 @@
         </section>
         @@include('layout/footer_back.html')
     </article>
-    
-    <script>
-
-        $('a[href="#modal_password"]').click(function(event) {
-          event.stopPropagation();
-          $(this).modal({
-            fadeDuration: 300
-          });
-        });
-        console.log('#modal_password');
-    </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 </body>
 </html>
