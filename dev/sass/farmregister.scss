@@ -4,8 +4,6 @@
 @import 'base/color';
 @import 'base/font';
 
-
-
 // mixin
 @import 'mixin/mixin';
 @import 'layout/header';
@@ -31,7 +29,7 @@ select{
     font-size: 1rem;
     }
 
-/*視窗框*/
+/*modal視窗框*/
 .dialog{
     width: 370px;
     height: auto;
@@ -42,32 +40,36 @@ select{
     }
     span{font-size: 12px; color: rgb(58, 51, 51)}
 }
+
+//-----內容-----
+// box1->Logo圖片
+// box2->小農註冊文字
+// box3->form表單
+    //-box3->item輸入填寫欄位
+
 .wrap{
     @include container(10rem);
     display: flex;
     flex-direction: column;
-
     .box{
         display: flex;
         @include margincenter($var:1.5rem);
         @include flexcenter();
     }
+
     .box:nth-child(1){
         .logo{
             width:13rem ;
             height:10rem ;
            background-image: url('../images/common/farm_login_img.svg');
            background-repeat: no-repeat;
-         
         }
     }
     .box:nth-child(2){
         h3{color:#248427;}
     }
     .box:nth-child(3){
-        .item{
-            @include margincenter($var:1rem);
-        }
+        .item{@include margincenter($var:1rem);}
         .item:nth-child(10){
             max-width: 350px;
             width: 100%;
@@ -87,8 +89,9 @@ select{
             margin-top: 20px;
             display: flex;
             justify-content: space-around;
-           .btn:nth-child(1){@include smallbtn_s;}
+            .btn:nth-child(1){@include smallbtn_s;}
             .btn:nth-child(2){@include smallbtn_m;}
         }
     }
 }
+@include d{}
