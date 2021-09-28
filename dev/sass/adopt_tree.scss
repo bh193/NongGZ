@@ -19,13 +19,6 @@ a{
     text-decoration: none;
 }
 
-body{
-    background-image: url("../images/svg/background.svg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-  }
-
 article {
     @include container(7rem);
     ul.breadcrumb{

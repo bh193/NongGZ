@@ -432,7 +432,6 @@ section {
 }
 
 .order {
-    width: 390px;
 
     h3 {
         width: 100%;
@@ -575,5 +574,8 @@ section {
                 margin: 0 0.3rem 1rem;
             }
         }
+    }
+    .order {
+    width: 390px;
     }
 }
