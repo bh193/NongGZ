@@ -116,6 +116,11 @@ section {
     justify-content: space-between;
     position: relative;
     margin-bottom: 8rem;
+    a{
+        position: absolute;
+        top: 73%;
+        z-index: 5;
+    }
 }
 
 .adopt_tree_img {
@@ -201,11 +206,6 @@ section {
 
     }
 
-}
-
-.adopt_tree_btn {
-    position: absolute;
-    top: 83%;
 }
 
 .adopt_tree_con {
@@ -333,10 +333,9 @@ section {
         overflow: hidden;
         position: relative;
         margin: 1rem 30px 1rem 0;
-        cursor: pointer;
         line-height: 1;
-
-        &:first-child {
+        
+        &:first-child{
             margin-left: 2.2%;
         }
 
@@ -353,22 +352,31 @@ section {
             background-color: rgba(255, 255, 255, 0.9);
             padding: 1rem;
             box-sizing: border-box;
+            a{
+                font-size: $p_size;
+                font-weight: 700;
+                letter-spacing: $p_letter;
+                color: $btn_m_color;
+                text-decoration: none;
+                &:hover{
+                    color: $focus_color;
+                }
+            }
 
             span {
                 display: block;
                 text-align: end;
-                font-size: $p_size;
-                font-weight: 700;
-                letter-spacing: $p_letter;
                 margin-top: 3rem;
-                color: $btn_m_color;
-                text-decoration: none;
+                
             }
 
             #more {
                 text-align: center;
                 padding: 42px;
                 color: $btn_m_color;
+                a{
+                    font-size: $h3_size;
+                }
             }
         }
     }

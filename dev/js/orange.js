@@ -1,6 +1,6 @@
 function doFirst() {
-    let canvas = document.getElementById('orange');
-    let context = canvas.getContext('2d');
+    var canvas = document.getElementById('orange');
+    var context = canvas.getContext('2d');
 
     // //格線開始
     // context.beginPath();

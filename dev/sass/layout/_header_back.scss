@@ -1,4 +1,5 @@
 @include d {
+   
     body {
         display: flex;
         justify-content: end;
@@ -36,13 +37,19 @@
                 font-weight: $h3_weight;
                 color: $h3_color;
                 letter-spacing: $h3_letter;
-                padding: 1rem;
                 cursor: pointer;
+                a{
+                    display: block;
+                    text-decoration: none;
+                    color: $h3_color;
+                    padding: 1rem;
+                }
 
                 &:hover {
                     color: #fff;
                     background-color: $focus_color;
                 }
+                
             }
 
             //點選顯示目前位置
