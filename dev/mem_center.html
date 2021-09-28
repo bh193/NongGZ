@@ -96,39 +96,59 @@
           </div>
           <div class="detail">
             <!-- 訂單內容  -->
-            <section>
-             <canvas id="orange" width="2000" height="2000"></canvas>
-             <div class="container">
-                 <div class="content_top">
-                     <p class="update">資料更新日期: 110/11/11</p>
-                     <div class="con_imgbox">
-                         <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
-                         <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
-                     </div>
-                     <input class="smallbtn_s" type="button" value="查看更多">
-                 </div>
-                 <div class="content_bottom">
-                     <p class="update">資料更新日期: 110/11/11</p>
-                     <div class="con_text">
-                         <h2 class="con_text_title">吃不完海梨</h2>
-                         <div class="id">
-                             <span>秀水農場</span>
-                             <span>果樹編號: 8</span>
-                         </div>
-                         <div class="data">
-                             <div class="data_text">
-                                 <h3>大小 </h3>
-                                 <h2>中</h2>
-                             </div>
-                             <div class="data_text">
-                                 <h3>數量</h3>
-                                 <h2>45</h2>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </section>
+            <section id="fruit_tree">
+              <div class="fruit_tree_box">
+                  <canvas id="orange" class="canvas" width="2000" height="2000"></canvas>
+                  <div class="tree_fruit_box">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    </div>
+              </div>
+              <div class="container">
+                  <div class="content_top">
+                      <p class="update">資料更新日期: 110/11/11</p>
+                      <div class="con_imgbox">
+                          <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                          <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                      </div>
+                      <a href="#moreimg" rel="modal:open"><input class="smallbtn_s" type="button" value="查看更多"></a>
+                  </div>
+                  <div class="content_bottom">
+                      <p class="update">資料更新日期: 110/11/11</p>
+                      <div class="con_text">
+                          <h2 class="con_text_title">吃不完海梨</h2>
+                          <div class="id">
+                              <span>秀水農場</span>
+                              <span>果樹編號: 8</span>
+                          </div>
+                          <div class="data">
+                              <div class="data_text">
+                                  <h3>大小 </h3>
+                                  <h2 id="size">中</h2>
+                              </div>
+                              <div class="data_text">
+                                  <h3>數量</h3>
+                                  <h2 id="number">45</h2>
+                              </div>
+                          </div>
+                          <span id="fruit_id" style="visibility:hidden">1</span>
+                          <h3 class="price">認養價格: 3200$/年</h3>
+                      </div>
+                      <div class="con_btnbox">
+                          <a href="./adopt_tree.html"><input class="bigbtn_s" type="button" value="查看更多果樹"></a>
+                          <a id="buy" href="#popOrder" rel="modal:open"><input class="bigbtn_m" type="button"
+                                  value="我要認養"></a>
+                      </div>
+                  </div>
+              </div>
+          </section>
  
            </div>
           <div class="item">
