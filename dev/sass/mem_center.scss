@@ -33,9 +33,9 @@ article{
 }  
 
 ul.breadcrumb{
+  @include container();
   list-style: none;
-  padding: 21px 41px;
-  font-size: 16px;
+  padding: 21px 0;
   li{
     display: inline;
     a {
@@ -56,9 +56,10 @@ color: #f6bd60;
 }
 
 .breadcrumb :last-child{
-a{
-color: #f6bd60;
-}
+  a{
+    color: #f6bd60;
+    // color: #f4f660;
+  }
 }
 
 
@@ -68,7 +69,8 @@ color: #f6bd60;
   height: 140px;
   background-repeat: no-repeat;
   background-size: cover;
-  // background-position: 100%;
+  // background-position-y: 31%;
+  background-position: 100%;
   margin: 5rem auto 0;
 }
 
