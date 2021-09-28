@@ -213,13 +213,12 @@ color: #f6bd60;
 }
 
 
-.detail{
-    >*{
-      font-size: 16px;
-      // display: flex;
-      width: 100%;
-    }
-}
+// .detail{
+//     >*{
+//       font-size: 16px;
+//       width: 100%;
+//     }
+// }
       
 
 @include t{
@@ -232,21 +231,27 @@ color: #f6bd60;
       }
   }
 
-  .detail.activity{
+  .detail{
     >*{
-      width: 240px;
+      // width: 240px;
       // border: 1px solid red;
     }
     // >*:nth-child(odd){
     //   margin-right: 26px;
     // }
   }
+
+  table {
+    border: solid;
+    border-color: #3d3b3b;
+    width: 100%;
+  }
 }
 
 @include d{
-  .detail.activity{
+  .detail{
     >*{
-      width: 340px;
+      // width: 340px;
       // border: 1px solid blue;
     }
     // >*:nth-child(odd){
