@@ -5,7 +5,9 @@
     html {
       font-size: $d_htmlfontSize;
     }
-
+    body{
+      background-image: url("../images/svg/background.svg");
+    }
     @content;
   }
 }
@@ -14,6 +16,9 @@
   @media all and (min-width:$t_minWidth){
     html {
       font-size: $t_htmlfontSize;
+    }
+    body{
+      background-image: url("../images/svg/background-t.svg");
     }
 
     @content;
@@ -25,6 +30,9 @@
   @media all and (max-width:$m_maxWidth) {
     html {
       font-size: $m_htmlfontSize;
+    }
+    body{
+      background-image: url("../images/svg/background-m.svg");
     }
 
     @content;

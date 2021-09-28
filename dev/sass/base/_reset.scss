@@ -58,3 +58,10 @@ input,textarea{
 html{
 	font-size: 12px;
 }
+
+body{
+	background-image: url("../images/svg/background-m.svg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+  }
