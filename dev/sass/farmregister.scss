@@ -37,9 +37,13 @@ select{
     height: auto;
     background-color: #F7F6F2;
     padding: 1.25rem 1.8rem 1rem;
+
     .text{
         width: 100%;
+        margin: auto;
         margin-bottom: 0.5rem;
+        text-align: center;
+        
     }
     button{
         width: 100px;
@@ -49,10 +53,7 @@ select{
         cursor: pointer;
         color: #fff;
         font-weight: bolder;
-        margin: 6px 20px;
-        background-color: #BB9590;
-        text-align: center;
-        
+        background-color: #BB9590; 
     }
     p{
         text-align: justify;
