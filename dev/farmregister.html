@@ -97,9 +97,14 @@
          $(window).ready(() => {
             $('#popOrder').modal({fadeDuration: 300})
         })
-
-
-
       </script>
+    <script>
+        $('a[href="#sendmail"]').click(function(event) {
+            event.stopPropagation();
+            $(this).modal({
+                fadeDuration: 300
+            });
+            });
+    </script>
 </body>
 </html>
