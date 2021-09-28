@@ -22,9 +22,9 @@
                 width: 100%;
                 box-sizing: border-box;
                 text-align: center;
-                th{background-color: #84A59D;padding: 15px;color:#fff;font-size: 16px;}
-                th:nth-child(1){border-top-left-radius:23%;}
-                th:last-child{border-top-right-radius:23%}
+                th{background-color: #84A59D;padding: 12px;color:#fff;font-size: 16px;}
+                th:nth-child(1){border-top-left-radius:8px;}
+                th:last-child{border-top-right-radius:8px}
                 tr:nth-child(odd){background-color:#fff;}
                 tr:nth-child(even){background-color:#E9E9E9;}
                 td{padding: 8px; font-size:14px;}

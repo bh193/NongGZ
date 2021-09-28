@@ -114,6 +114,10 @@ select{
 
 /*RWD*/
 @include t{
+
+
+}
+@include d{
     .wrap{
     
         .box:nth-child(2){
@@ -150,6 +154,4 @@ select{
             }
         }
     }
-
 }
-@include d{}

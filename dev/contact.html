@@ -57,7 +57,7 @@
 
         </div>
         <div class="box">
-            <form>
+            <form id="contact">
                 <div class="form">
                     <div class="col">
                         <label for="name">姓名</label>
@@ -83,18 +83,19 @@
                         <label for="message">內容</label>
                         <textarea id="message"></textarea>
                     </div>
+                </form>
                     <div class="btnbox">
                         <button type="reset" class="btn">清除</button>
-                        <a href="#popOrder" rel="modal:open"><button id="send" class="sub">送出</button></a>
+                        <a href="#popOrder" rel="modal:open"><button id="send" class="sub" >送出</button></a> 
 
                     </div>
                 </div>
-            </form>
+            
 
         </div>
 
     </div>
-
+   
     @@include('layout/footer.html')
     <div id="popOrder" class="modal dialog">
         <!-- 視窗內容 -->
@@ -103,8 +104,8 @@
 
         <script>
             var el = document.getElementById("send");
-            el.addEventListener('click',clearinput,false);
             el.addEventListener('click',sendmail,false);
+            el.addEventListener('click', clearinput,false);
         </script>
       
 
