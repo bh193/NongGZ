@@ -69,19 +69,30 @@
                 </div>
                 <div class="btnbox">
                     <button type="reset"class="btn">清除</button>
-                    <button  id="btn" class="btn">送出</button>
-                    
+                    <a href="#sendmail" rel="modal:open"><button class="btn">送出</button></a>
+                    <div id="sendmail" class="modal dialog">
+                        <div class="text"><h3>待審核</h3></div>
+                        <div class="text"><p>申請為小農需2-3個工作天，審核通過後會寄送信件至您填寫的信箱。 謝謝</p></div>
+                       
+                      </div>
                 </div>
             </form>
-            <div id="popOrder" class="modal dialog"> 
-                <h3>歡迎加入農果子</h3>
-                <p>欲申請加入小農行列，請確實填寫基本資料，審核通過後即可成為會員。</p>
+            
+            <div id="popOrder" class="modal dialog">
+                <div class="text"><h3>歡迎加入農果子</h3></div> 
+                <div class="text">
+                    <p>欲申請加入小農行列，請確實填寫基本資料，審核通過後即可成為會員。</p>
+                </div>
+                
+                </div>
                 <!-- <span><marquee behavior="slide" direction="">溫馨小提醒：此入口僅提供小農註冊</marquee></span> -->
+               
                 
                 
         </div>
     </div>
     <link rel="stylesheet" href="css/farmregister.css">
+    
     <script>
          $(window).ready(() => {
             $('#popOrder').modal({fadeDuration: 300})
