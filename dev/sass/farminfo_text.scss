@@ -1,12 +1,147 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+//mixin
+@import 'mixin/mixin';
+
+// layout
+@import 'layout/header';
+@import 'layout/footer';
+@mixin title {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 3.75rem;
+    @content;
+}
+
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+    img{
+        display: block;
+    }
+}
+
 .owl-theme .item {
-    height: 10rem;
-    background: #4dc7a0;
-    padding: 1rem;
+    padding-top: 100%;
+    position: relative;
   }
   
-  .owl-carousel .item h4 {
-    color: #fff;
-    font-weight: 400;
-    font-size: 1.4375rem;
-    margin-top: 0rem;
+ .owl-carousel .owl-stage{
+      cursor: grab;
   }
+  .card{
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    .pic{
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        border-radius: 50%;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2rem solid #f7f6f2;
+        }
+    }
+    .mempic{
+        position: absolute;
+        width: 25%;
+        top: 1rem;
+        left: -0.5rem;
+    }
+    .txt{
+        width: 70%;
+        padding: 2rem 1.5rem 1rem;
+        border-radius: 0.5rem;
+        background-color: $header_color;
+        opacity: 0.9;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        p{
+            text-align: justify;
+            padding-bottom: 0.5rem;
+        }
+        .tag{
+            padding-bottom: 0.5rem;
+        }
+        .icon{
+            display: flex;
+            float: right;
+            img{
+                height: 1.25rem;
+            }
+            span{
+                color: #939393;
+                font-size: $h3_size;
+                padding-left: 0.3rem;
+                padding-right: 1rem;
+            }
+        }
+    }
+  }
+  @include d{
+    .card{
+        width: 100%;
+        position: absolute;
+        top:0;
+        left: 0;
+        .pic{
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            border-radius: 50%;
+            img{
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 4rem solid #f7f6f2;
+            }
+        }
+        .mempic{
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+        .txt{
+            width: 75%;
+            padding: 2rem 1.5rem 1rem;
+            border-radius: 0.5rem;
+            background-color: $header_color;
+            opacity: 0.9;
+            position: absolute;
+            bottom: 1rem;
+            right: 0;
+            p{
+                text-align: justify;
+                padding-bottom: 0.5rem;
+            }
+            .tag{
+                padding-bottom: 0.5rem;
+            }
+            .icon{
+                display: flex;
+                float: right;
+                img{
+                    height: 1.25rem;
+                }
+                span{
+                    color: #939393;
+                    font-size: $h3_size;
+                    padding-left: 0.3rem;
+                    padding-right: 1rem;
+                }
+            }
+        }
+      }
+  }
+
