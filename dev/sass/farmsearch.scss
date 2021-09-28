@@ -21,8 +21,17 @@ button{
     outline:none;
 
 }
+label{
+    @include label;
+
+}
+select{
+    @include select;
+    margin-left: 1rem;
+}
+// -> 地圖
 #map{
-    // background-color: #ccc;
+    background-color: #ccc;
     min-height: 400px;
     .col{
         padding: 1rem;
@@ -45,6 +54,10 @@ button{
         }
     }
 }
+
+//-----內容------//
+//  box1->麵包屑
+//  box2->篩選框
 .wrap{
     @include container(7rem);
     .box:nth-child(1){
@@ -88,6 +101,10 @@ button{
             
         }
     }
+}
+.breadcrumb{
+    padding: 0;
+}
     // .box:nth-child(2){
     //     display: flex;
     //     .item{
@@ -99,19 +116,7 @@ button{
     //     }
 
     // }
-}
 
-        label{
-            @include label;
-
-        }
-        select{
-            @include select;
-            margin-left: 1rem;
-        }
-.breadcrumb{
-    padding: 0;
-}
 /*RWD*/
 @include t{
     .wrap{
@@ -152,6 +157,4 @@ button{
     }
 
 }
-@include d{
-
-}
+@include d{}
