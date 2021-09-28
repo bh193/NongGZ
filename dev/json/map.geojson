@@ -12,7 +12,7 @@
         "name": "山頂厝",
         "site": "335桃園市大溪區復興路一段39巷100號",
         "image":"./images/activity/apple1.jpg",
-        "location":"http://localhost:3000/farminfo.html"
+        "location":"./farminfo.html"
       }
     },
     {
@@ -26,7 +26,7 @@
         "name": "百果園",
         "site": "105台北市松山區敦化南路一段100巷7弄2號",
         "image":"./images/activity/apple1.jpg",
-        "location":"http://localhost:3000/farminfo.html"
+        "location":"./farminfo.html"
       }
     },
     {
@@ -40,7 +40,7 @@
         "name": "土城第三市民農園",
         "site": "236新北市土城區忠義路55巷64號",
         "image":"./images/activity/Jujube1.jpg",
-        "location":"http://localhost:3000/farminfo.html"
+        "location":"./farminfo.html"
       }
     },
     {
@@ -54,7 +54,7 @@
         "name": "阿煌橘園",
         "site": "235新北市中和區興南路三段73巷5號",
         "image":"./images/activity/orange1.jpg",
-        "location":"http://localhost:3000/farminfo.html"
+        "location":"./farminfo.html"
       }
     },
     {
@@ -68,7 +68,7 @@
         "name": "春富果園水蜜桃",
         "site": "336桃園市復興區丸山2鄰3-7號",
         "image":"./images/activity/peach2.jpg",
-        "location":"http://localhost:3000/farminfo.html"
+        "location":"./farminfo.html"
       }
     }
   ]

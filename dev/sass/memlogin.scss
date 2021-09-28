@@ -23,7 +23,7 @@ input{
     border-radius: 10px;
 
 }
-/*視窗框*/
+/*modal視窗框*/
 .dialog{
     width: 370px;
     height: auto;
@@ -34,16 +34,21 @@ input{
     }
     span{font-size: 12px; color: rgb(58, 51, 51)}
 }
+
+//-------內容
+// box1->Logo
+// box2->登入|註冊文字 ->item(1)登入、item(2)|、item(3)註冊)    
+// box3->form表單含.login登入 .register註冊
 .wrap{
     @include container(10rem);
     display: flex;
     flex-direction: column;
-    
     .box{
         display: flex;
         @include margincenter($var:1rem);
         @include margincenter($var:1rem);
     }
+
     .box:nth-child(1){
         .logo{
             width:13rem ;
@@ -107,6 +112,6 @@ input{
 
     }
 }
-
+@include d{}
 
 
