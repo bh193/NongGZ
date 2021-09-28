@@ -29,13 +29,13 @@ body{
     }
     .box:nth-child(1){
         .breadcrumb{
-            padding: 0 0.5rem 1rem;
+            // padding: 0 0.5rem 1rem;
             ol{
                 display: flex;
             }
             li{
                 
-                padding: 0 1rem;
+                padding-right: 1rem;
                 &:last-child a{
                     color: $main_color;
                 }
@@ -181,6 +181,12 @@ body{
             }
           }
     }
+    
+.breadcrumb{
+    padding: 0 0 35px 0;
+}
+
+
 /*RWD*/
 
 @include t{

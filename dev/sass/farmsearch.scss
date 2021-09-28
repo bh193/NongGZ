@@ -49,14 +49,14 @@ button{
     @include container(7rem);
     .box:nth-child(1){
         .breadcrumb{
-            padding: 0 0.5rem 1rem;
+            // padding: 0 0.5rem 1rem;
             background: none;
             ol{
                 display: flex;
             }
             li{
                 
-                padding: 0 1rem;
+                padding-right: 1rem;
                 &:last-child a{
                     color: $main_color;
                 }
@@ -109,7 +109,9 @@ button{
             @include select;
             margin-left: 1rem;
         }
-
+.breadcrumb{
+    padding: 0;
+}
 /*RWD*/
 @include t{
     .wrap{
