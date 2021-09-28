@@ -213,10 +213,10 @@ color: #f6bd60;
 }
 
 
-.detail.activity{
+.detail{
     >*{
       font-size: 16px;
-      display: inline-block;
+      // display: flex;
       width: 100%;
     }
 }
