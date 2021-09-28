@@ -26,6 +26,7 @@
             </div>
             <div class="item">
                 <button onclick="openRegister()"><h3 id="registerfont">註冊</h3></button>
+
             </div>
         </div>
         <div class="box">
@@ -49,6 +50,7 @@
             </div>
 
             <!-- 註冊 -->
+            
             <div id="register"  style="display: none;">
                 <form action="" class="register">
                     <div class="text">
@@ -70,18 +72,18 @@
                     <div class="text">
                         <input type="radio"  id="radio1" >
                         <label for="radio1">點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></label>
-                        <!-- <div class="radiobox">
-                            <label for=""></label>
-                            <input type="radio">
-                        </div>
-                        <div class="radiobox">
-                            <p>點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></p>
-                        </div> -->
-                        
+
                     </div>
+                     <!-- 對話框 -->
+
                     <div class="text">
                         <button class="btn" type="reset">清除</button>
-                        <button class="btn">送出</button>
+                        <a href="#sendmail" rel="modal:open"><button class="btn">送出</button></a>
+                        <div id="sendmail" class="modal dialog">
+                            <div class="text"><h3>恭喜成為會員</h3></div>
+                            <div class="text"><button onclick="window.open('./memlogin.html')">立即登入</button></div>
+                          </div>
+
                     </div>
                 </form>
             </div>
@@ -90,6 +92,7 @@
     </div>
 
     <link rel="stylesheet" href="css/memlogin.css">
+
     <script>
         var openLogin = () => {
     document.getElementById("loginfont").style.color = "#17C3B2"; 
@@ -104,15 +107,6 @@
     document.getElementById('login').style.display = "none";
     }
     </script>
-    <script>
-
-        $('a[href="#popOrder"]').click(function(event) {
-          event.stopPropagation();
-          $(this).modal({
-            fadeDuration: 300
-          });
-        });
-        
-        </script>
+    
 </body>
 </html>
