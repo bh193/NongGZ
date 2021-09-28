@@ -47,8 +47,8 @@ _gaq.push(['_trackPageview']);
 
 
 $('.slider2').slick({
-prevArrow:"<img class='a-left control-c prev slick-prev' src='../images/common/left-chevron.png' id='left-arrow'>",
-nextArrow:"<img class='a-right control-c next slick-next' src='../images/common/right-chevron.png' id='right-arrow'>",
+// prevArrow:"<img class='a-left control-c prev slick-prev' src='../images/svg/left-btn-g.svg' id='left-arrow'>",
+// nextArrow:"<img class='a-right control-c next slick-next' src='../images/svg/right-btn-g.svg' id='right-arrow'>",
 dots: true,
 infinite: true,
 speed: 500,
