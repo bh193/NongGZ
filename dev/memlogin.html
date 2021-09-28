@@ -9,7 +9,7 @@
     <script src="js/jquery.min.js"></script>
     <!-- 引入jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="font/jquery.modal.css">
 </head>
 <body>
     @@include('layout/header.html')
@@ -78,7 +78,7 @@
 
                     <div class="text">
                         <button class="btn" type="reset">清除</button>
-                        <a href="#sendmail" rel="modal:open"><button class="btn">送出</button></a>
+                        <a href="#sendmail" rel="modal:open"><button class="btngrenn" type="reset">送出</button></a>
                         <div id="sendmail" class="modal dialog">
                             <div class="text"><h3>恭喜成為會員</h3></div>
                             <div class="text"><button onclick="window.open('./memlogin.html')">立即登入</button></div>
@@ -92,7 +92,14 @@
     </div>
 
     <link rel="stylesheet" href="css/memlogin.css">
-
+`   <script>
+    $('a[href="#sendmail"]').click(function(event) {
+  event.stopPropagation();
+  $(this).modal({
+    fadeDuration: 300
+  });
+});
+    </script>
     <script>
         var openLogin = () => {
     document.getElementById("loginfont").style.color = "#17C3B2"; 

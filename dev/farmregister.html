@@ -8,7 +8,7 @@
     <script src="js/jquery.min.js"></script>
     <!-- 引入jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="font/jquery.modal.css">
 </head>
 <body>
     @@include('layout/header.html')
@@ -67,16 +67,17 @@
                     <label for="radio1">點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></label>
                   
                 </div>
+           
                 <div class="btnbox">
                     <button type="reset"class="btn">清除</button>
-                    <a href="#sendmail" rel="modal:open"><button class="btn">送出</button></a>
+                    <a href="#sendmail" rel="modal:open"><button type="reset" class="btn">送出</button></a>
                     <div id="sendmail" class="modal dialog">
                         <div class="text"><h3>待審核</h3></div>
-                        <div class="text"><p>申請為小農需2-3個工作天，審核通過後會寄送信件至您填寫的信箱。 謝謝</p></div>
-                       
+                        <div class="text"><p>申請為小農需2-3個工作天待審核通過後會寄送信件至您填寫的信箱。 謝謝</p></div>
                       </div>
                 </div>
             </form>
+            
             
             <div id="popOrder" class="modal dialog">
                 <div class="text"><h3>歡迎加入農果子</h3></div> 
@@ -92,19 +93,17 @@
         </div>
     </div>
     <link rel="stylesheet" href="css/farmregister.css">
-    
+    <script>
+        $('a[href="#sendmail"]').click(function(event) {
+            event.stopPropagation();
+            $(this).modal({ fadeDuration: 300});
+            })
+    </script>
     <script>
          $(window).ready(() => {
             $('#popOrder').modal({fadeDuration: 300})
         })
       </script>
-    <script>
-        $('a[href="#sendmail"]').click(function(event) {
-            event.stopPropagation();
-            $(this).modal({
-                fadeDuration: 300
-            });
-            });
-    </script>
+
 </body>
 </html>
