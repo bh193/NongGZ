@@ -10,12 +10,7 @@
 @import 'mixin/mixin';
 @import 'layout/header';
 @import 'layout/footer';
-body{
-    background-image: url('../images/svg/background.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
+
 *{
     list-style: none;
     text-decoration: none
@@ -154,7 +149,6 @@ body{
 }
 /*是窗框*/
     .dialog{
-        width: 100px;
         height: auto;
         background-color: #F7F6F2;
         padding: 1.25rem 1.8rem 1rem;

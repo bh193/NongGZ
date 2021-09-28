@@ -9,12 +9,7 @@
 @import 'layout/header';
 
 @import 'layout/modal_mail';
-body{
-    background-image: url('../images/svg/background.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
+
 label{
     @include label;
     display: block;
@@ -33,7 +28,6 @@ select{
 
 /*modal視窗框*/
 .dialog{
-    width: 23rem;
     height: auto;
     background-color: #F7F6F2;
     padding: 1.25rem 1.8rem 1rem;

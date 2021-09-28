@@ -7,12 +7,6 @@
 // mixin
 @import 'mixin/mixin';
 @import 'layout/header';
-body{
-    background-image: url('../images/svg/background.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
 label{
     @include label;
     display: block;
@@ -26,7 +20,6 @@ input{
 /*modal視窗框*/
 /*modal視窗框*/
 .dialog{
-    width: 23rem;
     height: auto;
     background-color: #F7F6F2;
     padding: 1.25rem 1.8rem 1rem;
@@ -111,6 +104,7 @@ input{
                 .btn:nth-child(1){@include smallbtn_s;}
                 .btn:nth-child(2){@include smallbtn_m;}
             }
+            .btngrenn{@include smallbtn_m;}
         }
         .register{
             .text:nth-child(5){ //input radio
