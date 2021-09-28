@@ -1,0 +1,251 @@
+// base 
+@import 'base/reset';
+@import 'base/var';
+@import 'base/color';
+@import 'base/font';
+
+// mixin
+
+@import 'mixin/mixin';
+
+@include d {
+
+    //小遊戲
+    @keyframes bigimg {
+        0% {
+            transform: scale(1);
+        }
+
+        80% {
+            transform: scale(2);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @keyframes waver {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(-10deg);
+        }
+
+        50% {
+            transform: rotate(0deg);
+        }
+
+        75% {
+            transform: rotate(10deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    body {
+        background-color: rgba(0, 0, 0, 0.75)
+    }
+
+    #points {
+        font-size: 16px;
+        position: absolute;
+        padding: 5px;
+        z-index: 5;
+        top: 0;
+        right: 0;
+    }
+
+    #Check_Txt {
+        font-size: 16px;
+        position: absolute;
+        padding: 5px;
+        z-index: 5;
+        bottom: 0;
+        right: 0;
+    }
+
+    #game {
+        width: 70vw;
+        height: 35vw;
+        overflow: hidden;
+        position: fixed;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        z-index: 101;
+    }
+
+    .game_img {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        background-color: #745b54;
+    }
+
+    .num {
+        width: 4%;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 3;
+        opacity: 0;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .tree {
+        width: 10%;
+        position: absolute;
+        z-index: 2;
+        opacity: .9;
+        pointer-events: none;
+        transition: all 1s;
+    }
+
+    .tree_img {
+        width: 100%;
+        transition: all 1.5s;
+    }
+
+    .fruit {
+        display: none;
+        width: 20%;
+        position: absolute;
+        opacity: .8;
+        animation: waver 1s linear infinite;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .fruit1 {
+        top: 30%;
+        left: 5%;
+    }
+
+    .fruit2 {
+        top: 60%;
+        left: 60%;
+    }
+
+    .fruit3 {
+        top: 10%;
+        left: 50%;
+    }
+
+    #back {
+        background-color: #3c3a39;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        text-align: center;
+        z-index: 101;
+    }
+
+    .result {
+        display: none;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        width: 390px;
+        background-color: #f7f6f2;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .rule {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        width: 390px;
+        background-color: #f7f6f2;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    .title {
+        width: 100%;
+        height: 55px;
+        background-color: #84A59D;
+        color: #fff;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .rule {
+        p {
+            text-align: justify;
+            margin: 1rem 0;
+        }
+    }
+
+    button {
+        width: 100px;
+        height: 35px;
+        border-radius: 8px;
+        border: 2px solid #84A59D;
+        cursor: pointer;
+        font-weight: bolder;
+        margin: 6px 20px;
+    }
+
+    #cancel {
+        color: #fff;
+        border: 2px solid #BB9590;
+        background-color: #BB9590;
+
+        &:hover {
+            background-color: #17C3B2;
+            border-color: #17C3B2;
+        }
+    }
+
+    #again {
+        color: #84A59D;
+        background-color: #fff;
+
+        &:hover {
+            color: #fff;
+            background-color: #17C3B2;
+            border-color: #17C3B2;
+        }
+    }
+
+    #sure {
+        color: #fff;
+        background-color: #84A59D;
+
+        &:hover {
+            background-color: #17C3B2;
+            border-color: #17C3B2;
+        }
+    }
+
+    #go {
+        color: #fff;
+        background-color: #84A59D;
+
+        &:hover {
+            background-color: #17C3B2;
+            border-color: #17C3B2;
+        }
+    }
+}

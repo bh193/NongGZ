@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>小遊戲</title>
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/game.css">
+    <script src="js/game_img.min.js"></script>
+    <script src="js/game.min.js"></script>
+</head>
+<body>
+     <!-- 小遊戲 -->
+     <div id="game" class="game game1">
+        <p id="points">分數: 40</p>
+        <h3 id="Check_Txt">時間計數：10秒</h3>
+        <canvas id="Game" class="game_img" width="1000" height="500" style="border:1px solid #000000">
+        </canvas>
+        <div class="num toxic">
+            <img src="./images/png/toxic.png" alt="毒藥">
+        </div>
+        <div class="num bomb">
+            <img src="./images/png/bomb.png" alt="炸彈">
+        </div>
+        <div class="num bee">
+            <img src="./images/png/bee.png" alt="蜜蜂">
+        </div>
+        <div class="num muck">
+            <img src="./images/png/muck.png" alt="肥料">
+        </div>
+        <div class="num water">
+            <img src="./images/png/water.png" alt="水">
+        </div>
+        <div class="num coin">
+            <img src="./images/png/coin.png" alt="錢幣">
+        </div>
+        <div class="num coin">
+            <img src="./images/png/coin.png" alt="錢幣">
+        </div>
+        <div class="num coin">
+            <img src="./images/png/coin.png" alt="錢幣">
+        </div>
+        <div class="num insect">
+            <img src="./images/png/insect.png" alt="蟲">
+        </div>
+        <div class="num insect">
+            <img src="./images/png/insect.png" alt="蟲">
+        </div>
+        <div class="tree">
+            <img class="tree_img" src="./images/svg/game_tree.svg" alt="果樹">
+            <div class="fruit1 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+            <div class="fruit2 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+            <div class="fruit3 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+        </div>
+        <div class="tree">
+            <img class="tree_img" src="./images/svg/game_tree.svg" alt="果樹">
+            <div class="fruit1 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+            <div class="fruit2 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+            <div class="fruit3 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+        </div>
+        <div class="tree">
+            <img class="tree_img" src="./images/svg/game_tree.svg" alt="果樹">
+            <div class="fruit1 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+            <div class="fruit2 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+            <div class="fruit3 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+        </div>
+        <div class="tree">
+            <img class="tree_img" src="./images/svg/game_tree.svg" alt="果樹">
+            <div class="fruit1 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+            <div class="fruit2 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+            <div class="fruit3 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+        </div>
+        <div class="tree">
+            <img class="tree_img" src="./images/svg/game_tree.svg" alt="果樹">
+            <div class="fruit1 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+            <div class="fruit2 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+            <div class="fruit3 fruit">
+                <img src="./images/fruit/fruit_1.svg" alt="水果">
+            </div>
+        </div>
+    </div>
+    <div id="back">
+        <div class="rule">
+            <div class="title">遊戲說明</div>
+            <p>滑動滑鼠或懸停移動於農園遊戲區域，將不停挖掘農園，並且途中會觸發驚喜，分數會加分也會扣分，遊戲時間為10秒，請把握時間，獲得好成績。</p>
+            <div class="btn">
+                <button id="cancel">取消</button>
+                <button id="go">開始</button>
+            </div>
+        </div>
+        <div class="result">
+            <p>會員編號: 123</p>
+            <p id="back_points">獲得分數: 40</p>
+            <h3 id="coupon">折扣100元</h3>
+            <p>折扣碼: 0123456789</p>
+            <div class="btn">
+                <button id="again">再玩一次</button>
+                <button id="sure">確定</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

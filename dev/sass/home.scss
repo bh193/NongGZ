@@ -11,13 +11,14 @@
 @import 'layout/header';
 @import 'layout/footer';
 
-.back_img {
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: -1;
-}
 
+body{
+    background-image: url("../images/svg/background.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
 article {
     margin-bottom: 8rem;
 }

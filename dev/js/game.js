@@ -1,8 +1,7 @@
 $(function () {
 
-    $('#go_game').click(function() {
-        $('#game').show();
-        $('#back').show();
+    $('#cancel').click(function () {
+        history.back();
     });
 
     $('#go').click(function () {
@@ -13,7 +12,6 @@ $(function () {
             SetSecond--;
             if (SetSecond < 0) {
                 SetSecond = 0;
-                $('#game').hide();
                 $('#back').show();
                 $('.rule').hide();
                 $('.result').show();
@@ -136,6 +134,15 @@ $(function () {
     }
 
     $('#again').click(function () {
-        $('#game').show();
+        window.location.reload();
     });
+
+    $('#cancel').click(function () {
+        $(window).attr('location','./tree_growing.html');
+    });
+
+    $('#sure').click(function () {
+        history.back();
+    });
+
 });

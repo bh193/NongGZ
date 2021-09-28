@@ -19,12 +19,12 @@ a{
     text-decoration: none;
 }
 
-.back_img{
-    width: 100%;
-    position: fixed;
-    top:0;
-    z-index: -1;
-}
+body{
+    background-image: url("../images/svg/background.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
 
 article {
     @include container(7rem);
@@ -58,7 +58,7 @@ article {
     display: flex;
     flex-wrap: wrap;
     justify-content: end;
-    margin: 1rem 0 0.5rem;
+    margin: 35px 0 0.5rem;
 }
 
 .select {

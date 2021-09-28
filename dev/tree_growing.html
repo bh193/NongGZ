@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <title>果樹生長狀況</title>
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src="js/orange.min.js"></script>
@@ -14,11 +16,14 @@
     <link rel="stylesheet" type="text/css" href="css/tree_growing.css">
     <script src="js/tree_growing.min.js"></script>
 
+
 </head>
 
 <body>
-    <div class="back_img">
-        <img src="./images/svg/background.svg" alt="網站背景">
+    <div id="go_game">
+        <a href="./gam.html">
+            <img src="./images/svg/game_icon.svg" alt="玩遊戲">
+        </a>
     </div>
     @@include('layout/header.html')
     <article>
@@ -27,8 +32,21 @@
             <li><a href="./adopt_tree.html">一同養樹</a></li>
             <li><a href="#">果樹生長狀況</a></li>
         </ul>
-        <section>
-            <canvas id="orange" width="2000" height="2000"></canvas>
+        <section id="fruit_tree">
+            <div class="fruit_tree_box">
+                <canvas id="orange" class="canvas" width="2000" height="2000"></canvas>
+                <div class="tree_fruit_box">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                  </div>
+            </div>
             <div class="container">
                 <div class="content_top">
                     <p class="update">資料更新日期: 110/11/11</p>
@@ -36,7 +54,7 @@
                         <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
                         <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
                     </div>
-                    <input class="smallbtn_s" type="button" value="查看更多">
+                    <a href="#moreimg" rel="modal:open"><input class="smallbtn_s" type="button" value="查看更多"></a>
                 </div>
                 <div class="content_bottom">
                     <p class="update">資料更新日期: 110/11/11</p>
@@ -49,13 +67,14 @@
                         <div class="data">
                             <div class="data_text">
                                 <h3>大小 </h3>
-                                <h2>中</h2>
+                                <h2 id="size">中</h2>
                             </div>
                             <div class="data_text">
                                 <h3>數量</h3>
-                                <h2>45</h2>
+                                <h2 id="number">45</h2>
                             </div>
                         </div>
+                        <span id="fruit_id" style="visibility:hidden">1</span>
                         <h3 class="price">認養價格: 3200$/年</h3>
                     </div>
                     <div class="con_btnbox">
@@ -73,7 +92,41 @@
                     <div class="cursor"></div>
                 </div>
 
-                <div class="map_img"><img src="./images/map/map_1.svg" alt="農園地圖"></div>
+                <div class="map_img">
+                    <img src="./images/map/map_1.svg" alt="農園地圖">
+                    <div class="map_tree_box">
+                        <div class="map_tree">
+                            <a href="#fruit_tree">
+                                <img src="./images/svg/game_tree.svg" alt="樹冠">
+                            </a>
+                        </div>
+                        <div class="map_tree">
+                            <a href="#fruit_tree">
+                                <img src="./images/svg/game_tree.svg" alt="樹冠">
+                            </a>
+                        </div>
+                        <div class="map_tree">
+                            <a href="#fruit_tree">
+                                <img src="./images/svg/game_tree.svg" alt="樹冠">
+                            </a>
+                        </div>
+                        <div class="map_tree">
+                            <a href="#fruit_tree">
+                                <img src="./images/svg/game_tree.svg" alt="樹冠">
+                            </a>
+                        </div>
+                        <div class="map_tree">
+                            <a href="#fruit_tree">
+                                <img src="./images/svg/game_tree.svg" alt="樹冠">
+                            </a>
+                        </div>
+                        <div class="map_tree">
+                            <a href="#fruit_tree">
+                                <img src="./images/svg/game_tree.svg" alt="樹冠">
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <div class="map_text">
                     <h2>秀水農場果樹</h2>
                     <p>歡迎來到碧水農場，請點選你想認養之果樹~</p>
@@ -91,6 +144,69 @@
             </div>
         </section>
     </article>
+
+    <!-- 彈跳查看更多照片 -->
+    <div id="moreimg" class="modal moreimg">
+        <div class="con">
+            <h3>認養果樹歷史照片</h3>
+            <div class="imgbox">
+                <table>
+                    <tr>
+                        <th>上傳時間</th>
+                        <th>照片</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 
     <!-- 彈跳登入會員視窗 -->
     @@include('layout/modal_login.html')
@@ -154,6 +270,8 @@
             <button id="send">送出</button>
         </div>
     </div>
+
+
     @@include('layout/footer.html')
 
 </body>
