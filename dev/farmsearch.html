@@ -119,10 +119,12 @@
                         </div>
                     </div>` 
                   });
-
-                  
-                  marker.addListener('click', e => {
+                   //點擊第二個視窗，第一個會關閉
+                    marker.addListener('click', e => {
+                    if (this.infowindow) this.infowindow.close();
                     infowindow.open(this.map, marker);
+                    this.infowindow = infowindow;
+                
                   });
 
                 });

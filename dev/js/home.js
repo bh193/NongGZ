@@ -59,8 +59,11 @@ $(function () {
   $('.left_icon').click(function () {
     if (index == 1) {
       index = 1;
+      $('.left_icon').css("opacity",0);
     } else {
       index--;
+      $('.left_icon').css("opacity",1);
+      $('.right_icon').css("opacity",1);
       show();
     }
   });
@@ -68,8 +71,11 @@ $(function () {
   $('.right_icon').click(function () {
     if (index == $('.fruit img').length) {
       index = $('.fruit img').length;
+      $('.right_icon').css("opacity",0);
     } else {
       index++;
+      $('.right_icon').css("opacity",1);
+      $('.left_icon').css("opacity",1);
       show();
     }
   });

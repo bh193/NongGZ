@@ -41,9 +41,9 @@ body{
         @include container();
         .breadcrumb{
             display: flex;
-            padding: 0 0.5rem 1rem;
+            padding-bottom: 35px;
             li{
-                padding: 0 1rem;
+                padding-right: 1rem;
                 &:last-child a{
                     color: $main_color;
                 }
@@ -185,18 +185,12 @@ body{
                 width: 1.25rem;
                 top: 55%;
                 left: 0;
-                &:hover{
-                    background-image: url("../images/svg/left-btn-y.svg");
-                }
             }
             .right{
                 position: absolute;
                 width: 1.25rem;
                 top: 55%;
                 right: 0;
-                &:hover{
-                    background-image: url("../images/svg/right-btn-y.svg");
-                }
             }
         }
     }
@@ -259,8 +253,6 @@ body{
                 .icon{
                     float: right;
                     margin-top: 1.25rem;
-                    // padding: 0 1.25rem 2rem;
-                    
                     .btn_heart{
                         background: url("../images/post/heart_gray.svg") no-repeat;
                         border: 0;

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/farminfo.css">
     <script src="js/jquery.min.js"></script>
-    <script src="js/farminfo.js"></script>
     <!-- 引入jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
@@ -75,7 +74,7 @@
                     <div class="fruit">
                         <div class="card">
                             <div class="pic">
-                                <img src="images/farm/tree-01.svg">
+                                <a href="./tree_growing.html"><img src="images/farm/tree-01.svg"></a>
                             </div>
                             <div class="txt">
                                 <h3>未認養</h3>
@@ -84,47 +83,47 @@
                         </div>
                         <div class="card">
                             <div class="pic">
-                                <img src="images/farm/tree-2.svg">
+                                <a href="./tree_growing.html"><img src="images/farm/tree-2.svg"></a>
                             </div>
                             <div class="txt">
                                 <h3>未認養</h3>
-                                <p>A5 金星蜜蘋果</p>
+                                <p>台農 天王柑</p>
                             </div>
                         </div>
                         <div class="card">
                             <div class="pic">
-                                <img src="images/farm/tree-01.svg">
+                                <a href="./tree_growing.html"><img src="images/farm/tree-01.svg"></a>
                             </div>
                             <div class="txt">
                                 <h3>未認養</h3>
-                                <p>A5 金星蜜蘋果</p>
+                                <p>台農2號 夏蜜桃</p>
                             </div>
                         </div>
                         <div class="card">
                             <div class="pic">
-                                <img src="images/farm/tree-3.svg">
+                                <a href="./tree_growing.html"><img src="images/farm/tree-3.svg"></a>
                             </div>
                             <div class="txt">
                                 <h3>未認養</h3>
-                                <p>A5 金星蜜蘋果</p>
+                                <p>台農1號 香水芒果</p>
                             </div>
                         </div>
                         <div class="card">
                             <div class="pic">
-                                <img src="images/farm/tree-2.svg">
+                                <a href="./tree_growing.html"><img src="images/farm/tree-2.svg"></a>
                             </div>
                             <div class="txt">
                                 <h3>未認養</h3>
-                                <p>A5 金星蜜蘋果</p>
+                                <p>台農 天王柑</p>
                             </div>
                         </div>
                         <div class="card">
                             <div class="pic">
-                                <img src="images/farm/tree-3.svg">
+                                <a href="./tree_growing.html"><img src="images/farm/tree-3.svg"></a>
                             </div>
                             <div class="txt">
                                 <h3>未認養</h3>
-                                <p>A5 金星蜜蘋果</p>
+                                <p>台農1號 香水芒果</p>
                             </div>
                         </div>
                     </div>
@@ -147,17 +146,18 @@
                                     <h3>大溪區 ┃&nbsp山頂厝農場</h3>
                                     <p>活動日期:110/12/01</p>
                                     <p>健康的果樹所結的果實就是果農用心的地方</p>
-                                    <button>我要報名</button>
+                                    <a href="#modal_login" rel="modal:open"><button id="modal_btn_1">我要報名</button></a>
+                                    @@include('layout/modal_login.html')
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="arrow">
-                        <div class="left" id="arrow-l">
-                            <img src="images/svg/left-btn-g.svg">
+                        <div class="left">
+                            <img id="arrow-l" onmouseover="setNewImageL()" onmouseout="setOldImageL()" src="images/svg/left-btn-g.svg">
                         </div>
-                        <div class="right" id="arrow-r">
-                            <img src="images/svg/right-btn-g.svg">
+                        <div class="right">
+                            <img id="arrow-r" onmouseover="setNewImageR()" onmouseout="setOldImageR()" src="images/svg/right-btn-g.svg">
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,6 @@
                                 </div>
                                 <div class="icon">
                                     <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_heart"></button></a>
-                                    @@include('layout/modal_login.html')
                                     <span>5</span>
                                     <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_loudly"></button></a>
                                 </div>
@@ -219,18 +218,19 @@
             }
         });
     </script>
-    <!-- <script>
-        window.onload = function(){
-            let mouseOverL = document.getElementById("arrow-l");
-            mouseOverL.onclick = function(){
-                img.src = "images/svg/left-btn-y.svg";
-            }
-            let mouseOutL = document.getElementById("arrow-l");
-            mouseOutL.onmouseout = function(){
-                img.src = "images/svg/left-btn-g.svg";
-            }
+    <script>
+        function setNewImageL(){
+            document.getElementById("arrow-l").src = "images/svg/left-btn-y.svg";
         }
-        
-    </script> -->
+        function setOldImageL(){
+            document.getElementById("arrow-l").src = "images/svg/left-btn-g.svg";
+        }
+        function setNewImageR(){
+            document.getElementById("arrow-r").src = "images/svg/right-btn-y.svg";
+        }
+        function setOldImageR(){
+            document.getElementById("arrow-r").src = "images/svg/right-btn-g.svg";
+        }
+    </script>
 </body>
 </html>

@@ -32,7 +32,6 @@ body{
         @include container();
         .breadcrumb{
             display: flex;
-            // padding: 0 0.5rem 1rem;
             padding-bottom: 35px;
             li{
                 padding-right: 1rem;
