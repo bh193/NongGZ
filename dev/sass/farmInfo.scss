@@ -7,6 +7,9 @@
 //mixin
 @import 'mixin/mixin';
 
+//彈跳視窗
+@import 'layout/modal_login';
+
 // layout
 @import 'layout/header';
 @import 'layout/footer';
@@ -249,12 +252,28 @@ body{
                 }
                 .tag{
                     padding-bottom: 0.5rem;
+                    a{
+                        color: $p_color;
+                    }
                 }
                 .icon{
-                    display: flex;
                     float: right;
-                    img{
-                        height: 1.25rem;
+                    margin-top: 1.25rem;
+                    // padding: 0 1.25rem 2rem;
+                    
+                    .btn_heart{
+                        background: url("../images/post/heart_gray.svg") no-repeat;
+                        border: 0;
+                        height: 1.5rem ;
+                        width: 1.5rem;
+                        cursor: pointer;
+                    }
+                    .btn_loudly{
+                        background: url("../images/post/loudly_gray.svg") no-repeat;
+                        border: 0;
+                        height: 1.5rem ;
+                        width: 1.5rem;
+                        cursor: pointer;
                     }
                     span{
                         color: #939393;
