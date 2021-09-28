@@ -31,7 +31,7 @@ body{
     h3{
       font-size: 21px;
     }
-    @include container(10rem);
+    @include container(7rem);
     ul.breadcrumb{
       list-style: none;
       li{

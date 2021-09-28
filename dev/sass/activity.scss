@@ -55,20 +55,23 @@ article{
 
 
 .filter{
-  @include flexcenter;
-  justify-content: space-between;
-  // width: 711px;
-    >*{
-      @include select();
-      width: 7rem;
-      margin:30px 0 0 0;
-        option{
-          @include flexcenter;
-        }
-    }
-    .date{
-      width: 139px;
-      height: 25px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-bottom: -15px;
+    .sel{
+      >*{
+        @include select();
+        width: 7rem;
+        margin: 1rem 0 0 0;
+          option{
+            @include flexcenter;
+          }
+      }
+      .date{
+        width: 139px;
+        height: 25px;
+      }
     }
 }
 
@@ -130,23 +133,33 @@ article{
 
 @include t{
   .filter{
-    .date{
-      width: 156px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin-top: 35px;
+    .sel{
+      .date{
+        width: 156px;
+      }
     }
   }
 }
 
 @include d{
   .filter{
-    width: 70%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    >*{
-      @include select();
-      width: 7rem;
-    }
-    .date{
-      width: 168px;
+    .sel{
+      >*{
+        @include select();
+      }
+      select, input{
+        margin-left: .5rem;
+      }
+      .date{
+        width: 168px;
+      }
     }
   }
   .main{
