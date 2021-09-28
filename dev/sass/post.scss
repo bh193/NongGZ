@@ -179,6 +179,9 @@ body{
                     font-size: $p_size;
                     color: $p_color;
                     padding-bottom: 1rem;
+                    a{
+                        color: $p_color;
+                    }
                 }
             }
             .photo{
@@ -191,17 +194,20 @@ body{
                 float: right;
                 margin-top: 1.25rem;
                 padding: 0 1.25rem 2rem;
+                
                 .btn_heart{
                     background: url("../images/post/heart_gray.svg") no-repeat;
                     border: 0;
                     height: 1.5rem ;
                     width: 1.5rem;
+                    cursor: pointer;
                 }
                 .btn_loudly{
                     background: url("../images/post/loudly_gray.svg") no-repeat;
                     border: 0;
                     height: 1.5rem ;
                     width: 1.5rem;
+                    cursor: pointer;
                 }
                 span{
                     color: #939393;
@@ -211,6 +217,12 @@ body{
                 }
             }
         }
+    }
+}
+.more{
+    .container{
+        @include container();
+        text-align: center;
     }
 }
 @include t{
