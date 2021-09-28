@@ -12,6 +12,15 @@
 <body>
     @@include('layout/header.html')
     <div class="wrap">
+      <div class="box">
+        <div class="breadcrumb">
+          <ol>
+              <li><a href="./home.html">首頁</a></li>
+              <li><a href="./farmsearch.html">來農場吧</a></li>
+
+          </ol>
+      </div>
+      </div>
             <div class="box">
               <div class="item">
                 <label for="">選擇水果</label>
@@ -51,6 +60,14 @@
         el: '#app',
         data: {
           map: null,
+          hideBusiness: 'hide',// 隱藏商周：hide隱藏
+          hideStyle: [{
+            featureType: 'poi.business',
+            elementType: "all",
+            stylers: [{
+              visibility: 'off'
+            }]
+          }],
           features: [], // 存入每一個地點
           infowindowAll: {} // 存入每一個marker上的info windows
         },
@@ -70,7 +87,8 @@
               mapTypeId: 'roadmap',
               mapTypeControl: false,
               streetViewControl: false,
-              fullscreenControl: false
+              fullscreenControl: false,
+              
 
             });
 

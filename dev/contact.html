@@ -8,14 +8,12 @@
     <title>找農果子</title>
     <link rel="stylesheet" href="css/contact.css">
     <script src="js/jquery.min.js"></script>
+
     <!-- 引入jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    <script src="js/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script> 
+    <script src="js/contact.min.js"></script>
 
     <script type="text/javascript">
         (function () {
@@ -33,8 +31,8 @@
         <div class="box">
             <div class="breadcrumb">
                 <ol>
-                    <li><a href="#">首頁</a></li>
-                    <li><a href="#">找農果子</a></li>
+                    <li><a href="./home.html">首頁</a></li>
+                    <li><a href="./contact.html">找農果子</a></li>
 
                 </ol>
             </div>
@@ -88,6 +86,7 @@
                     <div class="btnbox">
                         <button type="reset" class="btn">清除</button>
                         <a href="#popOrder" rel="modal:open"><button id="send" class="sub">送出</button></a>
+
                     </div>
                 </div>
             </form>
@@ -97,24 +96,17 @@
     </div>
 
     @@include('layout/footer.html')
-    <!-- 視窗內容 -->
     <div id="popOrder" class="modal dialog">
-        <h3>謝謝您的意見與回饋</h3>
-        <p>已收到您給予我們的意見反應與回饋，您的寶貴建議是讓我們進步的最大動力。農果子會盡速回覆您提出的問題!</p>
+        <!-- 視窗內容 -->
+        <h3>感謝您的意見與回饋</h3>
+        <p>已收到您的來信，農果子會盡速回覆您! 謝謝</p>
 
         <script>
             var el = document.getElementById("send");
-            // el.addEventListener('click',pressBtn2,false);
-            // el.addEventListener('click',pressBtn,false);
+            el.addEventListener('click',clearinput,false);
+            el.addEventListener('click',sendmail,false);
         </script>
-        <script>
-                $('a[href="#popOrder"]').click(function (event) {
-                    event.stopPropagation();
-                    $(this).modal({
-                        fadeDuration: 300
-                    });
-                });
-        </script>
+      
 
 </body>
 

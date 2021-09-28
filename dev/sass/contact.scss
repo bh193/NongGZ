@@ -154,10 +154,32 @@ body{
 }
 /*是窗框*/
     .dialog{
-        width: 370px;
-        height: 120px;
+        width: 100px;
+        height: auto;
         background-color: #F7F6F2;
         padding: 1.25rem 1.8rem 1rem;
+        .btn{
+            text-align: center;
+            button{
+              width: 100px;
+              height: 35px;
+              border-radius: 8px;
+              border: none;
+              cursor: pointer;
+              color: #fff;
+              font-weight: bolder;
+              margin: 6px 20px;
+            }
+            button:hover{
+              opacity: .8;
+            }
+            .cancel{
+              background-color: #BB9590;
+            }
+            .send{
+              background-color:#84A59D;
+            }
+          }
     }
 /*RWD*/
 
