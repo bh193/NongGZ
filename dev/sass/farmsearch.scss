@@ -118,11 +118,11 @@ select{
     
         .box:nth-child(2){
             flex-direction: row;
+            align-items: flex-start;
             .item{
                 width: 50%;
-                text-align: center;
-
             }
+            .item:nth-child(2){margin-right: 10rem;}
         }
         .box:nth-child(3){
             .item:nth-child(2){
