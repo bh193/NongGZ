@@ -20,6 +20,7 @@
 }
 .page{
     @include margincenter(7rem);
+    // @include container();
 }
 .post-nav{
     .container{

@@ -42,11 +42,11 @@
 
 //---------------版面----------------//
 //container(上下margin)
-@mixin container($var:0) {
+@mixin container($top:7rem , $bottom:5rem) {
   max-width: 960px;
   min-width: 350px;
   width: 75%;
-  @include margincenter($var);
+  @include margincenter($top , $bottom);
 }
 
 
@@ -58,8 +58,8 @@
 }
 
 //margincenter(上下margin)
-@mixin margincenter($var:0) {
-  margin: $var auto;
+@mixin margincenter($var:0 , $bottom:0) {
+  margin: $var auto $bottom;
 }
 
 @mixin positioncenter() {

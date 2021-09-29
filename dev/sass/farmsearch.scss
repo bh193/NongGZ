@@ -54,7 +54,7 @@ select{
 //  box1->麵包屑
 //  box2->篩選框
 .wrap{
-    @include container(7rem);
+    @include container();
     .box:nth-child(1){
         .breadcrumb{
             // padding: 0 0.5rem 1rem;

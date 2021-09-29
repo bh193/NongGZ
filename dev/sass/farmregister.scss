@@ -62,7 +62,8 @@ select{
     //-box3->item輸入填寫欄位
 
 .wrap{
-    @include container(10rem);
+    @include container();
+    margin: 7rem auto 5rem;
     display: flex;
     flex-direction: column;
     .box{

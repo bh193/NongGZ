@@ -20,7 +20,7 @@ a{
 }
 
 article {
-    @include container(7rem);
+    @include container();
     ul.breadcrumb{
         list-style: none;
         li{
