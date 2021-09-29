@@ -114,7 +114,9 @@ select{
 
 /*RWD*/
 @include t{
-
+    #map{
+        min-height: 450px;
+    }
 
 }
 @include d{

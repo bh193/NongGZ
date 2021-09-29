@@ -118,7 +118,8 @@
         select{
         @include select(350px);
         color: #b5b5b5;
-        font-size: 1rem;
+        font-size: $p_size;
+        padding: $text_p 10px;
 
         }
         textarea{
