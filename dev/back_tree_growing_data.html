@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <title>果樹認養資訊</title>
     <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <link rel="stylesheet" type="text/css" href="css/back_tree_growing_data.css">
     <script src="js/back_activity_info.min.js"></script>
+    <script src="js/back_tree_growing_data.min.js"></script>
 </head>
 
 <body>
@@ -137,7 +140,7 @@
                         </label>
                     </div>
                     <div class="photo">
-                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                        <a href="#moreimg" rel="modal:open"><input class="bigbtn_s" type="button" value="查看歷史照片"></a>
                     </div>
                     <div class="update">
                         <h3>更新日期: 2021/9/15</h3>
@@ -204,7 +207,7 @@
                         </label>
                     </div>
                     <div class="photo">
-                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                        <a href="#moreimg" rel="modal:open"><input class="bigbtn_s" type="button" value="查看歷史照片"></a>
                     </div>
                     <div class="update">
                         <h3>更新日期: 2021/9/15</h3>
@@ -271,7 +274,7 @@
                         </label>
                     </div>
                     <div class="photo">
-                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                        <a href="#moreimg" rel="modal:open"><input class="bigbtn_s" type="button" value="查看歷史照片"></a>
                     </div>
                     <div class="update">
                         <h3>更新日期: 2021/9/15</h3>
@@ -338,7 +341,7 @@
                         </label>
                     </div>
                     <div class="photo">
-                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                        <a href="#moreimg" rel="modal:open"><input class="bigbtn_s" type="button" value="查看歷史照片"></a>
                     </div>
                     <div class="update">
                         <h3>更新日期: 2021/9/15</h3>
@@ -404,8 +407,7 @@
                             <input class="item_text" name="tree_price" type="text">
                         </label>
                     </div>
-                    <div class="photo">
-                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                    <a href="#moreimg" rel="modal:open"><input class="bigbtn_s" type="button" value="查看歷史照片"></a>
                     </div>
                     <div class="update">
                         <h3>更新日期: 2021/9/15</h3>
@@ -472,7 +474,7 @@
                         </label>
                     </div>
                     <div class="photo">
-                        <input class="bigbtn_s" type="button" value="查看歷史照片">
+                        <a href="#moreimg" rel="modal:open"><input class="bigbtn_s" type="button" value="查看歷史照片"></a>
                     </div>
                     <div class="update">
                         <h3>更新日期: 2021/9/15</h3>
@@ -487,6 +489,69 @@
         </section>
         @@include('layout/footer_back.html')
     </article>
+
+    <!-- 彈跳查看更多照片 -->
+    <div id="moreimg" class="modal moreimg">
+        <div class="con">
+            <h3>認養果樹歷史照片</h3>
+            <div class="imgbox">
+                <table>
+                    <tr>
+                        <th>上傳時間</th>
+                        <th>照片</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>110/11/11</p>
+                        </td>
+                        <td>
+                            <img src="./images/tree/8.jpg" alt="照片">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -52,6 +52,10 @@ $(function () {
     $('#adopt_tree_btn').css({ "background-color": "#84A59D", "border-color": "#84A59D" });
   });
 
+  $('.tree').click(function(){
+    $(window).attr('location','./adopt_tree.html');
+  });
+
 
   //篩選水果
   var index = 1;
@@ -59,25 +63,29 @@ $(function () {
   $('.left_icon').click(function () {
     if (index == 1) {
       index = 1;
-      $('.left_icon').css("opacity",0);
     } else {
       index--;
       $('.left_icon').css("opacity",1);
       $('.right_icon').css("opacity",1);
       show();
-    }
+    };
+    if(index == 1){
+      $('.left_icon').css("opacity",0);
+    };
   });
 
   $('.right_icon').click(function () {
     if (index == $('.fruit img').length) {
       index = $('.fruit img').length;
-      $('.right_icon').css("opacity",0);
     } else {
       index++;
       $('.right_icon').css("opacity",1);
       $('.left_icon').css("opacity",1);
       show();
     }
+    if(index == $('.fruit img').length){
+      $('.right_icon').css("opacity",0);
+    };
   });
 
   function show() {

@@ -8,6 +8,15 @@
 
 @import 'mixin/mixin';
 
+@keyframes opacity{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 @include d {
 
     //小遊戲
@@ -80,6 +89,13 @@
         z-index: 101;
     }
 
+    #points{
+        font-size: 1.5rem;
+        color: $main_color;
+        background-color: rgba(255, 255, 255, 0.8);
+        pointer-events: none;
+    }
+
     .game_img {
         position: absolute;
         transform: translate(-50%, -50%);
@@ -144,7 +160,7 @@
     }
 
     #back {
-        background-color: #3c3a39;
+        background-color:rgba(0, 0, 0, 0.75);
         position: fixed;
         top: 0;
         left: 0;
@@ -153,6 +169,8 @@
         overflow: auto;
         text-align: center;
         z-index: 101;
+        opacity: 0;
+        animation: opacity .5s linear forwards;
     }
 
     .result {
@@ -165,6 +183,15 @@
         background-color: #f7f6f2;
         border-radius: 8px;
         padding: 10px;
+        opacity: 0;
+        animation: opacity .1s .4s linear forwards;
+        h3{
+            color: $main_color;
+            font-weight: 900;
+        }
+        .btn{
+            margin-top: 1rem;
+        }
     }
 
     .rule {
@@ -176,6 +203,16 @@
         background-color: #f7f6f2;
         border-radius: 8px;
         padding: 10px;
+        opacity: 0;
+        animation: opacity .1s .4s linear forwards;
+        p {
+            text-align: justify;
+            margin: 1rem 0;
+            b{
+                font-weight: 900;
+                color: $main_color;
+            }
+        }
     }
 
     .title {
@@ -188,13 +225,6 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 1rem;
-    }
-
-    .rule {
-        p {
-            text-align: justify;
-            margin: 1rem 0;
-        }
     }
 
     button {
