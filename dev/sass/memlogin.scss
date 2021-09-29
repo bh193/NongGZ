@@ -107,17 +107,20 @@ input{
             .btngrenn{@include smallbtn_m;}
         }
         .register{
-            .text:nth-child(5){ //input radio
+            .text:nth-child(5){ //input checkbox
                 max-width: 350px;
                 width: 100%;
                 display: flex;
+                align-items: center;
                 input{
                     width: 10%;
+                    padding: 0 ;
                 }
                 label{
                     width: 90%;
                     font-size: 12px;
                     margin-top: 0px;
+     
                 }
 
             }
