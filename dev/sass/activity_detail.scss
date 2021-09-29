@@ -22,15 +22,15 @@
 //   background-size: cover;
 // }
   article{
-    p{
-      font-size: 16px;
-    }
-    h2{
-      font-size: 35px;
-    }
-    h3{
-      font-size: 21px;
-    }
+    // p{
+    //   font-size: 16px;
+    // }
+    // h2{
+    //   font-size: 35px;
+    // }
+    // h3{
+    //   font-size: 21px;
+    // }
     @include container(7rem);
     ul.breadcrumb{
       list-style: none;

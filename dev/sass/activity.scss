@@ -22,9 +22,9 @@
 // }
 article{
   @include container(7rem);
-  p{
-    font-size: 16px;
-  }
+  // p{
+  //   font-size: 16px;
+  // }
   ul.breadcrumb{
     list-style: none;
     li{
