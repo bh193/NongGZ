@@ -84,17 +84,20 @@ select{
     }
     .box:nth-child(3){
         .item{@include margincenter($var:1rem);}
-        .item:nth-child(10){
+        .item:nth-child(10){  //input checkbox
             max-width: 350px;
             width: 100%;
             display: flex;
+            align-items: center;
             input{
                 width: 10%;
+                padding: 0 ;
             }
             label{
                 width: 90%;
                 font-size: 12px;
                 margin-top: 0px;
+ 
             }
 
         }
