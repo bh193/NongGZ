@@ -138,14 +138,13 @@
 
 
 //---------------篩選鈕(包含排序鈕)----------------//
-@mixin select($w:10rem) {
+@mixin select($w:7rem) {
   width: $w;
   padding: $select_p 0;
   font-family: inherit;
-  color: $h3_color; //與h3相同
-  font-size: $h3_size; //與h3相同
-  font-weight: $h3_weight; //與h3相同
-  letter-spacing: $h3_letter; //與h3相同
+  color: $p_color; //與p相同
+  font-size: $p_size; //與p相同
+  letter-spacing: $p_letter; //與p相同
   border-radius: $select_bR;
   border: none;
   text-align: center;
@@ -155,10 +154,9 @@
 //---------------填寫框----------------//
 //label
 @mixin label {
-  color:$h3_color; //與h3相同
-  font-size: $h3_size; //與h3相同
-  font-weight: $h3_weight; //與h3相同
-  letter-spacing: $h3_letter; //與h3相同
+  color:$p_color; //與p相同
+  font-size: $p_size; //與p相同
+  letter-spacing: $p_letter; //與p相同
   line-height: $label_line;
 }
 
