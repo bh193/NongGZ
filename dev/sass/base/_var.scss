@@ -1,10 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');
+
 //字體匯入
-  @font-face {
-    font-family: "Noto";
-    src:url(../font/NotoSansCJKtc-Regular.otf);
-    }
-
-
 //螢幕介面設定
 //d:電腦 t:平板 m:手機
 $d_minWidth:1024px;
@@ -18,8 +14,8 @@ $t_htmlfontSize:14px;
 $m_htmlfontSize:12px;
 
 //字體大小
-$h2_size:2.5rem;
-$h3_size:1.5rem;
+$h2_size:2rem;
+$h3_size:1.2rem;
 $p_size:1rem;
 $h4_size:12px;
 
@@ -28,7 +24,7 @@ $h2_weight:700;
 $h3_weight:500;
 
 //字型
-$fontFamily:"Noto";
+$fontFamily:'Noto Sans TC';
 
 //字體顏色
 $h2_color:#3d3b3b;
@@ -37,10 +33,10 @@ $p_color:#727070;
 $h4_color:#727070;
 
 //行高
-$h2_line:1.5;
+$h2_line:1.8;
 $h3_line:1.5;
-$p_line:1.5;
-$h4_line:1.5;
+$p_line:1.6;
+$h4_line:1.6;
 
 //字距
 $h2_letter:1px;
