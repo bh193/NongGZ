@@ -183,7 +183,7 @@
 
 /*RWD*/
 
-@include t{
+@include d{
     .content{
         flex-direction: row;
         flex-wrap: wrap;
@@ -211,7 +211,4 @@
             width: 50%;
         }
     }
-}
-@include d{
-
 }
