@@ -65,3 +65,13 @@ $('a[href="#modal_order"]').click(function(event) {
       fadeDuration: 300
     });
   });
+
+  
+  
+
+
+$('.preview').click(function () {
+  $(this).find('.mask').hide();
+  $(this).siblings().find('.mask').show();
+});
+
