@@ -16,7 +16,7 @@
     text-decoration: none
 }
 .content{
-    @include container(7rem);
+    @include container();
     display: flex;
     flex-direction: column;
     .box{

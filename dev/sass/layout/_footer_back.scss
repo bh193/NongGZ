@@ -3,6 +3,8 @@
         width: 100%;
         background-color: $footer_color;
         margin-top: 2rem;
+        // position: fixed;
+        // bottom: 0;
 
         .footer_con {
             @include container();
