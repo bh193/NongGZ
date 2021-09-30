@@ -20,10 +20,11 @@
 }
 .page{
     @include margincenter(7rem);
+    margin-bottom: 5rem;
 }
 .post-nav{
     .container{
-        @include container();
+        @include container(0,0);
         .breadcrumb{
             display: flex;
             padding-bottom: 35px;
@@ -52,7 +53,7 @@
 }
 .post{
     .container{
-        @include container();
+        @include container(0,0);
         margin-bottom: 3.75rem;
         padding: 1.25rem 2.5rem;
         background-color: $header_color;
@@ -114,7 +115,7 @@
 }
 .filter{
     .container{
-        @include container();
+        @include container(0,0);
         display: flex;
         justify-content: flex-start;
         margin-bottom: 3rem;
@@ -140,7 +141,7 @@
 }
 .mempost{
     .container{
-        @include container();
+        @include container(0,0);
         @include flexcenter();
         flex-direction: column;
         justify-content: space-between;
@@ -215,7 +216,7 @@
 }
 .more{
     .container{
-        @include container();
+        @include container(0,0);
         text-align: center;
     }
 }

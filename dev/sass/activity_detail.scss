@@ -31,7 +31,7 @@
     // h3{
     //   font-size: 21px;
     // }
-    @include container(7rem);
+    @include container();
     ul.breadcrumb{
       list-style: none;
       li{
@@ -125,7 +125,7 @@
         margin: 17px 0;
         color: #3d3b3b;
         td{
-          padding: 5px 15px;
+          padding: 5px 13px;
             select{
               width: 50px;
               height: 25px;
@@ -163,7 +163,7 @@
     width: 100%;
     height: 100%;
     content: "";
-    background-color: rgba(0, 0, 0, 0.692);
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     left: 0;
     bottom: 0;

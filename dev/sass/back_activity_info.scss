@@ -39,10 +39,13 @@
 
     .btnbox {
         width: 100%;
-        margin: 0.5rem;
         display: flex;
-        justify-content: space-evenly;
-        align-self: flex-end;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 18px 38px;
+        h3{
+            line-height: 2.5;
+        }
     }
 
     .smallbtn_m {

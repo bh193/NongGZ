@@ -42,14 +42,18 @@ $(function () {
   //hover果樹連動按鍵
   $('.tree').hover(function () {
     $('#adopt_tree_btn').css({ "background-color": "#17C3B2", "border-color": "#17C3B2" });
+    $('.tree_o').css({ "transform": "scale(1.05)"})
   }, function () {
     $('#adopt_tree_btn').css({ "background-color": "#84A59D", "border-color": "#84A59D" });
+    $('.tree_o').css({ "transform": "scale(1)"})
   });
 
   $('.adopt_tree a').hover(function () {
     $('#adopt_tree_btn').css({ "background-color": "#17C3B2", "border-color": "#17C3B2" });
+    $('.tree_o').css({ "transform": "scale(1.05)"})
   }, function () {
     $('#adopt_tree_btn').css({ "background-color": "#84A59D", "border-color": "#84A59D" });
+    $('.tree_o').css({ "transform": "scale(1)"})
   });
 
   $('.tree').click(function(){
@@ -67,10 +71,13 @@ $(function () {
       index--;
       $('.left_icon').css("opacity",1);
       $('.right_icon').css("opacity",1);
+      $('.left_icon').css("pointer-events","auto");
+      $('.right_icon').css("pointer-events","auto");
       show();
     };
     if(index == 1){
-      $('.left_icon').css("opacity",0);
+      $('.left_icon').css("opacity",.3);
+      $('.left_icon').css("pointer-events","none");
     };
   });
 
@@ -81,10 +88,13 @@ $(function () {
       index++;
       $('.right_icon').css("opacity",1);
       $('.left_icon').css("opacity",1);
+      $('.right_icon').css("pointer-events","auto");
+      $('.left_icon').css("pointer-events","auto");
       show();
     }
     if(index == $('.fruit img').length){
-      $('.right_icon').css("opacity",0);
+      $('.right_icon').css("opacity",.3);
+      $('.right_icon').css("pointer-events","none");
     };
   });
 

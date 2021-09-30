@@ -71,25 +71,25 @@ $black_color:rgba(0, 0, 0, 0.2);
 
 // 按鈕
 //大按鈕
-$bigbtn_w:11rem;  //132px/154px/176px
-$bigbtn_p:1rem;  //12px/14px/16px
+$bigbtn_w:8rem;  
+$bigbtn_p:.5rem;  
 $bigbtn_bR:8px;
 $bigbtn_b:2px solid $btn_m_color;
 //小按鈕
-$smallbtn_w:6rem;  //72px/84px/96px
-$smallbtn_p:0.5rem;  //6px/7px/8px
+$smallbtn_w:6rem;  
+$smallbtn_p:0.5rem;  
 $smallbtn_bR:8px;
 $smallbtn_b:2px solid $btn_m_color;
 
 
 //篩選鈕(包含排序鈕)
-$select_p:0.5rem;  //6px/7px/8px
+$select_p:0.5rem; 
 $select_bR:8px;
 
 
 //填寫框
-$text_p:0.75rem;  //6px/7px/8px
-$text_size:1.5rem; //18px/21px/24px
+$text_p:0.75rem; 
+$text_size:1.5rem;
 $text_bR:8px;
 $text_b:1px solid #ebe7e7;
 //label
@@ -97,7 +97,7 @@ $label_line:1.2;
 
 
 //跳窗標頭
-$title_w:20rem;  // 240px/280px/320px
-$title_p:1rem;  //12px/14px/16px
+$title_w:20rem; 
+$title_p:1rem;  
 $title_color:#fff;
 $title_bR:8px;

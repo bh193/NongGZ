@@ -21,7 +21,7 @@
 //   background-size: cover;
 // }
 article{
-  @include container(7rem);
+  @include container();
   // p{
   //   font-size: 16px;
   // }
@@ -54,21 +54,21 @@ article{
 
 .filter{
   width: 100%;
-  display: block;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 35px;
     .sel{
       padding: 8px 0;
       >*{
         @include select();
         width: 7rem;
-        // margin: 1rem 0 0 0;
           option{
             @include flexcenter;
           }
       }
       .date{
-        width: 139px;
+        width: 121px;
         height: 25px;
       }
     }
@@ -80,13 +80,16 @@ article{
       display: flex;
       flex-direction: column;
       margin: 35px 0 55px;
-        &:nth-child(4n+0){
-          padding-bottom: 28px;
-        }
+        // &:nth-child(4n+0){
+        //   padding-bottom: 28px;
+        // }
     }
 }
 .post:nth-child(1){
   margin: 20px 0 55px;
+}
+.post:last-child{
+  margin: 35px 0;
 }
 
 .background{
@@ -151,16 +154,13 @@ article{
 
 @include d{
   .filter{
-    width: 100%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     .sel{
       padding: 0;
       >*{
         @include select();
-      }
-      select, input{
-        margin-left: .5rem;
       }
       .date{
         width: 168px;
@@ -176,7 +176,7 @@ article{
         .text{
           width: 30%;
           box-sizing: border-box;
-          padding-top: 37px;
+          padding-top: 25px;
           padding-left: 20px;
         }
     }

@@ -52,7 +52,7 @@ input{
 // box2->登入|註冊文字 ->item(1)登入、item(2)|、item(3)註冊)    
 // box3->form表單含.login登入 .register註冊
 .wrap{
-    @include container(10rem);
+    @include container();
     display: flex;
     flex-direction: column;
     .box{
