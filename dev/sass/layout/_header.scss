@@ -1,10 +1,13 @@
-.header {
+.hideUp header{
+    top:-35%;
+}
+header {
     width: 100%;
     background-color: #fff;
     position: fixed;
     top: 0;
     z-index: 100;
-    transition: all .5s;
+    transition: all .3s ease-in-out;
 
     .header_con {
         width: 85%;
@@ -113,7 +116,7 @@
 }
 
 @include t {
-    .header {
+    header {
         .header_con {
             .logo {
                 width: 15%;

@@ -1,17 +1,17 @@
-
 $(function () {
-    //滾動事件 jquery_mousewheel
-    $(window).mousewheel(function (event) {
-        if (event.deltaY == 1) {  //滾輪上滑時
-            $('.header').css({
-                "top": 0,
-            })
+    //滾動捲軸事件
+    var bodyClass = document.body.classList,
+        lastScrollY = 0;
+    window.addEventListener('scroll', function () {
+        var st = this.scrollY;
+        if (st < lastScrollY) {
+            bodyClass.remove('hideUp');//top:0//出現//上拉
         } else {
-            $('.header').css({  //滾輪下滑時
-                "top": "-50%",
-            })
+            bodyClass.add('hideUp');//top:-30%//消失//下拉
         }
+        lastScrollY = st;
     });
+
     //螢幕判定
     let tq = window.matchMedia("(min-width: 769px)");//平板最小螢幕
     if (tq.matches) {
@@ -39,7 +39,7 @@ $(function () {
                 });
                 $('#line_2').hide();
                 open = true; //打開狀態
-                $(window).unbind(); //取消滾動事件
+                $(window).unbind(); //取消滾動捲軸事件
             } else {
                 //目前狀態為打開時
                 $('#nav ').css({  //導覽列關閉
@@ -59,18 +59,17 @@ $(function () {
                 });
                 $('#line_2').show();
                 open = false; //關閉狀態
-                //恢復滾動事件
-                $(window).mousewheel(function (event) {
-                    if (event.deltaY == 1) {
-                        $('.header').css({
-                            "top": 0,
-                        })
+
+                //恢復滾動捲軸事件
+                window.addEventListener('scroll', function () {
+                    var st = this.scrollY;
+                    if (st < lastScrollY) {
+                        bodyClass.remove('hideUp');//top:0//出現//上拉
                     } else {
-                        $('.header').css({
-                            "top": "-50%",
-                        })
+                        bodyClass.add('hideUp');//top:-30%//消失//下拉
                     }
-                })
+                    lastScrollY = st;
+                });
 
             }
         });

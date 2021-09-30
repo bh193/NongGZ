@@ -14,20 +14,19 @@
 @include d{
 .content{
     width: 100%;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: #F7EDE2;
     overflow: hidden;
-    margin-bottom: 2rem;
-
+    margin-bottom: 15px;
+    cursor: pointer;
     .con_title{
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: $main_color;
         padding: 0.5rem 1rem;
-        cursor: pointer;
         .minus_sign{
-            width: 5%;
+            width: 3%;
             position: relative;
             img{
                 width: 100%;
