@@ -61,7 +61,7 @@ article {
 .select {
     width: 100%;
     display: flex;
-    margin-bottom: 2rem;
+    // margin-bottom: 2rem;
 }
 
 select {
@@ -69,7 +69,7 @@ select {
 }
 
 #city {
-    margin-left: 2rem;
+    margin-left: 3rem;
 }
 
 section {
@@ -157,7 +157,7 @@ section {
     .search {
         flex-wrap: nowrap;
         justify-content: space-between;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
 
     .select {
