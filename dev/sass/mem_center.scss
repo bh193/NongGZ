@@ -137,7 +137,6 @@ color: #f6bd60;
   @include container();
     .tabs{
       @include flexcenter;
-      // margin-bottom: 20px;
         >*{
           width: 33.3%;
           background-color: #EDECEC;
@@ -148,7 +147,7 @@ color: #f6bd60;
           height: 80px;
           @include flexcenter;
             p{
-              font-size: 18px;
+              // font-size: 18px;
               font-weight: bold;
               color: #5f5f5f;
               text-align: center;
@@ -215,13 +214,6 @@ color: #f6bd60;
   overflow: scroll;
 }
 
-// .detail{
-//     >*{
-//       font-size: 16px;
-//       width: 100%;
-//     }
-// }
-
 table{
   width: 100%;
   font-size: 14px;
@@ -234,7 +226,13 @@ table{
   tr:nth-child(even){background-color:#E9E9E9;}
   td{padding: 8px; font-size:14px;}
 }     
-
+// .tabs{
+//   >*{
+//     display: block;
+//     text-align: center;
+//     height: 100%;
+//   }
+// }
 @include t{
   .order-select {
     margin: 30px auto;
