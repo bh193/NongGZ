@@ -1,9 +1,9 @@
 function doFirst() {
   
-    var canvas = document.getElementsByClassName('canvas');
+    var orange = document.getElementsByClassName('orange');
    
-    for(var i=0;i<canvas.length;i++){
-        var context = canvas[i].getContext('2d');
+    for(var i=0;i<orange.length;i++){
+        var context = orange[i].getContext('2d');
  
     // //格線開始
     // context.beginPath();
