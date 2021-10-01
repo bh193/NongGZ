@@ -221,7 +221,9 @@
 .more{
     .container{
         @include container(0,0);
-        text-align: center;
+        p{
+            text-align: center;
+        }
     }
 }
 @include t{
