@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/back_activity_info.css">
 
     <script src="js/jquery.min.js"></script>
-   
+    <script src="js/jquery-ui.min.js"></script>
     <script src="js/back_activity_info.min.js"></script>
 </head>
 
@@ -75,14 +75,14 @@
           </div>
           <div class="content">
             <div class="con_title">
-              <div class="minus_sign">
-                <img src="./images/common/minus-sign.svg" alt="往下">
-                <div class="turn">
+                <div class="minus_sign">
                     <img src="./images/common/minus-sign.svg" alt="往下">
+                    <div class="turn">
+                        <img src="./images/common/minus-sign.svg" alt="往下">
+                    </div>
                 </div>
-              </div>
-              <h3>行程編號: 1</h3>
-              <p class="status">正常舉辦</p>
+                <h3>行程編號: 1</h3>
+                <p>正常舉辦</p>
             </div>
             <div class="con_text">
               <div class="item">
@@ -125,12 +125,13 @@
                   <label>照片(4)</label>
                   <img src="./images/activity/peach4.jpg" alt="">
                 </div>
+                <div class="btnbox">
+                  <p>更新日期: 2021/9/15</p>
+                  <input class="smallbtn_m" type="button" value="下架">
+                </div>
             </div>
-            <div class="btnbox">
-              <h3>更新日期: 2021/9/15</h3>
-              <input class="smallbtn_m" type="button" value="下架">
-            </div>
-          </div>
+            
+        </div> 
       </section>
         @@include('layout/footer_back.html')
     </article>

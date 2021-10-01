@@ -42,7 +42,7 @@
         display: flex;
         justify-content: space-between;
         box-sizing: border-box;
-        padding: 18px 38px;
+        padding: 20px 16px;
         h3{
             line-height: 2.5;
         }
@@ -95,12 +95,15 @@
         background-color: #F7EDE2;
         overflow: hidden;
         margin-bottom: 15px;
-        cursor: pointer;
         .con_title {
             background-color: $main_color;
-            text-align: center;
-            padding: 0.5rem 0;
+            // text-align: center;
+            padding: .5rem 1rem;
             position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
             .minus_sign{
                 width: 3%;
                 position: relative;
