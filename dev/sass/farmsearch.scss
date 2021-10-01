@@ -22,7 +22,6 @@ label{
 }
 select{
     @include select;
-    margin-left: 1rem;
 }
 // -> 地圖
 #map{
@@ -51,11 +50,12 @@ select{
 }
 
 //-----內容------//
-//  box1->麵包屑
-//  box2->篩選框
+
+
 .wrap{
     @include container();
-    .box:nth-child(1){
+     
+    .box:nth-child(1){//----------麵包屑
         .breadcrumb{
             // padding: 0 0.5rem 1rem;
             background: none;
@@ -85,15 +85,14 @@ select{
             }
         }
     }
-    .box:nth-child(2){
+    .box:nth-child(2){ //----------篩選框
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 2rem;
-        .item{
-            @include margincenter($var:0.5rem);
-            
+        @include margincenter(2rem,2rem);
+        .item{            
+            margin-bottom: 1rem;
         }
     }
 }
@@ -122,27 +121,18 @@ select{
 @include d{
     .wrap{
     
-        .box:nth-child(2){
+        .box:nth-child(2){ //----------篩選框
             flex-direction: row;
-            align-items: flex-start;
+            
             .item{
-                width: 50%;
-            }
-            .item:nth-child(2){margin-right: 10rem;}
-        }
-        .box:nth-child(3){
-            .item:nth-child(2){
-                
-                
                 width: 35%;
-                position: relative;
-                .col{
-                    position: absolute;
-                    right: 0;
-                }
-                
+                margin-bottom: 0;
+            }
+            .item:nth-child(2){
+                // margin-right: 10rem;
             }
         }
+
     }
     #map{
         
