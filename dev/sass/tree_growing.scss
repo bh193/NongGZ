@@ -95,7 +95,7 @@ section {
     align-self: flex-end;
     order: 1;
     position: relative;
-    .orange {
+    canvas {
         width: 100%;
     }
 
@@ -126,7 +126,7 @@ section {
                 }
 
                 &:nth-child(3) {
-                    top: 80%;
+                    top: 75%;
                     left: 70%;
                 }
 
