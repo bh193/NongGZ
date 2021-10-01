@@ -1,7 +1,10 @@
 function doFirst() {
-    var canvas = document.getElementById('orange');
-    var context = canvas.getContext('2d');
-
+  
+    var canvas = document.getElementsByClassName('canvas');
+   
+    for(var i=0;i<canvas.length;i++){
+        var context = canvas[i].getContext('2d');
+ 
     // //格線開始
     // context.beginPath();
     // for (let i = 0; i < 100; i++) {
@@ -618,6 +621,7 @@ function doFirst() {
     context.lineTo(1760, 1360);
     context.closePath();
     context.fill();
+}
 }
 
 window.addEventListener('load', doFirst);

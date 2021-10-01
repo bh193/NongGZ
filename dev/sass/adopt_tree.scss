@@ -15,7 +15,7 @@
 //     background-color: $bg_color;
 // }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -23,29 +23,33 @@ article {
     @include container();
     ul.breadcrumb{
         list-style: none;
-        li{
-          display: inline;
-          a {
-            text-decoration: none;
-            color: #727070;
-          }
+
+        li {
+            display: inline;
+
+            a {
+                text-decoration: none;
+                color: #727070;
+            }
         }
-      }
-      ul.breadcrumb li+li:before {
+    }
+
+    ul.breadcrumb li+li:before {
         padding: 1rem;
         content: "/\00a0";
-      }
-}
-.breadcrumb a:hover{
-    color: #f6bd60;
-  }
-  
-  .breadcrumb :last-child{
-    a{
-    color: #f6bd60;
     }
-  }
-  
+}
+
+.breadcrumb a:hover {
+    color: #f6bd60;
+}
+
+.breadcrumb :last-child {
+    a {
+        color: #f6bd60;
+    }
+}
+
 
 .search {
     display: flex;
@@ -57,31 +61,15 @@ article {
 .select {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.sel_fruit {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.sel_city {
-    display: flex;
-    align-items: center;
-}
-
-label {
-    @include label;
-    margin-bottom: 0px;
+    // margin-bottom: 2rem;
 }
 
 select {
     @include select();
-    margin-left: 1rem;
+}
 
+#city {
+    margin-left: 3rem;
 }
 
 section {
@@ -129,41 +117,33 @@ section {
     .con_textbox {
         width: 90%;
         text-align: center;
-        @include margincenter(1rem);
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding: 1rem 0;
+        @include margincenter();
+         .con_text_img {
+            width: 30%;
 
-        .con_text {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            margin-top: 0.5rem;
-
-            .con_text_img {
-                width: 30%;
-
-                img {
-                    width: 100%;
-                }
+            img {
+                width: 100%;
             }
         }
 
+        .con_text {
+     
+            width: 65%;
+        }
     }
-
 }
 
-.load{
+.load {
     text-align: center;
 }
 
 
 
-@include t{
-    .select {
-        flex-direction: row;
-        align-items: stretch;
-        justify-content: space-evenly;
-    }
-
+@include t {
     .sel_fruit {
         margin-bottom: 0;
     }
@@ -177,13 +157,13 @@ section {
     .search {
         flex-wrap: nowrap;
         justify-content: space-between;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
 
     .select {
         width: auto;
-        justify-content:flex-start;
-        margin-bottom:0;
+        justify-content: flex-start;
+        margin-bottom: 0;
     }
 
     .sel_city {
@@ -196,20 +176,9 @@ section {
         &:hover .con_img .black_bg {
             display: block;
         }
-
-        .con_img {
-            height: 15rem;
-        }
-
-        .con_textbox {
-            width: 90%;
-            text-align: center;
-            @include margincenter(1rem);
-        }
-
     }
 
-    .load{
+    .load {
         text-align: center;
     }
 }

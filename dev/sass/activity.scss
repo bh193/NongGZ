@@ -55,11 +55,12 @@ article{
 .filter{
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: center;
-  margin-top: 35px;
+  // margin-top: 35px;
+  margin: 2.3rem 0 2rem 0;;
     .sel{
-      padding: 8px 0;
+      padding: 0 2.5rem 0 0;
       >*{
         @include select();
         width: 7rem;
@@ -141,10 +142,10 @@ article{
 @include t{
   .filter{
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     padding: 0;
     .sel{
-      padding: 0;
+      // padding: 0;
       .date{
         width: 156px;
       }
@@ -154,11 +155,11 @@ article{
 
 @include d{
   .filter{
-    width: 70%;
+    width: 52%;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     .sel{
-      padding: 0;
+      padding: 0 3rem 0 0;
       >*{
         @include select();
       }

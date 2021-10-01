@@ -52,6 +52,13 @@ $(function () {
         });
     }
 
+    //hover樹變大
+    $('.map_tree').hover(function () {
+        $(this).css("transform","scale(1.1)");
+      }, function () {
+        $(this).css("transform","scale(1)");
+      });
+
     //點選顯示目前位置
     $('.more_btnbox .bigbtn_s').click(function () {
         $(this).addClass('active').siblings().removeClass('active')
