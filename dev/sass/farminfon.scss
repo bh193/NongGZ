@@ -228,7 +228,7 @@
             }
             .txt{
                 width: 70%;
-                padding: 2rem 1.5rem 1rem;
+                padding: 2rem 1.5rem 1.5rem;
                 border-radius: 0.5rem;
                 background-color: $header_color;
                 opacity: 0.9;
@@ -237,29 +237,29 @@
                 right: 0;
                 p{
                     text-align: justify;
-                    padding-bottom: 0.5rem;
+                    padding-bottom: 1rem;
                 }
                 .tag{
-                    padding-bottom: 0.5rem;
+                    padding-bottom: 1rem;
                     a{
                         color: $p_color;
                     }
                 }
                 .icon{
+                    display: flex;
                     float: right;
-                    margin-top: 1.25rem;
                     .btn_heart{
                         background: url("../images/post/heart_gray.svg") no-repeat;
                         border: 0;
-                        height: 1.5rem ;
-                        width: 1.5rem;
+                        height: 1.2rem ;
+                        width: 1.2rem;
                         cursor: pointer;
                     }
                     .btn_loudly{
                         background: url("../images/post/loudly_gray.svg") no-repeat;
                         border: 0;
-                        height: 1.5rem ;
-                        width: 1.5rem;
+                        height: 1.2rem ;
+                        width: 1.2rem;
                         cursor: pointer;
                     }
                     span{
@@ -267,6 +267,8 @@
                         font-size: $h3_size;
                         padding-left: 0.3rem;
                         padding-right: 1rem;
+                        font-weight: $h2_weight;
+                        vertical-align: top;
                     }
                 }
             }
@@ -335,55 +337,15 @@
     }
     .post{
         .card{
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            .pic{
-                width: 100%;
-                height: auto;
-                overflow: hidden;
-                border-radius: 50%;
-                img{
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                    border-radius: 50%;
-                }
-            }
             .mempic{
-                position: absolute;
-                top: 1rem;
                 left: 1rem;
             }
             .txt{
                 width: 75%;
                 padding: 2rem 1.5rem 1rem;
-                border-radius: 0.5rem;
-                background-color: $header_color;
-                opacity: 0.9;
-                position: absolute;
                 bottom: 1rem;
-                right: 0;
-                p{
-                    text-align: justify;
-                    padding-bottom: 0.5rem;
-                }
                 .tag{
                     padding-bottom: 0.5rem;
-                }
-                .icon{
-                    display: flex;
-                    float: right;
-                    img{
-                        height: 1.25rem;
-                    }
-                    span{
-                        color: #939393;
-                        font-size: $h3_size;
-                        padding-left: 0.3rem;
-                        padding-right: 1rem;
-                    }
                 }
             }
         }
