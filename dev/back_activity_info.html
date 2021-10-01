@@ -20,8 +20,7 @@
         @@include('layout/farm_icon.html')
           <div class="content_new">
             <div class="content_new_status">
-              <!-- <input class="smallbtn_m" type="button" value="新增一筆"> -->
-                <p>目前行程狀態- 活動中: 2筆 / 已額滿: 3筆 / 已下架 1筆 </p>
+              <p>目前行程狀態- 活動中: 2筆 / 已額滿: 3筆 / 已下架 1筆 </p>
             </div>
             <div class="content_new_text">
               <div class="item">
@@ -30,107 +29,109 @@
               </div>
               <div class="item">
                 <label>行程日期</label>
-                  <input class="item_text" name="tree_start" type="date">
+                <input class="item_text" name="tree_start" type="date">
               </div>
               <div class="item">
                 <label>上限人數</label>
-                  <input class="item_text" name="amount" type="text">
+                <input class="item_text" name="amount" type="text">
               </div>
               <div class="item">
                 <label>下限人數</label>
-                  <input class="item_text" name="amount" type="text">
+                <input class="item_text" name="amount" type="text">
               </div>
               <div class="item">
                 <label>報名開始日</label>
-                  <input class="item_text" name="" type="date">
+                <input class="item_text" name="" type="date">
               </div>
               <div class="item">
                 <label>報名截止日</label>
-                  <input class="item_text" name="" type="date">
+                <input class="item_text" name="" type="date">
               </div>
-                <div class="item">
-                  <label>新增照片(1)</label>
-                  <input class="item_text" name="" type="file" style="border:none">
-                </div>
-                <div class="item">
-                  <label>新增照片(2)</label>
-                  <input class="item_text" name="" type="file" style="border:none">
-                </div>
-                <div class="item">
-                  <label>新增照片(3)</label>
-                  <input class="item_text" name="" type="file"  style="border:none">
-                </div>
-                <div class="item">
-                  <label>新增照片(4)</label>
-                  <input class="item_text" name="" type="file"  style="border:none">
-                </div>
-                <div class="item">
-                  <label>行程內容</label>
-                  <textarea name="" id="text_area" cols="87%" rows="10"></textarea>
-                </div>
-                <div class="btnbox">
-                  <input class="smallbtn_s" id="clear" type="button" value="清除">
-                  <input class="smallbtn_m" type="button" value="新增">
-                </div>
+              <div class="item">
+                <label>新增照片(1)</label>
+                <input class="item_text" name="" type="file" style="border:none">
+              </div>
+              <div class="item">
+                <label>新增照片(2)</label>
+                <input class="item_text" name="" type="file" style="border:none">
+              </div>
+              <div class="item">
+                <label>新增照片(3)</label>
+                <input class="item_text" name="" type="file"  style="border:none">
+              </div>
+              <div class="item">
+                <label>新增照片(4)</label>
+                <input class="item_text" name="" type="file"  style="border:none">
+              </div>
+              <div class="item">
+                <label>行程內容</label>
+                <textarea name="" id="text_area" cols="87%" rows="10"></textarea>
+              </div>
+              <div class="btnbox">
+                <input class="smallbtn_s" id="clear" type="button" value="清除">
+                <input class="smallbtn_m" type="button" value="新增">
               </div>
             </div>
+          </div>
           <div class="content">
             <div class="con_title">
+              <div class="minus_sign">
+                <img src="./images/common/minus-sign.svg" alt="往下">
+                <div class="turn">
+                    <img src="./images/common/minus-sign.svg" alt="往下">
+                </div>
+              </div>
               <h3>行程編號: 1</h3>
-                <div class="status">正常舉辦</div>
+              <p class="status">正常舉辦</p>
             </div>
             <div class="con_text">
               <div class="item">
                 <label>行程名稱</label>
-                  <input class="item_text" type="text" value="夏日採桃趣" disabled>
+                <input class="item_text" type="text" value="夏日採桃趣" disabled>
               </div>
               <div class="item">
                 <label>行程日期</label>
-                  <input class="item_text" type="text" value="2021/10/30" disabled>
+                <input class="item_text" type="text" value="2021/10/30" disabled>
               </div>
               <div class="item">
                 <label>上限人數</label>
-                  <input class="item_text" name="amount" type="text" value="30" disabled>
+                <input class="item_text" name="amount" type="text" value="30" disabled>
               </div>
               <div class="item">
                 <label>下限人數</label>
-                  <input class="item_text" name="amount" type="text" value="1" disabled>
+                <input class="item_text" name="amount" type="text" value="1" disabled>
               </div>
               <div class="item">
                 <label>報名開始日</label>
-                  <input class="item_text" type="text" value="2021/09/11" disabled>
+                <input class="item_text" type="text" value="2021/09/11" disabled>
               </div>
               <div class="item">
                 <label>報名截止日</label>
-                  <input class="item_text" type="text" value="2021/09/30" disabled>
+                <input class="item_text" type="text" value="2021/09/30" disabled>
               </div>
                 <div class="item">
                   <label>照片(1)</label>
-                    <img src="./images/activity/peach1.jpg" alt="">
+                  <img src="./images/activity/peach1.jpg" alt="">
                 </div>
-                  <div class="item">
-                    <label>照片(2)</label>
-                      <img src="./images/activity/peach2.jpg" alt="">
-                  </div>
-                  <div class="item">
-                    <label>照片(3)</label>
-                      <img src="./images/activity/peach3.jpg" alt="">
-                  </div>
-                  <div class="item">
-                    <label>照片(4)</label>
-                      <img src="./images/activity/peach4.jpg" alt="">
-                  </div>
-                  
+                <div class="item">
+                  <label>照片(2)</label>
+                  <img src="./images/activity/peach2.jpg" alt="">
                 </div>
-
-                    <div class="btnbox">
-                      <h3>更新日期: 2021/9/15</h3>
-                      <input class="smallbtn_m" type="button" value="下架">
-                    </div>
+                <div class="item">
+                  <label>照片(3)</label>
+                  <img src="./images/activity/peach3.jpg" alt="">
+                </div>
+                <div class="item">
+                  <label>照片(4)</label>
+                  <img src="./images/activity/peach4.jpg" alt="">
                 </div>
             </div>
+            <div class="btnbox">
+              <h3>更新日期: 2021/9/15</h3>
+              <input class="smallbtn_m" type="button" value="下架">
             </div>
-        </section>
+          </div>
+      </section>
         @@include('layout/footer_back.html')
     </article>
 </body>
