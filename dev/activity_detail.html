@@ -24,7 +24,7 @@
 
   <link rel="stylesheet" type="text/css" href="css/activity_detail.css">
 
-
+  <script src="js/vue.min.js"></script>
 </head>
 
 <body>
@@ -38,60 +38,68 @@
     
     <div class="slider">
       <div class="thumbs">
-        
         <div class="preview">
           <div class="mask" style="display: none;"></div>
-          <a href="#" class="selected" data-full="images/activity/peach1.jpg" data-title=""> <img src="images/activity/peach1.jpg"/>
+          <a href="#" class="sm-pic selected" data-full="images/activity/peach1.jpg" data-title=""> 
+            <img src="images/activity/peach1.jpg"/>
           </a>
         </div>
         
-          <div class="preview">
-            <div class="mask"></div>
-            <a href="#" data-full="images/activity/peach2.jpg" data-title=""> <img src="images/activity/peach2.jpg"/>
-            </a>
-          </div>
-          <div class="preview">
-            <div class="mask"></div>
-            <a href="#" data-full="images/activity/peach3.jpg" data-title=""> <img src="images/activity/peach3.jpg">
-            </a>
-          </div>
-          <div class="preview">
-            <div class="mask"></div>
-            <a href="#" data-full="images/activity/peach4.jpg" data-title=""> <img src="images/activity/peach4.jpg"/> </a>
-          </div>
+        <div class="preview">
+          <div class="mask"></div>
+          <a href="#" class="sm-pic" data-full="images/activity/peach2.jpg" data-title=""> 
+            <img src="images/activity/peach2.jpg"/>
+          </a>
         </div>
-        <!-- first image is viewable to start -->
-        <a href="images/activity/peach1.jpg" class="full" title=""> <img src="images/activity/peach1.jpg">
-        </a>
-            </div>
           
-            <div class="slider2">
-        <div class="pic">
-          <img src="images/activity/peach1.jpg" alt="">
+        <div class="preview">
+          <div class="mask"></div>
+          <a href="#" class="sm-pic" data-full="images/activity/peach3.jpg" data-title=""> 
+            <img src="images/activity/peach3.jpg">
+          </a>
         </div>
-        <div class="pic">
-          <img src="images/activity/peach2.jpg" alt="">
+
+        <div class="preview">
+          <div class="mask"></div>
+          <a href="#" class="sm-pic" data-full="images/activity/peach4.jpg" data-title=""> 
+            <img src="images/activity/peach4.jpg"/> </a>
           </div>
-        <div class="pic">
-          <img src="images/activity/peach3.jpg" alt="">
+        </div>
+        
+        <!-- first image is viewable to start -->
+        <a href="images/activity/peach1.jpg" class="full" title=""> 
+          <img class="first" src="images/activity/peach1.jpg">
+        </a>
+        </div>
+
+        <!-- 手機板 -->
+        <div class="slider2">
+          <div class="pic">
+          <img src="images/activity/peach1.jpg" alt="">
           </div>
-        <div class="pic">
-          <img src="images/activity/peach4.jpg" alt="">
+          <div class="pic">
+            <img src="images/activity/peach2.jpg" alt="">
           </div>
+          <div class="pic">
+            <img src="images/activity/peach3.jpg" alt="">
+          </div>
+          <div class="pic">
+            <img src="images/activity/peach4.jpg" alt="">
+          </div>
+        </div>
+        
+        
+        <div class="main">
+          <div class="left">
+            <h2 id="activity_name">夏日採桃趣</h2>
+            <div class="position">
+              <h3 id="city_name">桃園市 │&nbsp</h3>
+              <h3 id="farm_name">復興農場</h3>
             </div>
-        
-        
-            <div class="main">
-        <div class="left">
-          <h2 id="activity_name">夏日採桃趣</h2>
-          <div class="position">
-            <h3 id="city_name">桃園市 │&nbsp</h3>
-            <h3 id="farm_name">復興農場</h3>
-          </div>
           <div>
-            <p id="activity_content">
-              阿成果園的水蜜桃特色是底部渾圓，柄部有道溝，果形大、多汁、甜度高，色澤風味均佳，不像一般水蜜桃的尾部呈尖凹狀。 歡迎全家大小一起來參與採桃活動，新鮮的水蜜桃剛採下來，可以很清楚的看到水蜜桃的表面有一層薄薄的水蜜桃保護毛。以進口或冷凍過的水蜜桃而言，你是不會看到這些毛的，因為水蜜桃的保護毛代表的就是新鮮的象徵。
-            </p>
+          <p id="activity_content">
+            阿成果園的水蜜桃特色是底部渾圓，柄部有道溝，果形大、多汁、甜度高，色澤風味均佳，不像一般水蜜桃的尾部呈尖凹狀。 歡迎全家大小一起來參與採桃活動，新鮮的水蜜桃剛採下來，可以很清楚的看到水蜜桃的表面有一層薄薄的水蜜桃保護毛。以進口或冷凍過的水蜜桃而言，你是不會看到這些毛的，因為水蜜桃的保護毛代表的就是新鮮的象徵。
+          </p>
           </div>
         </div>
         <div class="right">
@@ -109,11 +117,10 @@
           </div>
           <a href="#modal_order" rel="modal:open"><button id="sign">立即報名</button></a>
         </div>
-            </div>
+      </div>
 
             <div id="modal_order" class="modal order">
-              <h3>探索體驗訂單</h3>
-              
+              <h3>探索體驗訂單</h3>   
               <table> 
                 <tr> 
                   <td>行程名稱:</td> 
