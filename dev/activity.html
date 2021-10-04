@@ -10,11 +10,11 @@
   <link rel="stylesheet" type="text/css" href="css/activity.css">
   <script src="js/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/3.0.3/infinite-scroll.pkgd.min.js"></script>
-
+  <script src="js/vue.min.js"></script>
 </head>
 <body>
   @@include('layout/header.html')
-  <article>
+  <article id="app">     <!-- id -->
     <ul class="breadcrumb">
       <li><a href="">首頁</a></li>
       <li><a href="">探索體驗</a></li>
@@ -41,128 +41,72 @@
       <div class="sel">
         <input class="date" name="" type="date">
       </div>
-      
     </div>
     <div class="main">
-      <div class="post">
+      <div class="post" v-for="item in activitys">    <!-- v-for -->
         <div class="background">
           <div class="pic">
-            <img id="activity_imgA" src="images/activity/peach1.jpg" alt="">
+            <img id="activity_imgA" :src="'images/activity/' + item.activity_imgA" alt="">
           </div>
         </div>
         <div class="text">
           <div>
-            <h2 id="activity_name">夏日採桃趣</h2>
+            <h2 id="activity_name">{{item.activity_name}}</h2>
           </div>
           <div class="position">
-            <h3 id="city_name">桃園市 │&nbsp</h3>
-            <h3 id="farm_name">復興農場</h3>
+            <h3 id="city_name">{{item.city_name}}│&nbsp</h3>
+            <h3 id="farm_name">{{item.farm_name}}</h3>
           </div>
           <div class="date">
             <p>活動日期：</p>
-            <p id="activity_date">110/8/1</p>
+            <p id="activity_date">{{item.activity_date}}</p>
           </div>
           <div>
             <p id="activity_content">
-              果園位在山坡地排水性好，以益肥和活菌營養劑灌溉，水蜜桃長得大又香甜。
+              {{item.activity_content}}
             </p>
           </div>
           <a href="activity_detail.html"><button class="more">活動詳情</button></a>
         </div>
     
       </div>
-      <div class="post">
-        <div class="background">
-          <div class="pic">
-            <img id="activity_imgA" src="images/activity/orange1.jpg" alt="">
-          </div>
-        </div>
-        <div class="text">
-          <div>
-            <h2 id="activity_name">現採柑橘體驗</h2>
-          </div>
-          <div class="position">
-            <h3 id="city_name">桃園市 │&nbsp</h3>
-            <h3 id="farm_name">復興農場</h3>
-          </div>
-          <div class="date">
-            <p>活動日期：</p>
-            <p id="activity_date">110/8/1</p>
-          </div>
-          <div>
-            <p id="activity_content">
-              剝開柔軟的橘子皮，整個空間盈滿橘子特有的清爽香氣，品嘗酸甜好滋味。
-            </p>
-          </div>
-          <button class="more">活動詳情</button>
-        </div>
-    
-      </div>
-      <div class="post">
-        <div class="background">
-          <div class="pic">
-            <img id="activity_imgA" src="images/activity/apple1.jpg" alt="">
-          </div>
-        </div>
-        <div class="text">
-          <div>
-            <h2 id="activity_name">蘋果採果樂</h2>
-          </div>
-          <div class="position">
-            <h3 id="city_name">桃園市 │&nbsp</h3>
-            <h3 id="farm_name">復興農場</h3>
-          </div>
-          <div class="date">
-            <p>活動日期：</p>
-            <p id="activity_date">110/8/1</p>
-          </div>
-          <div>
-            <p id="activity_content">
-              現在是最快樂喜悅的時刻了，結實累累的蘋果掛在樹上，那是最美麗的一幅畫面。
-            </p>
-          </div>
-          <button class="more">活動詳情</button>
-        </div>
-    
-      </div>
-      <div class="post">
-        <div class="background">
-          <div class="pic">
-            <img id="activity_imgA" src="images/activity/Jujube1.jpg" alt="">
-          </div>
-        </div>
-        <div class="text">
-          <div>
-            <h2 id="activity_name">棗新鮮體驗</h2>
-          </div>
-          <div class="position">
-            <h3 id="city_name">桃園市 │&nbsp</h3>
-            <h3 id="farm_name">復興農場</h3>
-          </div>
-          <div class="date">
-            <p>活動日期：</p>
-            <p id="activity_date">110/8/1</p>
-          </div>
-          <div>
-            <p id="activity_content">
-              新鮮的紅棗比較飽滿，果皮褶皺較少的通常是當年產的。且好的紅棗表皮擦洗後會很光亮。
-            </p>
-          </div>
-          <button class="more">活動詳情</button>
-        </div>
-    
-      </div>
-      <!-- 捲軸狀態 -->
-        <!-- <div class="scroller-status">
-          <div class="infinite-scroll-request loader-ellips"></div>
-          <p class="infinite-scroll-last"></p>
-          <p class="infinite-scroll-error"></p>
-        </div> -->
     </div>
   </article>
   @@include('layout/footer.html')
 
   <script src="js/activity.min.js"></script>
- 
+  <script type="text/javascript">
+    let app = new Vue({
+      el:"#app",
+      data:{
+        activitys:[]
+      }
+    })	
+    
+    function getActivityList(){
+      let xhr = new XMLHttpRequest();
+      xhr.onload = function(){
+        console.log(JSON.parse(xhr.responseText))
+        app.activitys = JSON.parse(xhr.responseText)
+      }
+      xhr.open("get", "../dist/phps/getActivityList.php", true);
+      xhr.send(null);
+    }
+    
+    window.addEventListener("load", function(){
+    // 	//------------------------網頁的初始設定
+      getActivityList();
+    
+    // 	//------------------------註冊事件處理器
+    // 	let btnCartAdds = document.getElementsByClassName("btnCartAdd");
+    // 	let prodNames = document.getElementsByClassName("prodName");
+    // 	for( let i=0; i<btnCartAdds.length; i++){
+    // 		btnCartAdds[i].onclick = function(){
+    // 			console.log(i);
+    // 			alert( "確定購買" + prodNames[i].innerText + "商品嗎?");
+    // 		}
+    // 	}
+    })
+    </script>
 </body>
 </html>

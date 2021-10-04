@@ -145,6 +145,11 @@ function gmap() {
         .pipe(dest('dist/json'))
 }
 
+function phps() {
+    return src(['dev/phps/*.*'])
+        .pipe(dest('dist/phps'))
+}
+
 //--------------瀏覽器同步------------------//
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
@@ -164,7 +169,7 @@ function browser(done) {
 }
 
 exports.default = series(browser, font, images,gmap); // dev
-exports.packageall = series(clear, parallel(styles, jsmin, includeHTML, font), parallel(images_mem, images_farm, images_fruit, images_tree, images_activity, images_post, images_map, images_common, images_img, images_png, images_svg,gmap));  // 打包上線
+exports.packageall = series(clear, parallel(styles, jsmin, includeHTML, font), parallel(images_mem, images_farm, images_fruit, images_tree, images_activity, images_post, images_map, images_common, images_img, images_png, images_svg,gmap, phps));  // 打包上線
 
 
 

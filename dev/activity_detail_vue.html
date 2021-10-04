@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>探索體驗分頁</title>
+  <script src="js/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="font/activity3_fancybox.css">
+  
+  <link rel="stylesheet" href="font/activity3_slider.css">
+
+  <script src="js/activity3_fancybox.min.js"></script>
+  
+
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <link rel="stylesheet" href="css/slick-theme.css">
+
+  <script src="js/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="font/jquery.modal.css">
+
+  <link rel="stylesheet" type="text/css" href="css/activity_detail.css">
+
+  <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+  @@include('layout/header.html')
+  <article>
+      <ul class="breadcrumb">
+        <li><a href="">首頁</a></li>
+        <li><a href="">探索體驗</a></li>
+        <li><a href="">夏日採桃趣</a></li>
+      </ul>
+    <section id="carousel">
+      <div class="slider">
+        <div class="thumbs">
+          <div class="preview">
+            <div class="mask" style="display: none;"></div>
+            <a href="#" class="sm-pic selected" data-full="images/activity/peach1.jpg" data-title="">
+              <img :src="'images/activity/' + pic.activity_imgA"/>
+            </a>
+          </div>
+      
+          <div class="preview">
+            <div class="mask"></div>
+            <a href="#" class="sm-pic" data-full="images/activity/peach2.jpg" data-title="">
+              <!-- <img :src="'images/activity/' + pic.activity_imgB"/> -->
+            </a>
+          </div>
+      
+          <div class="preview">
+            <div class="mask"></div>
+            <a href="#" class="sm-pic" data-full="images/activity/peach3.jpg" data-title="">
+              <!-- <img :src="'images/activity/' + pic.activity_imgC"> -->
+            </a>
+          </div>
+          <div class="preview">
+            <div class="mask"></div>
+            <a href="#" class="sm-pic" data-full="images/activity/peach4.jpg" data-title="">
+              <!-- <img :src="'images/activity/' + pic.activity_imgD"/> </a> -->
+            </div>
+          </div>
+      
+          <!-- first image is viewable to start -->
+          <a href="images/activity/peach1.jpg" class="full" title="">
+            <!-- <img class="first" :src="'images/activity/' + pic.activity_imgA"> -->
+          </a>
+          </div>
+          <!-- 手機板 -->
+          <div class="slider2">
+            <div class="pic">
+            <img src="images/activity/peach1.jpg" alt="">
+            </div>
+            <div class="pic">
+              <img src="images/activity/peach2.jpg" alt="">
+            </div>
+            <div class="pic">
+              <img src="images/activity/peach3.jpg" alt="">
+            </div>
+            <div class="pic">
+              <img src="images/activity/peach4.jpg" alt="">
+            </div>
+          </div>
+    </section>
+        
+        <section id="app">
+          <div class="main" v-for="item in activitys">
+            <div class="left">
+              <h2 id="activity_name">{{item.activity_name}}</h2>
+              <div class="position">
+                <h3 id="city_name">{{item.city_name}} │&nbsp</h3>
+                <h3 id="farm_name">{{item.farm_name}}</h3>
+              </div>
+            <div>
+            <p id="activity_content">
+              {{item.activity_content}}
+            </p>
+          </div>
+          </div>
+          <div class="right">
+            <div class="date">
+              <p>活動日期：</p>
+              <p id="activity_date">110/8/1</p>
+            </div>
+            <div class="now">
+              <p>目前報名人數：</p>
+              <p id="activity_people">20</p>
+            </div>
+            <div class="max">
+              <p>報名上限人數：</p>
+              <p id="activity_max">30</p>
+            </div>
+            <a href="#modal_order" rel="modal:open"><button id="sign">立即報名</button></a>
+          </div>
+                </div>
+              <div id="modal_order" class="modal order">
+                <h3>探索體驗訂單</h3>
+                <table>
+                  <tr>
+                    <td>行程名稱:</td>
+                    <td>夏日採桃趣</td>
+                  </tr>
+                  <tr>
+                    <td>行程日期:</th>
+                    <td>2021/11/11</td>
+                  </tr>
+                  <tr>
+                    <td>會員姓名</th>
+                    <td>Biran Jiang</td>
+                  </tr>
+                  <tr>
+                    <td>Email:</th>
+                    <td>good@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>報名人數:</th>
+                    <td><select value="">
+                        <option name="" id="">1</option>
+                        <option name="" id="">2</option>
+                        <option name="" id="">3</option>
+                        <option name="" id="">4</option>
+                        <option name="" id="">5</option>
+                        <option name="" id="">6</option>
+                      </select>
+                    </td>
+                </table>
+                <div class="btn">
+                  <a href="#" rel="modal:close"><button id="cancel">取消</button></a>
+                  <button id="send">報名</button>
+                </div>
+              </div>
+        </section>
+  </article>
+
+  @@include('layout/footer.html')
+  
+
+<script src="js/activity_detail.min.js"></script>
+<script src="js/vue.min.js"></script>
+
+<script>
+  let app = new Vue({
+    el:"#app",
+    data:{
+      activitys:[]
+    },
+
+    mounted() {
+      //輪播遮罩
+      $('.preview').click(function () {
+        $(this).find('.mask').hide();
+        $(this).siblings().find('.mask').show();
+      });
+    },
+    
+  })
+  
+  function getActivityList(){
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+      console.log(JSON.parse(xhr.responseText))
+      app.activitys = JSON.parse(xhr.responseText)
+    }
+    xhr.open("get", "../dist/phps/getActivityList.php", true);
+    xhr.send(null);
+  }
+    
+  window.addEventListener("load", function(){
+    getActivityList();
+  }) 
+
+
+  
+
+</script>
+
+<script>
+  let carousel = new Vue({
+    el:"#carousel",
+    data:{
+      pics:[]
+    },
+  })  
+
+  function getActivityList(){
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+      console.log(JSON.parse(xhr.responseText))
+      app.activitys = JSON.parse(xhr.responseText)
+    }
+    xhr.open("get", "../dist/phps/getActivityList.php", true);
+    xhr.send(null);
+  }
+    
+  window.addEventListener("load", function(){
+    getActivityList();
+  }) 
+</script>
+</body>
+</html>
