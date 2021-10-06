@@ -11,6 +11,8 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/back_activity_info.min.js"></script>
+    
+    <script src="js/vue.min.js"></script>
 </head>
 
 <body>
@@ -18,123 +20,163 @@
     <article>
       <section>
         @@include('layout/farm_icon.html')
-          <div class="content_new">
+          <form class="content_new" action="phps/back_activity_info.php">
             <div class="content_new_status">
               <p>目前行程狀態- 活動中: 2筆 / 已額滿: 3筆 / 已下架 1筆 </p>
             </div>
             <div class="content_new_text">
               <div class="item">
                 <label>行程名稱</label>
-                <input class="item_text" type="text">
+                <input class="item_text" name="activity_name"type="text">
               </div>
               <div class="item">
                 <label>行程日期</label>
-                <input class="item_text" name="tree_start" type="date">
+                <input class="item_text" name="activity_date" type="date">
               </div>
               <div class="item">
                 <label>上限人數</label>
-                <input class="item_text" name="amount" type="text">
+                <input class="item_text" name="activity_max" type="text">
               </div>
               <div class="item">
                 <label>下限人數</label>
-                <input class="item_text" name="amount" type="text">
+                <input class="item_text" name="activity_min" type="text">
               </div>
               <div class="item">
                 <label>報名開始日</label>
-                <input class="item_text" name="" type="date">
+                <input class="item_text" name="activity_start" type="date">
               </div>
               <div class="item">
                 <label>報名截止日</label>
-                <input class="item_text" name="" type="date">
+                <input class="item_text" name="activity_end" type="date">
               </div>
               <div class="item">
                 <label>新增照片(1)</label>
-                <input class="item_text" name="" type="file" style="border:none">
+                <input class="item_text" name="activity_imgA" type="file" style="border:none">
               </div>
               <div class="item">
                 <label>新增照片(2)</label>
-                <input class="item_text" name="" type="file" style="border:none">
+                <input class="item_text" name="activity_imgB" type="file" style="border:none">
               </div>
               <div class="item">
                 <label>新增照片(3)</label>
-                <input class="item_text" name="" type="file"  style="border:none">
+                <input class="item_text" name="activity_imgC" type="file"  style="border:none">
               </div>
               <div class="item">
                 <label>新增照片(4)</label>
-                <input class="item_text" name="" type="file"  style="border:none">
+                <input class="item_text" name="activity_imgD" type="file"  style="border:none">
               </div>
               <div class="item">
                 <label>行程內容</label>
-                <textarea name="" id="text_area" cols="87%" rows="10"></textarea>
+                <textarea id="text_area" cols="87%" rows="10" name="activity_content"></textarea>
+              </div>
+              <div class="item">
+                <label>假設有這欄位FK farm_id</label>
+                <input class="item_text" name="farm_id" type="text">
               </div>
               <div class="btnbox">
                 <input class="smallbtn_s" id="clear" type="button" value="清除">
-                <input class="smallbtn_m" type="button" value="新增">
+                <input class="smallbtn_m" type="submit" value="新增">
               </div>
             </div>
-          </div>
-          <div class="content">
-            <div class="con_title">
-                <div class="minus_sign">
-                    <img src="./images/common/minus-sign.svg" alt="往下">
-                    <div class="turn">
-                        <img src="./images/common/minus-sign.svg" alt="往下">
-                    </div>
-                </div>
-                <h3>行程編號: 1</h3>
-                <p>正常舉辦</p>
-            </div>
-            <div class="con_text">
-              <div class="item">
-                <label>行程名稱</label>
-                <input class="item_text" type="text" value="夏日採桃趣" disabled>
+          </form>
+          <div class="content" id="app">
+            <div class="for" v-for="obj in activitys">
+              <div class="con_title">
+                  <div class="minus_sign">
+                      <img src="./images/common/minus-sign.svg" alt="往下">
+                      <div class="turn">
+                          <img src="./images/common/minus-sign.svg" alt="往下">
+                      </div>
+                  </div>
+                  <h3>行程編號: {{obj.activity_id}}</h3>
+                  <p>正常舉辦</p>
               </div>
-              <div class="item">
-                <label>行程日期</label>
-                <input class="item_text" type="text" value="2021/10/30" disabled>
-              </div>
-              <div class="item">
-                <label>上限人數</label>
-                <input class="item_text" name="amount" type="text" value="30" disabled>
-              </div>
-              <div class="item">
-                <label>下限人數</label>
-                <input class="item_text" name="amount" type="text" value="1" disabled>
-              </div>
-              <div class="item">
-                <label>報名開始日</label>
-                <input class="item_text" type="text" value="2021/09/11" disabled>
-              </div>
-              <div class="item">
-                <label>報名截止日</label>
-                <input class="item_text" type="text" value="2021/09/30" disabled>
-              </div>
+              <div class="con_text">
                 <div class="item">
-                  <label>照片(1)</label>
-                  <img src="./images/activity/peach1.jpg" alt="">
+                  <label>行程名稱</label>
+                  <input class="item_text" type="text" :value="obj.activity_name" disabled>
                 </div>
                 <div class="item">
-                  <label>照片(2)</label>
-                  <img src="./images/activity/peach2.jpg" alt="">
+                  <label>行程日期</label>
+                  <input class="item_text" type="text" :value="obj.activity_date" disabled>
                 </div>
                 <div class="item">
-                  <label>照片(3)</label>
-                  <img src="./images/activity/peach3.jpg" alt="">
+                  <label>上限人數</label>
+                  <input class="item_text" name="amount" type="text" :value="obj.activity_max" disabled>
                 </div>
                 <div class="item">
-                  <label>照片(4)</label>
-                  <img src="./images/activity/peach4.jpg" alt="">
+                  <label>下限人數</label>
+                  <input class="item_text" name="amount" type="text" :value="obj.activity_min" disabled>
                 </div>
-                <div class="btnbox">
-                  <p>更新日期: 2021/9/15</p>
-                  <input class="smallbtn_m" type="button" value="下架">
+                <div class="item">
+                  <label>報名開始日</label>
+                  <input class="item_text" type="text" :value="obj.activity_start" disabled>
                 </div>
+                <div class="item">
+                  <label>報名截止日</label>
+                  <input class="item_text" type="text" :value="obj.activity_end" disabled>
+                </div>
+                  <div class="item">
+                    <label>照片(1)</label>
+                    <img :src="'images/activity/' + obj.activity_imgA" alt="">
+                  </div>
+                  <div class="item">
+                    <label>照片(2)</label>
+                    <img :src="'images/activity/' + obj.activity_imgB" alt="">
+                  </div>
+                  <div class="item">
+                    <label>照片(3)</label>
+                    <img :src="'images/activity/' + obj.activity_imgC" alt="">
+                  </div>
+                  <div class="item">
+                    <label>照片(4)</label>
+                    <img :src="'images/activity/' + obj.activity_imgD" alt="">
+                  </div>
+                  <div class="btnbox">
+                    <p>更新日期: 2021/9/15</p>
+                    <input class="smallbtn_m" type="button" value="下架">
+                  </div>
+              </div>
             </div>
             
         </div> 
       </section>
         @@include('layout/footer_back.html')
     </article>
+
+    <script type="text/javascript">
+      let app = new Vue({
+        el:"#app",
+        data:{
+          activitys:[],
+        },
+        updated() {
+          //收合
+          $('.con_title').click(function () {
+            $(this).next('.con_text').slideToggle(500,"easeOutExpo");
+          }).next('.con_text').hide();
+
+          $('.con_title').click(function () {
+            $(this).find('.turn').toggleClass('turn_zero');
+          })
+        },
+      })	
+      
+      function getActivityList(){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+          console.log(JSON.parse(xhr.responseText))
+          app.activitys = JSON.parse(xhr.responseText)
+        }
+        xhr.open("get", "../dist/phps/getActivityList.php", true);
+        xhr.send(null);
+      }
+      
+      window.addEventListener("load", function(){
+        getActivityList();
+      })
+      </script>
+
 </body>
 
 </html>

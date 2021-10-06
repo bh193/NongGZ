@@ -165,6 +165,7 @@ function browser(done) {
     watch(['./dev/sass/*.scss', './dev/sass/**/*.scss'], styles).on('change', reload);
     watch('./dev/js/*.js', jsmin).on('change', reload);
     watch(['dev/*.html', 'dev/**/*.html'], includeHTML).on('change', reload);
+    watch('./dev/phps/*.php', phps).on('change', reload);
     done();
 }
 

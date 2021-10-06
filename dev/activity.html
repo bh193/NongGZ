@@ -66,9 +66,11 @@
               {{item.activity_content}}
             </p>
           </div>
-          <a href="activity_detail.html"><button class="more">活動詳情</button></a>
+          <a :href="'activity_detail.html?activity_id=' + item.activity_id">
+            <button class="more">活動詳情</button>
+          </a>
         </div>
-    
+        <!-- :href="'prodQuery_2.php?psn=' + prodRow.psn" -->
       </div>
     </div>
   </article>
