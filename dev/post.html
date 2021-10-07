@@ -9,12 +9,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="font/jquery.modal.css">
     <link rel="stylesheet" href="css/post.css">
-    <script src="js/post.js"></script>
+    <script src="js/vue.min.js"></script>
     <title>果粉之談</title>
 </head>
 <body>
     @@include('layout/header.html')
-    <div class="page">
+    <div id="app" class="page">
         <div class="post-nav">
             <div class="container">
                 <ol class="breadcrumb">
@@ -41,22 +41,17 @@
                             <textarea id="wpost" placeholder="寫下說明文字及tag農場⋯"></textarea>
                             <div class="fileupload">
                                 <div class="fileimg">
-                                    <img id="image">
+                                    <img :src="images" id="image">
                                 </div>
                                 <div class="btn">
                                     <div class="filebtn">
-                                        <input type="file" hidden id="inputf">
+                                        <input type="file" id="inputf" @change="imgchange" style="display:none">
                                         <label for="inputf">
                                             <img src="images/post/camera.svg">
                                         </label>
                                     </div>
-                                    <select class="tag" id="farmtag">
-                                        <option value="tag農場" disabled selected>tag農場</option>
-                                        <option value="山頂厝農場">山頂厝農場</option>
-                                        <option value="奇果山農場">奇果山農場</option>
-                                        <option value="秀花果農場">秀花果農場</option>
-                                        <option value="漣果園農場">漣果園農場</option>
-                                        <option value="桃富農場">桃富農場</option>
+                                    <select class="tag" id="farmtag" v-model="selectedFarm">
+                                        <option :value= "farm.farm_name" v-for="farm in farms">{{farm.farm_name}}</option>
                                     </select>
                                     <a href="#modal_login" rel="modal:open"><input type="submit" value="發佈" id="modal_btn_1" class="active"></a>
                                     @@include('layout/modal_login.html')
@@ -83,147 +78,31 @@
             </article>
             <article class="mempost">
                 <div class="container">
-                    <div class="card">
+                    <div class="card" v-for="prodRow in prodRows">
                         <div class="txt">
                             <div class="memname">
                                 <div class="pic">
-                                    <img src="images/mem/mugshot.png">
+                                    <img :src="'images/mem/' + prodRow.mem_img">
                                 </div>
                                 <div class="name">
-                                    <h3>Vivian</h3>
-                                    <span>2021/10/11</span>
+                                    <h3>{{prodRow.mem_name}}</h3>
+                                    <span>{{prodRow.post_date}}</span>
                                 </div>
                             </div>
                             <div class="title">
-                                <p>今天的太陽光非常的熱烈，半玩半體驗的採果夏日活動令人有一些期待，聽了農場主人的講解與他的期許</p>
+                                <p>{{prodRow.post_content}}</p>
                             </div>
                         </div>
                         <div class="pic">
                             <div class="tag">
-                                <a href="./farminfon.html">#山頂厝農場</a> 
+                                <a href="./farminfon.html">#{{prodRow.farm_name}}</a> 
                             </div>
                             <div class="photo">
-                                <img src="images/post/post_farm_1.png">
+                                <img :src="'images/post/' + prodRow.post_img">
                             </div>
                             <div class="icon">
                                 <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_heart"></button></a>
-                                <span>5</span>
-                                <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_loudly"></button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="txt">
-                            <div class="memname">
-                                <div class="pic">
-                                    <img src="images/post/mugshot_s01.png">
-                                </div>
-                                <div class="name">
-                                    <h3>Vivian</h3>
-                                    <span>2021/10/11</span>
-                                </div>
-                            </div>
-                            <div class="title">
-                                <p>經過這次與山頂厝農場的採果體驗，讓孩童能夠走出戶外，認識農場內的動植物，並在大草原上奔跑嬉戲，這對都會區的孩童而言，是相當難得而寶貴的體驗</p>
-                            </div>
-                        </div>
-                        <div class="pic">
-                            <div class="tag">
-                                <a href="./farminfon.html">#山頂厝農場</a> 
-                            </div>
-                            <div class="photo">
-                                <img src="images/post/post_farm_1.png">
-                            </div>
-                            <div class="icon">
-                                <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_heart"></button></a>
-                                <span>5</span>
-                                <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_loudly"></button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="txt">
-                            <div class="memname">
-                                <div class="pic">
-                                    <img src="images/post/mugshot_s01.png">
-                                </div>
-                                <div class="name">
-                                    <h3>Vivian</h3>
-                                    <span>2021/10/11</span>
-                                </div>
-                            </div>
-                            <div class="title">
-                                <p>今天的太陽光非常的熱烈，半玩半體驗的採果夏日活動令人有一些期待，聽了農場主人的講解與他的期許</p>
-                            </div>
-                        </div>
-                        <div class="pic">
-                            <div class="tag">
-                                <a href="./farminfon.html">#山頂厝農場</a> 
-                            </div>
-                            <div class="photo">
-                                <img src="images/post/apples.jpg">
-                            </div>
-                            <div class="icon">
-                                <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_heart"></button></a>
-                                <span>5</span>
-                                <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_loudly"></button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="txt">
-                            <div class="memname">
-                                <div class="pic">
-                                    <img src="images/post/mugshot_s01.png">
-                                </div>
-                                <div class="name">
-                                    <h3>Vivian</h3>
-                                    <span>2021/10/11</span>
-                                </div>
-                            </div>
-                            <div class="title">
-                                <p>經過這次與山頂厝農場的採果體驗，讓孩童能夠走出戶外，認識農場內的動植物，並在大草原上奔跑嬉戲，這對都會區的孩童而言，是相當難得而寶貴的體驗</p>
-                            </div>
-                        </div>
-                        <div class="pic">
-                            <div class="tag">
-                                <a href="./farminfon.html">#山頂厝農場</a> 
-                            </div>
-                            <div class="photo">
-                                <img src="images/post/post_farm_1.png">
-                            </div>
-                            <div class="icon">
-                                <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_heart"></button></a>
-                                <span>5</span>
-                                <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_loudly"></button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="txt">
-                            <div class="memname">
-                                <div class="pic">
-                                    <img src="images/post/mugshot_s01.png">
-                                </div>
-                                <div class="name">
-                                    <h3>Vivian</h3>
-                                    <span>2021/10/11</span>
-                                </div>
-                            </div>
-                            <div class="title">
-                                <p>今天的太陽光非常的熱烈，半玩半體驗的採果夏日活動令人有一些期待，聽了農場主人的講解與他的期許</p>
-                            </div>
-                        </div>
-                        <div class="pic">
-                            <div class="tag">
-                                <a href="./farminfon.html">#山頂厝農場</a> 
-                            </div>
-                            <div class="photo">
-                                <img src="images/post/post_farm_1.png">
-                            </div>
-                            <div class="icon">
-                                <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_heart"></button></a>
-                                <span>5</span>
+                                <span>{{prodRow.post_feedback}}</span>
                                 <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_loudly"></button></a>
                             </div>
                         </div>
@@ -238,5 +117,6 @@
         </section>
     </div>
     @@include('layout/footer.html')
+    <script src="js/post.min.js"></script>
 </body>
 </html>

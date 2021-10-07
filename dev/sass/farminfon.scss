@@ -138,6 +138,9 @@
             }
         }
     }
+    p{
+        text-align: center;
+    }
 }
 .activity{
     .container{
@@ -145,6 +148,9 @@
         position: relative;
         .title{
             @include title;
+            p{
+                text-align: center;
+            }
         }
         .content{
             margin: 0 2.5rem 7.5rem;
