@@ -72,7 +72,7 @@ function getProducts(){
         console.log(JSON.parse(xhr.responseText))
         app.prodRows = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "getFarminfon.php",true);
+    xhr.open("get", "../dist/getFarminfon.php",true);
     xhr.send(null);
 }
 window.addEventListener("load", function(){

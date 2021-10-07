@@ -1,13 +1,3 @@
-// function switchFavorite(){
-//     if(heart.src == "../images/post/heart_gray.svg"){
-//         heart.src = "../images/post/heart_red.svg";
-//     }else{
-//         heart.src = "../images/post/heart_gray.svg";
-//     }
-// }
-// let heart = document.getElementsByClassName("btn_heart");
-// heart.onclick = switchFavorite;
-
 let app = new Vue({
     el:"#app",
     data:{
@@ -15,7 +5,7 @@ let app = new Vue({
         farms:[],
         images:'',
         selectedFarm:'',
-
+        posttxt:''
     },
     methods: {
         imgchange(e){
@@ -27,9 +17,9 @@ let app = new Vue({
         loadImage(e){
             this.images = e.target.result;
         },
-        postdata(){
-            this
-        }
+        // postdata(){
+        //     this
+        // }
     },
     // methods: {
     //     getFarms(){
@@ -49,7 +39,7 @@ function getProducts(){
         console.log(JSON.parse(xhr.responseText))
         app.prodRows = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "getPosts.php",true);
+    xhr.open("get", "../dist/phps/getPosts.php",true);
     xhr.send(null);
 }
 
@@ -59,7 +49,7 @@ function getFarms() {
     xhr.onload = function() {
         app.farms = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "getFarms.php",true);
+    xhr.open("get", "../dist/phps/getFarms.php",true);
     xhr.send(null);
 }
 
@@ -67,10 +57,7 @@ function getFarms() {
 
 
 //抓取貼文發布內容
-function getposttxt(){
-    var posttxt = document.getElementById("wpost");
-    console.log(posttxt);
-} 
+
 
 window.addEventListener("load", function(){
     //---------------------網頁的初始設定
@@ -79,3 +66,13 @@ window.addEventListener("load", function(){
     getFarms();
  
 });
+
+// function switchFavorite(){
+//     if(heart.src == "../images/post/heart_gray.svg"){
+//         heart.src = "../images/post/heart_red.svg";
+//     }else{
+//         heart.src = "../images/post/heart_gray.svg";
+//     }
+// }
+// let heart = document.getElementsByClassName("btn_heart");
+// heart.onclick = switchFavorite;
