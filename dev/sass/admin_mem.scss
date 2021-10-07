@@ -28,7 +28,8 @@
                 tr:nth-child(odd){background-color:#fff;}
                 tr:nth-child(even){background-color:#E9E9E9;}
                 td{padding: 8px; font-size:14px;}
-                button{
+                td:last-child{text-align: end;}
+                .detail{
                     border:none;
                     width: 50px;
                     height: 24px;
@@ -48,6 +49,17 @@
                         
                     }
                 }
+                .pen{
+                    background: none;
+                    background-image: url('/images/svg/pencil.svg');
+                    width: 15px;
+                    height: 15px;
+                    border:none;
+                    cursor: pointer;
+                    }
+                
+
+
             }
 
         }

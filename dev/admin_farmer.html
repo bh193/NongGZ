@@ -25,28 +25,27 @@
                     <input type="text">
                     <img src="./images/post/search.svg" alt="">
                 </div>
-                <div class="box">
+                <!-- <div class="box">
                     <button class="btn" onclick="showinput()">修改</button>
                     <button class="btn" onclick="myFunction()">儲存</button>
-                </div>
+                </div> -->
             </div>
             <div class="table">
                 <table>
                     <thead>
                         <tr>
-                          <th scope="col">勾選</th>
-                          <th scope="col">編號</th>
+                          <th scope="col">序號</th>
                           <th scope="col">農場名稱</th>
                           <th scope="col">負責人</th>
                           <th scope="col">農場資訊</th>
                           <th scope="col">電話</th>
                           <th scope="col">狀態</th>
                           <th scope="col">詳情</th>
+                          
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td><input type="checkbox"></td>
                           <td>1</td>
                           <td>山頂厝</td>
                           <td>王小明</td>
@@ -63,50 +62,14 @@
                               <div style="display:block;">
                                   <span id="demo">審核中</span>
                               </div>
+
                           </td>
                           <td>
-                            <a href="#popOrder" rel="modal:open"><button id="sign">詳情</button></a>
+                           <a href="#popOrder" rel="modal:open"><button id="sign" class="detail">詳情</button></a>
+                            <a href="#modal_password" rel="modal:open"><button class="pen" id="modify"></button> 
+                            </a>
                           </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>2</td>
-                            <td>紅果農場</td>
-                            <td>林阿桃</td>
-                            <td>上架</td>
-                            <td>0912345678</td>
-                            <td>審核中</td>
-                            <td><button>詳情</button></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>3</td>
-                            <td>紅果農場</td>
-                            <td>林阿桃</td>
-                            <td>上架</td>
-                            <td>0912345678</td>
-                            <td>審核中</td>
-                            <td><button>詳情</button></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>4</td>
-                            <td>紅果農場</td>
-                            <td>林阿桃</td>
-                            <td>上架</td>
-                            <td>0912345678</td>
-                            <td>審核中</td>
-                            <td><button>詳情</button></td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"></td>
-                            <td>5</td>
-                            <td>紅果農場</td>
-                            <td>林阿桃</td>
-                            <td>上架</td>
-                            <td>0912345678</td>
-                            <td>審核中</td>
-                            <td><button>詳情</button></td>
+                            
                         </tr>
                       </tbody>
                 </table>
@@ -117,7 +80,7 @@
             </div>  
             <!-- 詳情視窗內容 -->
             <div id="popOrder" class="modal order">
-                <h4>農場編號1詳情</h4>
+                <h4>農場詳情</h4>
                 <table> 
                     <thead>
                         <tr>
@@ -138,11 +101,35 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
+                <!-- 視窗內容 -->
+                <div id="modal_password" class="modal">
+                    <h3>修改果農資訊</h3>
+                    <div class="psw">
+                      <label for="">農場緯度</label>
+                      <input type="text">
+                      <label for="">農場經度</label>
+                      <input type="text">
+                      <label for="">狀態</label>
+                      <select name="" id="">
+                          <option value="0">停用</option>
+                          <option value="1">審核中</option>
+                          <option value="2">啟用</option>
+                          <option value="3">上架</option>
+                      </select>
+                    </div>
+                    <div class="btn">
+                      <button id="clear" type="reset">清除</button>
+                      <button id="send">送出</button>
+                    </div>
+                  </div>
+
+
 
         </section>
         @@include('layout/footer_back.html')
     </article>
-    <script>
+    <!-- <script>
         function myFunction() {
          document.getElementById("option").style.display="none";
          document.getElementById("demo").style.display="block";    
@@ -153,7 +140,7 @@
             document.getElementById("option").style.display="block";
             document.getElementById("demo").style.display="none";
         }
-    </script>
+    </script> -->
     <script>
         $('a[href="#popOrder"]').click(function(event) {
           event.stopPropagation();
