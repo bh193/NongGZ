@@ -51,6 +51,7 @@
                                         </label>
                                     </div>
                                     <select class="tag" id="farmtag" v-model="selectedFarm">
+                                        <option value="tag農場" selected disabled></option>
                                         <option :value= "farm.farm_name" v-for="farm in farms">{{farm.farm_name}}</option>
                                     </select>
                                     <a href="#modal_login" rel="modal:open"><input type="submit" value="發佈" id="modal_btn_1" class="active"></a>

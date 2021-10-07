@@ -17,9 +17,14 @@ let app = new Vue({
         loadImage(e){
             this.images = e.target.result;
         },
-        // postdata(){
-        //     this
-        // }
+        postdata(){
+            let xhr = new XMLHttpRequest();
+            xhr.open("post", "../dist/phps/returnPosts.php", true);
+            xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            //送出資料
+            let data_info = `{post_content:this.selectedFarm, post_img:this.images, post_content:this.posttxt}`;
+            xhr.send(data_info);
+        }
     },
     // methods: {
     //     getFarms(){
@@ -52,12 +57,6 @@ function getFarms() {
     xhr.open("get", "../dist/phps/getFarms.php",true);
     xhr.send(null);
 }
-
-//抓取農場下拉式選單
-
-
-//抓取貼文發布內容
-
 
 window.addEventListener("load", function(){
     //---------------------網頁的初始設定
