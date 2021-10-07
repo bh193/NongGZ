@@ -16,6 +16,7 @@
     </link>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <link rel="stylesheet" href="css/farminfon.css">
+    <script src="js/vue.min.js"></script>
     
 </head>
 <body>
@@ -170,17 +171,17 @@
                 </div>
                 <div class="owl-carousel owl-theme">
                     <div class="item">
-                        <div class="card">
+                        <div class="card" v-for="prodRow in prodRows">
                             <div class="pic">
-                                <img src="images/post/apples.jpg">
+                                <img :src="'images/post/' + prodRow.post_img">
                             </div>
                             <div class="mempic">
-                                <img src="images/mem/mugshot.png">
+                                <img :src="'images/mem/' + prodRow.mem_img">
                             </div>
                             <div class="txt">
-                                <p>今天的太陽光非常的熱烈，半玩半體驗的採果夏日活動令人有一些期待，聽了農場主人的講解與他的期許</p>
+                                <p>{{prodRow.post_content}}</p>
                                 <div class="tag">
-                                    <a href="./farmInfo.html">#山頂厝農場</a>
+                                    <a href="./farmInfo.html">#{{prodRow.farm_name}}</a>
                                 </div>
                                 <div class="icon">
                                     <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_heart"></button></a>
@@ -196,7 +197,7 @@
         </section>
     </div>
     @@include('layout/footer.html')
-    <script>
+    <!-- <script>
         $(".owl-carousel").owlCarousel({
             stagePadding: 400,
             loop: true,
@@ -218,20 +219,7 @@
                 }
             }
         });
-    </script>
-    <script>
-        function setNewImageL(){
-            document.getElementById("arrow-l").src = "images/svg/left-btn-y.svg";
-        }
-        function setOldImageL(){
-            document.getElementById("arrow-l").src = "images/svg/left-btn-g.svg";
-        }
-        function setNewImageR(){
-            document.getElementById("arrow-r").src = "images/svg/right-btn-y.svg";
-        }
-        function setOldImageR(){
-            document.getElementById("arrow-r").src = "images/svg/right-btn-g.svg";
-        }
-    </script>
+    </script> -->
+    <script src="js/farminfon.min.js"></script>
 </body>
 </html>
