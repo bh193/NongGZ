@@ -12,7 +12,7 @@ const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 
 function styles() {
-    return src('dev/sass/*.scss')
+    return src('dev/sass/*.*')
         // sourcemaps 初始化
         .pipe(sourcemaps.init())
         //{outputStyle: 'compressed'} 壓縮用
