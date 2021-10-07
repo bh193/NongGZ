@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/index.min.js"></script>
+    <script src="js/farm_login.min.js"></script>
 </head>
 
 <body>
@@ -58,18 +59,18 @@
                 <div class="con_text">
                     <div class="item">
                         <label>電子信箱
-                            <input class="item_text" name="e-mail" type="text">
+                            <input id="farm_email" class="item_text" name="farm_email" type="text">
                         </label>
                     </div>
                     <div class="item">
                         <label>密碼
-                            <input class="item_text" name="password" type="password">
+                            <input id="farm_psw" class="item_text" name="farm_psw" type="password">
                         </label>
                     </div>
                 </div>
                 <div class="con_btnbox">
                     <input class="smallbtn_s" type="button" value="清除">
-                    <a href="./back_farminfo.html"><input class="smallbtn_m" type="button" value="登入"></a>
+                    <input id="btnLogin" class="smallbtn_m" type="button" value="登入">
                 </div>
                 <div class="con_toggle" id="con_toggle_f">管理員進入 ❯❯</div>
             </div>
