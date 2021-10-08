@@ -110,26 +110,27 @@
                     </tbody>
                 </table>
             </div>
+                        <!-- 視窗內容 -->
+                        <div id="modal_password" class="modal">
+                            <h3>修改果農資訊</h3>
+                            <div class="psw" id="select">
+                                <label for="">農場緯度</label>
+                                <input type="text">
+                                <label for="">農場經度</label>
+                                <input type="text">
+                                <label for="">狀態</label>
+                                 <select  v-model="selected">
+                                    <option v-for="option in options" v-bind:value="option.value" >{{option.text}}</option>
+                                </select>
+                            </div>
+                            <div class="btn">
+                                <button id="clear" type="reset">清除</button>
+                                <button id="send">送出</button>
+                                 </div>
+                                 
+                                      </div>
             </div>  
-            <!-- 視窗內容 -->
-                <div id="modal_password" class="modal">
-                    <h3>修改果農資訊</h3>
-                    <div class="psw" id="select">
-                        <label for="">農場緯度</label>
-                        <input type="text">
-                        <label for="">農場經度</label>
-                        <input type="text">
-                        <label for="">狀態</label>
-                         <select  v-model="selected">
-                            <option v-for="option in options" v-bind:value="option.value" >{{option.text}}</option>
-                        </select>
-                    </div>
-                    <div class="btn">
-                        <button id="clear" type="reset">清除</button>
-                        <button id="send">送出</button>
-                         </div>
-                         
-                              </div>
+
         </section>
         <div class="footer">
     <div class="footer_con">
