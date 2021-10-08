@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>會員中心</title>
+  <script src="js/jquery.min.js"></script>
+
+  <script src="js/jquery.modal.min.js"></script>
+  
+  <script src="js/orange.min.js"></script>
+
+  <link rel="stylesheet" href="css/tree_growing.css">
+  
+  <link rel="stylesheet" type="text/css" href="css/mem_center.css">
+
+  <link rel="stylesheet" href="font/jquery.modal.css">
+
+  <style>
+    /* 覆蓋認養果樹訂單tree_growing.scss */
+    section{
+      margin-bottom: 20px;
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  @@include('layout/header.html')
+
+  <div class="banner">
+    <ul class="breadcrumb">
+      <li><a href="">首頁</a></li>
+      <li><a href="">會員中心</a></li>
+    </ul>
+  </div>
+
+  <div class="all">
+    <ol class="member">
+      <li class="pic">
+        <img id="mem_img" src="images/mem/farmer.jpg" alt="">
+        <label class="camera">
+          <input id="upload_img" style="display:none;" type="file">
+          <img src="images/common/update-camera.png" alt="">
+        </label>
+      </li>
+      <li class="info">
+        <label>會員名稱</label>
+        <input type="text" id="mem_name">
+        <label>電子信箱</label>
+        <input type="text" id="mem_email">
+        <label>連絡電話</label>
+        <input type="text" id="mem_tel">
+      </li>
+      <li class="btn">
+        <a href="#modal_password" rel="modal:open"><button id="edit">修改密碼</button></a>
+        @@include('layout/modal_password.html')
+        <button id="save">儲存資料</button>
+      </li>
+    </ol>
+
+    <div class="order-select">
+      <div class="tabs">
+        <a class="select_1">
+          <img src="images/common/tree_green.png" alt="" class="tree_green" style="display: block;">
+          <img src="images/common/tree_gray.png" alt="" class="tree_gray" style="display: none;">
+          <p>認養果樹訂單</p>
+        </a>
+
+        <a class="select_2">
+          <img src="images/common/apple_green.png" alt="" class="apple_green" style="display: none;">
+          <img src="images/common/apple_gray.png" alt="" class="apple_gray" style="display: block;">
+          <p>體驗行程訂單</p>
+        </a>
+
+        <a class="select_3">
+          <img src="images/common/coupon_green.png" alt="" class="coupon_green" style="display: none;">
+          <img src="images/common/coupon_gray.png" alt="" class="coupon_gray" style="display: block;">
+          <p>折扣券</p>
+        </a>
+
+      </div>
+      <ul class="orders">
+        <!-- 認養果樹訂單 -->
+        <li> 
+          <div class="item">
+            <div class="left">
+              <img id="plus" src="images/common/plus.png" alt="">
+                <img id="minus" src="images/common/minus.png" alt="">
+              <span>種類：</span>
+              <span id="fruit_name">蘋果</span>
+            </div>
+            <div class="right">
+              <span>訂單編號：</span>
+              <span id="t_order_id">123456</span>
+            </div>
+          </div>
+          <div class="detail">
+            <!-- 認養訂單內容1  -->
+            <section id="fruit_tree">
+              <div class="fruit_tree_box">
+                  <canvas class="orange" width="2000" height="2000"></canvas>
+                  <div class="tree_fruit_box">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                      <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    </div>
+              </div>
+              <div class="container">
+                  <div class="content_top">
+                      <p class="update">資料更新日期: 110/11/11</p>
+                      <div class="con_imgbox">
+                          <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                          <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                      </div>
+                      <a href="#moreimg" rel="modal:open"><input class="smallbtn_s" type="button" value="查看更多"></a>
+                  </div>
+                  <div class="content_bottom">
+                      <p class="update">資料更新日期: 110/11/11</p>
+                      <div class="con_text">
+                          <h2 class="con_text_title">吃不完蘋果</h2>
+                          <div class="id">
+                              <span>秀水農場</span>
+                              <span>果樹編號: 8</span>
+                          </div>
+                          <div class="data">
+                              <div class="data_text">
+                                  <h3>大小 </h3>
+                                  <h2 id="size">中</h2>
+                              </div>
+                              <div class="data_text">
+                                  <h3>數量</h3>
+                                  <h2 id="number">45</h2>
+                              </div>
+                          </div>
+                          <span id="fruit_id" style="visibility:hidden">1</span>
+                          <h3 class="price">認養價格: 3200$/年</h3>
+                      </div>
+                  </div>
+              </div>
+          </section> 
+ 
+           </div>
+          <div class="item">
+            <div class="left">
+              <img id="plus" src="images/common/plus.png" alt="">
+                <img id="minus" src="images/common/minus.png" alt="">
+              <span>種類：</span>
+              <span id="fruit_name">紅棗</span>
+            </div>
+            <div class="right">
+              <span>訂單編號：</span>
+              <span id="t_order_id">123456</span>
+            </div>
+          </div>
+          <div class="detail">
+           <!-- 認養訂單內容2  -->
+           <section id="fruit_tree">
+            <div class="fruit_tree_box">
+                <canvas class="orange" width="2000" height="2000"></canvas>
+                <div class="tree_fruit_box">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                  </div>
+            </div>
+            <div class="container">
+                <div class="content_top">
+                    <p class="update">資料更新日期: 110/11/11</p>
+                    <div class="con_imgbox">
+                        <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                        <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                    </div>
+                    <a href="#moreimg" rel="modal:open"><input class="smallbtn_s" type="button" value="查看更多"></a>
+                </div>
+                <div class="content_bottom">
+                    <p class="update">資料更新日期: 110/11/11</p>
+                    <div class="con_text">
+                        <h2 class="con_text_title">吃得完紅棗</h2>
+                        <div class="id">
+                            <span>秀水農場</span>
+                            <span>果樹編號: 8</span>
+                        </div>
+                        <div class="data">
+                            <div class="data_text">
+                                <h3>大小 </h3>
+                                <h2 id="size">中</h2>
+                            </div>
+                            <div class="data_text">
+                                <h3>數量</h3>
+                                <h2 id="number">45</h2>
+                            </div>
+                        </div>
+                        <span id="fruit_id" style="visibility:hidden">1</span>
+                        <h3 class="price">認養價格: 3200$/年</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+          </div>
+        </li>
+        <!-- 體驗行程訂單 -->
+        <li>
+          <div class="item">
+            <div class="left">
+              <img id="plus" src="images/common/plus.png" alt="">
+                <img id="minus" src="images/common/minus.png" alt="">
+              <span>名稱：</span>
+              <span id="activity_name">夏日採桃趣</span>
+            </div>
+            <div class="right">
+              <span>訂單編號：</span>
+              <span id="a_order_id">666666</span>
+            </div>
+          </div>
+          <!-- 行程訂單內容1 -->
+          <div class="detail activity">
+            <table border="1" cellpadding="6">
+              <thead>
+                <tr>
+                  <th>訂單日期</th>
+                  <th>行程日期</th>
+                  <th>姓名</th>
+                  <th>信箱</th>
+                  <th>人數</th>
+                  <th>報名狀態</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2021/11/11</td>
+                  <td>2021/12/12</td>
+                  <td>XXXX</td>
+                  <td>ooxx@gmail.com</td>
+                  <td>2</td>
+                  <td>已報名</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="item">
+            <div class="left">
+              <img id="plus" src="images/common/plus.png" alt="">
+                <img id="minus" src="images/common/minus.png" alt="">
+              <span>名稱：</span>
+              <span id="activity_name">棗新鮮體驗</span>
+            </div>
+            <div class="right">
+              <span>訂單編號：</span>
+              <span id="a_order_id">777777</span>
+            </div>
+          </div>
+          <!-- 行程訂單內容2-->
+          <div class="detail activity">
+            <table border="1" cellpadding="6">
+              <thead>
+                <tr>
+                  <th>訂單日期</th>
+                  <th>行程日期</th>
+                  <th>姓名</th>
+                  <th>信箱</th>
+                  <th>人數</th>
+                  <th>報名狀態</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2021/11/11</td>
+                  <td>2021/12/12</td>
+                  <td>XXXX</td>
+                  <td>ooxx@gmail.com</td>
+                  <td>2</td>
+                  <td>已報名</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </li>
+        <!-- 折扣券 -->
+        <li>
+          <div class="item">
+            <div class="left">
+              <img id="plus" src="images/common/plus.png" alt="">
+                <img id="minus" src="images/common/minus.png" alt="">
+              <span>折扣面額：</span>
+              <span>$600</span>
+            </div>
+            <div class="right">
+              <span>折扣券序號：</span>
+              <span>123</span>
+            </div>
+          </div>
+          <!-- 折扣券內容1-->
+          <div class="detail">
+            <table border="1" cellpadding="6">
+              <thead>
+                <tr>
+                  <th>折扣券序號</th>
+                  <th>折扣面額</th>
+                  <th>使用狀態</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>123</td>
+                  <td>$600</td>
+                  <td>未使用</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="item">
+            <div class="left">
+              <img id="plus" src="images/common/plus.png" alt="">
+                <img id="minus" src="images/common/minus.png" alt="">
+              <span>折扣面額：</span>
+              <span>$100</span>
+            </div>
+            <div class="right">
+              <span>折扣券序號：</span>
+              <span>123</span>
+            </div>
+          </div>
+          <!-- 折扣券內容2-->
+          <div class="detail">
+            <table border="1" cellpadding="6">
+              <thead>
+                <tr>
+                  <th>折扣券序號</th>
+                  <th>折扣面額</th>
+                  <th>使用狀態</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>123</td>
+                  <td>$100</td>
+                  <td>未使用</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>  
+  @@include('layout/footer.html')
+  
+  <script src="js/mem_center.min.js"></script>
+ 
+    
+     
+</body>
+</html>

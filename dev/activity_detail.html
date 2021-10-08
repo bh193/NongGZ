@@ -30,11 +30,11 @@
     <ul class="breadcrumb">
       <li><a href="">首頁</a></li>
       <li><a href="">探索體驗</a></li>
-      <li><a href="">夏日採桃趣</a></li>
+      <li><a :href="'activity_detail.html?activity_id=' + dataObj.activity_id">{{dataObj.activity_name}}</a></li>
     </ul>
     
+    
     <div class="slider">
-      <div>
         <div class="thumbs">
           <div class="preview"  @click="img = dataObj.activity_imgA">
             <div class="mask" style="display: none;">
@@ -70,36 +70,20 @@
         <div class="full" title="">
           <img class="first" :src="'images/activity/' + img">
         </div>
-      </div>
     </div>
 
-    <!-- 手機板 -->
-    <!-- <div class="slider2">
-      <div class="pic">
-        <img :src="'images/activity/' + dataObj.activity_imgA" alt="">
-      </div>
-      <div class="pic">
-        <img :src="'images/activity/' + dataObj.activity_imgB" alt="">
-      </div>
-      <div class="pic">
-        <img :src="'images/activity/' + dataObj.activity_imgC" alt="">
-      </div>
-      <div class="pic">
-        <img :src="'images/activity/' + dataObj.activity_imgD" alt="">
-      </div>
-    </div> -->
-
-
+    <!-- 手機板輪播 -->
     <div class="container">
       <!-- carousel-->
-      <div class="carousel-wrap" ref="carousel" data-auto="true" data-delay="3000" data-arrows="false" data-dots="true" @mouseenter.stop="toggleTimer = false" @mouseleave.stop="toggleTimer = true" @touchstart.stop="touchStart" @touchmove.stop="touchMove">
+      <div class="carousel-wrap" ref="carousel" data-auto="true" data-delay="3000" data-arrows="true" data-dots="true" @mouseenter.stop="toggleTimer = false" @mouseleave.stop="toggleTimer = true" @touchstart.stop="touchStart" @touchmove.stop="touchMove">
 
         <!-- carousel items-->
         <keep-alive>
           <transition :name="carouselName">
             <div class="item" v-for="(s, i) in carousels" v-if="show == i" :key="i">
               <a :href="s.href">
-                <img :src="s.img"/>
+                <img :src="'images/activity/' + s.img"/>
+                <!-- <img :src="'images/activity/' + s"/> -->
               </a>
             </div>
           </transition>
@@ -206,20 +190,26 @@
 
       //手機carousel
       carouselName: 'carousel-next',
-		    carousels: [
-          {
-            img: 'https://picsum.photos/900/506?image=508',
-            href: "#"
-          },
-          {
-            img: 'https://picsum.photos/900/506?image=1068',
-            href: "#"
-          },
-          {
-            img: 'https://picsum.photos/900/506?image=509',
-            href: "#"
-          }
-		    ],
+      carousels:[],
+		    // carousels: [
+        //   {
+        //     img: 'https://picsum.photos/900/506?image=508',
+        //     href: "#"
+        //   },
+        //   {
+        //     img: 'https://picsum.photos/900/506?image=1068',
+        //     href: "#"
+        //   },
+        //   {
+        //     img: 'https://picsum.photos/900/506?image=509',
+        //     href: "#"
+        //   },
+        //   {
+        //     img: 'https://picsum.photos/900/506?image=509',
+        //     href: "#"
+        //   }
+		    // ],
+
         len: 0,
         show: 0,
         xDown: null, // for swiper
@@ -248,14 +238,23 @@
         $.ajax({
           url: '../dist/phps/getActivityList.php',
           success: (response) => {
-            console.log(response)
+            // console.log(response)
             let obj = JSON.parse(response).find(item => item.activity_id == this.id) 
             // 在資料庫找到我要的activity_id=3  並且JSON.parse字串轉成陣列  
             // console.log(obj)
             this.dataObj = obj;
-
             // 抓3裡面的imgA當大圖
             this.img = this.dataObj.activity_imgA;
+
+            this.carousels = [
+              {img:this.dataObj.activity_imgA}, 
+              {img:this.dataObj.activity_imgB}, 
+              {img:this.dataObj.activity_imgC}, 
+              {img:this.dataObj.activity_imgD}, 
+            ];
+            // console.log(this.carousels)
+            this.len = this.carousels.length;
+            //先算carousels的長度 後面才能繼續做    
           },
         });
 
@@ -267,6 +266,7 @@
 
       //手機版carousel
       toNext() {
+        console.log('toNext')
         this.carouselName = 'carousel-next';
         this.show + 1 >= this.len ? this.show = 0 : this.show = this.show + 1;
       },
@@ -299,6 +299,7 @@
       autoPlay() {
         setInterval(() => {
           if(this.toggleTimer) this.toNext();
+          // console.log("autoPlay")
         }, this.timerDelay);
       }
     
@@ -312,15 +313,6 @@
         $(this).siblings().find('.mask').show();
       });
 
-      //     $('.slider2').slick({
-      // slidesToShow: 3,
-      // slidesToScroll: 1,
-      // autoplay: true,
-      // autoplaySpeed: 2000,
-      // });
-
-
-      this.len = this.carousels.length;
       const data = this.$refs.carousel.dataset;
       this.autoplay = data.auto == 'true';
       this.timerDelay = Number(data.delay) || 3000;
@@ -337,11 +329,11 @@
   })	
   
 
-  //
+  // 連資料庫
   function getActivityList(){
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
-      console.log(JSON.parse(xhr.responseText))
+      // console.log(JSON.parse(xhr.responseText))
       app.activitys = JSON.parse(xhr.responseText)
     }
     xhr.open("get", "../dist/phps/getActivityList.php", true);
