@@ -12,6 +12,7 @@
     <script src="js/vue.min.js"></script>
     <link rel="stylesheet" href="./css/彈跳視窗範本.css">
     <link rel="stylesheet" type="text/css" href="css/admin_mem.css">
+    <script src="js/admin_farm.min.js"></script>
 </head>
 
 <body>
@@ -47,7 +48,7 @@
             <div class="item">
                 <div class="box">
                     <input type="text">
-                    <img src="./images/post/search.svg" alt="">
+                    <img src="images/post/search.svg" alt="">
                 </div>
                 <!-- <div class="box">
                     <button class="btn" onclick="showinput()">修改</button>
@@ -77,8 +78,8 @@
                           <td>{{farmRow.farm_tel}}</td>
                           <td>{{getStatus(farmRow.farm_status)}}</td>
                           <td>
-                            <a href="#popOrder" rel="modal:open" @click="filterData(farmRow.farm_name)"><button id="sign">詳情</button></a>
-                            <a href="#modal_password" rel="modal:open"><button class="pen" id="modify">modify</button> 
+                            <a href="#popOrder" rel="modal:open" @click="filterData(farmRow.farm_name)"><button id="sign" class="detail">詳情</button></a>
+                            <a href="#modal_password" rel="modal:open"><button class="penimg"><img src="images/svg/pencil.svg" alt=""></button> 
                             </a>
                           </td>
                         </tr>
@@ -137,60 +138,6 @@
     </div>
 </div>
     </article>
-    <script type="text/javascript">
-        let farmTable = new Vue({
-            el:"#farmTable",
-            data:{
-                farmRows:[],
-                farmDetails:{},
-            },
-            methods: {
-                filterData(name) {
-                    // console.log('filterData')
-                    // console.log(name)
-                   this.farmDetails=this.farmRows.find(data=>data.farm_name==name)
-                },
-                getStatus(gets){
-                    switch (gets){
-                        case '0':
-                        return "停用";
-                            break;
-                        case '1':
-                        return "審核中";
-                            break;
-                        case '2':
-                        return "啟用";
-                            break;
-                        case '3':
-                        return "上架";
-                            break;
-                        default:
-                            
-                            return "錯誤"
-                            break;
-                    }
-                }
-
-            },
-             })	
-        
-        function getfarms(){
-            let xhr = new XMLHttpRequest();
-            xhr.onload = function(){
-                console.log(JSON.parse(xhr.responseText))
-                farmTable.farmRows = JSON.parse(xhr.responseText)
-            }
-            xhr.open("get", "./phps/adminFarm.php", true);
-            xhr.send(null);
-        }
-        
-        window.addEventListener("load", function(){
-            //------------------------網頁的初始設定
-            getfarms();
-        
-        })
-        </script>
-
 
     <!-- <script>
         function myFunction() {

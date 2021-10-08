@@ -29,6 +29,9 @@
                 tr:nth-child(even){background-color:#E9E9E9;}
                 td{padding: 8px; font-size:14px;}
                 td:last-child{text-align: end;}
+                button{
+                    cursor: pointer;
+                }
                 .detail{
                     border:none;
                     width: 50px;
@@ -49,13 +52,15 @@
                         
                     }
                 }
-                .pen{
-                    background: none;
-                    background-image: url('/images/svg/pencil.svg');
+                .penimg{
                     width: 15px;
                     height: 15px;
-                    border:none;
-                    cursor: pointer;
+                    padding: 0;
+                    border: none;
+                    background: none;
+                    img{
+                        width: 100%;
+                    }
                     }
                 
 
