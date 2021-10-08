@@ -56,9 +56,7 @@ $(function () {
     $('.tree_o').css({ "transform": "scale(1)"})
   });
 
-  $('.tree').click(function(){
-    $(window).attr('location','./adopt_tree.html');
-  });
+
 
 
   //篩選水果
@@ -98,11 +96,18 @@ $(function () {
     };
   });
 
+  // $('.tree').click(function(){
+   
+  //   console.log(index);
+  //   // window.open(`./adopt_tree.html?id='+ ${index}`);
+  // });
+
   function show() {
     $('.fruit img').eq(index - 1).show().siblings().hide();
     $('.circle h3').eq(index - 1).show().siblings().hide();
     $('.tree_o').attr("src", `images/fruit/tree_${index}.svg`);
     $('.tree_fruit').attr("src", `images/fruit/fruit_${index}.svg`);
+    $('.tree').attr("href",`./adopt_tree.html?id=${index}`);
     for (var i = 0; i <= 7; i++) {
       var number = (Math.random() * 60) - 30; //亂數0~60, 扣30 > 亂數-30~30
       $('.tree_fruit').eq(i).css("transform", `rotate(${number}deg)`);
@@ -126,12 +131,4 @@ $(function () {
       }
     }
   });
-
-
-  //探索體驗hover變色
-  $('.con_box a').hover(function () {
-    $(this).parent().parent().parent().children('img').css("transform", "scale(1.1)");
-  }, function () {
-    $(this).parent().parent().parent().children('img').css("transform", "scale(1)");
-  })
 });

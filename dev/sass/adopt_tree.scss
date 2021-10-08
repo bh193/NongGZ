@@ -75,7 +75,6 @@ select {
 section {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .content {
@@ -84,6 +83,7 @@ section {
     flex-wrap: wrap;
     border-radius: 15px;
     border: 2px solid $main_color;
+    box-sizing: border-box;
     background-color: #fff;
     overflow: hidden;
     margin-bottom: 1.5rem;
@@ -129,10 +129,11 @@ section {
                 width: 100%;
             }
         }
-
         .con_text {
-     
             width: 65%;
+            p{
+                text-align: center;
+            }
         }
     }
 }
@@ -150,6 +151,9 @@ section {
 
     .content {
         width: 48%;
+        &:nth-child(2n){
+            margin-left: 4%;
+        }
     }
 }
 
@@ -172,6 +176,20 @@ section {
 
     .content {
         width: 31%;
+
+        &:nth-child(2n+1){
+            margin-left: 0;
+        }
+        &:nth-child(2n){
+            margin-left: 0;
+        }
+
+        &:nth-child(3n+2){
+            margin-left: 3.5%;
+        }
+        &:nth-child(3n){
+            margin-left: 3.5%;
+        }
 
         &:hover .con_img .black_bg {
             display: block;

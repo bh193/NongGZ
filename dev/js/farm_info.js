@@ -11,6 +11,7 @@ function getFarmInfo() {
         if (member.farm_email) {
             $id("farm_name").innerText = member.farm_name;
             $id("farm_login").innerText = "登出";
+            $id("farm_id").innerText = member.farm_id;
         }
     }
     xhr.open("get", "./phps/getFarmInfo.php", true);

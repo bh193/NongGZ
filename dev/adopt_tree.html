@@ -7,276 +7,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <title>一同養樹</title>
     <script src="js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <link rel="stylesheet" type="text/css" href="css/adopt_tree.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 </head>
 
 <body>
     @@include('layout/header.html')
-    <article>
+    <article id="tree_list">
         <ul class="breadcrumb">
             <li><a href="./home.html">首頁</a></li>
             <li><a href="#">一同養樹</a></li>
         </ul>
         <div class="search">
             <div class="select">
-                    <select name="fruit" id="fruit">
-                        <option value="" disabled selected>選擇水果</option>
-                        <option value="水蜜桃">水蜜桃</option>
-                        <option value="芒果">芒果</option>
-                        <option value="紅棗">紅棗</option>
-                        <option value="蘋果">蘋果</option>
-                        <option value="橘子">橘子</option>
-                    </select>
-     
-                    <select name="city" id="city">
-                        <option value="" disabled selected>選擇地區</option>
-                        <option value="台北市">台北市</option>
-                        <option value="新北市">新北市</option>
-                        <option value="桃園市">桃園市</option>
-                    </select>
-      
+                <select name="fruit" id="fruit" v-model="input.typefruit">
+                    <option value="" disabled selected>選擇水果</option>
+                    <option value="1">橘子</option>
+                    <option value="2">蘋果</option>
+                    <option value="3">芒果</option>
+                    <option value="4">水蜜桃</option>
+                    <option value="5">紅棗</option>
+                </select>
+
+                <select name="city" id="city" v-model="input.typecity">
+                    <option value="" disabled selected>選擇地區</option>
+                    <option value="台北">台北</option>
+                    <option value="新北">新北</option>
+                    <option value="桃園">桃園</option>
+                </select>
+
             </div>
-            <select name="price" id="price">
+            <select name="price" id="price"  v-model="input.typeprice">
                 <option value="" disabled selected>價格排序</option>
                 <option value="價格高到低">價格高到低</option>
                 <option value="價格低到高">價格低到高</option>
             </select>
         </div>
         <section>
-            <div class="content">
-                <a href="./tree_growing.html">
+            <div class="content" v-for="tree in sequence">
+                <a :href="'tree_growing.php?tree_id=' + tree.tree_id">
                     <div class="con_img">
                         <div class="black_bg animate__animated animate__flipInX  animate__fast">
                             <input type="button" value="查看詳情">
                         </div>
-                        <img src="images/tree/1.jpg" alt="認養果樹照片">
+                        <img :src="'images/tree/' + tree.treehistory_img" alt="認養果樹照片">
 
                     </div>
                     <div class="con_textbox">
                         <div class="con_text_img">
-                            <img src="images/svg/adopt_tree_mango.svg" alt="芒果">
+                            <img :src="'images/svg/adopt_tree_' + tree.fruit_id + '.svg'" alt="果實">
                         </div>
                         <div class="con_text">
-                            <h3>香甜金蜜芒果</h3>
-                            <p>認養價格: 4850$/年</p>
+                            <h3>{{tree.tree_name}}</h3>
+                            <p>認養價格: {{tree.tree_price}}$/年</p>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="content">
-                <a href="./tree_growing.html">
-                    <div class="con_img">
-                        <div class="black_bg animate__animated animate__flipInX  animate__fast">
-                            <input type="button" value="查看詳情">
-                        </div>
-                        <img src="images/tree/2.jpg" alt="認養果樹照片">
-                    </div>
-                    <div class="con_textbox">
-                        <div class="con_text_img">
-                            <img src="images/svg/adopt_tree_red dates.svg" alt="紅棗">
-                        </div>
-                        <div class="con_text">
-                            <h3>果香龍須紅棗</h3>
-                            <p>認養價格: 3600$/年</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="content">
-                <a href="./tree_growing.html">
-                    <div class="con_img">
-                        <div class="black_bg animate__animated animate__flipInX  animate__fast">
-                            <input type="button" value="查看詳情">
-                        </div>
-                        <img src="images/tree/3.jpg" alt="認養果樹照片">
-                    </div>
-                    <div class="con_textbox">
-                        <div class="con_text_img">
-                            <img src="images/svg/adopt_tree_red dates.svg" alt="紅棗">
-                        </div>
-                        <div class="con_text">
-                            <h3>滿枝無核紅棗</h3>
-                            <p>認養價格: 3790$/年</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="content">
-                <a href="./tree_growing.html">
-                <div class="con_img">
-                    <div class="black_bg animate__animated animate__flipInX  animate__fast">
-                        <input type="button" value="查看詳情">
-                    </div>
-                    <img src="images/tree/4.jpg" alt="認養果樹照片">
-                </div>
-                <div class="con_textbox">
-                    <div class="con_text_img">
-                        <img src="images/svg/adopt_tree_peach.svg" alt="水蜜桃">
-                    </div>
-                    <div class="con_text">
-                        <h3>滴滴春豐桃</h3>
-                        <p>認養價格: 8200$/年</p>
-                    </div>
-                </div>
-                </a>
-            </div>
-            <div class="content">
-                <a href="./tree_growing.html">
-                <div class="con_img">
-                    <div class="black_bg animate__animated animate__flipInX  animate__fast">
-                        <input type="button" value="查看詳情">
-                    </div>
-                    <img src="images/tree/5.jpg" alt="認養果樹照片">
-                </div>
-                <div class="con_textbox">
-                    <div class="con_text_img">
-                        <img src="images/svg/adopt_tree_mango.svg" alt="芒果">
-                    </div>
-                    <div class="con_text">
-                        <h3>台農2號芒果</h3>
-                        <p>認養價格: 5190$/年</p>
-                    </div>
-                </div>
-                </a>
-            </div>
-            <div class="content">
-                <a href="./tree_growing.html">
-                <div class="con_img">
-                    <div class="black_bg animate__animated animate__flipInX  animate__fast">
-                        <input type="button" value="查看詳情">
-                    </div>
-                    <img src="images/tree/6.jpg" alt="認養果樹照片">
-                </div>
-                <div class="con_textbox">
-                    <div class="con_text_img">
-                        <img src="images/svg/adopt_tree_orange.svg" alt="橘子">
-                    </div>
-                    <div class="con_text">
-                        <h3>甘甜茂谷橘子</h3>
-                        <p>認養價格: 2999$/年</p>
-                    </div>
-                </div>
-                </a>
-            </div>
-            <div class="content">
-                <a href="./tree_growing.html">
-                <div class="con_img">
-                    <div class="black_bg animate__animated animate__flipInX  animate__fast">
-                        <input type="button" value="查看詳情">
-                    </div>
-                    <img src="images/tree/7.jpg" alt="認養果樹照片">
-                </div>
-                <div class="con_textbox">
-                    <div class="con_text_img">
-                        <img src="images/svg/adopt_tree_peach.svg" alt="水蜜桃">
-                    </div>
-                    <div class="con_text">
-                        <h3>飽滿甜蜜桃</h3>
-                        <p>認養價格: 7750$/年</p>
-                    </div>
-                </div>
-                </a>
-            </div>
-            <div class="content">
-                <a href="./tree_growing.html">
-                    <div class="con_img">
-                        <div class="black_bg animate__animated animate__flipInX  animate__fast">
-                            <input type="button" value="查看詳情">
-                        </div>
-                        <img src="images/tree/8.jpg" alt="認養果樹照片">
-                    </div>
-                    <div class="con_textbox">
-                        <div class="con_text_img">
-                            <img src="images/svg/adopt_tree_orange.svg" alt="橘子">
-                        </div>
-                        <div class="con_text">
-                            <h3>吃不完海梨</h3>
-                            <p>認養價格: 3200$/年</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="content">
-                <a href="./tree_growing.html">
-                <div class="con_img">
-                    <div class="black_bg animate__animated animate__flipInX  animate__fast">
-                        <input type="button" value="查看詳情">
-                    </div>
-                    <img src="images/tree/9.jpg" alt="認養果樹照片">
-                </div>
-                <div class="con_textbox">
-                    <div class="con_text_img">
-                        <img src="images/svg/adopt_tree_orange.svg" alt="橘子">
-                    </div>
-                    <div class="con_text">
-                        <h3>餘味無窮桶柑</h3>
-                        <p>認養價格: 2900$/年</p>
-                    </div>
-                </div>
-                </a>
-            </div>
-            <div class="content">
-                <a href="./tree_growing.html">
-                <div class="con_img">
-                    <div class="black_bg animate__animated animate__flipInX  animate__fast">
-                        <input type="button" value="查看詳情">
-                    </div>
-                    <img src="images/tree/10.jpg" alt="認養果樹照片">
-                </div>
-                <div class="con_textbox">
-                    <div class="con_text_img">
-                        <img src="images/svg/adopt_tree_peach.svg" alt="水蜜桃">
-                    </div>
-                    <div class="con_text">
-                        <h3>汁甜五月桃</h3>
-                        <p>認養價格: 8100$/年</p>
-                    </div>
-                </div>
-                </a>
-            </div>
-            <div class="content">
-                <a href="./tree_growing.html">
-                <div class="con_img">
-                    <div class="black_bg animate__animated animate__flipInX  animate__fast">
-                        <input type="button" value="查看詳情">
-                    </div>
-                    <img src="images/tree/11.jpg" alt="認養果樹照片">
-                </div>
-                <div class="con_textbox">
-                    <div class="con_text_img">
-                        <img src="images/svg/adopt_tree_apple.svg" alt="蘋果">
-                    </div>
-                    <div class="con_text">
-                        <h3>紅脆紅龍蘋果</h3>
-                        <p>認養價格: 4100$/年</p>
-                    </div>
-                </div>
-                </a>
-            </div>
-            <div class="content">
-                <a href="./tree_growing.html">
-                <div class="con_img">
-                    <div class="black_bg animate__animated animate__flipInX  animate__fast">
-                        <input type="button" value="查看詳情">
-                    </div>
-                    <img src="images/tree/12.jpg" alt="認養果樹照片">
-                </div>
-                <div class="con_textbox">
-                    <div class="con_text_img">
-                        <img src="images/svg/adopt_tree_mango.svg" alt="芒果">
-                    </div>
-                    <div class="con_text">
-                        <h3>福爾摩斯芒果</h3>
-                        <p>認養價格: 4890$/年</p>
-                    </div>
-                </div>
-                </a>
-            </div>
+
         </section>
         <p class="load">load more...</p>
     </article>
     @@include('layout/footer.html')
+
+    <script type="text/javascript">
+        let tree_list = new Vue({
+            el: "#tree_list",
+            data: {
+                trees: [],
+                input: {
+                    typefruit:'',
+                    typecity:'',
+                    typeprice:'',
+                },
+
+            },
+            methods: {
+                getdata(){
+                    this.input.typefruit=window.location.search.split("?")[1].split("=")[1]
+                }
+            },
+            computed: {
+                select(){
+                    if(this.input.typefruit != '' && this.input.typecity != ''){
+                        return this.trees.filter(tree => {
+                            return tree.fruit_id == this.input.typefruit && tree.city_name == this.input.typecity
+                        })
+                    }else if(this.input.typefruit != '' && this.input.typecity == ''){
+                        return this.trees.filter(tree => {
+                            return tree.fruit_id == this.input.typefruit
+                        })
+                    }else if(this.input.typefruit == '' && this.input.typecity != ''){
+                        return this.trees.filter(tree => {
+                            return tree.city_name == this.input.typecity
+                        })
+                    }else {
+                        return this.trees
+                    } 
+                },
+                sequence(){
+                    if(this.input.typeprice == "價格高到低"){
+                        return this.select.sort(function(p1,p2){
+                            return p2.tree_price-p1.tree_price
+                        })
+                    }else if(this.input.typeprice == "價格低到高"){
+                        return this.select.sort(function(p1,p2){
+                            return p1.tree_price-p2.tree_price
+                        })
+                    }else{
+                        return this.select
+                    }
+                }
+            },
+            mounted() {
+                this.getdata()
+            },
+
+        })
+        //連接php
+        //#tree_list
+
+        function getTree_list() {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                console.log(JSON.parse(xhr.responseText))
+                tree_list.trees = JSON.parse(xhr.responseText)
+            }
+            xhr.open("get", "./phps/getTree_list.php", true);
+            xhr.send(null);
+        }
+
+        window.addEventListener("load", function () {
+            //------------------------網頁的初始設定
+            getTree_list();
+
+        })
+    </script>
 </body>
 
 </html>

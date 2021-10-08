@@ -342,6 +342,7 @@ article {
 
     .con_box {
         width: 250px;
+        height: 160px;
         overflow: hidden;
         position: relative;
         margin: 1rem 30px 1rem 0;
@@ -366,7 +367,6 @@ article {
 
             h3 {
                 font-weight: 600;
-                margin-bottom: 0.5rem;
             }
 
             a {
@@ -385,7 +385,7 @@ article {
             span {
                 display: block;
                 text-align: end;
-                margin-top: 2.5rem;
+                margin-top: 1rem;
 
             }
 
@@ -501,6 +501,7 @@ article {
     .activity_con {
         .con_box {
             width: 320px;
+            height: 200px;
         }
     }
 }
