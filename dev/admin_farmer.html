@@ -9,16 +9,40 @@
     <script src="js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="js/vue.min.js"></script>
     <link rel="stylesheet" href="./css/彈跳視窗範本.css">
     <link rel="stylesheet" type="text/css" href="css/admin_mem.css">
 </head>
 
 <body>
-    @@include('layout/header_back_c.html')
+    
+    <header>
+    <a href="./admin_farmer.php">
+        <div class="logo">
+            <img src="./images/common/logo.svg" alt="logo">
+        </div>
+    </a>
+    <ul id="nav">
+        <li><a href="./admin_farmer.html">果農帳號管理</a></li>
+        <li><a href="./admin_member.html">會員帳號管理</a></li>
+        <li><a href="./admin_post.html">審核檢舉貼文</a></li>
+    </ul>
+</header>
+
+
+<script src="js/header_back.min.js"></script>
     <article>
         <section>
             <!-- 放置內文 -->
-            @@include('layout/controller_icon.html')
+            <div class="sign_out">
+                <div class="sign_out_icon">
+                     <img src="./images/common/controller-login.svg" alt="controller_icon">
+                </div>
+                <div class="sign_out_name">
+                    <p>管理員</p>
+                    <p>登出</p>
+                </div>
+            </div>
                
             <div class="item">
                 <div class="box">
@@ -30,7 +54,7 @@
                     <button class="btn" onclick="myFunction()">儲存</button>
                 </div> -->
             </div>
-            <div class="table">
+            <div class="table"  id="farmTable">
                 <table>
                     <thead>
                         <tr>
@@ -41,49 +65,32 @@
                           <th scope="col">電話</th>
                           <th scope="col">狀態</th>
                           <th scope="col">詳情</th>
-                          
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>山頂厝</td>
-                          <td>王小明</td>
-                          <td>上架</td>
-                          <td>0912345678</td>
+                        
+                        <tr v-for="(farmRow,i) in farmRows">
+                          <td>{{i+1}}</td>
+                          <td>{{farmRow.farm_name}}</td>
+                          <td>{{farmRow.farm_gm}}</td>
+                          <td>{{farmRow.farm_address}}</td>
+                          <td>{{farmRow.farm_tel}}</td>
+                          <td>{{getStatus(farmRow.farm_status)}}</td>
                           <td>
-                              <div id="option" style="display: none;"> 
-                                  <select name="" id="state">
-                                      <option value="審核中">審核中</option>
-                                      <option value="停用">停用</option>
-                                      <option value="啟用">啟用</option>
-                                  </select>
-                              </div>
-                              <div style="display:block;">
-                                  <span id="demo">審核中</span>
-                              </div>
-
-                          </td>
-                          <td>
-                           <a href="#popOrder" rel="modal:open"><button id="sign" class="detail">詳情</button></a>
-                            <a href="#modal_password" rel="modal:open"><button class="pen" id="modify"></button> 
+                            <a href="#popOrder" rel="modal:open" @click="filterData(farmRow.farm_name)"><button id="sign">詳情</button></a>
+                            <a href="#modal_password" rel="modal:open"><button class="pen" id="modify">modify</button> 
                             </a>
                           </td>
-                            
                         </tr>
                       </tbody>
                 </table>
-                <div id="detail" style="display: none;">
-                    
-                    
-                </div>
-            </div>  
-            <!-- 詳情視窗內容 -->
+    
+        <!-- 詳情視窗內容 -->
             <div id="popOrder" class="modal order">
                 <h4>農場詳情</h4>
                 <table> 
                     <thead>
-                        <tr>
+                        <tr >
                             <th>許可證書</th>
                             <th>城市</th>
                             <th>地址</th>
@@ -91,44 +98,100 @@
                             <th>經度</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody>                        
                         <tr>
-                            <td>16789</td>
-                            <td>新北市</td>
-                            <td>桃園市楊梅區楊湖路一段654巷81弄88號</td>
-                            <td>120.599</td>
-                            <td>256.999</td>
+                            <td>{{farmDetails.farm_cert}}</td>
+                            <td>{{farmDetails.city_name}}</td>
+                            <td>{{farmDetails.farm_address}}</td>
+                            <td>{{farmDetails.farm_lat}}</td>
+                            <td>{{farmDetails.farm_lon}}</td>
                         </tr>
                     </tbody>
                 </table>
-                </div>
-                <!-- 視窗內容 -->
+            </div>
+            </div>  
+            <!-- 視窗內容 -->
                 <div id="modal_password" class="modal">
                     <h3>修改果農資訊</h3>
-                    <div class="psw">
-                      <label for="">農場緯度</label>
-                      <input type="text">
-                      <label for="">農場經度</label>
-                      <input type="text">
-                      <label for="">狀態</label>
-                      <select name="" id="">
-                          <option value="0">停用</option>
-                          <option value="1">審核中</option>
-                          <option value="2">啟用</option>
-                          <option value="3">上架</option>
-                      </select>
+                    <div class="psw" id="select">
+                        <label for="">農場緯度</label>
+                        <input type="text">
+                        <label for="">農場經度</label>
+                        <input type="text">
+                        <label for="">狀態</label>
+                         <select  v-model="selected">
+                            <option v-for="option in options" v-bind:value="option.value" >{{option.text}}</option>
+                        </select>
                     </div>
                     <div class="btn">
-                      <button id="clear" type="reset">清除</button>
-                      <button id="send">送出</button>
-                    </div>
-                  </div>
-
-
-
+                        <button id="clear" type="reset">清除</button>
+                        <button id="send">送出</button>
+                         </div>
+                         
+                              </div>
         </section>
-        @@include('layout/footer_back.html')
+        <div class="footer">
+    <div class="footer_con">
+        <p>Copyright © 2021 農果子</p>
+        <p>本網站為緯育TibaMe_前端設計工程師班第69期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]https://www.facebook.com/webindex/ ，後續會由專人協助處理。</p>
+    </div>
+</div>
     </article>
+    <script type="text/javascript">
+        let farmTable = new Vue({
+            el:"#farmTable",
+            data:{
+                farmRows:[],
+                farmDetails:{},
+            },
+            methods: {
+                filterData(name) {
+                    // console.log('filterData')
+                    // console.log(name)
+                   this.farmDetails=this.farmRows.find(data=>data.farm_name==name)
+                },
+                getStatus(gets){
+                    switch (gets){
+                        case '0':
+                        return "停用";
+                            break;
+                        case '1':
+                        return "審核中";
+                            break;
+                        case '2':
+                        return "啟用";
+                            break;
+                        case '3':
+                        return "上架";
+                            break;
+                        default:
+                            
+                            return "錯誤"
+                            break;
+                    }
+                }
+
+            },
+             })	
+        
+        function getfarms(){
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+                console.log(JSON.parse(xhr.responseText))
+                farmTable.farmRows = JSON.parse(xhr.responseText)
+            }
+            xhr.open("get", "./phps/adminFarm.php", true);
+            xhr.send(null);
+        }
+        
+        window.addEventListener("load", function(){
+            //------------------------網頁的初始設定
+            getfarms();
+        
+        })
+        </script>
+
+
     <!-- <script>
         function myFunction() {
          document.getElementById("option").style.display="none";
@@ -140,7 +203,7 @@
             document.getElementById("option").style.display="block";
             document.getElementById("demo").style.display="none";
         }
-    </script> -->
+    </script>
     <script>
         $('a[href="#popOrder"]').click(function(event) {
           event.stopPropagation();
@@ -148,7 +211,7 @@
             fadeDuration: 300
           });
         });
-        </script>
+        </script> --> 
 </body>
 
 </html>
