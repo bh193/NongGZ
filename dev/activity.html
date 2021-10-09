@@ -9,7 +9,7 @@
   
   <link rel="stylesheet" type="text/css" href="css/activity.css">
   <script src="js/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-infinitescroll/3.0.3/infinite-scroll.pkgd.min.js"></script>
+  
   <script src="js/vue.min.js"></script>
 </head>
 <body>
@@ -45,9 +45,9 @@
     <div class="main">
       <div class="post" v-for="item in activitys">    <!-- v-for -->
         <div class="background">
-          <div class="pic">
+          <a class="pic" :href="'activity_detail.html?activity_id=' + item.activity_id">
             <img id="activity_imgA" :src="'images/activity/' + item.activity_imgA" alt="">
-          </div>
+          </a>
         </div>
         <div class="text">
           <div>
