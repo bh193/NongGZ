@@ -33,7 +33,7 @@
 
 <script src="js/header_back.min.js"></script>
     <article>
-        <section>
+        <section  id="farmTable">
             <!-- 放置內文 -->
             <div class="sign_out">
                 <div class="sign_out_icon">
@@ -47,7 +47,8 @@
                
             <div class="item">
                 <div class="box">
-                    <input type="text">
+                    <label for=""></label>
+                    <input type="text" v-model="search">  
                     <img src="images/post/search.svg" alt="">
                 </div>
                 <!-- <div class="box">
@@ -55,7 +56,7 @@
                     <button class="btn" onclick="myFunction()">儲存</button>
                 </div> -->
             </div>
-            <div class="table"  id="farmTable">
+            <div class="table">
                 <table>
                     <thead>
                         <tr>
@@ -70,7 +71,7 @@
                       </thead>
                       <tbody>
                         
-                        <tr v-for="(farmRow,i) in farmRows">
+                        <tr v-for="(farmRow,i) in filterF">
                           <td>{{i+1}}</td>
                           <td>{{farmRow.farm_name}}</td>
                           <td>{{farmRow.farm_gm}}</td>
@@ -112,21 +113,24 @@
             </div>
                         <!-- 視窗內容 -->
                         <div id="modal_password" class="modal">
-                            <h3>修改果農資訊</h3>
-                            <div class="psw" id="select">
-                                <label for="">農場緯度</label>
-                                <input type="text">
-                                <label for="">農場經度</label>
-                                <input type="text">
-                                <label for="">狀態</label>
-                                 <select  v-model="selected">
-                                    <option v-for="option in options" v-bind:value="option.value" >{{option.text}}</option>
-                                </select>
-                            </div>
-                            <div class="btn">
-                                <button id="clear" type="reset">清除</button>
-                                <button id="send">送出</button>
-                                 </div>
+                            <form method="POST" action="./phps/update_admin.php">
+                                <h3>修改果農資訊</h3>
+                                <div class="psw" id="select"> <label for="">農場緯度</label>
+                                
+                                    <input type="text" name="farm_lat">
+                                    <label for="">農場經度</label>
+                                    <input type="text" name="farm_lon">
+                                    <label for="">狀態</label>
+                                     <select  v-model="selected">
+                                        <option v-for="option in options" v-bind:value="option.value" >{{option.text}}</option>
+                                    </select>
+                                </div>
+                                <div class="btn">
+                                    <button id="clear" type="reset">清除</button>
+                                    <button id="send" type="submit" @click="filterData(farmRow.farm_name)">送出</button>
+                                     </div>
+                            </form>
+                           
                                  
                                       </div>
             </div>  
@@ -160,7 +164,7 @@
           });
         });
         </script> --> 
-        <script src="js/admin_farm.min.js"></script>
+
 </body>
 
 </html>
