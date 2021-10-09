@@ -4,7 +4,7 @@
         require_once("./connectNGZ.php");
 
         //執行sql指令並取得pdoStatement
-        $sql = "select farm_name from farm";
+        $sql = "select farm_name, farm_id from farm";
         $products = $pdo->query($sql);
         $prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($prodRows);

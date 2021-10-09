@@ -170,8 +170,8 @@
                     </div>
                 </div>
                 <div class="owl-carousel owl-theme">
-                    <div class="item">
-                        <div class="card" v-for="prodRow in prodRows">
+                    <div class="item" v-for="prodRow in prodRows">
+                        <div class="card" >
                             <div class="pic">
                                 <img :src="'images/post/' + prodRow.post_img">
                             </div>
@@ -186,7 +186,7 @@
                                 <div class="icon">
                                     <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_heart"></button></a>
                                     <!-- @@include('layout/modal_login.html') -->
-                                    <span>5</span>
+                                    <span>{{prodRow.post_feedback}}</span>
                                     <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_loudly"></button></a>
                                 </div>
                             </div>
