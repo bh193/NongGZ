@@ -37,11 +37,11 @@
                     </div>
                     <div class="youpost">
                         <h3>你的貼文</h3>
-                        <div class="txt">
+                        <form class="txt" action="javascript:void(0)">
                             <textarea id="wpost" placeholder="寫下說明文字及tag農場⋯" v-model="posttxt"></textarea>
                             <div class="fileupload">
                                 <div class="fileimg">
-                                    <img :src="images" id="image">
+                                    <img :src="images" id="image" name="image">
                                 </div>
                                 <div class="btn">
                                     <div class="filebtn">
@@ -51,35 +51,35 @@
                                         </label>
                                     </div>
                                     <select class="tag" id="farmtag" v-model="selectedFarm">
-                                        <option value="tag農場" selected disabled></option>
-                                        <option :value= "farm.farm_name" v-for="farm in farms">{{farm.farm_name}}</option>
+                                        <option value="" selected disabled>tag農場</option>
+                                        <option :value= "farm.farm_id" v-for="farm in farms">{{farm.farm_name}}</option>
                                     </select>
-                                    <a href="#modal_login" rel="modal:open"><input type="submit" value="發佈" id="modal_btn_1" class="active"></a>
+                                    <a href="#modal_login" rel="modal:open"><input type="submit" value="發佈" id="modal_btn_1" class="active" @click="postdata"></a>
+                                    
                                     <!-- @@include('layout/modal_login.html') -->
                                 </div>
                             </div>
-                            
-                        </div>
+                        </form>
                     </div>
                 </div>
             </article>
             <article class="filter">
                 <div class="container">
-                    <div class="item">
-                        <label class="search">
-                            <input class="search_item" type="text">
-                        </label>
+                    <form class="item">
+                        <label for="" class="search"></label>
+                        <input class="search_item" type="text" v-model="filterFarm">
                         <img src="images/post/search.svg">
-                    </div>
+                    </form>
                     <select class="selectfont">
                         <option value="最新的">最新的</option>
                         <option value="熱門的">熱門的</option>
                     </select>
+                    <!-- <div>{{filterRow}}</div> -->
                 </div>
             </article>
             <article class="mempost">
                 <div class="container">
-                    <div class="card" v-for="prodRow in prodRows">
+                    <div class="card" v-for="prodRow in filterRow">
                         <div class="txt">
                             <div class="memname">
                                 <div class="pic">
@@ -115,6 +115,13 @@
                     <p>load more...</p>
                 </div>
             </article>
+            <div id="modal_login" class="modal">
+                <h3>請登入會員</h3>
+                <div class="btn">
+                    <a href="#" rel="modal:close"><button id="cancel">取消</button></a>
+                    <a href="memlogin.html"><button id="logIn">登入</button></a>
+                </div>
+            </div>
         </section>
     </div>
     @@include('layout/footer.html')
