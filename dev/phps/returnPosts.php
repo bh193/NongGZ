@@ -33,7 +33,7 @@
         $sql = "insert into post(post_date, post_img, post_content, farm_id)
         values(:post_date, :post_img, :post_content, :farm_id)";
         $post = $pdo->prepare($sql);
-        $post -> bindValue(":post_img", "$dname".".{$type}");
+        $post -> bindValue(":post_img", $_POST["$dname".".{$type}"]);
         $post -> bindValue(":post_content", $_POST["post_content"]);
         $post -> bindValue(":farm_id", $_POST["farm_id"]);
         // $post -> bindValue(":mem_id", $_POST["mem_id"]);

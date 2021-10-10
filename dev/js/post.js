@@ -53,6 +53,7 @@ let app = new Vue({
         // }
     },
     computed:{
+        //搜尋農場關鍵字
         filterRow() {
             // prodRows2 = prodRows;
             return this.prodRows.filter(prodRow =>{return prodRow.farm_name.toLowerCase().includes(this.filterFarm.toLowerCase())});

@@ -297,11 +297,8 @@
             .card{
                 width: 48%;
             }
-            .card:last-child:nth-child(3n - 1) {
-                margin-right: calc(31.25% + 6.25% / 2);
-            }
-            .card:last-child:nth-child(3n - 2) {
-                margin-right: calc(62.5% + 12.5% / 2);
+            .card:last-child:nth-child(2n - 1) {
+                margin-right: calc(48% + 4% / 1);
             }
         }
     }
@@ -324,6 +321,12 @@
         .container{
             .card{
                 width: 31.25%;
+            }
+            .card:last-child:nth-child(3n - 1) {
+                margin-right: calc(31.25% + 6.25% / 2);
+            }
+            .card:last-child:nth-child(3n - 2) {
+                margin-right: calc(62.5% + 12.5% / 2);
             }
         }
     }
