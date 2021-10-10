@@ -6,12 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小農註冊</title>
     <script src="js/jquery.min.js"></script>
-    <!-- 引入jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="js/vue.min.js"></script>
     <link rel="stylesheet" href="font/jquery.modal.css">
 </head>
 <body>
-    @@include('layout/header.html')
+    <script src="js/jquery.mousewheel.min.js"></script>
+<header>
+    <div class="header_con">
+        <a href="./home.html" class="logo"><img src="images/common/logo.svg" alt="logo"></a>
+        <ul id="nav">
+            <li class="navbtn"><a href="./adopt_tree.html">一同養樹</a></li>
+            <li class="navbtn"><a href="./farmsearch.html">來農場吧</a></li>
+            <li class="navbtn"><a href="./activity.html">探索體驗</a></li>
+            <li class="navbtn"><a href="./post.html">果粉之談</a></li>
+            <li class="navbtn"><a href="./contact.html">找農果子</a></li>
+        </ul>
+        <ol id="mem_icon">
+            <li><a href="./farmregister.html"><img src="images/common/farmer-2.svg" alt="farmer"></a>
+                <h4>小農</h4>
+            </li>
+            <li><a href="./memlogin.html"><img src="images/common/login.svg" alt="member"></a>
+                <h4 id="mem_state">會員</h4>
+            </li>
+        </ol>
+        <div class="hamberger">
+            <div class="line" id="line_1"></div>
+            <div class="line" id="line_2"></div>
+            <div class="line" id="line_3"></div>
+        </div>
+    </div>
+</header>
+<script src="js/header.min.js"></script>
     <div class="wrap">
         <div class="box">
             <div class="logo"></div>
@@ -19,64 +45,63 @@
         <div class="box">
             <h3>小農註冊</h3>
         </div>
-        <div class="box">
-            <form action="">
+        <div class="box" id="farmR">
+            <form  action="javascript:void(0)">
                 <div class="item">
                     <label for="">農場名稱</label>
-                    <input type="text">
+                    <input type="text" v-model="fname" name="farm_name">
                 </div>
                 <div class="item">
                     <label for="">負責人</label>
-                    <input type="text">
+                    <input type="text" v-model="fgm"  name="farm_gm">
                 </div>
                 <div class="item">
                     <label for="">城市</label>
-                    <select name="" id="">
-                        <option disabled selected>請選擇城市</option>
-                        <option value="">台北</option>
-                        <option value="">新北</option>
-                        <option value="">桃園</option>
+                    <select v-model="selected">
+                        <option value="" selected disabled>請選擇</option>
+                        <option v-for="city in cityRows" :value="city.city_id">{{city.city_name}}</option>
                     </select>
                 </div>
                 <div class="item">
                     <label for="">農場地址</label>
-                    <input type="text">
+                    <input type="text" v-model="faddress" name="farm_address">
                 </div>
                 <div class="item">
                     <label for="">許可證號</label>
-                    <input type="text">
+                    <input type="text" v-model="fcert" name="farm_cert">
                 </div>
                 <div class="item">
                     <label for="">農場電話</label>
-                    <input type="text">
+                    <input type="text" v-model="fphone" name="farm_tel">
                 </div>
                 <div class="item">
                     <label for="">電子信箱</label>
-                    <input type="text">
+                    <input type="text" v-model="fmail" name="farm_email">
                 </div>
                 <div class="item">
                     <label for="">密碼</label>
-                    <input type="password">
+                    <input type="password" v-model="psw" name="farm_psw">
                 </div>
                 <div class="item">
                     <label for="">確認密碼</label>
-                    <input type="password">
+                    <input type="password" v-model="psw2" name="farm_psw2">
                 </div>
                 <div class="item">
-                    <input type="checkbox"  id="check" >
+                    <input type="checkbox"  v-model="checked" >
                     <label for="check">點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></label>
                   
                 </div>
            
                 <div class="btnbox">
                     <button type="reset"class="btn">清除</button>
-                    <a href="#sendmail" rel="modal:open"><button type="reset" class="btn">送出</button></a>
+                    <a href="#sendmail" rel="modal:open" @click="addfarmer"><button type="submit" class="btn">送出</button></a>
+                  </form>  
                     <div id="sendmail" class="modal dialog">
                         <div class="text"><h3>待審核</h3></div>
                         <div class="text"><p>申請為小農需2-3個工作天待審核通過後會寄送信件至您填寫的信箱。 謝謝</p></div>
                       </div>
                 </div>
-            </form>
+            
             
             
             <div id="popOrder" class="modal dialog">
@@ -86,14 +111,12 @@
                 </div>
                 
                 </div>
-                <!-- <span><marquee behavior="slide" direction="">溫馨小提醒：此入口僅提供小農註冊</marquee></span> -->
-               
-                
-                
+
+              
         </div>
     </div>
     <link rel="stylesheet" href="css/farmregister.css">
-    <script>
+    <!-- <script>
         $('a[href="#sendmail"]').click(function(event) {
             event.stopPropagation();
             $(this).modal({ fadeDuration: 300});
@@ -103,6 +126,81 @@
          $(window).ready(() => {
             $('#popOrder').modal({fadeDuration: 300})
         })
+      </script> -->
+      <script>
+          let farmR = new Vue({
+            el:"#farmR",
+            data:{
+                fname:'',
+                fgm:'',
+                faddress:'',
+                fcert:'',
+                fmail:'',
+                fphone:'',
+                psw:'',
+                psw2:'',
+                checked:false,
+                selected:'',
+                cityRows:[]
+            },
+            methods: {
+                addfarmer(){
+                // let xhr = new XMLHttpRequest();
+                // xhr.open("post", "../dist/phps/returnPosts.php", true);
+                // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                //送出資料
+                let data_farmeinfo = {
+                'farm_name': this.fname, //資料庫名稱,v-model名稱
+                'farm_gm':this.fgm,
+                'city_id':this.selected,
+                'farm_address':this.faddress,
+                'farm_cert':this.fcert,
+                'farm_tel':this.fphone,
+                'farm_email':this.fmail,
+                'farm_psw':this.psw,
+                'farm_psw2':this.psw2            
+                };
+                // xhr.send(data_farmeinfo);
+                $.ajax({
+                type: 'post',
+                url: "./phps/insertFarm.php",
+                data: data_farmeinfo,
+                dataType:'json',
+                success: (res) => {
+                console.log(res)
+                },
+                error: () => {
+                console.log('error')
+                },
+                complete: () => {
+                console.log(data_farmeinfo)
+                }
+                });
+                },
+
+            },
+            computed:{
+
+            },
+            })	
+
+            //下拉選單city table
+            function getcity(){
+            let xhr = new XMLHttpRequest();
+            xhr.onload=function(){
+                console.log('ok')
+                console.log(JSON.parse(xhr.responseText))
+                farmR.cityRows = JSON.parse(xhr.responseText)
+            }
+            xhr.open("get", "./phps/city_select.php", true);
+            xhr.send(null);
+            }
+            window.addEventListener("load", function(){
+            //------------------------網頁的初始設定
+            getcity();
+
+            })
+
       </script>
 
 </body>
