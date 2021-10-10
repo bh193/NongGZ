@@ -1,4 +1,5 @@
 <?php
+    $errMsg = "";
     try{
         //引入連線工作的檔案
         require_once("./connectNGZ.php");
@@ -8,6 +9,7 @@
         if(file_exists($dir) == false){
             mkdir($dir);
         }
+
         $data = $_POST["post_img"];
         
         if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
@@ -26,22 +28,25 @@
         } else {
             throw new \Exception('did not match data URI with image data');
         }
-        $dname = "post";
-        file_put_contents("$dir/"."$dname".".{$type}", $data);
-
+        $dname = uniqid();
+        $today = date('Y-m-d');
+        $putFile = file_put_contents("$dir/"."$dname".".{$type}", $data);
+        $memid = "1";
+        
         // 執行sql指令並取得pdoStatement
-        $sql = "insert into post(post_date, post_img, post_content, farm_id)
-        values(:post_date, :post_img, :post_content, :farm_id)";
-        $post = $pdo->prepare($sql);
-        $post -> bindValue(":post_img", $_POST["$dname".".{$type}"]);
-        $post -> bindValue(":post_content", $_POST["post_content"]);
-        $post -> bindValue(":farm_id", $_POST["farm_id"]);
-        // $post -> bindValue(":mem_id", $_POST["mem_id"]);
-        $post -> exceute();
+        $sql = "insert into post(post_date, post_img, post_content, farm_id, mem_id)
+        values($today, :post_img, :post_content, :farm_id, :mem_id)";
+        $postf = $pdo->prepare($sql);
+        $postf -> bindValue(":post_img", $putFile);
+        $postf -> bindValue(":post_content", $_POST["post_content"]);
+        $postf -> bindValue(":farm_id", $_POST["farm_id"]);
+        $postf -> bindValue(":mem_id", $memid);
+        $postf -> exceute();
         echo "異動成功";
     } catch (PDOException $e) {
-        echo "錯誤行號 : ", $e->getLine(), "<br>";
-        echo "錯誤原因 : ", $e->getMessage(), "<br>";
-        //echo "系統暫時不能正常運行，請稍後再試<br>";	
-    }
+        $pdo->rollBack();
+        $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
+        $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";	
+        echo $errMsg;
+        }
 ?>
