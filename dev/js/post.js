@@ -20,7 +20,7 @@ let app = new Vue({
             this.images = e.target.result;
         },
         postdata(){
-            console.log('postdata1')
+            console.log('postdata2');
             // let xhr = new XMLHttpRequest();
             // xhr.open("post", "../dist/phps/returnPosts.php", true);
             // xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
@@ -53,21 +53,12 @@ let app = new Vue({
         // }
     },
     computed:{
+        //搜尋農場關鍵字
         filterRow() {
             // prodRows2 = prodRows;
             return this.prodRows.filter(prodRow =>{return prodRow.farm_name.toLowerCase().includes(this.filterFarm.toLowerCase())});
         }
     },
-    // methods: {
-    //     getFarms(){
-    //         let xhr = new XMLHttpRequest();
-    //         xhr.onload = function() {
-    //             app.farms = JSON.parse(xhr.responseText)
-    //         }
-    //         xhr.open("get", "getPosts.php",true);
-    //         xhr.send({post_content:this.selectedFarm, post_img:this.images}); //key /  value
-    //     }
-    // }
 })
 // 貼文卡片區
 function getProducts(){
