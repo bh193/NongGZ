@@ -4,16 +4,13 @@
         require_once("./connectNGZ.php");
 
         //執行sql指令並取得pdoStatement
-        $sql = "insert into post(post_date, post_img, post_content, farm_id, mem_id)
-        values(:post_date, :post_img, :post_content, :farm_id,:mem_id)";
-        $post = $pdo->prepare($sql);
-        $post -> bindValue(":post_img", $_POST["post_img"]);
-        $post -> bindValue(":post_content", $_POST["post_content"]);
-        $post -> bindValue(":farm_id", $_POST["farm_id"]);
-        $post -> bindValue(":mem_id", $_POST["mem_id"]);
-        $post -> exceute();
-        echo "異動成功";
-    } catch (PDOException $e) {
+        $sql = "select p.post_date, p.post_img, p.post_content,p.post_feedback, m.mem_img, m.mem_name, f.farm_name
+        from post p join member m on (p.mem_id = m.mem_id)
+             join farm f on (p.farm_id = f.farm_id) order by p.post_feedback desc";
+        $products = $pdo->query($sql);
+        $prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($prodRows);
+    } catch (Exception $e) {
         echo "錯誤行號 : ", $e->getLine(), "<br>";
         echo "錯誤原因 : ", $e->getMessage(), "<br>";
         //echo "系統暫時不能正常運行，請稍後再試<br>";	
