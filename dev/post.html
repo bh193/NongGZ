@@ -37,7 +37,7 @@
                     </div>
                     <div class="youpost">
                         <h3>你的貼文</h3>
-                        <form class="txt" action="../dist/phps/returnPosts.php" method="post"  enctype="multipart/form-data">
+                        <form class="txt" action="javascript:void(0)">
                             <textarea id="wpost" placeholder="寫下說明文字及tag農場⋯" v-model="posttxt" name="post_content"></textarea>
                             <div class="fileupload">
                                 <div class="fileimg">
@@ -70,9 +70,8 @@
                         <input class="search_item" type="text" v-model="filterFarm">
                         <img src="images/post/search.svg">
                     </form>
-                    <select class="selectfont">
-                        <option value="最新的">最新的</option>
-                        <option value="熱門的">熱門的</option>
+                    <select class="selectfont" v-model="selectNew" name="selectNew">
+                        <option :value="option.value" v-for="option in options">{{option.text}}</option>
                     </select>
                 </div>
             </article>
