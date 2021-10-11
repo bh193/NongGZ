@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/testfarm.css">
+     <!-- 引入owl -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    </link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    </link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="page" id="app">
+        <article class="post">
+            <div class="container">
+                <div class="title">
+                    <h2>貼文故事牆</h2>
+                </div>
+            </div>
+            <div class="owl-carousel owl-theme">
+                <div class="item">
+                    <div class="card">
+                        <div class="pic">
+                            <img src="images/post/post_farm_1.png">
+                        </div>
+                        <div class="mempic">
+                            <img src="images/mem/mugshot.png">
+                        </div>
+                        <div class="txt">
+                            <p>今天的太陽光非常的熱烈，半玩半體驗的採果夏日活動令人有一些期待，聽了農場主人的講解與他的期許</p>
+                            <div class="tag">
+                                #山頂厝農場
+                            </div>
+                            <div class="icon">
+                                <img src="images/post/heart_gray.svg">
+                                <span>5</span>
+                                <img src="images/post/loudly_gray.svg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+    <script>
+        $(".owl-carousel").owlCarousel({
+            stagePadding: 400,
+            loop: true,
+            margin: 150,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1, 
+                    stagePadding:40,
+                    margin:50
+                },
+                600: {
+                    items: 1, 
+                    stagePadding:200,
+                    margin:120
+                },
+                1000: {
+                    items: 1 
+                }
+            }
+        });
+</script>
+</body>
+</html>

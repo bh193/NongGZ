@@ -28,7 +28,11 @@
                 tr:nth-child(odd){background-color:#fff;}
                 tr:nth-child(even){background-color:#E9E9E9;}
                 td{padding: 8px; font-size:14px;}
+                td:last-child{text-align: end;}
                 button{
+                    cursor: pointer;
+                }
+                .detail{
                     border:none;
                     width: 50px;
                     height: 24px;
@@ -48,6 +52,19 @@
                         
                     }
                 }
+                .penimg{
+                    width: 15px;
+                    height: 15px;
+                    padding: 0;
+                    border: none;
+                    background: none;
+                    img{
+                        width: 100%;
+                    }
+                    }
+                
+
+
             }
 
         }
