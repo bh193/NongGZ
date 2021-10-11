@@ -111,7 +111,8 @@ heart.onclick = switchFavorite;
 
 window.addEventListener("load", function(){
     
-    selectNd();//---------------------網頁的初始設定
+    //---------------------網頁的初始設定
+    selectNd();
     getProducts();
 
     getFarms();

@@ -74,58 +74,13 @@
                         <p>參與認養與農友站在同一陣線，共享種植的艱辛與喜悅，也分攤農友一部分的經濟壓力，給守護土地的農友一點鼓勵，讓我們一同選擇喜愛的果樹來認養吧</p>
                     </div>
                     <div class="fruit">
-                        <div class="card">
+                        <div class="card" v-for="fruit in fruits">
                             <div class="pic">
-                                <a href="./tree_growing.html"><img src="images/farm/tree-01.svg"></a>
+                                <a href="./tree_growing.html"><img :src="'images/tree/' + fruit.treehistory_img"></a>
                             </div>
                             <div class="txt">
-                                <h3>未認養</h3>
-                                <p>台農2號 夏蜜桃</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="pic">
-                                <a href="./tree_growing.html"><img src="images/farm/tree-2.svg"></a>
-                            </div>
-                            <div class="txt">
-                                <h3>未認養</h3>
-                                <p>台農 天王柑</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="pic">
-                                <a href="./tree_growing.html"><img src="images/farm/tree-01.svg"></a>
-                            </div>
-                            <div class="txt">
-                                <h3>未認養</h3>
-                                <p>台農2號 夏蜜桃</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="pic">
-                                <a href="./tree_growing.html"><img src="images/farm/tree-3.svg"></a>
-                            </div>
-                            <div class="txt">
-                                <h3>未認養</h3>
-                                <p>台農1號 香水芒果</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="pic">
-                                <a href="./tree_growing.html"><img src="images/farm/tree-2.svg"></a>
-                            </div>
-                            <div class="txt">
-                                <h3>未認養</h3>
-                                <p>台農 天王柑</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="pic">
-                                <a href="./tree_growing.html"><img src="images/farm/tree-3.svg"></a>
-                            </div>
-                            <div class="txt">
-                                <h3>未認養</h3>
-                                <p>台農1號 香水芒果</p>
+                                <h3>{{fruit.tree_status}}</h3>
+                                <p>{{fruit.tree_name}}</p>
                             </div>
                         </div>
                     </div>

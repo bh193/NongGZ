@@ -39,7 +39,8 @@ function setOldImageR(){
 let app = new Vue({
     el:"#app",
     data:{
-        prodRows:[]
+        prodRows:[],
+        fruits:[]
     },
     mounted(){
         console.log(`mounted() --> $el: ${this.$el}`);
@@ -66,16 +67,28 @@ let app = new Vue({
         });
     }
 })
-function getProducts(){
+//貼文
+// function getProducts(){
+//     let xhr = new XMLHttpRequest();
+//     xhr.onload = function(){
+//         console.log(JSON.parse(xhr.responseText))
+//         app.prodRows = JSON.parse(xhr.responseText)
+//     }
+//     xhr.open("get", "../dist/getFarminfon.php",true);
+//     xhr.send(null);
+// }
+//果樹
+function getFruits(){
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
         console.log(JSON.parse(xhr.responseText))
-        app.prodRows = JSON.parse(xhr.responseText)
+        app.fruits = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "../dist/getFarminfon.php",true);
+    xhr.open("get", "../dist/getFarmfruit.php",true);
     xhr.send(null);
 }
 window.addEventListener("load", function(){
     //---------------------網頁的初始設定
-    getProducts();
+    // getProducts();
+    getFruits();
 })
