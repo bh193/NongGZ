@@ -10,110 +10,69 @@
     <!-- 引入jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="font/jquery.modal.css">
+    
 </head>
 <body>
-    @@include('layout/header.html')
-    <div class="wrap">
+    <script src="js/jquery.mousewheel.min.js"></script>
+    <script src="js/vue.min.js"></script>
+<header>
+    <div class="header_con">
+        <a href="./home.html" class="logo"><img src="images/common/logo.svg" alt="logo"></a>
+        <ul id="nav">
+            <li class="navbtn"><a href="./adopt_tree.html">一同養樹</a></li>
+            <li class="navbtn"><a href="./farmsearch.html">來農場吧</a></li>
+            <li class="navbtn"><a href="./activity.html">探索體驗</a></li>
+            <li class="navbtn"><a href="./post.html">果粉之談</a></li>
+            <li class="navbtn"><a href="./contact.html">找農果子</a></li>
+        </ul>
+        <ol id="mem_icon">
+            <li><a href="./farmregister.html"><img src="images/common/farmer-2.svg" alt="farmer"></a>
+                <h4>小農</h4>
+            </li>
+            <li><a href="./memlogin.html"><img src="images/common/login.svg" alt="member"></a>
+                <h4 id="mem_state">會員</h4>
+            </li>
+        </ol>
+        <div class="hamberger">
+            <div class="line" id="line_1"></div>
+            <div class="line" id="line_2"></div>
+            <div class="line" id="line_3"></div>
+        </div>
+    </div>
+</header>
+<script src="js/header.min.js"></script>
+    <div class="wrap" id="mem">
         <div class="box">
             <div class="logo"></div>
         </div>
         <div class="box">
             <div class="item">
-                <button onclick="openLogin()"><h3 id="loginfont" style="color: #17C3B2;">登入</h3></button>
+                <button @click="content='login'"><h3>登入</h3></button>
             </div>
             <div class="item">
                 <h3>|</h3>
             </div>
             <div class="item">
-                <button onclick="openRegister()"><h3 id="registerfont">註冊</h3></button>
+                <button @click="content='register'" ><h3 >註冊</h3></button>
 
             </div>
         </div>
         <div class="box">
             <!-- 登入 -->
-            <div  id="login" style="display: block;">
-                <form action="" class="login">
-                    <div class="text">
-                        <label for="">電子信箱</label>
-                        <input type="mail" required="required">
-                    </div>
-                    <div class="text">
-                        <label for="">密碼</label>
-                        <input type="password" required="required">
-                    </div>
-                    <div class="text">
-                            <button type="reset" class="btn">清除</button>
-                            <button class="btn"><a href="./mem_center.html" style="color: #fff;text-decoration: none;">登入</a></button>
-    
-                    </div>
-                </form>
-            </div>
+           
 
             <!-- 註冊 -->
             
-            <div id="register"  style="display: none;">
-                <form action="" class="register">
-                    <div class="text">
-                        <label for="">姓名</label>
-                        <input type="text">
-                    </div>
-                    <div class="text">
-                        <label for="">電子信箱</label>
-                        <input type="text">
-                    </div>
-                    <div class="text">
-                        <label for="">密碼</label>
-                        <input type="text">
-                    </div>
-                    <div class="text">
-                        <label for="">確認密碼</label>
-                        <input type="text">
-                    </div>
-                    <div class="text">
-                        <input type="checkbox"  id="check" >
-                        <label for="check">點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></label>
-
-                    </div>
-                     <!-- 對話框 -->
-
-                    <div class="text">
-                        <button class="btn" type="reset">清除</button>
-                        <a href="#sendmail" rel="modal:open"><button class="btngrenn" type="reset">送出</button></a>
-                        <div id="sendmail" class="modal dialog">
-                            <div class="text"><h3>恭喜成為會員</h3></div>
-                            <div class="text"><button onclick="window.open('./memlogin.html')">立即登入</button></div>
-                          </div>
-
-                    </div>
-                </form>
-            </div>
-
+            
+            
+        <component :is="content"></component>
         </div>
+
     </div>
 
     <link rel="stylesheet" href="css/memlogin.css">
-`   <script>
-    $('a[href="#sendmail"]').click(function(event) {
-  event.stopPropagation();
-  $(this).modal({
-    fadeDuration: 300
-  });
-});
-    </script>
-    <script>
-        var openLogin = () => {
-    document.getElementById("loginfont").style.color = "#17C3B2"; 
-    document.getElementById("registerfont").style.color = "black";     
-    document.getElementById('login').style.display = "block";
-    document.getElementById('register').style.display = "none";
-    }
-    var openRegister = () => {
-    document.getElementById("loginfont").style.color = "black";     
-    document.getElementById("registerfont").style.color = "#17C3B2"; 
-    document.getElementById('register').style.display = "block";
-    document.getElementById('login').style.display = "none";
-    }
-    </script>
+    <script src="js/memlogin.min.js"></script>
+
     
 </body>
 </html>
