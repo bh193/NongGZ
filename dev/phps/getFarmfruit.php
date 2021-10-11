@@ -9,14 +9,14 @@
         from tree t join treehistory h on (t.tree_id = h.tree_id)
              join farm f on (f.farm_id = t.farm_id)
         where f.farm_id=1
-        group by h.treehistory_date;";
+        group by h.treehistory_date";
         $products = $pdo->query($sql);
         $fruits = $products->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($fruits);
     } catch (Exception $e) {
         $pdo->rollBack();
-        $errMsg .= "錯誤行號 : ", $e->getLine(), "<br>";
-        $errMsg .= "錯誤原因 : ", $e->getMessage(), "<br>";
+        $errMsg .= "錯誤行號 : ", $e->getLine(). "<br>";
+        $errMsg .= "錯誤原因 : ", $e->getMessage(). "<br>";
         echo $errMsg;	
     }
 ?>

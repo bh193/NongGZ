@@ -84,7 +84,7 @@ function getFruits(){
         console.log(JSON.parse(xhr.responseText))
         app.fruits = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "../dist/getFarmfruit.php",true);
+    xhr.open("get", "../dist/phps/getFarmfruit.php",true);
     xhr.send(null);
 }
 window.addEventListener("load", function(){
