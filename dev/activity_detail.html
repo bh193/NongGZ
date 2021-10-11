@@ -28,8 +28,8 @@
   @@include('layout/header.html')
   <article  id="app">
     <ul class="breadcrumb">
-      <li><a href="">首頁</a></li>
-      <li><a href="">探索體驗</a></li>
+      <li><a href="./home.html">首頁</a></li>
+      <li><a href="./activity.html">探索體驗</a></li>
       <li><a :href="'activity_detail.html?activity_id=' + dataObj.activity_id">{{dataObj.activity_name}}</a></li>
     </ul>
     
@@ -37,33 +37,20 @@
     <div class="slider">
         <div class="thumbs">
           <div class="preview"  @click="img = dataObj.activity_imgA">
-            <div class="mask" style="display: none;">
-            </div>
-            <a href="#" class="sm-pic">
-              <img id="activity_imgA" :src="'images/activity/' + dataObj.activity_imgA"> 
-            </a>
+            <div class="mask" style="display: none;"></div>
+            <img id="activity_imgA" :src="'images/activity/' + dataObj.activity_imgA"> 
           </div>
           <div class="preview" @click="img = dataObj.activity_imgB">
-            <div class="mask">
-            </div>
-            <a href="#" class="sm-pic">
-              <img id="activity_imgA" :src="'images/activity/' + dataObj.activity_imgB"> 
-            </a>
+            <div class="mask"></div>
+            <img id="activity_imgA" :src="'images/activity/' + dataObj.activity_imgB"> 
           </div>
-        
           <div class="preview" @click="img = dataObj.activity_imgC">
-            <div class="mask">
-            </div>
-            <a href="#" class="sm-pic">
-              <img id="activity_imgA" :src="'images/activity/' + dataObj.activity_imgC"> 
-            </a>
+            <div class="mask"></div>
+            <img id="activity_imgA" :src="'images/activity/' + dataObj.activity_imgC"> 
           </div>
           <div class="preview" @click="img = dataObj.activity_imgD">
-            <div class="mask">
-            </div>
-            <a href="#" class="sm-pic" >
-              <img id="activity_imgA" :src="'images/activity/' + dataObj.activity_imgD"> 
-            </a>
+            <div class="mask"> </div>
+            <img id="activity_imgA" :src="'images/activity/' + dataObj.activity_imgD"> 
           </div>
         </div>
         <!-- first image is viewable to start -->

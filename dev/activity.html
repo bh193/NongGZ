@@ -16,34 +16,34 @@
   @@include('layout/header.html')
   <article id="app">     <!-- id -->
     <ul class="breadcrumb">
-      <li><a href="">首頁</a></li>
+      <li><a href="./home.html">首頁</a></li>
       <li><a href="">探索體驗</a></li>
     </ul>
     <div class="filter">
       <div class="sel">
-        <select name="" id="">
-          <option value="" disabled selected>選擇地區</option>
-          <option value="">台北市</option>
-          <option value="">新北市</option>
-          <option value="">桃園市</option>
+        <select name="" id="" v-model="input.city">
+          <option value="" selected>選擇地區</option>
+          <option value="台北">台北</option>
+          <option value="新北">新北</option>
+          <option value="桃園">桃園</option>
         </select>
       </div>
       <div class="sel">
-        <select name="" id="">
-          <option value="" disabled selected>選擇農場</option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
-          <option value=""></option>
+        <select name="" id="" v-model="input.farm">
+          <option value="" selected>選擇農場</option>
+          <option value="山頂厝農場">山頂厝農場</option>
+          <option value="奇果山果園">奇果山果園</option>
+          <option value="漣果園">漣果園</option>
+          <option value="秀花果農場">秀花果農場</option>
+          <option value="桃富農場">桃富農場</option>
         </select>
       </div>
       <div class="sel">
-        <input class="date" name="" type="date">
+        <input class="date" name="" type="date" v-model="input.date">
       </div>
     </div>
     <div class="main">
-      <div class="post" v-for="item in activitys">    <!-- v-for -->
+      <div class="post" v-for="item in result">    <!-- v-for -->
         <div class="background">
           <a class="pic" :href="'activity_detail.html?activity_id=' + item.activity_id">
             <img id="activity_imgA" :src="'images/activity/' + item.activity_imgA" alt="">
@@ -81,7 +81,56 @@
     let app = new Vue({
       el:"#app",
       data:{
-        activitys:[]
+        activitys:[],
+        input: {
+                city:'',
+                farm:'',
+                date:''
+              },
+      },
+      computed:{
+        // 篩選
+        result(){
+          // 1 1 1
+          if(this.input.city != '' && this.input.farm != '' && this.input.date != ''){
+            return this.activitys.filter(item => {
+              return item.city_name == this.input.city && item.farm_name == this.input.farm && item.activity_date == this.input.date
+            })
+          // 1 0 0  
+          }else if(this.input.city != '' && this.input.farm == '' && this.input.date == ''){
+            return this.activitys.filter(item => {
+              return item.city_name == this.input.city
+            })
+          // 0 1 0  
+          }else if(this.input.city == '' && this.input.farm != '' && this.input.date == ''){
+            return this.activitys.filter(item => {
+              return item.farm_name == this.input.farm
+            })
+          // 0 0 1  
+          }else if(this.input.city == '' && this.input.farm == '' && this.input.date != ''){
+            return this.activitys.filter(item => {
+              return item.activity_date == this.input.date
+            })
+          // 1 1 0  
+          }else if(this.input.city != '' && this.input.farm != '' && this.input.date == ''){
+            return this.activitys.filter(item => {
+              return item.city_name == this.input.city && item.farm_name == this.input.farm
+            })
+          // 1 0 1  
+          }else if(this.input.city != '' && this.input.farm == '' && this.input.date != ''){
+            return this.activitys.filter(item => {
+              return item.city_name == this.input.city && item.activity_date == this.input.date
+            })
+          }
+          // 0 1 1 
+          else if(this.input.city == '' && this.input.farm != '' && this.input.date != ''){
+            return this.activitys.filter(item => {
+              return item.farm_name == this.input.farm && item.activity_date == this.input.date
+            })
+          }else {
+            return this.activitys
+          }
+        },
       }
     })	
     
