@@ -61,11 +61,11 @@
             <p>活動日期：</p>
             <p id="activity_date">{{item.activity_date}}</p>
           </div>
-          <div>
+          <!-- <div> -->
             <p id="activity_content">
               {{item.activity_content}}
             </p>
-          </div>
+          <!-- </div> -->
           <a :href="'activity_detail.html?activity_id=' + item.activity_id">
             <button class="more">活動詳情</button>
           </a>
@@ -89,7 +89,7 @@
               },
       },
       computed:{
-        // 篩選
+        // 篩選器情況
         result(){
           // 1 1 1
           if(this.input.city != '' && this.input.farm != '' && this.input.date != ''){
@@ -127,6 +127,7 @@
             return this.activitys.filter(item => {
               return item.farm_name == this.input.farm && item.activity_date == this.input.date
             })
+          // 0 0 0 
           }else {
             return this.activitys
           }

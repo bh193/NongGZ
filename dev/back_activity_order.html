@@ -9,389 +9,92 @@
     <link rel="stylesheet" type="text/css" href="css/back_activity_order.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="js/back_activity_order.min.js"></script>
+    <!-- <script src="js/back_activity_order.min.js"></script> -->
+    
+    <script src="js/vue.min.js"></script>
 </head>
 
 <body>
-    @@include('layout/header_back_f.html')
-    <article>
-        <section>
-            @@include('layout/farm_icon.html')
-            <div class="content">
-                <div class="con_title">
-                    <div class="minus_sign">
-                        <img src="./images/common/minus-sign.svg" alt="往下">
-                        <div class="turn">
-                            <img src="./images/common/minus-sign.svg" alt="往下">
-                        </div>
-                    </div>
-                    <h3>秀水農場-夏日採桃趣</h3>
-                    <p>訂單編號： 2009095834830</p>
-                </div>
-                <div class="con_text">
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>訂單日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/2</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>行程日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/30</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員姓名:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>XXX</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員信箱:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>good@gmail.com</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>人數:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>3</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>報名狀態:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>已報名</h3>
-                        </div>
-                    </div>
-                </div>
+  @@include('layout/header_back_f.html')
+  <article>
+    <section id="app">
+      @@include('layout/farm_icon.html')
+      <div class="content" v-for="item in activitys">
+        <div class="con_title">
+          <div class="minus_sign">
+            <img src="./images/common/minus-sign.svg" alt="往下">
+            <div class="turn">
+              <img src="./images/common/minus-sign.svg" alt="往下">
             </div>
-            <div class="content">
-                <div class="con_title">
-                    <div class="minus_sign">
-                        <img src="./images/common/minus-sign.svg" alt="往下">
-                        <div class="turn">
-                            <img src="./images/common/minus-sign.svg" alt="往下">
-                        </div>
-                    </div>
-                    <h3>秀水農場-夏日採桃趣</h3>
-                    <p>訂單編號： 2009095834830</p>
-                </div>
-                <div class="con_text">
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>訂單日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/2</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>行程日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/30</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員姓名:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>XXX</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員信箱:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>good@gmail.com</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>人數:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>3</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>報名狀態:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>已報名</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <div class="con_title">
-                    <div class="minus_sign">
-                        <img src="./images/common/minus-sign.svg" alt="往下">
-                        <div class="turn">
-                            <img src="./images/common/minus-sign.svg" alt="往下">
-                        </div>
-                    </div>
-                    <h3>秀水農場-夏日採桃趣</h3>
-                    <p>訂單編號： 2009095834830</p>
-                </div>
-                <div class="con_text">
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>訂單日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/2</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>行程日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/30</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員姓名:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>XXX</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員信箱:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>good@gmail.com</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>人數:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>3</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>報名狀態:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>已報名</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <div class="con_title">
-                    <div class="minus_sign">
-                        <img src="./images/common/minus-sign.svg" alt="往下">
-                        <div class="turn">
-                            <img src="./images/common/minus-sign.svg" alt="往下">
-                        </div>
-                    </div>
-                    <h3>秀水農場-夏日採桃趣</h3>
-                    <p>訂單編號： 2009095834830</p>
-                </div>
-                <div class="con_text">
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>訂單日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/2</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>行程日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/30</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員姓名:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>XXX</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員信箱:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>good@gmail.com</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>人數:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>3</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>報名狀態:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>已報名</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <div class="con_title">
-                    <div class="minus_sign">
-                        <img src="./images/common/minus-sign.svg" alt="往下">
-                        <div class="turn">
-                            <img src="./images/common/minus-sign.svg" alt="往下">
-                        </div>
-                    </div>
-                    <h3>秀水農場-夏日採桃趣</h3>
-                    <p>訂單編號： 2009095834830</p>
-                </div>
-                <div class="con_text">
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>訂單日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/2</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>訂單日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/30</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員姓名:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>XXX</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員信箱:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>good@gmail.com</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>人數:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>3</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>報名狀態:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>已報名</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="content">
-                <div class="con_title">
-                    <div class="minus_sign">
-                        <img src="./images/common/minus-sign.svg" alt="往下">
-                        <div class="turn">
-                            <img src="./images/common/minus-sign.svg" alt="往下">
-                        </div>
-                    </div>
-                    <h3>秀水農場-夏日採桃趣</h3>
-                    <p>訂單編號： 2009095834830</p>
-                </div>
-                <div class="con_text">
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>訂單日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/2</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>行程日期:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>2021/9/30</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員姓名:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>XXX</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>會員信箱:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>good@gmail.com</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>人數:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>3</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item_title">
-                            <h3>報名狀態:</h3>
-                        </div>
-                        <div class="item_text">
-                            <h3>已報名</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>       
-        </section>
-        @@include('layout/footer_back.html')
-    </article>
-</body>
+          </div>
+          <h3>{{item.farm_name}}-{{item.activity_name}}</h3>
+          <p>訂單編號： {{item.a_order_id}}</p>
+        </div>
+        <div class="con_text">
+          <table>
+            <tbody>
+              <tr>
+                <td><h3>訂單日期:</h3></td>
+                <td><h3>{{item.a_order_date}}</h3></td>
+              </tr>
+              <tr>
+                <td><h3>會員姓名:</h3></td>
+                <td><h3>XXX</h3></td>
+              </tr>
+              <tr>
+                <td><h3>人數:</h3></td>
+                <td><h3>100</h3></td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td><h3>行程日期:</h3></td>
+                <td><h3>2021/9/30</h3></td>
+              </tr>
+              <tr>
+                <td><h3>會員信箱:</h3></td>
+                <td><h3>good@gmail.com</h3></td>
+              </tr>
+            </tbody>  
+          </table>
+        </div>
+      </div>             
+    </section>
+    @@include('layout/footer_back.html')
+  </article>
 
+<script type="text/javascript">
+  let app = new Vue({
+    el:"#app",
+    data:{
+      activitys:[],
+    },
+    updated() {
+      //收合
+      $('.con_title').click(function () {
+        $(this).next('.con_text').slideToggle(500,"easeOutExpo");
+      }).next('.con_text').hide();
+
+      $('.con_title').click(function () {
+        $(this).find('.turn').toggleClass('turn_zero');
+      })
+    },
+  })
+
+
+function getActivityList(){
+  let xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    console.log(JSON.parse(xhr.responseText))
+    app.activitys = JSON.parse(xhr.responseText)
+  }
+  xhr.open("get", "../dist/phps/getActivityList.php", true);
+  xhr.send(null);
+  }
+
+window.addEventListener("load", function(){
+  getActivityList();
+})
+</script>
+</body>
 </html>

@@ -221,7 +221,7 @@
       getData() {                            //拆?activity_id=3
         this.id =  window.location.search.split('?')[1].split('=')[1];
         
-        //  call php的response
+        // call php的response
         $.ajax({
           url: '../dist/phps/getActivityList.php',
           success: (response) => {
@@ -230,9 +230,11 @@
             // 在資料庫找到我要的activity_id=3  並且JSON.parse字串轉成陣列  
             // console.log(obj)
             this.dataObj = obj;
-            // 抓3裡面的imgA當大圖
+
+            // (桌電)抓3裡面的imgA當大圖
             this.img = this.dataObj.activity_imgA;
 
+            // 手機版carousel
             this.carousels = [
               {img:this.dataObj.activity_imgA}, 
               {img:this.dataObj.activity_imgB}, 
@@ -251,7 +253,7 @@
         //  this.dataObj=res.data;
       },
 
-      //手機版carousel
+      // 手機版carousel
       toNext() {
         console.log('toNext')
         this.carouselName = 'carousel-next';

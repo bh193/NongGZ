@@ -126,8 +126,10 @@ width: 122px;
 padding-right: 10px;
 }
 .preview {
-width: 175px;
-height: 110px;
+/* width: 175px;
+height: 110px; */
+width: 11rem;
+height: 6.9rem;
 overflow: hidden;
 margin-bottom: 13px;
 }

@@ -55,24 +55,18 @@ body{
             }
         }
     }
-    .con_text{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        padding: 1rem;
+    table{
+        font-size: 1.2rem;
         box-sizing: border-box;
-
-        .item{
-            width: 50%;
-            display: flex;
-            .item_title{
-                width: 36%;
-            }
-            .item_text{
-                width: 50%;
-            }
+        padding: 1rem;
+        display: flex;
+        tbody{
+          margin-right: 5rem;  
+          h3{
+            padding-right: 10px;
+          }
         }
-
+        
     }
 }
 
