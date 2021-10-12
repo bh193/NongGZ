@@ -77,7 +77,7 @@
             </article>
             <article class="mempost">
                 <div class="container">
-                    <div class="card" v-for="prodRow in filterRow">
+                    <div class="card" v-for="prodRow in prodRows">
                         <div class="txt">
                             <div class="memname">
                                 <div class="pic">
@@ -94,7 +94,7 @@
                         </div>
                         <div class="pic">
                             <div class="tag">
-                                <a href="./farminfon.html">#{{prodRow.farm_name}}</a> 
+                                <a :href="'farminfon.html?farm_id=' + prodRow.farm_id">#{{prodRow.farm_name}}</a> 
                             </div>
                             <div class="photo">
                                 <img :src="'images/post/' + prodRow.post_img">
