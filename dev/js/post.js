@@ -2,7 +2,7 @@ let app = new Vue({
     el:"#app",
     data:{
         prodRows:[],
-        prodRows2:[],
+        filterRow:[],
         farms:[],
         images:'',
         selectedFarm:'',
@@ -55,8 +55,8 @@ let app = new Vue({
     },
     computed:{
         filterRow() {
-            // prodRows2 = prodRows;
             return this.prodRows.filter(prodRow =>{return prodRow.farm_name.toLowerCase().includes(this.filterFarm.toLowerCase())});
+            filterRow = prodRows;
         }
     },
 })

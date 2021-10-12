@@ -15,8 +15,8 @@
         echo json_encode($fruits);
     } catch (Exception $e) {
         $pdo->rollBack();
-        $errMsg .= "錯誤行號 : ", $e->getLine(). "<br>";
-        $errMsg .= "錯誤原因 : ", $e->getMessage(). "<br>";
+        $errMsg .= "錯誤行號 : ". $e->getLine(). "<br>";
+        $errMsg .= "錯誤原因 : ". $e->getMessage(). "<br>";
         echo $errMsg;	
     }
 ?>
