@@ -27,42 +27,42 @@
                 <ol class="breadcrumb">
                     <li><a href="./home.html">首頁</a></li>
                     <li><a href="./farmsearch.html">來農場吧</a></li>
-                    <li><a href="./farminfon.html">山頂厝農場</a></li>
+                    <li><a :href="'farminfon.html?farm_id=' + infoObj.farm_id">{{infoObj.farm_name}}</a></li>
                 </ol>
             </div>
         </div>
         <section>
             <article class="banner">
-                <img src="images/farm/banner-3.png">
+                <img :src="'images/farm/' + infoObj.farm_banner">
                 <div class="bagr"></div>
             </article>
             <article class="describe">
                 <div class="container">
                     <div class="info">
                         <div class="pic">
-                            <img src="images/farm/info-1.png">
+                            <img :src="'images/farm/' + infoObj.farm_imgA">
                         </div>
                         <div class="txt">
-                            <h2>山頂厝農場</h2>
-                            <p>農場地址：桃園市大溪區復興路一段39巷100號<br>連絡電話：0912345678<br>電子信箱：vivian19@gmail.com</p>
+                            <h2>{{infoObj.farm_name}}</h2>
+                            <p>農場地址：{{infoObj.farm_address}}<br>連絡電話：{{infoObj.farm_tel}}<br>電子信箱：{{infoObj.farm_email}}</p>
                         </div>
                     </div>
                     <div class="info">
                         <div class="pic">
-                            <img src="images/farm/story-1.png">
+                            <img :src="'images/farm/' + infoObj.farm_imgB">
                         </div>
                         <div class="txt">
                             <h2>農場故事</h2>
-                            <p>找出農村品牌故事和開創全台首見的消費者互動的體驗式行銷，進而達成農友、消費者、社會三者共好的商業模式。</p>
+                            <p>{{infoObj.farm_contentA}}</p>
                         </div>
                     </div>
                     <div class="info">
                         <div class="pic">
-                            <img src="images/farm/setting-1.png">
+                            <img :src="'images/farm/' + infoObj.farm_imgC">
                         </div>
                         <div class="txt">
                             <h2>農場環境</h2>
-                            <p>山頂厝農場位於大溪區風景區線上，景緻優美是喧擾都市中的桃花源，透過自然生態的輪動及結合體驗活動，讓你置身在大自然中</p>
+                            <p>{{infoObj.farm_contentB}}</p>
                         </div>
                     </div>
                 </div>
@@ -76,10 +76,10 @@
                     <div class="fruit">
                         <div class="card" v-for="fruit in fruits">
                             <div class="pic">
-                                <a href="./tree_growing.html"><img :src="'images/tree/' + fruit.treehistory_img"></a>
+                                <a :href="./tree_growing.html"><img :src="statusImg('images/tree/' + fruit.treehistory_img)"></a>
                             </div>
                             <div class="txt">
-                                <h3>{{fruit.tree_status}}</h3>
+                                <h3>{{getStatus(fruit.tree_status)}}</h3>
                                 <p>{{fruit.tree_name}}</p>
                             </div>
                         </div>
