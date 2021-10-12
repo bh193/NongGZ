@@ -23,31 +23,25 @@
         <div class="search">
             <div class="select">
                 <select name="fruit" id="fruit" v-model="input.typefruit">
-                    <option value="" disabled selected>選擇水果</option>
-                    <option value="1">橘子</option>
-                    <option value="2">蘋果</option>
-                    <option value="3">芒果</option>
-                    <option value="4">水蜜桃</option>
-                    <option value="5">紅棗</option>
+                    <option value="">選擇水果</option>
+                    <option :value="fruit.fruit_id" v-for="fruit in fruits">{{fruit.fruit_name}}</option>
                 </select>
 
                 <select name="city" id="city" v-model="input.typecity">
-                    <option value="" disabled selected>選擇地區</option>
-                    <option value="台北">台北</option>
-                    <option value="新北">新北</option>
-                    <option value="桃園">桃園</option>
+                    <option value="">選擇地區</option>
+                    <option :value="city.city_id" v-for="city in citys">{{city.city_name}}</option>
                 </select>
 
             </div>
-            <select name="price" id="price"  v-model="input.typeprice">
+            <select name="price" id="price" v-model="input.typeprice">
                 <option value="" disabled selected>價格排序</option>
                 <option value="價格高到低">價格高到低</option>
                 <option value="價格低到高">價格低到高</option>
             </select>
         </div>
         <section>
-            <div class="content" v-for="tree in sequence">
-                <a :href="'tree_growing.php?tree_id=' + tree.tree_id">
+            <div class="content" v-for="tree in more_trees">
+                <a :href="'tree_growing.html?tree_id=' + tree.tree_id">
                     <div class="con_img">
                         <div class="black_bg animate__animated animate__flipInX  animate__fast">
                             <input type="button" value="查看詳情">
@@ -77,58 +71,74 @@
             el: "#tree_list",
             data: {
                 trees: [],
+                fruits:[],
+                citys:[],
                 input: {
-                    typefruit:'',
-                    typecity:'',
-                    typeprice:'',
+                    typefruit: '',
+                    typecity: '',
+                    typeprice: '',
                 },
+                index:1,
 
             },
             methods: {
-                getdata(){
-                    this.input.typefruit=window.location.search.split("?")[1].split("=")[1]
-                }
+                getdata() {
+                    if (window.location.search != 0) {
+                        this.input.typefruit = window.location.search.split("?")[1].split("=")[1]
+                    }
+                },
+                handleScroll() {
+                    if ($( window ).height() + $(window).scrollTop()+1 >= $( document ).height()) {
+                        this.index=this.index+1;
+                    }
+                },
+               
             },
             computed: {
-                select(){
-                    if(this.input.typefruit != '' && this.input.typecity != ''){
+                more_trees() {
+                    return this.sequence.slice(0, 6*this.index);
+                },
+                select() {
+                    if (this.input.typefruit != '' && this.input.typecity != '') {
                         return this.trees.filter(tree => {
-                            return tree.fruit_id == this.input.typefruit && tree.city_name == this.input.typecity
+                            return tree.fruit_id == this.input.typefruit && tree.city_id == this.input.typecity
                         })
-                    }else if(this.input.typefruit != '' && this.input.typecity == ''){
+                    } else if (this.input.typefruit != '' && this.input.typecity == '') {
                         return this.trees.filter(tree => {
                             return tree.fruit_id == this.input.typefruit
                         })
-                    }else if(this.input.typefruit == '' && this.input.typecity != ''){
+                    } else if (this.input.typefruit == '' && this.input.typecity != '') {
                         return this.trees.filter(tree => {
-                            return tree.city_name == this.input.typecity
+                            return tree.city_id == this.input.typecity
                         })
-                    }else {
+                    } else {
                         return this.trees
-                    } 
+                    }
                 },
-                sequence(){
-                    if(this.input.typeprice == "價格高到低"){
-                        return this.select.sort(function(p1,p2){
-                            return p2.tree_price-p1.tree_price
+                sequence() {
+                    if (this.input.typeprice == "價格高到低") {
+                        return this.select.sort(function (p1, p2) {
+                            return p2.tree_price - p1.tree_price
                         })
-                    }else if(this.input.typeprice == "價格低到高"){
-                        return this.select.sort(function(p1,p2){
-                            return p1.tree_price-p2.tree_price
+                    } else if (this.input.typeprice == "價格低到高") {
+                        return this.select.sort(function (p1, p2) {
+                            return p1.tree_price - p2.tree_price
                         })
-                    }else{
+                    } else {
                         return this.select
                     }
-                }
+                },
+            },
+            created() {
+                window.addEventListener("scroll", this.handleScroll);
             },
             mounted() {
-                this.getdata()
+                this.getdata();
             },
-
         })
-        //連接php
-        //#tree_list
 
+        //連接php
+        //#getTree_list
         function getTree_list() {
             let xhr = new XMLHttpRequest();
             xhr.onload = function () {
@@ -139,10 +149,35 @@
             xhr.send(null);
         }
 
+        //連接php
+        //#getFruit
+        function getFruits() {
+            let xhr2 = new XMLHttpRequest();
+            xhr2.onload = function () {
+                console.log(JSON.parse(xhr2.responseText))
+                tree_list.fruits = JSON.parse(xhr2.responseText)
+            }
+            xhr2.open("get", "./phps/getFruit.php", true);
+            xhr2.send(null);
+        }
+
+                //連接php
+        //#getFruit
+        function getCitys() {
+            let xhr3 = new XMLHttpRequest();
+            xhr3.onload = function () {
+                console.log(JSON.parse(xhr3.responseText))
+                tree_list.citys = JSON.parse(xhr3.responseText)
+            }
+            xhr3.open("get", "./phps/getCity.php", true);
+            xhr3.send(null);
+        }
+
         window.addEventListener("load", function () {
             //------------------------網頁的初始設定
             getTree_list();
-
+            getFruits();
+            getCitys();
         })
     </script>
 </body>

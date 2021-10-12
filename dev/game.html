@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +11,10 @@
     <script src="js/game_img.min.js"></script>
     <script src="js/game.min.js"></script>
 </head>
+
 <body>
-     <!-- 小遊戲 -->
-     <div id="game" class="game game1">
+    <!-- 小遊戲 -->
+    <div id="game" class="game game1">
         <span id="points">分數: 40</span>
         <h3 id="Check_Txt">時間計數：10秒</h3>
         <canvas id="Game" class="game_img" width="1000" height="500" style="border:1px solid #000000">
@@ -112,16 +114,21 @@
         <div class="rule">
             <h3 class="title">遊戲說明</h3>
             <p>滑動滑鼠或懸停移動於農園遊戲區域，將不停挖掘農園，並且途中會觸發驚喜，分數會加分也會扣分，遊戲時間為<b>10秒</b>，請把握時間，獲得好成績。</p>
+            <span>注意: 登入會員才能獲得折扣券</span> <a href="memlogin.html"><button id="login">登入會員</button></a>
             <div class="btn">
                 <button id="cancel">取消</button>
-                <button id="go">開始</button>
+                <button id="go">直接開始</button>
             </div>
         </div>
-        <div class="result">
-            <p>會員編號: 123</p>
-            <p id="back_points">獲得分數: 40</p>
-            <h3 id="coupon">折扣100元</h3>
-            <p>折扣碼: 0123456789</p>
+        <div class="result" id="game_result">
+            <form action="./phps/insertCoupon.php" method="post" enctype="multipart/form-data">
+                <h3 class="title">遊戲結果</h3>
+                <p><input type="hidden" name="mem_id" value="1">會員編號: 1</p>
+                <p id="back_points">獲得分數: 40</p>
+                <p id="coupon_in"><input type="hidden" name="coupon_t_price" value="100"></p>
+                <h4 id="coupon">折扣100元</h4>
+                <button id="ok" style="display: none;">ok</button>
+            </form>
             <div class="btn">
                 <button id="again">再玩一次</button>
                 <button id="sure">確定</button>
@@ -129,4 +136,5 @@
         </div>
     </div>
 </body>
+
 </html>

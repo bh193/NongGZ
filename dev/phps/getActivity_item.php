@@ -4,9 +4,10 @@ try {
 	require_once("./connectBooks.php");
 
 	//執行sql指令並取得pdoStatement
-	$sql = "select activity_name, substring(activity_content, 1, 20) activity_content, activity_imgA
+	$sql = "select activity_id, activity_name, substring(activity_content, 1, 20) activity_content, activity_imgA
     from activity
-    order by activity_date desc
+	where activity_date >= current_date()
+    order by activity_date
     limit 5";
 	$activity_items = $pdo->query($sql);
 	$activitys = $activity_items->fetchAll(PDO::FETCH_ASSOC);

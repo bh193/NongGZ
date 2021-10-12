@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>引導頁</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="js/index.min.js"></script>
     <script src="js/farm_login.min.js"></script>
 </head>
@@ -51,7 +53,7 @@
 
     <div class="backstage_login">
         <div class="farm_login">
-            <div class="content">
+            <form class="content">
                 <div class="con_img">
                     <img src="./images/common/farm_login_img.svg" alt="小農登入">
                 </div>
@@ -69,14 +71,14 @@
                     </div>
                 </div>
                 <div class="con_btnbox">
-                    <input class="smallbtn_s" type="button" value="清除">
-                    <input id="btnLogin" class="smallbtn_m" type="button" value="登入">
+                    <input class="smallbtn_s" type="reset" value="清除">
+                    <a id="login_farm" href="#error" rel="modal:open"><input id="btnLogin_f" class="smallbtn_m" type="button" value="登入"></a>
                 </div>
                 <div class="con_toggle" id="con_toggle_f">管理員進入 ❯❯</div>
-            </div>
+            </form>
         </div>
         <div class="controller_login">
-            <div class="content">
+            <form class="content">
                 <div class="con_img">
                     <img src="./images/common/controller_login_img.svg" alt="管理員登入">
                 </div>
@@ -84,21 +86,21 @@
                 <div class="con_text">
                     <div class="item">
                         <label>電子信箱
-                            <input class="item_text" name="e-mail" type="text">
+                            <input id="con_email" class="item_text" name="e-mail" type="text">
                         </label>
                     </div>
                     <div class="item">
                         <label>密碼
-                            <input class="item_text" name="password" type="password">
+                            <input id="con_psw" class="item_text" name="password" type="password">
                         </label>
                     </div>
                 </div>
                 <div class="con_btnbox">
-                    <input class="smallbtn_s" type="button" value="清除">
-                    <a href="./admin_farmer.html"><input class="smallbtn_m" type="button" value="登入"></a>
+                    <input class="smallbtn_s" type="reset" value="清除">
+                    <a id="login_con" href="#error" rel="modal:open"><input id="btnLogin_c" class="smallbtn_m" type="button" value="登入"></a>
                 </div>
                 <div class="con_toggle" id="con_toggle_c">❮❮ 小農進入</div>
-            </div>
+            </form>
         </div>
         <div class="cover">
             <div class="cover_content" id="cover_controller">
@@ -118,6 +120,12 @@
             <img src="./images/common/close-icon.png" alt="關掉">
         </div>
     </div>
+
+    <div id="error" class="modal">
+        <h3>帳密錯誤</h3>
+        <a href="#" rel="modal:close"><button id="cancel">關閉</button></a>
+    </div>
+
 
 
 </body>

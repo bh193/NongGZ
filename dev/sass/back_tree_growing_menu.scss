@@ -56,13 +56,16 @@
         box-sizing: border-box;
 
         .item{
-            width: 50%;
+            width: 52%;
             display: flex;
             .item_title{
-                width: 50%;
+                width: 35%;
             }
             .item_text{
-                width: 50%;
+                width: 65%;
+            }
+            &:nth-child(odd){
+                width: 48%;
             }
         }
 

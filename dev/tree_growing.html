@@ -10,16 +10,11 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="js/vue.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    <script src="js/orange.min.js"></script>
-    <script src="js/apple.min.js"></script>
-    <script src="js/mango.min.js"></script>
-    <script src="js/peach.min.js"></script>
-    <script src="js/red-dates.min.js"></script>
     <script src="js/cursor_map.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/tree_growing.css">
     <script src="js/tree_growing.min.js"></script>
-
 
 </head>
 
@@ -36,133 +31,106 @@
             <li><a href="./adopt_tree.html">一同養樹</a></li>
             <li><a href="#">果樹生長狀況</a></li>
         </ul>
-        <section id="fruit_tree">
+        <section id="tree_all">
+            <div id="status_text"></div>
             <div class="fruit_tree_box">
                 <canvas class="orange" width="2000" height="2000"></canvas>
-                <div class="tree_fruit_box">
-                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                    <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                  </div>
+                <div class="tree_fruit_box" id="fruit_tree">
+                    <div v-for="tree in tree">
+                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
+                        <div style="display: none;">
+                            <p id="number">{{tree.amount}}</p>
+                            <p id="size">{{tree.size}}</p>
+                            <p id="fruit_id">{{tree.fruit_id}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="container">
-                <div class="content_top">
-                    <p class="update">資料更新日期: 110/11/11</p>
+                <div class="content_top" id="tree_img">
+                    <div v-for="img in imgs_limit1">
+                        <p class="update">照片更新日期: {{img.treehistory_date}}</p>
+                    </div>
                     <div class="con_imgbox">
-                        <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
-                        <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
+                        <div class="img" v-for="img in imgs_limit2"> <img :src="'./images/tree/' + img.treehistory_img"
+                                alt="真實果樹照片"></div>
                     </div>
                     <a href="#moreimg" rel="modal:open"><input class="smallbtn_s" type="button" value="查看更多"></a>
                 </div>
-                <div class="content_bottom">
-                    <p class="update">資料更新日期: 110/11/11</p>
-                    <div class="con_text">
-                        <h2 class="con_text_title">吃不完海梨</h2>
-                        <div class="id">
-                            <span>秀水農場</span>
-                            <span>果樹編號: 8</span>
-                        </div>
-                        <div class="data">
-                            <div class="data_text">
-                                <h3>大小 </h3>
-                                <h2 id="size">中</h2>
+                <div class="content_bottom" id="tree_data">
+                    <div class="con" v-for="tree in tree">
+                        <p class="update">資料更新日期: {{tree.tree_update}}</p>
+                        <div class="con_text">
+                            <h2 class="con_text_title">{{tree.tree_name}}</h2>
+                            <div class="id">
+                                <span id="farm_name">{{tree.farm_name}}</span>
+                                <span>果樹編號: {{tree.tree_id}}</span>
                             </div>
-                            <div class="data_text">
-                                <h3>數量</h3>
-                                <h2 id="number">45</h2>
+                            <div class="data">
+                                <div class="data_text">
+                                    <h3>尺寸</h3>
+                                    <h2>{{tree.size}}</h2>
+                                </div>
+                                <div class="data_text">
+                                    <h3>數量</h3>
+                                    <h2>{{tree.amount}}</h2>
+                                </div>
                             </div>
+                            <h3 class="price">認養價格: {{tree.tree_price}}$/年</h3>
+                            <p id="status" style="display: none;">{{tree.tree_status}}</p>
                         </div>
-                        <span id="fruit_id" style="visibility:hidden">1</span>
-                        <h3 class="price">認養價格: 3200$/年</h3>
-                    </div>
-                    <div class="con_btnbox">
-                        <a href="./adopt_tree.html"><input class="bigbtn_s" type="button" value="查看更多果樹"></a>
-                        <a id="buy" href="#popOrder" rel="modal:open"><input class="bigbtn_m" type="button"
-                                value="我要認養"></a>
+                        <div class="con_btnbox">
+                            <a href="./adopt_tree.html"><input class="bigbtn_s" type="button" value="查看更多果樹"></a>
+                            <a id="buy" href="#popOrder" rel="modal:open"><input class="bigbtn_m" type="button"
+                                    value="我要認養"></a>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </section>
         <section id="map">
-            <div class="map">
-
+            <div class="map" id="farm_map">
                 <div class="black_bg">
                     <div class="cursor"></div>
                 </div>
-
                 <div class="map_img">
                     <img src="./images/map/map_1.svg" alt="農園地圖">
                     <div class="map_tree_box">
-                        <div class="map_tree">
-                            <a href="#fruit_tree">
+                        <div class="map_tree" v-for="tree in farmId_limit6">
+                            <a :href="'tree_growing.html?tree_id=' + tree.tree_id">
                                 <img src="./images/svg/game_tree.svg" alt="樹冠">
                             </a>
                             <div class="tree_name">
-                                <span>吃不完海梨</span>
+                                <span>{{tree.tree_name}}</span>
                             </div>
-
-                        </div>
-                        <div class="map_tree">
-                            <a href="#fruit_tree">
-                                <img src="./images/svg/game_tree.svg" alt="樹冠">
-                            </a>
-                            <div class="tree_name">
-                                <span>吃不完海梨</span>
+                            <div class="tree_status" style="display: none;">
+                                <span>{{tree.tree_status}}</span>
                             </div>
-                        </div>
-                        <div class="map_tree">
-                            <a href="#fruit_tree">
-                                <img src="./images/svg/game_tree.svg" alt="樹冠">
-                            </a>
-                            <div class="tree_name">
-                                <span>吃不完海梨</span>
-                            </div>
-                        </div>
-                        <div class="map_tree">
-                            <a href="#fruit_tree">
-                                <img src="./images/svg/game_tree.svg" alt="樹冠">
-                            </a>
-                            <div class="tree_name">
-                                <span>吃不完海梨</span>
-                            </div>
-                        </div>
-                        <div class="map_tree">
-                            <a href="#fruit_tree">
-                                <img src="./images/svg/game_tree.svg" alt="樹冠">
-                            </a>
-                            <div class="tree_name">
-                                <span>吃不完海梨</span>
-                            </div>
-                        </div>
-                        <div class="map_tree">
-                            <a href="#fruit_tree">
-                                <img src="./images/svg/game_tree.svg" alt="樹冠">
-                            </a>
-                            <div class="tree_name">
-                                <span>吃不完海梨</span>
-                            </div>
+                            <div class="none"></div>
                         </div>
                     </div>
                 </div>
-                <div class="map_text">
-                    <h2>秀水農場果樹</h2>
-                    <p>歡迎來到碧水農場，請點選你想認養之果樹~</p>
+                <div class="map_text" v-for="farm in farm">
+                    <h2>{{farm.farm_name}}</h2>
+                    <p>歡迎來到{{farm.farm_name}}，請點選你想認養之果樹~</p>
                 </div>
             </div>
-            <div class="more_tree">
+            <div class="more_tree" id="more_farm">
                 <h3>查看其它農場果樹</h3>
                 <div class="more_btnbox">
-                    <input class="bigbtn_s" type="button" value="秀水農場">
-                    <input class="bigbtn_s" type="button" value="來玉農場">
-                    <input class="bigbtn_s" type="button" value="松春海農場">
-                    <input class="bigbtn_s" type="button" value="花異草農場">
-                    <input class="bigbtn_s" type="button" value="古溯源農場">
+                    <div v-for="farm in farms">
+                        <a :href="'tree_growing.html?tree_id=' + farm.tree_id + '#map'"><input class="bigbtn_s"
+                                type="button" :value="farm.farm_name"></a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -178,52 +146,12 @@
                         <th>上傳時間</th>
                         <th>照片</th>
                     </tr>
-                    <tr>
+                    <tr v-for="img in moreId_img">
                         <td>
-                            <p>110/11/11</p>
+                            <p>{{img.treehistory_date}}</p>
                         </td>
                         <td>
-                            <img src="./images/tree/8.jpg" alt="照片">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>110/11/11</p>
-                        </td>
-                        <td>
-                            <img src="./images/tree/8.jpg" alt="照片">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>110/11/11</p>
-                        </td>
-                        <td>
-                            <img src="./images/tree/8.jpg" alt="照片">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>110/11/11</p>
-                        </td>
-                        <td>
-                            <img src="./images/tree/8.jpg" alt="照片">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>110/11/11</p>
-                        </td>
-                        <td>
-                            <img src="./images/tree/8.jpg" alt="照片">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>110/11/11</p>
-                        </td>
-                        <td>
-                            <img src="./images/tree/8.jpg" alt="照片">
+                            <img :src="'./images/tree/' + img.treehistory_img" alt="照片">
                         </td>
                     </tr>
                 </table>
@@ -237,65 +165,2735 @@
     <!-- 彈跳訂單視窗 -->
     <div id="popOrder" class="modal order">
         <h3>認養果樹確認訂單</h3>
+        <!-- <form action="./phps/insertTree_order.php" method="post" enctype="multipart/form-data"> -->
+            <form action="./phps/sample_Credit_CreateOrder.php" method="post" enctype="multipart/form-data">
+                <table v-for="order in popId_order">
+                    <tr>
+                        <td>果樹名稱:</td>
+                        <td><input type="hidden" name="tree_name" :value="order.tree_name">{{order.tree_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>農場名稱:</td>
+                        <td><input type="hidden" name="farm_name" :value="order.farm_name">{{order.farm_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>果樹編號:</td>
+                        <td><input type="hidden" name="tree_id" :value="order.tree_id">{{order.tree_id}}</td>
+                    </tr>
+                </table>
+                <table v-for="mem in memId">
+                    <tr>
+                        <td>會員姓名</td>
+                        <td><input type="hidden" :value="mem.mem_name">{{mem.mem_name}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="hidden" :value="mem.mem_email">{{mem.mem_email}}</td>
+                    </tr>
+                    <tr>
+                        <td>會員編號</td>
+                        <td><input type="hidden" name="mem_id" :value="mem.mem_id">{{mem.mem_id}}</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>折扣券:</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <select name="discount" id="discount" v-model="t_price">
+                                <option value="">選擇折扣券</option>
+                                <option :value="mem.coupon_id + '-' + mem.coupon_t_price" v-for="mem in memId_coupon">
+                                    {{mem.coupon_id}}-折扣{{mem.coupon_t_price}}</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="hidden" name="coupon_id" :value="coupon_id">{{coupon_id}}
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>認養價格:</td>
+                        <td><input type="hidden" name="price" :value="price">{{price}}$ /年</td>
+                    </tr>
+                </table>
 
-        <table>
-            <tr>
-                <td>果樹名稱:</td>
-                <td>吃不完海梨</td>
-            </tr>
-            <tr>
-                <td>農場名稱:</td>
-                <td>秀水農場</td>
-            </tr>
-            <tr>
-                <td>會員姓名</td>
-                <td>Biran Jiang</td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td>good@gmail.com</td>
-            </tr>
-            <tr>
-                <td>折扣券:</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <select name="discount" id="discount">
-                        <option value="請選擇">請選擇</option>
-                        <option value="12345">12345</option>
-                        <option value="99999">99999</option>
-                        <option value="55555">55555</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>認養價格:</td>
-                <td>1000$ /年</td>
-            </tr>
-            <tr>
-                <td colspan="2">信用卡付款:</td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <input class="item_text" name="amount" type="text">
-                    -
-                    <input class="item_text" name="amount" type="text">
-                    -
-                    <input class="item_text" name="amount" type="text">
-                    -
-                    <input class="item_text" name="amount" type="text">
-                </td>
-            </tr>
-        </table>
-        <div class="btn">
-            <a href="#" rel="modal:close"><button id="cancel">取消</button></a>
-            <button id="send">送出</button>
-        </div>
+                <table>
+                    <tr>
+                        <td colspan="2">信用卡卡號:</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input class="item_text card" type="text" name="card1" maxlength="4">
+                            -
+                            <input class="item_text card" type="text" name="card2" maxlength="4">
+                            -
+                            <input class="item_text card" type="text" name="card3" maxlength="4">
+                            -
+                            <input class="item_text card" type="text" name="card4" maxlength="4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            信用卡有效月/年:
+                            <select class="date" name="month">
+                                <option :value=month v-for="month in 12">{{month}}月</option>
+                            </select>
+                            <select class="date" name="year">
+                                <option :value=year.value v-for="year in years">{{year.label}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            信用卡安全碼(三碼):
+                            <input class="item_text" id="code" type="text" name="code" maxlength="3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="btn">
+                                <a href="#" rel="modal:close"><button id="cancel">取消</button></a>
+                                <button id="send">送出</button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        <!-- </form> -->
     </div>
 
 
     @@include('layout/footer.html')
+
+    <script type="text/javascript">
+        let fruit_tree = new Vue({
+            el: "#fruit_tree",
+            data: {
+                trees: [],
+            },
+            computed: {
+                tree() {
+                    let tree_id = window.location.search.split("?")[1].split("=")[1];
+                    return this.trees.filter(tree => { return tree.tree_id == tree_id });
+                },
+            },
+            mounted() {
+
+            },
+            updated() {
+                //判定水果數量與大小顆
+                var size = $('#size').text();//大中小
+                var id = parseInt($('#fruit_id').text());//水果id
+                var number = parseInt($('#number').text());//數量
+
+                //canvas
+                if (id == 1) {
+                    $('canvas').attr("class", "orange");
+                } else if (id == 2) {
+                    $('canvas').attr("class", "apple");
+                } else if (id == 3) {
+                    $('canvas').attr("class", "mango");
+                } else if (id == 4) {
+                    $('canvas').attr("class", "peach");
+                } else if (id == 5) {
+                    $('canvas').attr("class", "red-dates");
+                }
+
+                //判定大小
+                if (size == "大") {
+                    $(".tree_fruit").css("width", "16%");
+                } else if (size == "中") {
+                    $(".tree_fruit").css("width", "12%");
+                } else if (size == "小") {
+                    $(".tree_fruit").css("width", "8%");
+                }
+
+                //判定水果種類
+                $(".tree_fruit").attr("src", `images/fruit/fruit_${id}.svg`);
+
+                //判定數量
+                if (id <= 3) {
+                    if (number > 90) {
+                        $(".tree_fruit").show();
+                    } else if (number > 60) {
+                        for (var i = 0; i <= 6; i++) {
+                            $(".tree_fruit").eq(i).show();
+                        }
+                    } else if (number > 30) {
+                        for (var i = 0; i <= 4; i++) {
+                            $(".tree_fruit").eq(i).show();
+                        }
+                    } else if (number > 0) {
+                        for (var i = 0; i <= 2; i++) {
+                            $(".tree_fruit").eq(i).show();
+                        }
+                    } else {
+                        $(".tree_fruit").hide();
+                    }
+                } else if (id == 4) {
+                    if (number > 45) {
+                        $(".tree_fruit").show();
+                    } else if (number > 30) {
+                        for (var i = 0; i <= 6; i++) {
+                            $(".tree_fruit").eq(i).show();
+                        }
+                    } else if (number > 15) {
+                        for (var i = 0; i <= 4; i++) {
+                            $(".tree_fruit").eq(i).show();
+                        }
+                    } else if (number > 0) {
+                        for (var i = 0; i <= 2; i++) {
+                            $(".tree_fruit").eq(i).show();
+                        }
+                    } else {
+                        $(".tree_fruit").hide();
+                    }
+                } else if (id == 5) {
+                    if (number > 180) {
+                        $(".tree_fruit").show();
+                    } else if (number > 120) {
+                        for (var i = 0; i <= 6; i++) {
+                            $(".tree_fruit").eq(i).show();
+                        }
+                    } else if (number > 60) {
+                        for (var i = 0; i <= 4; i++) {
+                            $(".tree_fruit").eq(i).show();
+                        }
+                    } else if (number > 0) {
+                        for (var i = 0; i <= 2; i++) {
+                            $(".tree_fruit").eq(i).show();
+                        }
+                    } else {
+                        $(".tree_fruit").hide();
+                    }
+                }
+
+                //orange
+                let orange = document.getElementsByClassName('orange');
+
+                for (let i = 0; i < orange.length; i++) {
+                    let context = orange[i].getContext('2d');
+
+                    //土壤水份
+                    context.fillStyle = "#d2e8e9";//填充色
+                    context.beginPath();
+                    context.moveTo(160, 1900);
+                    context.lineTo(460, 1760);
+                    context.lineTo(700, 1760);
+                    context.lineTo(860, 1800);
+                    context.lineTo(1100, 1760);
+                    context.lineTo(1360, 1760);
+                    context.lineTo(1720, 1800);
+                    context.lineTo(1860, 1900);
+                    context.lineTo(1700, 1940);
+                    context.lineTo(1500, 2000);
+                    context.lineTo(1200, 1940);
+                    context.lineTo(900, 2000);
+                    context.lineTo(600, 2000);
+                    context.lineTo(400, 1940);
+                    context.lineTo(300, 1940);
+                    context.closePath();
+                    context.fill();
+
+                    //樹幹
+                    //左
+                    //1
+                    context.fillStyle = "#663600";//填充色
+                    context.beginPath();
+                    context.moveTo(560, 1060);
+                    context.lineTo(760, 1240);
+                    context.lineTo(600, 1140);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#663600";//填充色
+                    context.beginPath();
+                    context.moveTo(500, 1100);
+                    context.lineTo(600, 1140);
+                    context.lineTo(700, 1260);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#914e00";//填充色
+                    context.beginPath();
+                    context.moveTo(600, 1140);
+                    context.lineTo(760, 1240);
+                    context.lineTo(700, 1260);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#673700";//填充色
+                    context.beginPath();
+                    context.moveTo(760, 1240);
+                    context.lineTo(900, 1400);
+                    context.lineTo(700, 1260);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#904e00";//填充色
+                    context.beginPath();
+                    context.moveTo(760, 1240);
+                    context.lineTo(960, 1400);
+                    context.lineTo(900, 1400);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#683600";//填充色
+                    context.beginPath();
+                    context.moveTo(900, 1400);
+                    context.lineTo(960, 1400);
+                    context.lineTo(940, 1440);
+                    context.closePath();
+                    context.fill();
+
+                    //樹幹
+                    //右
+                    //1
+                    context.fillStyle = "#683600";//填充色
+                    context.beginPath();
+                    context.moveTo(1460, 1100);
+                    context.lineTo(1360, 1220);
+                    context.lineTo(1260, 1260);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#683600";//填充色
+                    context.beginPath();
+                    context.moveTo(1360, 1220);
+                    context.lineTo(1500, 1160);
+                    context.lineTo(1260, 1300);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#8f4e00";//填充色
+                    context.beginPath();
+                    context.moveTo(1260, 1260);
+                    context.lineTo(1360, 1220);
+                    context.lineTo(1260, 1300);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#663600";//填充色
+                    context.beginPath();
+                    context.moveTo(1260, 1260);
+                    context.lineTo(1260, 1300);
+                    context.lineTo(1100, 1360);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#904e00";//填充色
+                    context.beginPath();
+                    context.moveTo(1100, 1360);
+                    context.lineTo(1260, 1300);
+                    context.lineTo(1000, 1460);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#623300";//填充色
+                    context.beginPath();
+                    context.moveTo(1100, 1360);
+                    context.lineTo(1000, 1460);
+                    context.lineTo(1000, 1400);
+                    context.closePath();
+                    context.fill();
+
+                    //樹幹
+                    //中
+                    //1
+                    context.fillStyle = "#904e00";//填充色
+                    context.beginPath();
+                    context.moveTo(900, 1060);
+                    context.lineTo(1060, 1000);
+                    context.lineTo(1000, 1400);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#a96104";//填充色
+                    context.beginPath();
+                    context.moveTo(900, 1060);
+                    context.lineTo(1000, 1400);
+                    context.lineTo(920, 1700);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#c07620";//填充色
+                    context.beginPath();
+                    context.moveTo(1060, 1000);
+                    context.lineTo(1020, 1420);
+                    context.lineTo(1000, 1400);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#904e00";//填充色
+                    context.beginPath();
+                    context.moveTo(1000, 1400);
+                    context.lineTo(1020, 1420);
+                    context.lineTo(920, 1700);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#a76102";//填充色
+                    context.beginPath();
+                    context.moveTo(1020, 1420);
+                    context.lineTo(1040, 1760);
+                    context.lineTo(920, 1700);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#904e00";//填充色
+                    context.beginPath();
+                    context.moveTo(920, 1700);
+                    context.lineTo(1040, 1760);
+                    context.lineTo(900, 1900);
+                    context.closePath();
+                    context.fill();
+
+                    //7
+                    context.fillStyle = "#673600";//填充色
+                    context.beginPath();
+                    context.moveTo(1040, 1760);
+                    context.lineTo(1060, 1880);
+                    context.lineTo(900, 1900);
+                    context.closePath();
+                    context.fill();
+
+                    //樹冠
+                    //左
+                    //1
+                    context.fillStyle = "#76b917";//填充色
+                    context.beginPath();
+                    context.moveTo(260, 760);
+                    context.lineTo(500, 700);
+                    context.lineTo(460, 760);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(500, 700);
+                    context.lineTo(560, 900);
+                    context.lineTo(460, 760);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#173b00";//填充色
+                    context.beginPath();
+                    context.moveTo(500, 700);
+                    context.lineTo(660, 800);
+                    context.lineTo(560, 900);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#aed800";//填充色
+                    context.beginPath();
+                    context.moveTo(260, 760);
+                    context.lineTo(460, 760);
+                    context.lineTo(200, 900);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(460, 760);
+                    context.lineTo(360, 900);
+                    context.lineTo(200, 900);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#55a41e";//填充色
+                    context.beginPath();
+                    context.moveTo(460, 760);
+                    context.lineTo(560, 900);
+                    context.lineTo(360, 900);
+                    context.closePath();
+                    context.fill();
+
+                    //7
+                    context.fillStyle = "#265e03";//填充色
+                    context.beginPath();
+                    context.moveTo(660, 800);
+                    context.lineTo(700, 1000);
+                    context.lineTo(560, 900);
+                    context.closePath();
+                    context.fill();
+
+                    //8
+                    context.fillStyle = "#55a41e";//填充色
+                    context.beginPath();
+                    context.moveTo(200, 900);
+                    context.lineTo(360, 900);
+                    context.lineTo(200, 1100);
+                    context.closePath();
+                    context.fill();
+
+                    //9
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(360, 900);
+                    context.lineTo(360, 1100);
+                    context.lineTo(200, 1100);
+                    context.closePath();
+                    context.fill();
+
+                    //10
+                    context.fillStyle = "#265e03";//填充色
+                    context.beginPath();
+                    context.moveTo(360, 900);
+                    context.lineTo(560, 900);
+                    context.lineTo(360, 1100);
+                    context.closePath();
+                    context.fill();
+
+                    //11
+                    context.fillStyle = "#1f4901";//填充色
+                    context.beginPath();
+                    context.moveTo(560, 900);
+                    context.lineTo(600, 1200);
+                    context.lineTo(360, 1100);
+                    context.closePath();
+                    context.fill();
+
+                    //12
+                    context.fillStyle = "#173b00";//填充色
+                    context.beginPath();
+                    context.moveTo(560, 900);
+                    context.lineTo(700, 1000);
+                    context.lineTo(600, 1200);
+                    context.closePath();
+                    context.fill();
+
+                    //13
+                    context.fillStyle = "#317002";//填充色
+                    context.beginPath();
+                    context.moveTo(200, 1100);
+                    context.lineTo(360, 1100);
+                    context.lineTo(460, 1260);
+                    context.closePath();
+                    context.fill();
+
+                    //14
+                    context.fillStyle = "#265e03";//填充色
+                    context.beginPath();
+                    context.moveTo(360, 1100);
+                    context.lineTo(600, 1200);
+                    context.lineTo(460, 1260);
+                    context.closePath();
+                    context.fill();
+
+                    //樹冠
+                    //中
+                    //1
+                    context.fillStyle = "#aed800";//填充色
+                    context.beginPath();
+                    context.moveTo(1000, 0);
+                    context.lineTo(1260, 200);
+                    context.lineTo(660, 160);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#75b915";//填充色
+                    context.beginPath();
+                    context.moveTo(1000, 0);
+                    context.lineTo(1500, 200);
+                    context.lineTo(1260, 200);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#76ba18";//填充色
+                    context.beginPath();
+                    context.moveTo(660, 160);
+                    context.lineTo(960, 360);
+                    context.lineTo(400, 460);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#52a31d";//填充色
+                    context.beginPath();
+                    context.moveTo(660, 160);
+                    context.lineTo(1260, 200);
+                    context.lineTo(960, 360);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#479710";//填充色
+                    context.beginPath();
+                    context.moveTo(1260, 200);
+                    context.lineTo(1260, 660);
+                    context.lineTo(960, 360);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#408b0e";//填充色
+                    context.beginPath();
+                    context.moveTo(1260, 200);
+                    context.lineTo(1500, 200);
+                    context.lineTo(1260, 660);
+                    context.closePath();
+                    context.fill();
+
+                    //7
+                    context.fillStyle = "#317002";//填充色
+                    context.beginPath();
+                    context.moveTo(1500, 200);
+                    context.lineTo(1600, 600);
+                    context.lineTo(1260, 660);
+                    context.closePath();
+                    context.fill();
+
+                    //8
+                    context.fillStyle = "#55a41e";//填充色
+                    context.beginPath();
+                    context.moveTo(400, 460);
+                    context.lineTo(960, 360);
+                    context.lineTo(660, 660);
+                    context.closePath();
+                    context.fill();
+
+                    //9
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(960, 360);
+                    context.lineTo(1260, 660);
+                    context.lineTo(660, 660);
+                    context.closePath();
+                    context.fill();
+
+                    //10
+                    context.fillStyle = "#265e03";//填充色
+                    context.beginPath();
+                    context.moveTo(400, 460);
+                    context.lineTo(660, 660);
+                    context.lineTo(660, 1000);
+                    context.closePath();
+                    context.fill();
+
+                    //11
+                    context.fillStyle = "#1d4900";//填充色
+                    context.beginPath();
+                    context.moveTo(660, 660);
+                    context.lineTo(1000, 1160);
+                    context.lineTo(660, 1000);
+                    context.closePath();
+                    context.fill();
+
+                    //12
+                    context.fillStyle = "#317002";//填充色
+                    context.beginPath();
+                    context.moveTo(660, 660);
+                    context.lineTo(1260, 660);
+                    context.lineTo(1000, 1160);
+                    context.closePath();
+                    context.fill();
+
+                    //13
+                    context.fillStyle = "#265e03";//填充色
+                    context.beginPath();
+                    context.moveTo(1260, 660);
+                    context.lineTo(1460, 960);
+                    context.lineTo(1000, 1160);
+                    context.closePath();
+                    context.fill();
+
+                    //14
+                    context.fillStyle = "#1d4900";//填充色
+                    context.beginPath();
+                    context.moveTo(1260, 660);
+                    context.lineTo(1460, 960);
+                    context.lineTo(1600, 600);
+                    context.closePath();
+                    context.fill();
+
+                    //樹冠
+                    //右
+                    //1
+                    context.fillStyle = "#aed800";//填充色
+                    context.beginPath();
+                    context.moveTo(1560, 700);
+                    context.lineTo(1700, 860);
+                    context.lineTo(1300, 800);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#76ba16";//填充色
+                    context.beginPath();
+                    context.moveTo(1560, 700);
+                    context.lineTo(1860, 900);
+                    context.lineTo(1700, 860);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#76ba19";//填充色
+                    context.beginPath();
+                    context.moveTo(1300, 800);
+                    context.lineTo(1500, 900);
+                    context.lineTo(1160, 960);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#52a31d";//填充色
+                    context.beginPath();
+                    context.moveTo(1300, 800);
+                    context.lineTo(1700, 860);
+                    context.lineTo(1500, 900);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(1700, 860);
+                    context.lineTo(1660, 1160);
+                    context.lineTo(1500, 900);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#307002";//填充色
+                    context.beginPath();
+                    context.moveTo(1700, 860);
+                    context.lineTo(1860, 900);
+                    context.lineTo(1660, 1160);
+                    context.closePath();
+                    context.fill();
+
+                    //7
+                    context.fillStyle = "#265e03";//填充色
+                    context.beginPath();
+                    context.moveTo(1860, 900);
+                    context.lineTo(1900, 1100);
+                    context.lineTo(1660, 1160);
+                    context.closePath();
+                    context.fill();
+
+                    //8
+                    context.fillStyle = "#55a41e";//填充色
+                    context.beginPath();
+                    context.moveTo(1160, 960);
+                    context.lineTo(1500, 900);
+                    context.lineTo(1300, 1100);
+                    context.closePath();
+                    context.fill();
+
+                    //9
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(1500, 900);
+                    context.lineTo(1660, 1160);
+                    context.lineTo(1300, 1100);
+                    context.closePath();
+                    context.fill();
+
+                    //10
+                    context.fillStyle = "#52a31d";//填充色
+                    context.beginPath();
+                    context.moveTo(1160, 960);
+                    context.lineTo(1300, 1100);
+                    context.lineTo(1260, 1300);
+                    context.closePath();
+                    context.fill();
+
+                    //11
+                    context.fillStyle = "#307102";//填充色
+                    context.beginPath();
+                    context.moveTo(1300, 1100);
+                    context.lineTo(1500, 1400);
+                    context.lineTo(1260, 1300);
+                    context.closePath();
+                    context.fill();
+
+                    //12
+                    context.fillStyle = "#265e03";//填充色
+                    context.beginPath();
+                    context.moveTo(1300, 1100);
+                    context.lineTo(1660, 1160);
+                    context.lineTo(1500, 1400);
+                    context.closePath();
+                    context.fill();
+
+                    //13
+                    context.fillStyle = "#204901";//填充色
+                    context.beginPath();
+                    context.moveTo(1660, 1160);
+                    context.lineTo(1760, 1360);
+                    context.lineTo(1500, 1400);
+                    context.closePath();
+                    context.fill();
+
+                    //14
+                    context.fillStyle = "#173b00";//填充色
+                    context.beginPath();
+                    context.moveTo(1660, 1160);
+                    context.lineTo(1900, 1100);
+                    context.lineTo(1760, 1360);
+                    context.closePath();
+                    context.fill();
+                }
+
+                //apple
+                let apple = document.getElementsByClassName('apple');
+                for (let i = 0; i < apple.length; i++) {
+                    let context = apple[i].getContext('2d');
+                    //土壤水份
+                    context.fillStyle = "#d2e8e9";//填充色
+                    context.beginPath();
+                    context.moveTo(400, 1900);
+                    context.lineTo(650, 1800);
+                    context.lineTo(850, 1820);
+                    context.lineTo(1200, 1800);
+                    context.lineTo(1500, 1820);
+                    context.lineTo(1650, 1900);
+                    context.lineTo(1700, 1950);
+                    context.lineTo(1580, 1980);
+                    context.lineTo(1400, 1950);
+                    context.lineTo(1050, 2000);
+                    context.lineTo(750, 1950);
+                    context.lineTo(550, 1970);
+                    context.closePath();
+                    context.fill();
+
+                    //樹幹(下)
+                    //左
+                    //1
+                    context.fillStyle = "#7c502b";//填充色
+                    context.beginPath();
+                    context.moveTo(850, 1300);
+                    context.lineTo(1100, 1450);
+                    context.lineTo(950, 1450);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#593a21";//填充色
+                    context.beginPath();
+                    context.moveTo(850, 1300);
+                    context.lineTo(950, 1450);
+                    context.lineTo(800, 1300);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#90602c";//填充色
+                    context.beginPath();
+                    context.moveTo(950, 1450);
+                    context.lineTo(1100, 1450);
+                    context.lineTo(1050, 1550);
+                    context.closePath();
+                    context.fill();
+
+                    //右
+                    //1
+                    context.fillStyle = "#593a21";//填充色
+                    context.beginPath();
+                    context.moveTo(1250, 1350);
+                    context.lineTo(1250, 1400);
+                    context.lineTo(1050, 1450);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#7c502b";//填充色
+                    context.beginPath();
+                    context.moveTo(1050, 1450);
+                    context.lineTo(1250, 1400);
+                    context.lineTo(1050, 1530);
+                    context.closePath();
+                    context.fill();
+
+                    //中
+                    //1
+                    context.fillStyle = "#593a21";//填充色
+                    context.beginPath();
+                    context.moveTo(980, 1300);
+                    context.lineTo(1110, 1280);
+                    context.lineTo(1050, 1450);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#7c502b";//填充色
+                    context.beginPath();
+                    context.moveTo(980, 1300);
+                    context.lineTo(1050, 1450);
+                    context.lineTo(1000, 1700);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#7c502b";//填充色
+                    context.beginPath();
+                    context.moveTo(1110, 1280);
+                    context.lineTo(1110, 1620);
+                    context.lineTo(1050, 1450);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#90602c";//填充色
+                    context.beginPath();
+                    context.moveTo(1050, 1450);
+                    context.lineTo(1110, 1620);
+                    context.lineTo(1000, 1700);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#7c502b";//填充色
+                    context.beginPath();
+                    context.moveTo(1000, 1700);
+                    context.lineTo(1110, 1620);
+                    context.lineTo(1110, 1800);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#593a21";//填充色
+                    context.beginPath();
+                    context.moveTo(1000, 1700);
+                    context.lineTo(1110, 1800);
+                    context.lineTo(980, 1920);
+                    context.closePath();
+                    context.fill();
+
+                    //7
+                    context.fillStyle = "#7c502b";//填充色
+                    context.beginPath();
+                    context.moveTo(1110, 1800);
+                    context.lineTo(1120, 1910);
+                    context.lineTo(980, 1920);
+                    context.closePath();
+                    context.fill();
+
+                    //樹幹(上)
+                    //左
+                    //1
+                    context.fillStyle = "#593a21";//填充色
+                    context.beginPath();
+                    context.moveTo(900, 600);
+                    context.lineTo(1050, 670);
+                    context.lineTo(1000, 680);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#7c502b";//填充色
+                    context.beginPath();
+                    context.moveTo(1000, 680);
+                    context.lineTo(1050, 670);
+                    context.lineTo(1050, 730);
+                    context.closePath();
+                    context.fill();
+
+                    //右
+                    //1
+                    context.fillStyle = "#593a21";//填充色
+                    context.beginPath();
+                    context.moveTo(1100, 650);
+                    context.lineTo(1200, 650);
+                    context.lineTo(1050, 730);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#7c502b";//填充色
+                    context.beginPath();
+                    context.moveTo(1100, 650);
+                    context.lineTo(1050, 730);
+                    context.lineTo(1000, 720);
+                    context.closePath();
+                    context.fill();
+
+                    //中
+                    //1
+                    context.fillStyle = "#593a21";//填充色
+                    context.beginPath();
+                    context.moveTo(1050, 650);
+                    context.lineTo(1080, 680);
+                    context.lineTo(1020, 720);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#7c502b";//填充色
+                    context.beginPath();
+                    context.moveTo(1050, 650);
+                    context.lineTo(1050, 600);
+                    context.lineTo(1150, 600);
+                    context.lineTo(1080, 680);
+                    context.closePath();
+                    context.fill();
+
+                    //樹冠(上)
+                    //1
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(500, 120);
+                    context.lineTo(800, 0);
+                    context.lineTo(820, 130);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#afc937";//填充色
+                    context.beginPath();
+                    context.moveTo(800, 0);
+                    context.lineTo(1050, 120);
+                    context.lineTo(820, 130);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(500, 120);
+                    context.lineTo(720, 280);
+                    context.lineTo(400, 300);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#4a6e3c";//填充色
+                    context.beginPath();
+                    context.moveTo(500, 120);
+                    context.lineTo(820, 130);
+                    context.lineTo(720, 280);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#598240";//填充色
+                    context.beginPath();
+                    context.moveTo(820, 130);
+                    context.lineTo(970, 380);
+                    context.lineTo(720, 280);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(820, 130);
+                    context.lineTo(1050, 120);
+                    context.lineTo(970, 380);
+                    context.closePath();
+                    context.fill();
+
+                    //7
+                    context.fillStyle = "#598240";//填充色
+                    context.beginPath();
+                    context.moveTo(400, 300);
+                    context.lineTo(720, 280);
+                    context.lineTo(680, 460);
+                    context.closePath();
+                    context.fill();
+
+                    //8
+                    context.fillStyle = "#4a6e3c";//填充色
+                    context.beginPath();
+                    context.moveTo(720, 280);
+                    context.lineTo(970, 380);
+                    context.lineTo(680, 460);
+                    context.closePath();
+                    context.fill();
+
+                    //9
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(400, 300);
+                    context.lineTo(680, 460);
+                    context.lineTo(530, 630);
+                    context.closePath();
+                    context.fill();
+
+                    //10
+                    context.fillStyle = "#32492c";//填充色
+                    context.beginPath();
+                    context.moveTo(680, 460);
+                    context.lineTo(750, 720);
+                    context.lineTo(530, 630);
+                    context.closePath();
+                    context.fill();
+
+                    //11
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(680, 460);
+                    context.lineTo(970, 380);
+                    context.lineTo(750, 720);
+                    context.closePath();
+                    context.fill();
+
+                    //12
+                    context.fillStyle = "#32492c";//填充色
+                    context.beginPath();
+                    context.moveTo(970, 380);
+                    context.lineTo(1050, 640);
+                    context.lineTo(750, 720);
+                    context.closePath();
+                    context.fill();
+
+                    //13
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(1300, 20);
+                    context.lineTo(1330, 120);
+                    context.lineTo(1050, 120);
+                    context.closePath();
+                    context.fill();
+
+                    //14
+                    context.fillStyle = "#afc937";//填充色
+                    context.beginPath();
+                    context.moveTo(1300, 20);
+                    context.lineTo(1650, 150);
+                    context.lineTo(1330, 120);
+                    context.closePath();
+                    context.fill();
+
+                    //15
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(1050, 120);
+                    context.lineTo(1250, 240);
+                    context.lineTo(970, 380);
+                    context.closePath();
+                    context.fill();
+
+                    //16
+                    context.fillStyle = "#4a6e3c";//填充色
+                    context.beginPath();
+                    context.moveTo(1050, 120);
+                    context.lineTo(1330, 120);
+                    context.lineTo(1250, 240);
+                    context.closePath();
+                    context.fill();
+
+                    //17
+                    context.fillStyle = "#598240";//填充色
+                    context.beginPath();
+                    context.moveTo(1330, 120);
+                    context.lineTo(1480, 420);
+                    context.lineTo(1250, 240);
+                    context.closePath();
+                    context.fill();
+
+                    //18
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(1330, 120);
+                    context.lineTo(1650, 150);
+                    context.lineTo(1480, 420);
+                    context.closePath();
+                    context.fill();
+
+                    //19
+                    context.fillStyle = "#4a6e3c";//填充色
+                    context.beginPath();
+                    context.moveTo(1650, 150);
+                    context.lineTo(1700, 380);
+                    context.lineTo(1480, 420);
+                    context.closePath();
+                    context.fill();
+
+                    //20
+                    context.fillStyle = "#598240";//填充色
+                    context.beginPath();
+                    context.moveTo(1250, 240);
+                    context.lineTo(1180, 480);
+                    context.lineTo(970, 380);
+                    context.closePath();
+                    context.fill();
+
+                    //21
+                    context.fillStyle = "#4a6e3c";//填充色
+                    context.beginPath();
+                    context.moveTo(1250, 240);
+                    context.lineTo(1480, 420);
+                    context.lineTo(1180, 480);
+                    context.closePath();
+                    context.fill();
+
+                    //22
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(970, 380);
+                    context.lineTo(1180, 480);
+                    context.lineTo(1050, 640);
+                    context.closePath();
+                    context.fill();
+
+                    //23
+                    context.fillStyle = "#32492c";//填充色
+                    context.beginPath();
+                    context.moveTo(1180, 480);
+                    context.lineTo(1300, 720);
+                    context.lineTo(1050, 640);
+                    context.closePath();
+                    context.fill();
+
+                    //24
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(1180, 480);
+                    context.lineTo(1480, 420);
+                    context.lineTo(1300, 720);
+                    context.closePath();
+                    context.fill();
+
+                    //25
+                    context.fillStyle = "#32492c";//填充色
+                    context.beginPath();
+                    context.moveTo(1480, 420);
+                    context.lineTo(1600, 620);
+                    context.lineTo(1300, 720);
+                    context.closePath();
+                    context.fill();
+
+                    //26
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(1480, 420);
+                    context.lineTo(1700, 380);
+                    context.lineTo(1600, 620);
+                    context.closePath();
+                    context.fill();
+
+                    //樹冠(下)
+                    //1
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(550, 750);
+                    context.lineTo(600, 950);
+                    context.lineTo(400, 1000);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(550, 750);
+                    context.lineTo(800, 650);
+                    context.lineTo(600, 950);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(800, 650);
+                    context.lineTo(900, 900);
+                    context.lineTo(600, 950);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#afc937";//填充色
+                    context.beginPath();
+                    context.moveTo(800, 650);
+                    context.lineTo(1030, 730);
+                    context.lineTo(900, 900);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(1030, 730);
+                    context.lineTo(1110, 1020);
+                    context.lineTo(900, 900);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(1030, 730);
+                    context.lineTo(1350, 650);
+                    context.lineTo(1110, 1020);
+                    context.closePath();
+                    context.fill();
+
+                    //7
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(1350, 650);
+                    context.lineTo(1420, 920);
+                    context.lineTo(1110, 1020);
+                    context.closePath();
+                    context.fill();
+
+                    //8
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(1350, 650);
+                    context.lineTo(1560, 720);
+                    context.lineTo(1420, 920);
+                    context.closePath();
+                    context.fill();
+
+                    //9
+                    context.fillStyle = "#afc937";//填充色
+                    context.beginPath();
+                    context.moveTo(1560, 720);
+                    context.lineTo(1700, 1100);
+                    context.lineTo(1420, 920);
+                    context.closePath();
+                    context.fill();
+
+                    //10
+                    context.fillStyle = "#598240";//填充色
+                    context.beginPath();
+                    context.moveTo(400, 1000);
+                    context.lineTo(600, 950);
+                    context.lineTo(450, 1250);
+                    context.closePath();
+                    context.fill();
+
+                    //11
+                    context.fillStyle = "#4a6e3c";//填充色
+                    context.beginPath();
+                    context.moveTo(600, 950);
+                    context.lineTo(750, 1300);
+                    context.lineTo(450, 1250);
+                    context.closePath();
+                    context.fill();
+
+                    //12
+                    context.fillStyle = "#598240";//填充色
+                    context.beginPath();
+                    context.moveTo(600, 950);
+                    context.lineTo(820, 1180);
+                    context.lineTo(750, 1300);
+                    context.closePath();
+                    context.fill();
+
+                    //13
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(600, 950);
+                    context.lineTo(900, 900);
+                    context.lineTo(820, 1180);
+                    context.closePath();
+                    context.fill();
+
+                    //14
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(900, 900);
+                    context.lineTo(1110, 1020);
+                    context.lineTo(820, 1180);
+                    context.closePath();
+                    context.fill();
+
+                    //15
+                    context.fillStyle = "#598240";//填充色
+                    context.beginPath();
+                    context.moveTo(1110, 1020);
+                    context.lineTo(1030, 1300);
+                    context.lineTo(820, 1180);
+                    context.closePath();
+                    context.fill();
+
+                    //16
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(1110, 1020);
+                    context.lineTo(1260, 1280);
+                    context.lineTo(1030, 1300);
+                    context.closePath();
+                    context.fill();
+
+                    //17
+                    context.fillStyle = "#598240";//填充色
+                    context.beginPath();
+                    context.moveTo(1110, 1020);
+                    context.lineTo(1380, 1120);
+                    context.lineTo(1260, 1280);
+                    context.closePath();
+                    context.fill();
+
+                    //18
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(1380, 1120);
+                    context.lineTo(1420, 920);
+                    context.lineTo(1110, 1020);
+                    context.closePath();
+                    context.fill();
+
+                    //19
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(1420, 920);
+                    context.lineTo(1700, 1100);
+                    context.lineTo(1380, 1120);
+                    context.closePath();
+                    context.fill();
+
+                    //20
+                    context.fillStyle = "#598240";//填充色
+                    context.beginPath();
+                    context.moveTo(1380, 1120);
+                    context.lineTo(1700, 1100);
+                    context.lineTo(1600, 1300);
+                    context.closePath();
+                    context.fill();
+
+                    //21
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(820, 1180);
+                    context.lineTo(1030, 1300);
+                    context.lineTo(750, 1300);
+                    context.closePath();
+                    context.fill();
+
+                    //22
+                    context.fillStyle = "#4a6e3c";//填充色
+                    context.beginPath();
+                    context.moveTo(1380, 1120);
+                    context.lineTo(1600, 1300);
+                    context.lineTo(1260, 1280);
+                    context.closePath();
+                    context.fill();
+
+                    //23
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(450, 1250);
+                    context.lineTo(750, 1300);
+                    context.lineTo(800, 1400);
+                    context.closePath();
+                    context.fill();
+
+                    //24
+                    context.fillStyle = "#32492c";//填充色
+                    context.beginPath();
+                    context.moveTo(750, 1300);
+                    context.lineTo(1030, 1300);
+                    context.lineTo(800, 1400);
+                    context.closePath();
+                    context.fill();
+
+                    //25
+                    context.fillStyle = "#32492c";//填充色
+                    context.beginPath();
+                    context.moveTo(1030, 1300);
+                    context.lineTo(1260, 1280);
+                    context.lineTo(1280, 1430);
+                    context.closePath();
+                    context.fill();
+
+                    //26
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(1260, 1280);
+                    context.lineTo(1600, 1300);
+                    context.lineTo(1280, 1430);
+                    context.closePath();
+                    context.fill();
+                }
+
+                //mango
+                let mango = document.getElementsByClassName('mango');
+                for (let i = 0; i < mango.length; i++) {
+                    let context = mango[i].getContext('2d');
+
+                    //土壤水份
+                    context.fillStyle = "#d2e8e9";//填充色
+                    context.beginPath();
+                    context.moveTo(600, 1800);
+                    context.lineTo(1000, 1810);
+                    context.lineTo(1200, 1800);
+                    context.lineTo(1400, 1850);
+                    context.lineTo(1650, 1810);
+                    context.lineTo(1930, 1850);
+                    context.lineTo(1500, 2000);
+                    context.lineTo(1100, 2000);
+                    context.lineTo(480, 1920);
+                    context.lineTo(270, 1850);
+                    context.closePath();
+                    context.fill();
+
+                    //樹幹
+                    //左
+                    //1
+                    context.fillStyle = "#8e4e00";//填充色
+                    context.beginPath();
+                    context.moveTo(620, 920);
+                    context.lineTo(900, 1160);
+                    context.lineTo(700, 1050);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#673500";//填充色
+                    context.beginPath();
+                    context.moveTo(580, 980);
+                    context.lineTo(700, 1050);
+                    context.lineTo(800, 1160);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#a96105";//填充色
+                    context.beginPath();
+                    context.moveTo(700, 1050);
+                    context.lineTo(900, 1160);
+                    context.lineTo(800, 1160);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#c07620";//填充色
+                    context.beginPath();
+                    context.moveTo(900, 1160);
+                    context.lineTo(1000, 1350);
+                    context.lineTo(800, 1160);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#8f4f00";//填充色
+                    context.beginPath();
+                    context.moveTo(900, 1160);
+                    context.lineTo(1110, 1360);
+                    context.lineTo(1000, 1350);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#6c3400";//填充色
+                    context.beginPath();
+                    context.moveTo(1000, 1350);
+                    context.lineTo(1110, 1360);
+                    context.lineTo(1090, 1430);
+                    context.closePath();
+                    context.fill();
+
+                    //樹幹
+                    //右
+                    //1
+                    context.fillStyle = "#8d4800";//填充色
+                    context.beginPath();
+                    context.moveTo(1400, 850);
+                    context.lineTo(1350, 1000);
+                    context.lineTo(1280, 1100);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#8f4e00";//填充色
+                    context.beginPath();
+                    context.moveTo(1450, 900);
+                    context.lineTo(1300, 1200);
+                    context.lineTo(1350, 1000);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#c07620";//填充色
+                    context.beginPath();
+                    context.moveTo(1350, 1000);
+                    context.lineTo(1300, 1200);
+                    context.lineTo(1280, 1100);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#8f5000";//填充色
+                    context.beginPath();
+                    context.moveTo(1280, 1100);
+                    context.lineTo(1300, 1200);
+                    context.lineTo(1130, 1360);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#673600";//填充色
+                    context.beginPath();
+                    context.moveTo(1300, 1200);
+                    context.lineTo(1150, 1500);
+                    context.lineTo(1130, 1360);
+                    context.closePath();
+                    context.fill();
+
+                    //樹幹
+                    //中
+                    //1
+                    context.fillStyle = "#924f00";//填充色
+                    context.beginPath();
+                    context.moveTo(1080, 1360);
+                    context.lineTo(1100, 1350);
+                    context.lineTo(1090, 1520);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#8f4d00";//填充色
+                    context.beginPath();
+                    context.moveTo(1100, 1350);
+                    context.lineTo(1160, 1340);
+                    context.lineTo(1150, 1600);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#c07620";//填充色
+                    context.beginPath();
+                    context.moveTo(1100, 1350);
+                    context.lineTo(1150, 1600);
+                    context.lineTo(1090, 1520);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#8d4f00";//填充色
+                    context.beginPath();
+                    context.moveTo(1090, 1520);
+                    context.lineTo(1150, 1600);
+                    context.lineTo(1040, 1800);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#673600";//填充色
+                    context.beginPath();
+                    context.moveTo(1150, 1600);
+                    context.lineTo(1120, 1910);
+                    context.lineTo(1040, 1800);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#904e00";//填充色
+                    context.beginPath();
+                    context.moveTo(1150, 1600);
+                    context.lineTo(1180, 1880);
+                    context.lineTo(1120, 1910);
+                    context.closePath();
+                    context.fill();
+
+                    //7
+                    context.fillStyle = "#673600";//填充色
+                    context.beginPath();
+                    context.moveTo(1040, 1800);
+                    context.lineTo(1020, 1910);
+                    context.lineTo(950, 1900);
+                    context.closePath();
+                    context.fill();
+
+                    //8
+                    context.fillStyle = "#904e00";//填充色
+                    context.beginPath();
+                    context.moveTo(1040, 1800);
+                    context.lineTo(1120, 1910);
+                    context.lineTo(1020, 1910);
+                    context.closePath();
+                    context.fill();
+
+                    //樹冠
+                    //1
+                    context.fillStyle = "#aed800";//填充色
+                    context.beginPath();
+                    context.moveTo(1000, 0);
+                    context.lineTo(790, 350);
+                    context.lineTo(300, 250);
+                    context.closePath();
+                    context.fill()
+
+                    //2
+                    context.fillStyle = "#76ba19";//填充色
+                    context.beginPath();
+                    context.moveTo(1000, 0);
+                    context.lineTo(1250, 550);
+                    context.lineTo(790, 350);
+                    context.closePath();
+                    context.fill()
+
+                    //3
+                    context.fillStyle = "#54a41e";//填充色
+                    context.beginPath();
+                    context.moveTo(1000, 0);
+                    context.lineTo(1690, 110);
+                    context.lineTo(1250, 550);
+                    context.closePath();
+                    context.fill()
+
+                    //4
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(1690, 110);
+                    context.lineTo(1690, 700);
+                    context.lineTo(1250, 550);
+                    context.closePath();
+                    context.fill()
+
+                    //5
+                    context.fillStyle = "#2e7102";//填充色
+                    context.beginPath();
+                    context.moveTo(1690, 110);
+                    context.lineTo(1990, 600);
+                    context.lineTo(1690, 700);
+                    context.closePath();
+                    context.fill()
+
+                    //6
+                    context.fillStyle = "#76ba19";//填充色
+                    context.beginPath();
+                    context.moveTo(300, 250);
+                    context.lineTo(790, 350);
+                    context.lineTo(100, 600);
+                    context.closePath();
+                    context.fill()
+
+                    //7
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(790, 350);
+                    context.lineTo(790, 760);
+                    context.lineTo(100, 600);
+                    context.closePath();
+                    context.fill()
+
+                    //8
+                    context.fillStyle = "#55a41e";//填充色
+                    context.beginPath();
+                    context.moveTo(790, 350);
+                    context.lineTo(1250, 550);
+                    context.lineTo(790, 760);
+                    context.closePath();
+                    context.fill()
+
+                    //9
+                    context.fillStyle = "#327002";//填充色
+                    context.beginPath();
+                    context.moveTo(1250, 550);
+                    context.lineTo(1690, 700);
+                    context.lineTo(790, 760);
+                    context.closePath();
+                    context.fill()
+
+                    //10
+                    context.fillStyle = "#265e03";//填充色
+                    context.beginPath();
+                    context.moveTo(100, 600);
+                    context.lineTo(790, 760);
+                    context.lineTo(380, 1030);
+                    context.closePath();
+                    context.fill()
+
+                    //11
+                    context.fillStyle = "#327002";//填充色
+                    context.beginPath();
+                    context.moveTo(790, 760);
+                    context.lineTo(650, 1100);
+                    context.lineTo(380, 1030);
+                    context.closePath();
+                    context.fill()
+
+                    //12
+                    context.fillStyle = "#265e03";//填充色
+                    context.beginPath();
+                    context.moveTo(790, 760);
+                    context.lineTo(850, 1000);
+                    context.lineTo(650, 1100);
+                    context.closePath();
+                    context.fill()
+
+                    //13
+                    context.fillStyle = "#204901";//填充色
+                    context.beginPath();
+                    context.moveTo(790, 760);
+                    context.lineTo(1300, 1040);
+                    context.lineTo(850, 1000);
+                    context.closePath();
+                    context.fill()
+
+                    //14
+                    context.fillStyle = "#265e03";//填充色
+                    context.beginPath();
+                    context.moveTo(790, 760);
+                    context.lineTo(1650, 950);
+                    context.lineTo(1300, 1040);
+                    context.closePath();
+                    context.fill()
+
+                    //15
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(790, 760);
+                    context.lineTo(1690, 700);
+                    context.lineTo(1650, 950);
+                    context.closePath();
+                    context.fill()
+
+                    //16
+                    context.fillStyle = "#265e03";//填充色
+                    context.beginPath();
+                    context.moveTo(1990, 600);
+                    context.lineTo(1690, 700);
+                    context.lineTo(1650, 950);
+                    context.closePath();
+                    context.fill()
+                }
+
+                //peach
+                let peach = document.getElementsByClassName('peach');
+                for (let i = 0; i < peach.length; i++) {
+                    let context = peach[i].getContext('2d');
+                    //土壤水份
+                    context.fillStyle = "#d2e8e9";//填充色
+                    context.beginPath();
+                    context.moveTo(550, 1950);
+                    context.lineTo(1000, 1800);
+                    context.lineTo(1400, 1950);
+                    context.lineTo(1200, 2000);
+                    context.lineTo(1100, 2000);
+                    context.closePath();
+                    context.fill();
+
+                    //樹幹
+                    //1
+                    context.fillStyle = "#e39a47";//填充色
+                    context.beginPath();
+                    context.moveTo(890, 1000);
+                    context.lineTo(970, 1250);
+                    context.lineTo(940, 1500);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#bf7620";//填充色
+                    context.beginPath();
+                    context.moveTo(1050, 1000);
+                    context.lineTo(1050, 1610);
+                    context.lineTo(970, 1250);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#a86003";//填充色
+                    context.beginPath();
+                    context.moveTo(970, 1250);
+                    context.lineTo(1050, 1610);
+                    context.lineTo(940, 1500);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#c07620";//填充色
+                    context.beginPath();
+                    context.moveTo(940, 1500);
+                    context.lineTo(1050, 1610);
+                    context.lineTo(950, 1770);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#a66100";//填充色
+                    context.beginPath();
+                    context.moveTo(1050, 1610);
+                    context.lineTo(1100, 1950);
+                    context.lineTo(950, 1770);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#663700";//填充色
+                    context.beginPath();
+                    context.moveTo(950, 1770);
+                    context.lineTo(920, 1950);
+                    context.lineTo(790, 1910);
+                    context.closePath();
+                    context.fill();
+
+                    //7
+                    context.fillStyle = "#904e00";//填充色
+                    context.beginPath();
+                    context.moveTo(950, 1770);
+                    context.lineTo(1100, 1950);
+                    context.lineTo(920, 1950);
+                    context.closePath();
+                    context.fill();
+
+                    //8
+                    context.fillStyle = "#904e00";//填充色
+                    context.beginPath();
+                    context.moveTo(1070, 1800);
+                    context.lineTo(1180, 1950);
+                    context.lineTo(1100, 1950);
+                    context.closePath();
+                    context.fill();
+
+                    //樹冠
+                    //1
+                    context.fillStyle = "#76ba17";//填充色
+                    context.beginPath();
+                    context.moveTo(1100, 0);
+                    context.lineTo(880, 260);
+                    context.lineTo(500, 250);
+                    context.closePath();
+                    context.fill()
+
+                    //2
+                    context.fillStyle = "#aed800";//填充色
+                    context.beginPath();
+                    context.moveTo(1100, 0);
+                    context.lineTo(1210, 600);
+                    context.lineTo(880, 260);
+                    context.closePath();
+                    context.fill()
+
+                    //3
+                    context.fillStyle = "#76ba19";//填充色
+                    context.beginPath();
+                    context.moveTo(1100, 0);
+                    context.lineTo(1400, 250);
+                    context.lineTo(1210, 600);
+                    context.closePath();
+                    context.fill()
+
+                    //4
+                    context.fillStyle = "#aed800";//填充色
+                    context.beginPath();
+                    context.moveTo(500, 250);
+                    context.lineTo(880, 260);
+                    context.lineTo(380, 650);
+                    context.closePath();
+                    context.fill()
+
+                    //5
+                    context.fillStyle = "#76ba18";//填充色
+                    context.beginPath();
+                    context.moveTo(880, 260);
+                    context.lineTo(880, 920);
+                    context.lineTo(380, 650);
+                    context.closePath();
+                    context.fill()
+
+                    //6
+                    context.fillStyle = "#50a31c";//填充色
+                    context.beginPath();
+                    context.moveTo(880, 260);
+                    context.lineTo(1210, 600);
+                    context.lineTo(880, 920);
+                    context.closePath();
+                    context.fill()
+
+                    //7
+                    context.fillStyle = "#55a41e";//填充色
+                    context.beginPath();
+                    context.moveTo(1400, 250);
+                    context.lineTo(1380, 920);
+                    context.lineTo(1210, 600);
+                    context.closePath();
+                    context.fill()
+
+                    //8
+                    context.fillStyle = "#76ba17";//填充色
+                    context.beginPath();
+                    context.moveTo(1400, 250);
+                    context.lineTo(1580, 650);
+                    context.lineTo(1380, 920);
+                    context.closePath();
+                    context.fill()
+
+                    //9
+                    context.fillStyle = "#55a41e";//填充色
+                    context.beginPath();
+                    context.moveTo(380, 650);
+                    context.lineTo(880, 920);
+                    context.lineTo(550, 1110);
+                    context.closePath();
+                    context.fill()
+
+                    //10
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(1210, 600);
+                    context.lineTo(1380, 920);
+                    context.lineTo(880, 920);
+                    context.closePath();
+                    context.fill()
+
+                    //11
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(1580, 650);
+                    context.lineTo(1350, 1160);
+                    context.lineTo(1380, 920);
+                    context.closePath();
+                    context.fill()
+
+                    //12
+                    context.fillStyle = "#307102";//填充色
+                    context.beginPath();
+                    context.moveTo(880, 920);
+                    context.lineTo(950, 1260);
+                    context.lineTo(550, 1110);
+                    context.closePath();
+                    context.fill()
+
+                    //13
+                    context.fillStyle = "#3b8801";//填充色
+                    context.beginPath();
+                    context.moveTo(880, 920);
+                    context.lineTo(1350, 1160);
+                    context.lineTo(950, 1260);
+                    context.closePath();
+                    context.fill()
+
+                    //14
+                    context.fillStyle = "#327002";//填充色
+                    context.beginPath();
+                    context.moveTo(880, 920);
+                    context.lineTo(1380, 920);
+                    context.lineTo(1350, 1160);
+                    context.closePath();
+                    context.fill()
+                }
+
+                //red_dates
+                let red_dates = document.getElementsByClassName('red-dates');
+                for (let i = 0; i < red_dates.length; i++) {
+                    let context = red_dates[i].getContext('2d');
+
+                    //土壤水份
+                    context.fillStyle = "#d2e8e9";//填充色
+                    context.beginPath();
+                    context.moveTo(620, 1910);
+                    context.lineTo(800, 1830);
+                    context.lineTo(1000, 1860);
+                    context.lineTo(1250, 1820);
+                    context.lineTo(1470, 1920);
+                    context.lineTo(1200, 2000);
+                    context.lineTo(1000, 2000);
+                    context.lineTo(850, 1980);
+                    context.lineTo(720, 1980);
+                    context.closePath();
+                    context.fill();
+
+                    //樹幹
+                    //1
+                    context.fillStyle = "#593a21";//填充色
+                    context.beginPath();
+                    context.moveTo(980, 1300);
+                    context.lineTo(1050, 1400);
+                    context.lineTo(990, 1700);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#593a21";//填充色
+                    context.beginPath();
+                    context.moveTo(1100, 1300);
+                    context.lineTo(1100, 1600);
+                    context.lineTo(1050, 1400);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#7c502b";//填充色
+                    context.beginPath();
+                    context.moveTo(1050, 1400);
+                    context.lineTo(1100, 1600);
+                    context.lineTo(990, 1700);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#a6742ec";//填充色
+                    context.beginPath();
+                    context.moveTo(990, 1700);
+                    context.lineTo(1100, 1600);
+                    context.lineTo(1100, 1800);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#7c502b";//填充色
+                    context.beginPath();
+                    context.moveTo(990, 1700);
+                    context.lineTo(1100, 1800);
+                    context.lineTo(970, 1930);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#593a21";//填充色
+                    context.beginPath();
+                    context.moveTo(1100, 1800);
+                    context.lineTo(1120, 1920);
+                    context.lineTo(970, 1930);
+                    context.closePath();
+                    context.fill();
+
+                    //樹冠
+                    //1
+                    context.fillStyle = "#afc937";//填充色
+                    context.beginPath();
+                    context.moveTo(550, 180);
+                    context.lineTo(880, 330);
+                    context.lineTo(400, 400);
+                    context.closePath();
+                    context.fill();
+
+                    //2
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(550, 180);
+                    context.lineTo(1250, 30);
+                    context.lineTo(880, 330);
+                    context.closePath();
+                    context.fill();
+
+                    //3
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(1250, 30);
+                    context.lineTo(1200, 380);
+                    context.lineTo(880, 330);
+                    context.closePath();
+                    context.fill();
+
+                    //4
+                    context.fillStyle = "#afc937";//填充色
+                    context.beginPath();
+                    context.moveTo(1250, 30);
+                    context.lineTo(1450, 150);
+                    context.lineTo(1200, 380);
+                    context.closePath();
+                    context.fill();
+
+                    //5
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(1450, 150);
+                    context.lineTo(1420, 500);
+                    context.lineTo(1200, 380);
+                    context.closePath();
+                    context.fill();
+
+                    //6
+                    context.fillStyle = "#afc937";//填充色
+                    context.beginPath();
+                    context.moveTo(1450, 150);
+                    context.lineTo(1680, 480);
+                    context.lineTo(1420, 500);
+                    context.closePath();
+                    context.fill();
+
+                    //7
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(400, 400);
+                    context.lineTo(1020, 680);
+                    context.lineTo(540, 750);
+                    context.closePath();
+                    context.fill();
+
+                    //8
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(400, 400);
+                    context.lineTo(880, 330);
+                    context.lineTo(1020, 680);
+                    context.closePath();
+                    context.fill();
+
+                    //9
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(880, 330);
+                    context.lineTo(1200, 380);
+                    context.lineTo(1020, 680);
+                    context.closePath();
+                    context.fill();
+
+                    //10
+                    context.fillStyle = "#648f40";//填充色
+                    context.beginPath();
+                    context.moveTo(1200, 380);
+                    context.lineTo(1420, 500);
+                    context.lineTo(1020, 680);
+                    context.closePath();
+                    context.fill();
+
+                    //11
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(1420, 500);
+                    context.lineTo(1450, 750);
+                    context.lineTo(1020, 680);
+                    context.closePath();
+                    context.fill();
+
+                    //12
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(1420, 500);
+                    context.lineTo(1680, 480);
+                    context.lineTo(1450, 750);
+                    context.closePath();
+                    context.fill();
+
+                    //13
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(540, 750);
+                    context.lineTo(850, 900);
+                    context.lineTo(400, 1000);
+                    context.closePath();
+                    context.fill();
+
+                    //14
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(540, 750);
+                    context.lineTo(1020, 680);
+                    context.lineTo(850, 900);
+                    context.closePath();
+                    context.fill();
+
+                    //15
+                    context.fillStyle = "#648f40";//填充色
+                    context.beginPath();
+                    context.moveTo(1020, 680);
+                    context.lineTo(1250, 1000);
+                    context.lineTo(850, 900);
+                    context.closePath();
+                    context.fill();
+
+                    //16
+                    context.fillStyle = "#85ae3d";//填充色
+                    context.beginPath();
+                    context.moveTo(1020, 680);
+                    context.lineTo(1450, 750);
+                    context.lineTo(1250, 1000);
+                    context.closePath();
+                    context.fill();
+
+                    //17
+                    context.fillStyle = "#648f40";//填充色
+                    context.beginPath();
+                    context.moveTo(1450, 750);
+                    context.lineTo(1450, 1080);
+                    context.lineTo(1250, 1000);
+                    context.closePath();
+                    context.fill();
+
+                    //18
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(1450, 750);
+                    context.lineTo(1620, 1020);
+                    context.lineTo(1450, 1080);
+                    context.closePath();
+                    context.fill();
+
+                    //19
+                    context.fillStyle = "#4a6e3c";//填充色
+                    context.beginPath();
+                    context.moveTo(400, 1000);
+                    context.lineTo(900, 1220);
+                    context.lineTo(580, 1360);
+                    context.closePath();
+                    context.fill();
+
+                    //20
+                    context.fillStyle = "#648f40";//填充色
+                    context.beginPath();
+                    context.moveTo(400, 1000);
+                    context.lineTo(850, 900);
+                    context.lineTo(900, 1220);
+                    context.closePath();
+                    context.fill();
+
+                    //21
+                    context.fillStyle = "#6d9a40";//填充色
+                    context.beginPath();
+                    context.moveTo(850, 900);
+                    context.lineTo(1250, 1000);
+                    context.lineTo(900, 1220);
+                    context.closePath();
+                    context.fill();
+
+                    //22
+                    context.fillStyle = "#5d8540";//填充色
+                    context.beginPath();
+                    context.moveTo(1250, 1000);
+                    context.lineTo(1450, 1080);
+                    context.lineTo(900, 1220);
+                    context.closePath();
+                    context.fill();
+
+                    //23
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(1450, 1080);
+                    context.lineTo(1400, 1400);
+                    context.lineTo(900, 1220);
+                    context.closePath();
+                    context.fill();
+
+                    //24
+                    context.fillStyle = "#5d8540";//填充色
+                    context.beginPath();
+                    context.moveTo(1450, 1080);
+                    context.lineTo(1620, 1020);
+                    context.lineTo(1400, 1400);
+                    context.closePath();
+                    context.fill();
+
+                    //25
+                    context.fillStyle = "#3f5c35";//填充色
+                    context.beginPath();
+                    context.moveTo(580, 1360);
+                    context.lineTo(900, 1220);
+                    context.lineTo(1000, 1450);
+                    context.closePath();
+                    context.fill();
+
+                    //26
+                    context.fillStyle = "#4a6e3c";//填充色
+                    context.beginPath();
+                    context.moveTo(900, 1220);
+                    context.lineTo(1400, 1400);
+                    context.lineTo(1000, 1450);
+                    context.closePath();
+                    context.fill();
+                }
+            },
+        })
+
+        let tree_img = new Vue({
+            el: "#tree_img",
+            data: {
+                imgs: [],
+            },
+            computed: {
+                imgs_id() {
+                    let tree_id = window.location.search.split("?")[1].split("=")[1];
+                    return this.imgs.filter(img => { return img.tree_id == tree_id });
+                },
+
+                imgs_limit2() {
+                    return this.imgs_id.slice(0, 2);
+                },
+
+                imgs_limit1() {
+                    return this.imgs_id.slice(0, 1);
+                }
+            },
+        })
+
+        let tree_data = new Vue({
+            el: "#tree_data",
+            data: {
+                trees: [],
+            },
+            computed: {
+                tree() {
+                    let tree_id = window.location.search.split("?")[1].split("=")[1];
+                    return this.trees.filter(tree => { return tree.tree_id == tree_id });
+                },
+            },
+            updated() {
+                if ($('#status').text() != 0) {
+                    $('.fruit_tree_box').text("");
+                    $('#tree_img').text("");
+                    $('.update').text("");
+                    $('.data').text("");
+                    $('.price').text("");
+                    $('.con_btnbox').text("");
+                    if ($('#status').text() == 1) {
+                        $('#status_text').text("果樹已認養，請選擇其它果樹，謝謝。");
+                    } else {
+                        $('#status_text').text("果樹已下架，請選擇其它果樹，謝謝。");
+                    }
+                }
+            },
+
+
+        })
+
+        let more_img = new Vue({
+            el: "#moreimg",
+            data: {
+                imgs: [],
+            },
+            computed: {
+                moreId_img() {
+                    let tree_id = window.location.search.split("?")[1].split("=")[1];
+                    return this.imgs.filter(img => { return img.tree_id == tree_id });
+                },
+            },
+            updated() {
+                //歷史照片跳窗
+                $('a[href="#moreimg"]').click(function (event) {
+                    event.stopPropagation();
+                    $(this).modal({
+                        fadeDuration: 300
+                    });
+                });
+            },
+
+        })
+
+        let popOrder = new Vue({
+            el: "#popOrder",
+            data: {
+                orders: [],
+                mems: [],
+                t_price: "",
+                years: [],
+            },
+            methods: {
+                init() {
+                    let myDate = new Date;
+                    let year = myDate.getFullYear();
+                    this.initSelectYear(year);
+                },
+                initSelectYear(year) {
+                    this.years = [];
+                    for (let i = 0; i < 30; i++) {
+                        this.years.push({ value: (year - i), label: (year - i) + "年" });
+                    }
+                }
+            },
+            computed: {
+                popId_order() {
+                    let tree_id = window.location.search.split("?")[1].split("=")[1];
+                    return this.orders.filter(order => { return order.tree_id == tree_id });
+                },
+                memId_coupon() {
+                    return this.mems.filter(mem => { return mem.mem_id == 1 });
+                },
+                memId() {
+                    return this.memId_coupon.slice(0, 1);
+                },
+                price() {
+                    if (this.popId_order[0]) {
+                        let price = this.t_price.split("-")[1];
+                        let discount = this.popId_order[0].tree_price - price;
+                        if (discount) {
+                            return discount;
+                        } else {
+                            return this.popId_order[0].tree_price;
+                        }
+                    }
+                },
+                coupon_id() {
+                    return this.t_price.split("-")[0];
+                }
+            },
+            created() {
+                this.init();
+            },
+            updated() {
+                //認養果樹訂單跳窗
+                $('a[href="#popOrder"]').click(function (event) {
+                    event.stopPropagation();
+                    $(this).modal({
+                        fadeDuration: 300
+                    });
+                });
+
+                //信用卡設定
+                $(".card").on("keydown", function (e) {
+                    //點擊0~9或backspace
+                    if ((e.which >= 48 && e.which <= 57) || e.which == 8) {
+
+                        //當輸入框無數值且按backspace，focus前一個輸入框
+                        if (e.target.value.length == 0 && e.which == 8) {
+                            $(this).prev().focus();
+                        }
+                    } else {
+                        e.preventDefault();
+                    }
+                });
+
+                $(".card").on("keyup", function (e) {
+
+                    // \D 代表非數字字元，g 代表全域尋找
+                    //非數字則無法輸入
+                    let str = (e.target.value).replace(/\D/g, "");
+
+                    $(this).val(str);
+
+                    //文字框文字長度等於4，focus下一個輸入框
+                    if (str.length == 4) {
+                        $(this).next().focus();
+                    }
+                });
+
+                //安全碼設定
+                $("#code").on("keydown", function (e) {
+                    //點擊0~9或backspace
+                    if ((e.which >= 48 && e.which <= 57) || e.which == 8) {
+                    } else {
+                        e.preventDefault();
+                    }
+                });
+                $("#code").on("keyup", function (e) {
+
+                    // \D 代表非數字字元，g 代表全域尋找
+                    //非數字則無法輸入
+                    let str_c = (e.target.value).replace(/\D/g, "");
+                    $(this).val(str_c);
+
+                });
+
+            },
+        })
+
+        let farm_map = new Vue({
+            el: "#farm_map",
+            data: {
+                trees: []
+            },
+            computed: {
+                farmId_trees() {
+                    return this.trees.filter(farm_trees => { return farm_trees.farm_name == $('#farm_name').text() });
+                },
+                farmId_limit6() {
+                    return this.farmId_trees.slice(0, 6);
+                },
+                farm() {
+                    return this.farmId_trees.slice(0, 1);
+                },
+            },
+            updated() {
+                //光圈
+                let tq = window.matchMedia("(min-width: 1024px)");
+                if (tq.matches) {
+                    $('.map').mousemove(function (event) {
+                        var map_offset = $(".black_bg").offset();
+                        var map_w = $(".black_bg").outerWidth();
+                        var map_h = $(".black_bg").outerHeight();
+                        var x = event.pageX;
+                        var cursor_x = x - map_offset.left - 75;
+                        var y = event.pageY;
+                        var cursor_y = y - map_offset.top - 75;
+                        if (y >= (map_offset.top + 75) && y <= (map_offset.top + map_h - 75)) {
+                            $(".cursor").css({
+                                "top": cursor_y + "px",
+                            });
+                        } else {
+                            return false;
+                        }
+                        if (x >= (map_offset.left + 75) && x <= (map_offset.left + map_w - 75)) {
+                            $(".cursor").css({
+                                "left": cursor_x + "px"
+                            });
+                        } else {
+                            return false;
+                        }
+                    });
+                } else {
+                    $('.map').on('touchmove', function (e) {
+                        var map_offset = $(".black_bg").offset();
+                        var map_w = $(".black_bg").outerWidth();
+                        var map_h = $(".black_bg").outerHeight();
+                        var touch = e.originalEvent.targetTouches[0];
+                        var x = touch.pageX;
+                        var cursor_x = x - map_offset.left - 75;
+                        var y = touch.pageY;
+                        var cursor_y = y - map_offset.top - 75;
+                        if (y >= (map_offset.top + 75) && y <= (map_offset.top + map_h - 75)) {
+                            $(".cursor").css({
+                                "top": cursor_y + "px",
+                            });
+                        } else {
+                            return false;
+                        }
+                        if (x >= (map_offset.left + 75) && x <= (map_offset.left + map_w - 75)) {
+                            $(".cursor").css({
+                                "left": cursor_x + "px"
+                            });
+                        } else {
+                            return false;
+                        }
+                    });
+                }
+
+                //判斷認養果樹狀態
+                for (let i = 0; i < $('.tree_status').length; i++) {
+                    let status = $('.tree_status').eq(i).text();
+                    if (status == 1) {
+                        $('.map_tree a').eq(i).css("pointer-events", "none");
+                        $('.none').eq(i).text("已認養");
+                        $('.map_tree').eq(i).css("filter", "grayscale(0.6)");
+                    } else if (status == 2) {
+                        $('.map_tree a').eq(i).css("pointer-events", "none");
+                        $('.none').eq(i).text("已下架");
+                        $('.map_tree').eq(i).css("filter", "grayscale(0.6)");
+                    } else {
+                        //未認養hover樹變大
+                        $('.map_tree').eq(i).hover(function () {
+                            $(this).css("transform", "scale(1.1)");
+                        }, function () {
+                            $(this).css("transform", "scale(1)");
+                        });
+                        $('.none').eq(i).hide();
+                    }
+                }
+            },
+        })
+
+        let more_farm = new Vue({
+            el: "#more_farm",
+            data: {
+                farms: []
+            },
+            updated() {
+                //點選顯示目前位置
+                $('.more_btnbox .bigbtn_s').click(function () {
+                    $(this).addClass('active').siblings().removeClass('active')
+                });
+            },
+        })
+
+        //連接php
+        //#getTree_data
+        function getFruit_tree() {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                console.log(JSON.parse(xhr.responseText))
+                fruit_tree.trees = JSON.parse(xhr.responseText)
+            }
+            xhr.open("get", "./phps/getTree_data.php", true);
+            xhr.send(null);
+        }
+
+        //連接php
+        //#getTree_img
+        function getTree_img() {
+            let xhr2 = new XMLHttpRequest();
+            xhr2.onload = function () {
+                console.log(JSON.parse(xhr2.responseText))
+                tree_img.imgs = JSON.parse(xhr2.responseText)
+            }
+            xhr2.open("get", "./phps/getTree_img.php", true);
+            xhr2.send(null);
+        }
+
+        //  連接php
+        // #getTree_data
+        function getTree_data() {
+            let xhr3 = new XMLHttpRequest();
+            xhr3.onload = function () {
+                console.log(JSON.parse(xhr3.responseText))
+                tree_data.trees = JSON.parse(xhr3.responseText)
+            }
+            xhr3.open("get", "./phps/getTree_data.php", true);
+            xhr3.send(null);
+        }
+
+        //  連接php
+        // #getTree_img
+        function getMore_img() {
+            let xhr4 = new XMLHttpRequest();
+            xhr4.onload = function () {
+                console.log(JSON.parse(xhr4.responseText))
+                more_img.imgs = JSON.parse(xhr4.responseText)
+            }
+            xhr4.open("get", "./phps/getTree_img.php", true);
+            xhr4.send(null);
+        }
+
+        //  連接php
+        // #getTree_data
+        function getpopOrder() {
+            let xhr5 = new XMLHttpRequest();
+            xhr5.onload = function () {
+                console.log(JSON.parse(xhr5.responseText))
+                popOrder.orders = JSON.parse(xhr5.responseText)
+            }
+            xhr5.open("get", "./phps/getTree_data.php", true);
+            xhr5.send(null);
+        }
+
+        //  連接php
+        // #getMem_coupon
+        function getpopOrder_mem() {
+            let xhr6 = new XMLHttpRequest();
+            xhr6.onload = function () {
+                console.log(JSON.parse(xhr6.responseText))
+                popOrder.mems = JSON.parse(xhr6.responseText)
+            }
+            xhr6.open("get", "./phps/getMem_coupon.php", true);
+            xhr6.send(null);
+        }
+
+        //  連接php
+        // #getTree_data
+        function getfarm_map() {
+            let xhr7 = new XMLHttpRequest();
+            xhr7.onload = function () {
+                console.log(JSON.parse(xhr7.responseText))
+                farm_map.trees = JSON.parse(xhr7.responseText)
+            }
+            xhr7.open("get", "./phps/getTree_data.php", true);
+            xhr7.send(null);
+        }
+
+        //  連接php
+        // #getfarm_btn
+        function getfarm() {
+            let xhr8 = new XMLHttpRequest();
+            xhr8.onload = function () {
+                console.log(JSON.parse(xhr8.responseText))
+                more_farm.farms = JSON.parse(xhr8.responseText)
+            }
+            xhr8.open("get", "./phps/getfarm_btn.php", true);
+            xhr8.send(null);
+        }
+
+        window.addEventListener("load", function () {
+            //------------------------網頁的初始設定
+            getFruit_tree();
+            getTree_img();
+            getTree_data();
+            getMore_img();
+            getpopOrder();
+            getpopOrder_mem();
+            getfarm_map();
+            getfarm();
+        })
+    </script>
+
 
 </body>
 

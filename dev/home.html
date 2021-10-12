@@ -136,7 +136,7 @@
           <div class="text">
             <h3>{{activity.activity_name}}</h3>
             <p>{{activity.activity_content}}...</p>
-            <span><a href="./activity_detail.html">我要報名</a></span>
+            <span><a :href="'activity_detail.html?activity_id=' + activity.activity_id">我要報名</a></span>
           </div>
         </div>
         <div class="con_box">

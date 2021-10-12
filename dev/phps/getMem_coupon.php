@@ -5,11 +5,12 @@ try {
 
 	//執行sql指令並取得pdoStatement
 	$sql = "select * 
-    from tree a join fruit b on a.fruit_id = b.fruit_id join farm c on a.farm_id = c.farm_id
-    order by tree_status, tree_id";
-	$tree_data = $pdo->query($sql);
-	$trees = $tree_data->fetchAll(PDO::FETCH_ASSOC);
-	echo json_encode($trees);
+    from member a left join coupon b on a.mem_id = b.mem_id
+    where coupon_status=0 or coupon_status is null
+    order by coupon_id";
+	$mem_coupon = $pdo->query($sql);
+	$mems = $mem_coupon->fetchAll(PDO::FETCH_ASSOC);
+	echo json_encode($mems);
 } catch (Exception $e) {
 	echo "錯誤行號 : ", $e->getLine(), "<br>";
 	echo "錯誤原因 : ", $e->getMessage(), "<br>";

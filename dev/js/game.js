@@ -1,5 +1,4 @@
 $(function () {
-
     $('#cancel').click(function () {
         history.back();
     });
@@ -8,18 +7,22 @@ $(function () {
         $('#back').hide();
         var time;
         var SetSecond = 10;
+        var Second=10;
         time = setInterval(function () {
             SetSecond--;
+            Second--;
             if (SetSecond < 0) {
                 SetSecond = 0;
                 $('#back').show();
                 $('.rule').hide();
                 $('.result').show();
             };
+            if(Second == 0){
+                $('#ok').click();
+            };
             $('#Check_Txt').text(`時間計數： ${SetSecond}秒`);
         }, 1000);
     });
-
 
     for (var i = 0; i <= 4; i++) {
         var treeTop = (Math.random() * 80); //亂數0~80
@@ -131,6 +134,7 @@ $(function () {
             coupon = 100;
         }
         $('#coupon').text(`折扣${coupon}元`);
+        $('#coupon_in input').val(`${coupon}`);
     }
 
     $('#again').click(function () {
@@ -138,7 +142,7 @@ $(function () {
     });
 
     $('#cancel').click(function () {
-        $(window).attr('location','./tree_growing.html');
+        location.go(-1);
     });
 
     $('#sure').click(function () {

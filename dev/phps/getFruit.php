@@ -4,12 +4,10 @@ try {
 	require_once("./connectBooks.php");
 
 	//執行sql指令並取得pdoStatement
-	$sql = "select * 
-    from tree a join fruit b on a.fruit_id = b.fruit_id join farm c on a.farm_id = c.farm_id
-    order by tree_status, tree_id";
-	$tree_data = $pdo->query($sql);
-	$trees = $tree_data->fetchAll(PDO::FETCH_ASSOC);
-	echo json_encode($trees);
+	$sql = "select * from fruit";
+	$fruit_items = $pdo->query($sql);
+	$fruits = $fruit_items->fetchAll(PDO::FETCH_ASSOC);
+	echo json_encode($fruits);
 } catch (Exception $e) {
 	echo "錯誤行號 : ", $e->getLine(), "<br>";
 	echo "錯誤原因 : ", $e->getMessage(), "<br>";

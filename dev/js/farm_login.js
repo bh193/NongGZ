@@ -33,11 +33,11 @@ function sendForm() {
             // $id('memId').value = '';
             // $id('memPsw').value = '';
             // console.log(member);
-            alert("成功登入");
+            $('body').hide();
             window.location.href='./back_farminfo.html';
-            
         } else {
-            alert("帳密錯誤");
+            window.location.href='#error';
+            $('body').show();
         }
     }
 
@@ -46,6 +46,17 @@ function sendForm() {
     let data_info = `farm_email=${$id("farm_email").value}&farm_psw=${$id("farm_psw").value}`;
     xhr.send(data_info);
     //==============================
+}
+
+function sendCom() {
+let com_email = "cfd102"
+let com_psw = "cfd102"
+if($('#con_email').val() == com_email && $('#con_psw').val() == com_psw){
+    $('body').hide();
+    window.location.href='./admin_farmer.html';
+}else {
+    $('body').show();
+}
 }
 
 // function cancelLogin() {
@@ -77,7 +88,8 @@ function init() {
     // $id('spanLogin').onclick = showLoginForm;
 
     //===設定btnLogin.onclick 事件處理程序是 sendForm
-    $id('btnLogin').onclick = sendForm;
+    $id('btnLogin_f').onclick = sendForm;
+    $id('btnLogin_c').onclick = sendCom;
 
     // //===設定btnLoginCancel.onclick 事件處理程序是 cancelLogin
     // $id('btnLoginCancel').onclick = cancelLogin;
