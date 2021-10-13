@@ -1,23 +1,29 @@
 Vue.component('login',{
-    methods: {
-        loginmem(){
-            fetch('./php/login.php')
+    data(){
+        return{
+            user: '',
+            userpassword:'',
+            loginmsg:'',
         }
     },
+    methods: {
+    },
+
     template:`
     <div  id="login">
-        <form action="" class="login">
+        <form  class="login" action="./phps/memlogin.php" method="post">
             <div class="text">
                 <label for="">電子信箱</label>
-                <input type="mail" required="required">
+                <input type="mail" v-model="user" name="mem_user">
             </div>
             <div class="text">
                 <label for="">密碼</label>
-                <input type="password" required="required">
+                <input type="password" v-model="userpassword" name="mem_password" >
             </div>
             <div class="text">
                     <button type="reset" class="btn">清除</button>
-                    <button class="btn"><a href="./mem_center.html" style="color: #fff;text-decoration: none;">登入</a></button>
+                    <button class="btn" type="submit">登入</button>
+                    <div class="erromis" v-text="loginmsg"></div>
 
             </div>
         </form>
@@ -31,33 +37,66 @@ Vue.component('register',{
             mail:'',
             psw:'',
             psw2:'',
-            selected:false
+            selected:false,
+            error:'',
+            msg:'註冊成功，歡迎加入農果子',
+          
+            
         }
     },
     methods: {
-                    addmem(){
+
+        check(){
+        let checkemail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+
+
+
+        if(this.username == ''|| this.mail == ''|| this.psw == '' || this.psw2 == '' ){
+            this.msg = '尚有欄位未填寫'
+            return
+        }
+        if(!checkemail.test(this.mail)){
+            this.msg = '信箱格式錯誤'
+            return
+        }
+        if(this.psw !== this.psw2){
+            this.msg  = '確認密碼不一致'
+            return
+        }
+        if(this.selected == false){
+            this.msg  = '會員條款未勾選'
+            return
+        }
+        // if(this.mail >=  1){
+        //     this.msg  = '信箱已被註冊過囉'
+        //     console.log(res)
+        //     return 
+        // }
+        else{
         let data_meminfo = {
         'mem_name': this.username, //資料庫名稱,v-model名稱
         'mem_email':this.mail,
         'mem_psw':this.psw,
         };
         $.ajax({
-        type: 'post',
+        type: 'POST',
         url: "./phps/addmem.php",
         data: data_meminfo,
-        dataType:'json',
+        contentType:"application/json; charset=utf-8",
+        // dataType:'json',
         success: (res) => {
         console.log(res)
         },
-        error: () => {
-        console.log('error')
+        error: (res,err) => {
         },
-        complete: () => {
+        complete: () => { //都會執行這行
+    
         console.log(data_meminfo)
         }
         });
-        
+        }
     },
+
     },
 
     template:`
@@ -69,7 +108,7 @@ Vue.component('register',{
             </div>
             <div class="text">
                 <label for="">電子信箱</label>
-                <input type="text" v-model="mail" name="mem_mail">
+                <input type="text" v-model="mail" name="mem_email">
             </div>
             <div class="text">
                 <label for="">密碼</label>
@@ -84,18 +123,17 @@ Vue.component('register',{
                 <label for="check">點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></label>
 
             </div>
-             <!-- 對話框 -->
+            </form>
 
             <div class="text">
                 <button class="btn" type="reset">清除</button>
-                <a href="#sendmail" rel="modal:open" @click="addmem"><button class="btngrenn" type="submit">送出</button></a>
+                <a href="#sendmail" rel="modal:open" @click="check" ><button class="btngrenn" type="submit">送出</button></a>
                 <div id="sendmail" class="modal dialog">
-                    <div class="text"><h3>恭喜成為會員</h3></div>
-                    <div class="text"><button onclick="window.open('./memlogin.html')">立即登入</button></div>
+                    <div class="text"><h3 v-text="msg"></h3></div>
                   </div>
 
             </div>
-        </form>
+        
     </div>
     `,
     
@@ -108,7 +146,8 @@ let mem= new Vue({
         
     },
     methods: {
-    mystyle(){
+    mystyle(boolean){
+        if (boolean) 
             return{
                 color:'green',
             }
