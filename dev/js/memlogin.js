@@ -149,7 +149,7 @@ let mem= new Vue({
     mystyle(boolean){
         if (boolean) 
             return{
-                color:'green',
+                color:'#17C3B2',
             }
         },
 
