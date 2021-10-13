@@ -15,6 +15,8 @@
             </li>
             <li><a href="./memlogin.html"><img src="images/common/login.svg" alt="member"></a>
                 <h4 id="mem_state">會員</h4>
+                <p id="mem_name" style="display: none;"></p>
+                <p id="mem_id" style="display: none;"></p>
             </li>
         </ol>
         <div class="hamberger">
@@ -25,3 +27,32 @@
     </div>
 </header>
 <script src="js/header.min.js"></script>
+
+<!-- <script>
+    function $id(id) {
+        return document.getElementById(id);
+    }
+
+    let member = {};
+
+    function getFarmInfo() {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            member = JSON.parse(xhr.responseText);
+            if (member.mem_email) {
+                $id("mem_name").innerText = member.mem_name;
+                $id("mem_state").innerText = "登出";
+                $id("mem_id").innerText = member.mem_id;
+            }
+        }
+        xhr.open("get", "./phps/getMemInfo.php", true);
+        xhr.send(null);
+    }
+
+    function init() {
+        //--------------------------------------取回登入者的資訊
+        getFarmInfo();
+    }; //window.onload
+
+    window.addEventListener("load", init, false);
+</script> -->

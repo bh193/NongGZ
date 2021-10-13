@@ -74,4 +74,19 @@ $(function () {
             }
         });
     }
+
+    //登入會員顯示資訊
+    let member = {};
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        member = JSON.parse(xhr.responseText);
+        if (member.mem_email) {
+            $("#mem_name").text(member.mem_name);
+            $("#mem_state").text("登出");
+            $("#mem_id").text(member.mem_id);
+        }
+    }
+    xhr.open("get", "./phps/getMemInfo.php", true);
+    xhr.send(null);
+
 });

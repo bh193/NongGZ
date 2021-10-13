@@ -8,7 +8,7 @@
 <?php
 session_start();
 try{
-  require_once("./connecttbame.php");
+  require_once("./connectBooks.php");
   
   $sql = "select * from member where mem_email=:mem_email and mem_psw=:mem_psw"; 
   $member = $pdo->prepare($sql);
@@ -25,8 +25,9 @@ try{
     //登入成功,將登入者的資料寫入session
     $_SESSION["mem_email"] = $memRow["mem_email"];
     $_SESSION["mem_name"] = $memRow["mem_name"];
+    $_SESSION["mem_id"] = $memRow["mem_id"];
 
-    $meminfo = ["mem_email"=> $_SESSION["mem_email"],"mem_name"=> $_SESSION["mem_name"]];
+    $meminfo = ["mem_email"=> $_SESSION["mem_email"],"mem_name"=> $_SESSION["mem_name"], "mem_id"=> $_SESSION["mem_id"]];
 
 
     //送出登入者的姓名資料
