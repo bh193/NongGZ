@@ -7,8 +7,8 @@ try {
 	$sql = "SELECT *
 	from activity a join farm b on a.farm_id = b.farm_id
 									join city c on b.city_id = c.city_id
-									join a_order d on a.activity_id = d.activity_id
-									join member e on e.mem_id = d.mem_id
+									-- join a_order d on a.activity_id = d.activity_id
+									-- join member e on e.mem_id = d.mem_id
 	order by activity_date";
 	$products = $pdo->query($sql);
 	$prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
