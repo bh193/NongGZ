@@ -1,390 +1,625 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>會員中心</title>
-  <script src="js/jquery.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>會員中心</title>
+    <script src="js/jquery.min.js"></script>
 
-  <script src="js/jquery.modal.min.js"></script>
-  
-  <script src="js/orange.min.js"></script>
+    <script src="js/jquery.modal.min.js"></script>
 
-  <link rel="stylesheet" href="css/tree_growing.css">
-  
-  <link rel="stylesheet" type="text/css" href="css/mem_center.css">
+    <!-- <script src="js/orange.min.js"></script> -->
 
-  <link rel="stylesheet" href="font/jquery.modal.css">
+    <link rel="stylesheet" href="css/tree_growing.css" />
 
-  <script src="js/vue.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/mem_center.css" />
 
-  <style>
-    /* 覆蓋認養果樹訂單tree_growing.scss */
-    section{
-      margin-bottom: 20px;
-      display: flex;
-    }
-  </style>
-</head>
+    <link rel="stylesheet" href="font/jquery.modal.css" />
 
-<body>
-  @@include('layout/header.html')
-<div class="app" id="app">
-  <div class="banner">
-    <ul class="breadcrumb">
-      <li><a href="">首頁</a></li>
-      <li><a href="">會員中心</a></li>
-    </ul>
-  </div>
+    <script src="js/vue.min.js"></script>
 
-  <div class="all">
-      <ol class="member">
-        <li class="pic">
-          <img id="mem_img" src="images/mem/farmer.jpg" alt="">
-          <label class="camera">
-            <input id="upload_img" style="display:none;" type="file">
-            <img src="images/common/update-camera.png" alt="">
-          </label>
-        </li>
-        <li class="info">
-          <label>會員名稱</label>
-          <input type="text" id="mem_name">
-          <label>電子信箱</label>
-          <input type="text" id="mem_email">
-          <label>連絡電話</label>
-          <input type="text" id="mem_tel">
-        </li>
-        <li class="btn">
-          <a href="#modal_password" rel="modal:open"><button id="edit">修改密碼</button></a>
-          @@include('layout/modal_password.html')
-          <button id="save">儲存資料</button>
-        </li>
-      </ol>
-      <div class="order-select">
-        <div class="tabs">
-          <a class="select_1">
-            <img src="images/common/tree_green.png" alt="" class="tree_green" style="display: block;">
-            <img src="images/common/tree_gray.png" alt="" class="tree_gray" style="display: none;">
-            <p>認養果樹訂單</p>
-          </a>
-          <a class="select_2">
-            <img src="images/common/apple_green.png" alt="" class="apple_green" style="display: none;">
-            <img src="images/common/apple_gray.png" alt="" class="apple_gray" style="display: block;">
-            <p>體驗行程訂單</p>
-          </a>
-          <a class="select_3">
-            <img src="images/common/coupon_green.png" alt="" class="coupon_green" style="display: none;">
-            <img src="images/common/coupon_gray.png" alt="" class="coupon_gray" style="display: block;">
-            <p>折扣券</p>
-          </a>
-        </div>
-        <ul class="orders">
-          <!-- 認養果樹訂單 -->
-          <li>
-            <div class="for" v-for="one in AllOrder">
-              <div class="item">
-                <div class="left">
-                  <img id="plus" src="images/common/plus.png" alt="">
-                  <img id="minus" src="images/common/minus.png" alt="">
-                  <span>果樹名稱：</span>
-                  <span id="tree_name">{{one.tree_name}}</span>
-                </div>
-                <div class="right">
-                  <span>訂單編號：</span>
-                  <span id="t_order_id">{{one.t_order_id}}</span>
-                </div>
-              </div>
-              
-              <!-- 認養訂單內容  -->
-              <div class="detail">
-                <section id="fruit_tree">
-                  <div class="fruit_tree_box">
-                    <canvas class="orange" width="2000" height="2000"></canvas>
-                      <div class="tree_fruit_box">
-                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                        <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實">
-                      </div>
-                  </div>
-                  <div class="container">
-                    <div class="content_top">
-                      <p class="update">照片更新日期:2021-10-04 16:55:51</p>
-                        <div class="con_imgbox">
-                          <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
-                          <div class="img"> <img src="./images/tree/8.jpg" alt="真實果樹照片"></div>
-                        </div>
-                        <a href="#moreimg" rel="modal:open"><input class="smallbtn_s" type="button" value="查看更多"></a>
-                    </div>
-                    <div class="content_bottom">
-                      <p class="update">資訊更新日期: {{one.tree_update}}}</p>
-                        <div class="con_text">
-                          <h2 class="con_text_title">{{one.tree_name}}</h2>
-                          <div class="id">
-                            <span>{{one.farm_name}}</span>
-                            <span>果樹編號:{{one.tree_id}}</span>
-                          </div>
-                          <div class="data">
-                            <div class="data_text">
-                              <h3>尺寸</h3>
-                              <h2 id="size">{{one.size}}</h2>
-                            </div>
-                            <div class="data_text">
-                              <h3>數量</h3>
-                              <h2 id="number">{{one.amount}}</h2>
-                            </div>
-                          </div>
-                          <span id="fruit_id" style="visibility:hidden">1</span>
-                          <h3 class="price">認養價格: {{one.tree_price}} $/年</h3>
-                        </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </div>
+    <style>
+      /* 覆蓋認養果樹訂單tree_growing.scss */
+      section {
+        margin-bottom: 20px;
+        display: flex;
+      }
+    </style>
+  </head>
+
+  <body>
+    @@include('layout/header.html')
+    <div class="app" id="app">
+      <div class="banner">
+        <ul class="breadcrumb">
+          <li><a href="">首頁</a></li>
+          <li><a href="">會員中心</a></li>
+        </ul>
+      </div>
+
+      <div class="all">
+        <ol class="member">
+          <li class="pic">
+            <img id="mem_img" src="images/mem/farmer.jpg" alt="" />
+            <label class="camera">
+              <input id="upload_img" style="display: none" type="file" />
+              <img src="images/common/update-camera.png" alt="" />
+            </label>
           </li>
-          <!-- 體驗行程訂單 -->
-          <li> 
-            <div class="for" v-for="one in AllOrder">
-              <div class="item">
-                <div class="left">
-                  <img id="plus" src="images/common/plus.png" alt="">
-                    <img id="minus" src="images/common/minus.png" alt="">
-                  <span>活動名稱：{{one.activity_name}}</span>
-                  <span id="activity_name"></span>
+          <li class="info" v-for="item in all">
+            <label>會員名稱</label>
+            <input type="text" id="mem_name" />
+            <label>電子信箱</label>
+            <input type="text" :value="item.mem_email" disabled/>
+            <label>連絡電話</label>
+            <input type="text" id="mem_tel" />
+          </li>
+          <li class="btn">
+            <a href="#modal_password" rel="modal:open"
+              ><button id="edit">修改密碼</button></a
+            >
+            <button id="save">儲存資料</button>
+          </li>
+        </ol>
+        <div class="order-select">
+          <div class="tabs">
+            <a class="select_1">
+              <img
+                src="images/common/tree_green.png"
+                alt=""
+                class="tree_green"
+                style="display: block"
+              />
+              <img
+                src="images/common/tree_gray.png"
+                alt=""
+                class="tree_gray"
+                style="display: none"
+              />
+              <p>認養果樹訂單</p>
+            </a>
+            <a class="select_2">
+              <img
+                src="images/common/apple_green.png"
+                alt=""
+                class="apple_green"
+                style="display: none"
+              />
+              <img
+                src="images/common/apple_gray.png"
+                alt=""
+                class="apple_gray"
+                style="display: block"
+              />
+              <p>體驗行程訂單</p>
+            </a>
+            <a class="select_3">
+              <img
+                src="images/common/coupon_green.png"
+                alt=""
+                class="coupon_green"
+                style="display: none"
+              />
+              <img
+                src="images/common/coupon_gray.png"
+                alt=""
+                class="coupon_gray"
+                style="display: block"
+              />
+              <p>折扣券</p>
+            </a>
+          </div>
+          <ul class="orders">
+            <!-- 認養果樹訂單 -->
+            <li>
+              <div class="for2" v-for="item in trees">
+                <div class="item">
+                  <div class="left">
+                    <img id="plus" src="images/common/plus.png" alt="" />
+                    <img id="minus" src="images/common/minus.png" alt="" />
+                    <span>果樹名稱：</span>
+                    <span id="tree_name">{{item.tree_name}}</span>
+                  </div>
+                  <div class="right">
+                    <span>訂單編號：</span>
+                    <span id="t_order_id">{{item.t_order_id}}</span>
+                  </div>
                 </div>
-                <div class="right">
-                  <span>訂單編號：</span>
-                  <span id="a_order_id">{{one.a_order_id}}</span>
+
+                <!-- 認養訂單內容  -->
+                <div class="detail">
+                  <section id="fruit_tree">
+                    <div class="fruit_tree_box">
+                      <canvas class="item" width="2000" height="2000"></canvas>
+                      <div class="tree_fruit_box">
+                        <div>
+                          <img
+                            class="tree_fruit"
+                            src="images/fruit/fruit_1.svg"
+                            alt="果實"
+                          />
+                          <img
+                            class="tree_fruit"
+                            src="images/fruit/fruit_1.svg"
+                            alt="果實"
+                          />
+                          <img
+                            class="tree_fruit"
+                            src="images/fruit/fruit_1.svg"
+                            alt="果實"
+                          />
+                          <img
+                            class="tree_fruit"
+                            src="images/fruit/fruit_1.svg"
+                            alt="果實"
+                          />
+                          <img
+                            class="tree_fruit"
+                            src="images/fruit/fruit_1.svg"
+                            alt="果實"
+                          />
+                          <img
+                            class="tree_fruit"
+                            src="images/fruit/fruit_1.svg"
+                            alt="果實"
+                          />
+                          <img
+                            class="tree_fruit"
+                            src="images/fruit/fruit_1.svg"
+                            alt="果實"
+                          />
+                          <img
+                            class="tree_fruit"
+                            src="images/fruit/fruit_1.svg"
+                            alt="果實"
+                          />
+                          <img
+                            class="tree_fruit"
+                            src="images/fruit/fruit_1.svg"
+                            alt="果實"
+                          />
+                          <div style="display: none">
+                            <!-- <p id="number">{{item.amount}}</p>
+                            <p id="size">{{item.size}}</p> -->
+                            <p class="fruit_id">{{item.fruit_id}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="container">
+                      <div class="content_top">
+                        <p class="update">照片更新日期:2021-10-04 16:55:51</p>
+                        <div class="con_imgbox">
+                          <div class="img">
+                            <img src="./images/tree/8.jpg" alt="真實果樹照片" />
+                          </div>
+                          <div class="img">
+                            <img src="./images/tree/8.jpg" alt="真實果樹照片" />
+                          </div>
+                        </div>
+                        <a href="#moreimg" rel="modal:open"
+                          ><input
+                            class="smallbtn_s"
+                            type="button"
+                            value="查看更多"
+                        /></a>
+                      </div>
+                      <div class="content_bottom">
+                        <p class="update">資訊更新日期:{{item.tree_update}}</p>
+                        <div class="con">
+                          <div class="con_text">
+                            <h2 class="con_text_title">{{item.tree_name}}</h2>
+                            <div class="id">
+                              <span>{{item.farm_name}}</span>
+                              <span>果樹編號:{{item.tree_id}}</span>
+                            </div>
+                            <div class="data">
+                              <div class="data_text">
+                                <h3>尺寸</h3>
+                                <h2 class="size">{{item.size}}</h2>
+                              </div>
+                              <div class="data_text">
+                                <h3>數量</h3>
+                                <h2 class="number">{{item.amount}}</h2>
+                              </div>
+                            </div>
+                            <span id="fruit_id" style="visibility: hidden"
+                              >1</span
+                            >
+                            <h3 class="price">
+                              認養價格: {{item.tree_price}}$/年
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
                 </div>
               </div>
-              <!-- 行程訂單內容 -->
-              <div class="detail activity">
+            </li>
+            <!-- 體驗行程訂單 -->
+            <li>
+              <div class="for3" v-for='item in activitys'>
+                <div class="item">
+                  <div class="left">
+                    <img id="plus" src="images/common/plus.png" alt="" />
+                    <img id="minus" src="images/common/minus.png" alt="" />
+                    <span>活動名稱：</span>
+                    <span id="activity_name">{{item.activity_name}}</span>
+                  </div>
+                  <div class="right">
+                    <span>訂單編號：</span>
+                    <span id="a_order_id">{{item.a_order_id}}</span>
+                  </div>
+                </div>
+                <!-- 行程訂單內容 -->
+                <div class="detail activity">
+                  <table border="1" cellpadding="6">
+                    <thead>
+                      <tr>
+                        <th>訂單日期</th>
+                        <th>行程日期</th>
+                        <th>姓名</th>
+                        <th>信箱</th>
+                        <th>人數</th>
+                        <th>報名狀態</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{item.a_order_date}}</td>
+                        <td>{{item.activity_date}}</td>
+                        <td>{{item.mem_name}}</td>
+                        <td>{{item.mem_email}}</td>
+                        <td>{{item.a_order_people}}</td>
+                        <td>已報名</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </li>
+            <!-- 折扣券 -->
+            <li>
+              <div class="item">
+                <div class="left">
+                  <img id="plus" src="images/common/plus.png" alt="" />
+                  <img id="minus" src="images/common/minus.png" alt="" />
+                  <span>折扣面額：</span>
+                  <span>$600</span>
+                </div>
+                <div class="right">
+                  <span>折扣券序號：</span>
+                  <span>123</span>
+                </div>
+              </div>
+              <!-- 折扣券內容1-->
+              <div class="detail">
                 <table border="1" cellpadding="6">
                   <thead>
                     <tr>
-                      <th>訂單日期</th>
-                      <th>行程日期</th>
-                      <th>姓名</th>
-                      <th>信箱</th>
-                      <th>人數</th>
-                      <th>報名狀態</th>
+                      <th>折扣券序號</th>
+                      <th>折扣面額</th>
+                      <th>使用狀態</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>2021/11/11</td>
-                      <td>2021/12/12</td>
-                      <td>XXXX</td>
-                      <td>ooxx@gmail.com</td>
-                      <td>2</td>
-                      <td>已報名</td>
+                      <td>123</td>
+                      <td>$600</td>
+                      <td>未使用</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-            </div>
-          </li>
-          <!-- 折扣券 -->
-          <li>
-            <div class="item">
-              <div class="left">
-                <img id="plus" src="images/common/plus.png" alt="">
-                  <img id="minus" src="images/common/minus.png" alt="">
-                <span>折扣面額：</span>
-                <span>$600</span>
+              <div class="item">
+                <div class="left">
+                  <img id="plus" src="images/common/plus.png" alt="" />
+                  <img id="minus" src="images/common/minus.png" alt="" />
+                  <span>折扣面額：</span>
+                  <span>$100</span>
+                </div>
+                <div class="right">
+                  <span>折扣券序號：</span>
+                  <span>123</span>
+                </div>
               </div>
-              <div class="right">
-                <span>折扣券序號：</span>
-                <span>123</span>
+              <!-- 折扣券內容2-->
+              <div class="detail">
+                <table border="1" cellpadding="6">
+                  <thead>
+                    <tr>
+                      <th>折扣券序號</th>
+                      <th>折扣面額</th>
+                      <th>使用狀態</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>123</td>
+                      <td>$100</td>
+                      <td>未使用</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-            </div>
-            <!-- 折扣券內容1-->
-            <div class="detail">
-              <table border="1" cellpadding="6">
-                <thead>
-                  <tr>
-                    <th>折扣券序號</th>
-                    <th>折扣面額</th>
-                    <th>使用狀態</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>123</td>
-                    <td>$600</td>
-                    <td>未使用</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="item">
-              <div class="left">
-                <img id="plus" src="images/common/plus.png" alt="">
-                  <img id="minus" src="images/common/minus.png" alt="">
-                <span>折扣面額：</span>
-                <span>$100</span>
-              </div>
-              <div class="right">
-                <span>折扣券序號：</span>
-                <span>123</span>
-              </div>
-            </div>
-            <!-- 折扣券內容2-->
-            <div class="detail">
-              <table border="1" cellpadding="6">
-                <thead>
-                  <tr>
-                    <th>折扣券序號</th>
-                    <th>折扣面額</th>
-                    <th>使用狀態</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>123</td>
-                    <td>$100</td>
-                    <td>未使用</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-  </div>  
-</div>  
-  @@include('layout/footer.html')
-  
-  <script src="js/mem_center.min.js"></script>
-  
-  <script type="text/javascript">
-    let app = new Vue({
-      el:"#app",
-      data:{
-        AllOrder:[],
-      },
+    </div>
+    @@include('layout/modal_password.html') @@include('layout/footer.html')
 
-      mounted() {
-        // 認養及體驗活動訂單的頁面切換
-        $(function(){
-          var $orderSelect = $('.order-select') ,
-              $tabs = $orderSelect.find('.tabs') ,
-              $page = $tabs.find('a') ,
-              $order = $orderSelect.find('.orders') ,
-              $content = $order.find('> li');
-              $page.eq(0).addClass('active');
-              $content.eq(0).show();
-              $page.on('click',function(){
-                var $pageIndex = $(this).index();
-                $(this).addClass('active').siblings().removeClass('active');
-                $content.eq($pageIndex).show().siblings().hide();
-              });
-        });
-
-        //頁面icon切換
-        $(".select_1").click(function(){
-          $(this).find(".tree_gray").hide();
-          $(this).find(".tree_green").show();
-          $(this).siblings(".select_2").find(".apple_gray").show();
-          $(this).siblings(".select_2").find(".apple_green").hide();
-          $(this).siblings(".select_3").find(".coupon_gray").show();
-          $(this).siblings(".select_3").find(".coupon_green").hide();
-        });
-
-        $(".select_2").click(function(){
-          $(this).find(".apple_gray").hide();
-          $(this).find(".apple_green").show();
-          $(this).siblings(".select_1").find(".tree_gray").show();
-          $(this).siblings(".select_1").find(".tree_green").hide();
-          $(this).siblings(".select_3").find(".coupon_gray").show();
-          $(this).siblings(".select_3").find(".coupon_green").hide();
-        });
-
-        $(".select_3").click(function(){
-          $(this).find(".coupon_gray").hide();
-          $(this).find(".coupon_green").show();
-          $(this).siblings(".select_1").find(".tree_gray").show();
-          $(this).siblings(".select_1").find(".tree_green").hide();
-          $(this).siblings(".select_2").find(".apple_gray").show();
-          $(this).siblings(".select_2").find(".apple_green").hide();
-        });
-      },
-
-      updated(){
-
-        // 單筆訂單開合與+-切換
-        $(".item").click(function(){
-          $(this).next(".detail").slideToggle()
-          var icon =  $(this).children().children(".item #plus");
-          if( icon.css("display") == "none"){
-            icon.show();
-          }else{
-            icon.hide();
-          }
-            
-          var icon =  $(this).children().children(".item #minus");
-          if( icon.css("display") == "none"){
-            icon.show();
-          }else{
-            icon.hide();
-          }
-        });
-      }
-    })	
-    
-    function getActivityList(){
-      let xhr = new XMLHttpRequest();
-      xhr.onload = function(){
-        // console.log(JSON.parse(xhr.responseText))
-        app.AllOrder = JSON.parse(xhr.responseText)
-        console.log(app.AllOrder)
-      }
-      xhr.open("get", "../dist/phps/getMem_center_1.php", true);
-      xhr.send(null);
-    }
-    window.addEventListener("load", function(){
-      getActivityList();
-    })
-
-
-
-   
-    </script>
-    <script src="js/meminfo.min.js"></script>
-    <!-- <script>
-   
- let app = new Vue({
-        el:"#app_2",
-        data:{
-          ActivityOrder:[],
+    <script type="text/javascript">
+      let app = new Vue({
+        el: "#app",
+        data: {
+          AllMem: [],
+          AllT_order: [],
+          // AllImgs:[],
+          AllA_order:[]
         },
-      })
-    function getActivityList(){
-      let xhr = new XMLHttpRequest();
-      xhr.onload = function(){
-        // console.log(JSON.parse(xhr.responseText))
-        app.ActivityOrder = JSON.parse(xhr.responseText)
-        console.log(app.ActivityOrder)
-      }
-      xhr.open("get", "../dist/phps/getMem_center_2.php", true);
-      xhr.send(null);
-    }
-    
-    window.addEventListener("load", function(){
-      getActivityList();
-    }) 
-      
-      
+        computed: {
+          all() {
+            return this.AllMem.filter((item) => {
+              return item.mem_id == $("#mem_id").text();
+            });
+          },
+          trees() {
+            return this.AllT_order.filter((item) => {
+              return item.mem_id == $("#mem_id").text();
+            });
+          },
+          // imgs() {
+          //   return this.AllImgs.filter((item) => {
+          //     return item.tree_id == $("#tree_id").text();
+          //   });
+          // },
+          activitys(){
+            return this.AllA_order.filter((item) => {
+              return item.mem_id == $("#mem_id").text();
+            });
+          }
+        },
 
-    
-    </script> -->
-     
-</body>
+        mounted() {
+          // 認養及體驗活動訂單的頁面切換
+          $(function () {
+            var $orderSelect = $(".order-select"),
+              $tabs = $orderSelect.find(".tabs"),
+              $page = $tabs.find("a"),
+              $order = $orderSelect.find(".orders"),
+              $content = $order.find("> li");
+            $page.eq(0).addClass("active");
+            $content.eq(0).show();
+            $page.on("click", function () {
+              var $pageIndex = $(this).index();
+              $(this).addClass("active").siblings().removeClass("active");
+              $content.eq($pageIndex).show().siblings().hide();
+            });
+          });
+
+          //頁面icon切換
+          $(".select_1").click(function () {
+            $(this).find(".tree_gray").hide();
+            $(this).find(".tree_green").show();
+            $(this).siblings(".select_2").find(".apple_gray").show();
+            $(this).siblings(".select_2").find(".apple_green").hide();
+            $(this).siblings(".select_3").find(".coupon_gray").show();
+            $(this).siblings(".select_3").find(".coupon_green").hide();
+          });
+
+          $(".select_2").click(function () {
+            $(this).find(".apple_gray").hide();
+            $(this).find(".apple_green").show();
+            $(this).siblings(".select_1").find(".tree_gray").show();
+            $(this).siblings(".select_1").find(".tree_green").hide();
+            $(this).siblings(".select_3").find(".coupon_gray").show();
+            $(this).siblings(".select_3").find(".coupon_green").hide();
+          });
+
+          $(".select_3").click(function () {
+            $(this).find(".coupon_gray").hide();
+            $(this).find(".coupon_green").show();
+            $(this).siblings(".select_1").find(".tree_gray").show();
+            $(this).siblings(".select_1").find(".tree_green").hide();
+            $(this).siblings(".select_2").find(".apple_gray").show();
+            $(this).siblings(".select_2").find(".apple_green").hide();
+          });
+        },
+
+        updated() {
+          // 單筆訂單開合與+-切換
+          $(".item").click(function () {
+            $(this).next(".detail").slideToggle();
+            var icon = $(this).children().children(".item #plus");
+            if (icon.css("display") == "none") {
+              icon.show();
+            } else {
+              icon.hide();
+            }
+
+            var icon = $(this).children().children(".item #minus");
+            if (icon.css("display") == "none") {
+              icon.show();
+            } else {
+              icon.hide();
+            }
+          });
+
+          //果樹cavanas
+          //判定水果數量與大小顆
+          for (i = 0; i < $(".for2").length; i++) {
+            var size = $(".size").eq(i).text(); //大中小
+            var id = parseInt($(".fruit_id").eq(i).text()); //水果id
+            var number = parseInt($(".number").eq(i).text()); //數量
+
+            //canvas
+            if (id == 1) {
+              $("canvas").eq(i).attr("class", "orange");
+            } else if (id == 2) {
+              $("canvas").eq(i).attr("class", "apple");
+            } else if (id == 3) {
+              $("canvas").eq(i).attr("class", "mango");
+            } else if (id == 4) {
+              $("canvas").eq(i).attr("class", "peach");
+            } else if (id == 5) {
+              $("canvas").eq(i).attr("class", "red-dates");
+            }
+
+            //updated後head生成js--canvas
+            let orange_js = document.createElement("script");
+            orange_js.type = "text/javascript";
+            orange_js.src = "./js/orange.min.js";
+            document.head.appendChild(orange_js);
+
+            let apple_js = document.createElement("script");
+            apple_js.type = "text/javascript";
+            apple_js.src = "./js/apple.min.js";
+            document.head.appendChild(apple_js);
+
+            let mango_js = document.createElement("script");
+            mango_js.type = "text/javascript";
+            mango_js.src = "./js/mango.min.js";
+            document.head.appendChild(mango_js);
+
+            let peach_js = document.createElement("script");
+            peach_js.type = "text/javascript";
+            peach_js.src = "./js/peach.min.js";
+            document.head.appendChild(peach_js);
+
+            let red_js = document.createElement("script");
+            red_js.type = "text/javascript";
+            red_js.src = "./js/red-dates.min.js";
+            document.head.appendChild(red_js);
+
+            //判定大小
+            if (size == "大") {
+              $('.tree_fruit_box').eq(i).find(".tree_fruit").css("width", "16%");
+            } else if (size == "中") {
+              $('.tree_fruit_box').eq(i).find(".tree_fruit").css("width", "12%");
+            } else if (size == "小") {
+              $('.tree_fruit_box').eq(i).find(".tree_fruit").css("width", "8%");
+            }
+
+            //判定水果種類
+            $('.tree_fruit_box').eq(i).find(".tree_fruit").attr("src", `images/fruit/fruit_${id}.svg`);
+
+            //判定數量
+            if (id <= 3) {
+              if (number > 90) {
+                $('.tree_fruit_box').eq(i).find(".tree_fruit").show();
+              } else if (number > 60) {
+                for (var i = 0; i <= 6; i++) {
+                  $('.tree_fruit_box').eq(i).find(".tree_fruit").eq(i).show();
+                }
+              } else if (number > 30) {
+                for (var i = 0; i <= 4; i++) {
+                  $('.tree_fruit_box').eq(i).find(".tree_fruit").eq(i).show();
+                }
+              } else if (number > 0) {
+                for (var i = 0; i <= 2; i++) {
+                  $('.tree_fruit_box').eq(i).find(".tree_fruit").eq(i).show();
+                }
+              } else {
+                $('.tree_fruit_box').eq(i).find(".tree_fruit").hide();
+              }
+            } else if (id == 4) {
+              if (number > 45) {
+                $('.tree_fruit_box').eq(i).find(".tree_fruit").show();
+              } else if (number > 30) {
+                for (var i = 0; i <= 6; i++) {
+                  $('.tree_fruit_box').eq(i).find(".tree_fruit").eq(i).show();
+                }
+              } else if (number > 15) {
+                for (var i = 0; i <= 4; i++) {
+                  $('.tree_fruit_box').eq(i).find(".tree_fruit").eq(i).show();
+                }
+              } else if (number > 0) {
+                for (var i = 0; i <= 2; i++) {
+                  $('.tree_fruit_box').eq(i).find(".tree_fruit").eq(i).show();
+                }
+              } else {
+                $('.tree_fruit_box').eq(i).find(".tree_fruit").hide();
+              }
+            } else if (id == 5) {
+              if (number > 180) {
+                $('.tree_fruit_box').eq(i).find(".tree_fruit").show();
+              } else if (number > 120) {
+                for (var i = 0; i <= 6; i++) {
+                  $('.tree_fruit_box').eq(i).find(".tree_fruit").eq(i).show();
+                }
+              } else if (number > 60) {
+                for (var i = 0; i <= 4; i++) {
+                  $('.tree_fruit_box').eq(i).find(".tree_fruit").eq(i).show();
+                }
+              } else if (number > 0) {
+                for (var i = 0; i <= 2; i++) {
+                  $('.tree_fruit_box').eq(i).find(".tree_fruit").eq(i).show();
+                }
+              } else {
+                $('.tree_fruit_box').eq(i).find(".tree_fruit").hide();
+              }
+            }
+          }
+        },
+      });
+
+      //抓會員資料庫
+      function getActivityList() {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          // console.log(JSON.parse(xhr.responseText))
+          app.AllMem = JSON.parse(xhr.responseText);
+          console.log(app.AllMem);
+        };
+        xhr.open("get", "../dist/phps/onlyMemberInCenter.php", true);
+        xhr.send(null);
+      }
+      window.addEventListener("load", function () {
+        getActivityList();
+      });
+
+      //抓果樹資料庫
+      function getT_orderList() {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          app.AllT_order = JSON.parse(xhr.responseText);
+          // console.log(app.AllT_order)
+        };
+        xhr.open("get", "../dist/phps/onlyT_orderInCenter.php", true);
+        xhr.send(null);
+      }
+      window.addEventListener("load", function () {
+        getT_orderList();
+      });
+
+      //抓歷史照片資料庫
+      function getTree_img() {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          app.AllImgs = JSON.parse(xhr.responseText);
+        };
+        xhr.open("get", "../dist/phps/getTree_img.php", true);
+        xhr.send(null);
+      }
+      window.addEventListener("load", function () {
+        getTree_img();
+      });
+
+      //抓活動訂單資料庫
+      function getA_orderList() {
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          app.AllA_order = JSON.parse(xhr.responseText);
+        };
+        xhr.open("get", "../dist/phps/back_activity_order.php", true);
+        xhr.send(null);
+      }
+      window.addEventListener("load", function () {
+        getA_orderList();
+      });
+    </script>
+  </body>
 </html>
