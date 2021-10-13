@@ -5,8 +5,11 @@ try {
 
 	//執行sql指令並取得pdoStatement
 	$sql = "SELECT *
-	from activity 
-	order by activity_id";
+	from activity a join farm b on a.farm_id = b.farm_id
+									join city c on b.city_id = c.city_id
+									join a_order d on a.activity_id = d.activity_id
+									join member e on e.mem_id = d.mem_id
+	order by a_order_id";
 	$products = $pdo->query($sql);
 	$prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($prodRows);

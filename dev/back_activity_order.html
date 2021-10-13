@@ -27,7 +27,7 @@
               <img src="./images/common/minus-sign.svg" alt="往下">
             </div>
           </div>
-          <h3>{{item.farm_name}}-{{item.activity_name}}</h3>
+          <h3>{{item.activity_name}}</h3>
           <p>訂單編號： {{item.a_order_id}}</p>
         </div>
         <div class="con_text">
@@ -39,21 +39,21 @@
               </tr>
               <tr>
                 <td><h3>會員姓名:</h3></td>
-                <td><h3>XXX</h3></td>
+                <td><h3>{{item.mem_name}}</h3></td>
               </tr>
               <tr>
                 <td><h3>人數:</h3></td>
-                <td><h3>100</h3></td>
+                <td><h3>{{item.a_order_people}}</h3></td>
               </tr>
             </tbody>
             <tbody>
               <tr>
                 <td><h3>行程日期:</h3></td>
-                <td><h3>2021/9/30</h3></td>
+                <td><h3>{{item.activity_date}}</h3></td>
               </tr>
               <tr>
                 <td><h3>會員信箱:</h3></td>
-                <td><h3>good@gmail.com</h3></td>
+                <td><h3>{{item.mem_email}}</h3></td>
               </tr>
             </tbody>  
           </table>
@@ -67,7 +67,16 @@
   let app = new Vue({
     el:"#app",
     data:{
-      activitys:[],
+      farmers:[],
+    },
+    computed: {
+      //抓到登入的farm_id
+      activitys() {
+        return this.farmers.filter(item => { 
+          return item.farm_id == $('#farm_id').text() 
+        });
+        console.log(activitys)
+      },
     },
     updated() {
       //收合
@@ -86,9 +95,9 @@ function getActivityList(){
   let xhr = new XMLHttpRequest();
   xhr.onload = function(){
     console.log(JSON.parse(xhr.responseText))
-    app.activitys = JSON.parse(xhr.responseText)
+    app.farmers = JSON.parse(xhr.responseText)
   }
-  xhr.open("get", "../dist/phps/getActivityList.php", true);
+  xhr.open("get", "../dist/phps/back_activity_order.php", true);
   xhr.send(null);
   }
 

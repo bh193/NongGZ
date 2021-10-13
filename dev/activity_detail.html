@@ -68,10 +68,7 @@
         <keep-alive>
           <transition :name="carouselName">
             <div class="item" v-for="(s, i) in carousels" v-if="show == i" :key="i">
-              <a :href="s.href">
-                <img :src="'images/activity/' + s.img"/>
-                <!-- <img :src="'images/activity/' + s"/> -->
-              </a>
+              <img :src="'images/activity/' + s.img"/>
             </div>
           </transition>
         </keep-alive>
