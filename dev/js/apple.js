@@ -701,4 +701,4 @@ function doApple() {
 
 }
 
-window.addEventListener('load', doApple);
+doApple();

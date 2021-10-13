@@ -253,4 +253,4 @@ function doPeach() {
     }
 }
 
-window.addEventListener('load', doPeach);
+doPeach();

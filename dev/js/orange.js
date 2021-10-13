@@ -624,4 +624,4 @@ function doOrange() {
     }
 }
 
-window.addEventListener('load', doOrange);
+doOrange();

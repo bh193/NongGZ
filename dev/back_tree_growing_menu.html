@@ -9,8 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/back_tree_growing_menu.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="js/back_tree_growing_menu.min.js"></script>
+    <script src="js/vue.min.js"></script>
 </head>
 
 <body>
@@ -83,44 +82,9 @@
         </section>
         @@include('layout/footer_back.html')
     </article>
-    <script type="text/javascript">
-        let tree_menu = new Vue({
-            el: "#tree_menu",
-            data: {
-                menus: []
-            },
-            computed: {
-                menuList() {
-                    return this.menus.filter(menu => { return menu.farm_id == $('#farm_id').text()});
-                },
-            },
-            updated() {
-                $('.content').click(function () {
-                    $(this).find('.con_text').slideToggle(500, "easeOutExpo");
-                }).children('.con_text').hide();
 
-                $('.content').click(function () {
-                    $(this).find('.turn').toggleClass('turn_zero');
-                })
-            }
-        })
+    <script src="js/back_tree_growing_menu_vue.min.js"></script>
 
-        function getTree_menu() {
-            let xhr = new XMLHttpRequest();
-            xhr.onload = function () {
-                console.log(JSON.parse(xhr.responseText))
-                tree_menu.menus = JSON.parse(xhr.responseText)
-            }
-            xhr.open("get", "./phps/getTree_menu.php", true);
-            xhr.send(null);
-        }
-
-        window.addEventListener("load", function () {
-            //------------------------網頁的初始設定
-            getTree_menu();
-
-        })
-    </script>
 </body>
 
 </html>

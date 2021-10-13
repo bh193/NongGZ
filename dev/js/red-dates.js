@@ -1,5 +1,5 @@
 function doRed() {
-    var red_dates = document.getElementsByClassName('red_dates');
+    var red_dates = document.getElementsByClassName('red-dates');
 
     for (var i = 0; i < red_dates.length; i++) {
         var context = red_dates[i].getContext('2d');
@@ -347,4 +347,4 @@ function doRed() {
 
 }
 
-window.addEventListener('load', doRed);
+doRed();

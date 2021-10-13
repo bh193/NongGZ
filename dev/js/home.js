@@ -56,9 +56,6 @@ $(function () {
     $('.tree_o').css({ "transform": "scale(1)"})
   });
 
-
-
-
   //篩選水果
   var index = 1;
 
@@ -96,12 +93,6 @@ $(function () {
     };
   });
 
-  // $('.tree').click(function(){
-   
-  //   console.log(index);
-  //   // window.open(`./adopt_tree.html?id='+ ${index}`);
-  // });
-
   function show() {
     $('.fruit img').eq(index - 1).show().siblings().hide();
     $('.circle h3').eq(index - 1).show().siblings().hide();
@@ -113,8 +104,6 @@ $(function () {
       $('.tree_fruit').eq(i).css("transform", `rotate(${number}deg)`);
     }
   }
-
-
 
   //探索體驗拖拉
   var boxwidth = $('.con_box').width();

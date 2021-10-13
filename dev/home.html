@@ -9,7 +9,7 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-ui.min.js"></script>
   <script src="js/jquery.ui.touch-punch.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="js/vue.min.js"></script>
   <script src="js/home.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/home.css">
 </head>
@@ -151,40 +151,8 @@
   </article>
   @@include('layout/footer.html')
 
-  <script type="text/javascript">
-    let activity_item = new Vue({
-      el: "#activity_item",
-      data: {
-        activitys: []
-      },
-      updated() {
-        //探索體驗hover變色
-        $('.con_box a').hover(function () {
-          $(this).parent().parent().parent().children('img').css("transform", "scale(1.1)");
-        }, function () {
-          $(this).parent().parent().parent().children('img').css("transform", "scale(1)");
-        })
-      }
-    })
-
-    //連接php
-    //#getActivity_item
-    function getActivity_item() {
-      let xhr = new XMLHttpRequest();
-      xhr.onload = function () {
-        console.log(JSON.parse(xhr.responseText))
-        activity_item.activitys = JSON.parse(xhr.responseText)
-      }
-      xhr.open("get", "./phps/getActivity_item.php", true);
-      xhr.send(null);
-    }
-
-    window.addEventListener("load", function () {
-      //------------------------網頁的初始設定
-      getActivity_item();
-
-    })
-  </script>
+  <script src="js/home_vue.min.js"></script>
+  
 </body>
 
 </html>

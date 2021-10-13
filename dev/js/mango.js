@@ -379,4 +379,4 @@ function doMango() {
     }
 }
 
-window.addEventListener('load', doMango);
+doMango();
