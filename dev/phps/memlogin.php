@@ -35,6 +35,8 @@ try{
     //利用urldecode將資料轉回中文
     // $mem_data=urldecode($data);
 	  echo $data;
+    header('Refresh:1;url=../mem_center.html');
+
   }
 }catch(PDOException $e){
   echo $e->getMessage();
