@@ -39,16 +39,13 @@ Vue.component('register',{
             psw2:'',
             selected:false,
             error:'',
-            msg:'註冊成功，歡迎加入農果子',
-          
-            
+            msg:'註冊成功，歡迎加入農果子',          
         }
     },
     methods: {
 
         check(){
         let checkemail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-
 
 
         if(this.username == ''|| this.mail == ''|| this.psw == '' || this.psw2 == '' ){
@@ -59,7 +56,7 @@ Vue.component('register',{
             this.msg = '信箱格式錯誤'
             return
         }
-        if(this.psw !== this.psw2){
+        if(this.psw != this.psw2){
             this.msg  = '確認密碼不一致'
             return
         }
@@ -67,72 +64,100 @@ Vue.component('register',{
             this.msg  = '會員條款未勾選'
             return
         }
-        // if(this.mail >=  1){
-        //     this.msg  = '信箱已被註冊過囉'
-        //     console.log(res)
-        //     return 
-        // }
-        else{
-        let data_meminfo = {
-        'mem_name': this.username, //資料庫名稱,v-model名稱
-        'mem_email':this.mail,
-        'mem_psw':this.psw,
-        };
-        $.ajax({
-        type: 'POST',
-        url: "./phps/addmem.php",
-        data: data_meminfo,
-        contentType:"application/json; charset=utf-8",
-        // dataType:'json',
-        success: (res) => {
-        console.log(res)
-        },
-        error: (res,err) => {
-        },
-        complete: () => { //都會執行這行
-    
-        console.log(data_meminfo)
+        if(this.username != null && this.mail != null && this.psw != null && this.psw2 != null  ){
+       $.ajax({
+            type: 'POST',
+            url: "./phps/checkmail.php",
+            data: JSON.stringify({
+                user:this.username,
+                usermail:this.mail,
+                userpsn:this.psw
+            }),
+            contentType:"application/json; charset=utf-8",
+            success: (res) => {
+                if(res == 1){
+                    this.msg="信箱已被使用過"
+                }else{
+         
+
+                        $.ajax({
+                        type: 'POST',
+                        url: "./phps/addmem.php",
+                        data: JSON.stringify({
+                            user:this.username,
+                            usermail:this.mail,
+                            userpsn:this.psw
+                        }),
+                        contentType:"application/json; charset=utf-8",
+                        // dataType:'json',
+                        success: (res) => {
+                        console.log(res)
+                        },
+                        error: (res,err) => {
+                            console.log(res,err)
+                        },
+                        complete: () => { //都會執行這行
+                    
+                        }
+                        });
+                }
+            },
+            error: (err) => {
+             
+            },
+            complete: () => { //都會執行這行
+
+            }
+            });
+
         }
-        });
-        }
+        
+
+
+            
+ 
+        
     },
 
     },
+    mounted() {
 
+
+    },
     template:`
     <div id="register">
-        <form  class="register">
-            <div class="text">
-                <label for="">姓名</label>
-                <input type="text" v-model="username" name="mem_name">
-            </div>
-            <div class="text">
-                <label for="">電子信箱</label>
-                <input type="text" v-model="mail" name="mem_email">
-            </div>
-            <div class="text">
-                <label for="">密碼</label>
-                <input type="password" v-model="psw" name="mem_psw">
-            </div>
-            <div class="text">
-                <label for="">確認密碼</label>
-                <input type="password" v-model="psw2" name="psw2">
-            </div>
-            <div class="text">
-                <input type="checkbox" v-model="selected">
-                <label for="check">點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></label>
+    <form  class="register">
+        <div class="text">
+            <label for="">姓名</label>
+            <input type="text" v-model="username" name="mem_name">
+        </div>
+        <div class="text">
+            <label for="">電子信箱</label>
+            <input type="text" v-model="mail" name="mem_email">
+        </div>
+        <div class="text">
+            <label for="">密碼</label>
+            <input type="password" v-model="psw" name="mem_psw">
+        </div>
+        <div class="text">
+            <label for="">確認密碼</label>
+            <input type="password" v-model="psw2" name="psw2">
+        </div>
+        <div class="text">
+            <input type="checkbox" v-model="selected">
+            <label for="check">點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></label>
 
-            </div>
-           
-            <div class="text">
-                <button class="btn" type="reset">清除</button>
-                <a href="#sendmail" rel="modal:open" @click="check"><button class="btngrenn">送出</button></a>
-            </div>
-         </form>
-         <div id="sendmail" class="modal dialog">
-         <div class="msg"><h3 v-text="msg">44</h3></div>
-      
-    </div>
+        </div>
+       
+        <div class="text">
+            <button class="btn" type="reset">清除</button>
+            <a href="#sendmail" rel="modal:open" @click="check"><button class="btngrenn">送出</button></a>
+        </div>
+     </form>
+     <div id="sendmail" class="modal dialog">
+     <div class="msg"><h3 v-text="msg"></h3></div>
+  </div>
+</div>
     `,
     
 });
