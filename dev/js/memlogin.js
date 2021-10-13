@@ -101,7 +101,7 @@ Vue.component('register',{
 
     template:`
     <div id="register">
-        <form action="" class="register">
+        <form  class="register">
             <div class="text">
                 <label for="">姓名</label>
                 <input type="text" v-model="username" name="mem_name">
@@ -123,17 +123,15 @@ Vue.component('register',{
                 <label for="check">點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></label>
 
             </div>
-            </form>
-
+           
             <div class="text">
                 <button class="btn" type="reset">清除</button>
-                <a href="#sendmail" rel="modal:open" @click="check" ><button class="btngrenn" type="submit">送出</button></a>
-                <div id="sendmail" class="modal dialog">
-                    <div class="text"><h3 v-text="msg"></h3></div>
-                  </div>
-
+                <a href="#sendmail" rel="modal:open" @click="check"><button class="btngrenn">送出</button></a>
             </div>
-        
+         </form>
+         <div id="sendmail" class="modal dialog">
+         <div class="msg"><h3 v-text="msg">44</h3></div>
+      
     </div>
     `,
     
