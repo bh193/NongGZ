@@ -8,7 +8,7 @@
 <?php
 session_start();
 try{
-  require_once("./connecttbame.php");
+  require_once("./connectBooks_brian.php");
   
   $sql = "select * from member where mem_email=:mem_email and mem_psw=:mem_psw"; 
   $member = $pdo->prepare($sql);

@@ -37,11 +37,10 @@
           <li><a href="">會員中心</a></li>
         </ul>
       </div>
-
       <div class="all">
         <ol class="member">
-          <li class="pic">
-            <img id="mem_img" src="images/mem/farmer.jpg" alt="" />
+          <li class="pic" v-for="item in all">
+            <img id="mem_img" :src="'images/mem/' + item.mem_img" alt="" />
             <label class="camera">
               <input id="upload_img" style="display: none" type="file" />
               <img src="images/common/update-camera.png" alt="" />
@@ -49,11 +48,11 @@
           </li>
           <li class="info" v-for="item in all">
             <label>會員名稱</label>
-            <input type="text" id="mem_name" />
+            <input type="text" id="mem_name" :value="item.mem_name"/>
             <label>電子信箱</label>
             <input type="text" :value="item.mem_email" disabled/>
             <label>連絡電話</label>
-            <input type="text" id="mem_tel" />
+            <input type="text" id="mem_tel" :value="item.mem_tel"/>
           </li>
           <li class="btn">
             <a href="#modal_password" rel="modal:open"
@@ -243,8 +242,8 @@
               <div class="for3" v-for='item in activitys'>
                 <div class="item">
                   <div class="left">
-                    <img id="plus" src="images/common/plus.png" alt="" />
-                    <img id="minus" src="images/common/minus.png" alt="" />
+                    <img id="plus" class="plus" src="images/common/plus.png" alt="" />
+                    <img id="minus" class="minus" src="images/common/minus.png" alt=""/>
                     <span>活動名稱：</span>
                     <span id="activity_name">{{item.activity_name}}</span>
                   </div>
@@ -284,8 +283,8 @@
             <li>
               <div class="item">
                 <div class="left">
-                  <img id="plus" src="images/common/plus.png" alt="" />
-                  <img id="minus" src="images/common/minus.png" alt="" />
+                  <img id="plus" class="plus" src="images/common/plus.png" alt="" />
+                  <img id="minus" class="minus" src="images/common/minus.png"/>
                   <span>折扣面額：</span>
                   <span>$600</span>
                 </div>
@@ -315,8 +314,8 @@
               </div>
               <div class="item">
                 <div class="left">
-                  <img id="plus" src="images/common/plus.png" alt="" />
-                  <img id="minus" src="images/common/minus.png" alt="" />
+                  <img id="plus" class="plus" src="images/common/plus.png" alt="" />
+                  <img id="minus" class="minus" src="images/common/minus.png" alt=""/>
                   <span>折扣面額：</span>
                   <span>$100</span>
                 </div>
@@ -429,18 +428,21 @@
           });
         },
 
+       
         updated() {
           // 單筆訂單開合與+-切換
-          $(".item").click(function () {
-            $(this).next(".detail").slideToggle();
-            var icon = $(this).children().children(".item #plus");
+          $(".item").click(function (e) {
+            let setThis = $(this);
+            setThis.next(".detail").slideToggle();
+            
+            var icon = setThis.children().children()(".item #plus");
             if (icon.css("display") == "none") {
               icon.show();
             } else {
               icon.hide();
             }
 
-            var icon = $(this).children().children(".item #minus");
+            var icon = setThis.children().children(".item #minus");
             if (icon.css("display") == "none") {
               icon.show();
             } else {
@@ -596,17 +598,17 @@
       });
 
       //抓歷史照片資料庫
-      function getTree_img() {
-        let xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-          app.AllImgs = JSON.parse(xhr.responseText);
-        };
-        xhr.open("get", "../dist/phps/getTree_img.php", true);
-        xhr.send(null);
-      }
-      window.addEventListener("load", function () {
-        getTree_img();
-      });
+      // function getTree_img() {
+      //   let xhr = new XMLHttpRequest();
+      //   xhr.onload = function () {
+      //     app.AllImgs = JSON.parse(xhr.responseText);
+      //   };
+      //   xhr.open("get", "../dist/phps/getTree_img.php", true);
+      //   xhr.send(null);
+      // }
+      // window.addEventListener("load", function () {
+      //   getTree_img();
+      // });
 
       //抓活動訂單資料庫
       function getA_orderList() {
