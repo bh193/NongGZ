@@ -10,7 +10,7 @@ function getFarmInfo() {
         member = JSON.parse(xhr.responseText);
         if (member.farm_email) {
             $id("mem_name").value = member.mem_name;
-            $id("farm_login").value = member.mem_mail;
+            $id("mem_email").value = member.mem_mail;
         }
     }
     xhr.open("get", "../phps/memlogin.php", true);

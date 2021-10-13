@@ -47,13 +47,13 @@
         </div>
         <div class="box">
             <div class="item">
-                <button @click="content='login'"><h3>登入</h3></button>
+                <button @click="content='login'"><h3 :style="mystyle(content==='login')" :class="{'is-active': content==='login'}">登入</h3></button>
             </div>
             <div class="item">
                 <h3>|</h3>
             </div>
             <div class="item">
-                <button @click="content='register'" ><h3>註冊</h3></button>
+                <button @click="content='register'" ><h3  :style="mystyle(content !=='login')">註冊</h3></button>
 
             </div>
         </div>
@@ -70,6 +70,7 @@
 
     </div>
 
+    <link rel="stylesheet" href="css/memlogin.css">
     <link rel="stylesheet" href="css/memlogin.css">
     <script src="js/memlogin.min.js"></script>
 
