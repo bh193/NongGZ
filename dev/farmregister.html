@@ -8,6 +8,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="js/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <link rel="stylesheet" href="font/jquery.modal.css">
 </head>
 <body>
@@ -68,7 +69,7 @@
                 </div>
                 <div class="item">
                     <label for="">許可證號</label>
-                    <input type="text" v-model="fcert" name="farm_cert">
+                    <input type="text" v-model="fcert" name="farm_cert" >
                 </div>
                 <div class="item">
                     <label for="">農場電話</label>
@@ -94,11 +95,10 @@
            
                 <div class="btnbox">
                     <button type="reset"class="btn">清除</button>
-                    <a href="#sendmail" rel="modal:open" @click="addfarmer"><button type="submit" class="btn">送出</button></a>
+                    <a href="#sendmail" rel="modal:open" @click="addfarmer"><button  class="btn">送出</button></a>
                   </form>  
                     <div id="sendmail" class="modal dialog">
-                        <div class="text"><h3>待審核</h3></div>
-                        <div class="text"><p>申請為小農需2-3個工作天待審核通過後會寄送信件至您填寫的信箱。 謝謝</p></div>
+                        <div class="text"><h3 v-text="msg"></h3></div>
                       </div>
                 </div>
             

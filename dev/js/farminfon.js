@@ -33,9 +33,9 @@ Vue.component('postItem',{
                         <a :href="'farminfon.html?farm_id=' + prodRow.farm_id">#{{prodRow.farm_name}}</a> 
                     </div>
                     <div class="icon">
-                        <img src="images/post/heart_gray.svg">
+                        <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_heart"></button></a>
                         <span>{{prodRow.post_feedback}}</span>
-                        <img src="images/post/loudly_gray.svg">
+                        <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_loudly"></button></a>
                     </div>
                 </div>
             </div>
@@ -48,6 +48,7 @@ let app = new Vue({
     data:{
         prodRows:[],
         fruits:[],
+        activitys:[],
         infoObj:{},
         imgSrc1:"../dist/images/farm/tree-01.svg",
     },
@@ -68,11 +69,6 @@ let app = new Vue({
                     break;
             }
         },
-        statusImg(fruitStatus){
-            if(fruitStatus == 1){
-                return this.imgSrc1;
-            }
-        },
         getInfo(){
             this.id = window.location.search.split('?')[1].split('=')[1];
             //call php的response
@@ -84,6 +80,13 @@ let app = new Vue({
                 }
             });
         }
+    },
+    computed: {
+        statusImg(fruitStatus){
+            if(fruitStatus == 1){
+                return this.imgSrc1;
+            }
+        },
     },
     mounted(){
         axios.get('../dist/phps/getFarminfon.php')
@@ -98,13 +101,13 @@ let app = new Vue({
                    responsive: {
                        0: {
                            items: 1, 
-                           stagePadding:40,
+                           stagePadding:60,
                            margin:50
                        },
                        600: {
                            items: 1, 
-                           stagePadding:120,
-                           margin:50
+                           stagePadding:150,
+                           margin:20
                        },
                        1000: {
                            items: 1 
@@ -114,6 +117,8 @@ let app = new Vue({
            });
         });
         this.getInfo();
+        axios.get('../dist/phps/getFarmactivity.php')
+        .then(res => console.log(res));
     },
 })
 //果樹

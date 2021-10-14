@@ -103,7 +103,7 @@ input{
             .text:last-child{
                 width: 100%;
                 display: flex;
-                justify-content: space-evenly;
+                justify-content: space-evenly; 
                 .btn:nth-child(1){@include smallbtn_s;}
                 .btn:nth-child(2){@include smallbtn_m;}
             }
@@ -127,6 +127,7 @@ input{
                 }
 
             }
+
         }
 
     }
