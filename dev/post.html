@@ -77,7 +77,7 @@
             </article>
             <article class="mempost">
                 <div class="container">
-                    <div class="card" v-for="prodRow in filterRow">
+                    <div class="card" v-for="prodRow in pageRows">
                         <div class="txt">
                             <div class="memname">
                                 <div class="pic">
@@ -110,7 +110,7 @@
             </article>
             <article class="more">
                 <div class="container">
-                    <p v-model="currentPage">load more...</p>
+                    <p>load more...</p>
                 </div>
             </article>
             <div id="modal_login" class="modal">
