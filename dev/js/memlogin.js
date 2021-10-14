@@ -78,8 +78,6 @@ Vue.component('register',{
                 if(res == 1){
                     this.msg="信箱已被使用過"
                 }else{
-         
-
                         $.ajax({
                         type: 'POST',
                         url: "./phps/addmem.php",
@@ -88,10 +86,9 @@ Vue.component('register',{
                             usermail:this.mail,
                             userpsn:this.psw
                         }),
-                        contentType:"application/json; charset=utf-8",
-                        // dataType:'json',
+                        contentType:"application/json; charset=utf-8",                
                         success: (res) => {
-                        console.log(res)
+                        this.msg="註冊成功，歡迎加入農果子"
                         },
                         error: (res,err) => {
                             console.log(res,err)
