@@ -213,10 +213,10 @@
         }
     }
     .item{
-        height: 85%;
-        width: 85%;
+        height: 100%;
+        width: 100%;
         border-radius: 50%;
-        background: #f7f6f2;
+        background: #FAEEE0;
         padding: 2rem;
         position: relative;
         .pic{
@@ -248,18 +248,34 @@
             right: 0;
             .tag{
                 padding-bottom: 0.5rem;
+                margin-top: 1rem;
+                a{
+                    color: #939393;
+                }
             }
             span{
                 color: #939393;
-                font-size: 12px;
+                font-size: $h4_size;
                 padding-left: 0.3rem;
                 padding-right: 1rem;
+                font-weight: $h2_weight;
             }
             .icon{
                 display: flex;
                 float: right;
-                img{
-                    height: 1.25rem;
+                .btn_heart{
+                    background: url("../images/post/heart_gray.svg") no-repeat;
+                    border: 0;
+                    height: 1.2rem ;
+                    width: 1.2rem;
+                    cursor: pointer;
+                }
+                .btn_loudly{
+                    background: url("../images/post/loudly_gray.svg") no-repeat;
+                    border: 0;
+                    height: 1.2rem ;
+                    width: 1.2rem;
+                    cursor: pointer;
                 }
             }
         }
@@ -267,6 +283,9 @@
     .owl-carousel .owl-stage{
         cursor: grab;
     }
+}
+.footer{
+    margin-top: 5rem;
 }
 @include t{
     .adopt{

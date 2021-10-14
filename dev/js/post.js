@@ -2,7 +2,6 @@ let app = new Vue({
     el: "#app",
     data: {
         prodRows: [],
-        filterRow:[],//
         farms: [],
         images: '',
         selectedFarm: '',
@@ -51,6 +50,12 @@ let app = new Vue({
                 }
             });
         },
+        loadMore(){
+            console.log('load');
+            if($(window).height() + $(window).scrollTop()+1 >= $(document).height()){
+                this.currentPage = this.currentPage+1;
+            }
+        },
         //貼文卡片區
         getProducts() {
             let xhr = new XMLHttpRequest();
@@ -96,10 +101,12 @@ let app = new Vue({
                 return prodRow.farm_name.includes(this.filterFarm) || 
                        prodRow.mem_name.includes(this.filterFarm)});
         },
-        // pageRows(){
-        //     this.sliced = this.filterRow.sliced ((this.currentPage*this.pagesize)-this.pagesize,(this.currentPage*this.pagesize));
-        //     currentPage++;
-        // }
+        pageRows(){
+            return this.filterRow.slice (0,this.currentPage*this.pagesize);
+        }
+    },
+    created() {
+        window.addEventListener("scroll", this.loadMore);
     },
     mounted() {
         this.getProducts();
