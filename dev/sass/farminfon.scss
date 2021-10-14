@@ -161,7 +161,10 @@
         }
         .content{
             margin: 0 2.5rem 7.5rem;
-            .block{
+            .owl-carousel .owl-stage{
+                cursor: grab;
+            }
+            .item{
                 .pic{
                     width: 100%;
                     img{
@@ -326,7 +329,7 @@
                 height: 35vw;
                 background-color: $btn_m_color;
                 position: relative;
-                .block{
+                .item{
                     display: flex;
                     align-items: center;
                     position: absolute;
