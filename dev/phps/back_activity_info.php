@@ -5,7 +5,7 @@ try {
 
 	//執行sql指令並取得pdoStatement
 	$sql = "SELECT *
-	from activity 
+	from activity
 	order by activity_id";
 	$products = $pdo->query($sql);
 	$prodRows = $products->fetchAll(PDO::FETCH_ASSOC);

@@ -1,63 +1,177 @@
-// $(document).ready(function(){
-//   // created(){}
-//   // mounted(){}
+let app = new Vue({
+  el:"#app",
+  data:{
+    id: 0,
+    dataObj: {},
+    img: '',
 
-//     $(".sm-pic").on("click", function(){
-//         $(".selected").removeClass("selected");
-//         $(this).addClass("selected");
-//         var picture = $(this).data();
+    //手機carousel
+    carouselName: 'carousel-next',
+    carousels:[],
+      // carousels: [
+      //   {
+      //     img: 'https://picsum.photos/900/506?image=508',
+      //     href: "#"
+      //   },
+      //   {
+      //     img: 'https://picsum.photos/900/506?image=1068',
+      //     href: "#"
+      //   },
+      //   {
+      //     img: 'https://picsum.photos/900/506?image=509',
+      //     href: "#"
+      //   },
+      //   {
+      //     img: 'https://picsum.photos/900/506?image=509',
+      //     href: "#"
+      //   }
+      // ],
+
+      len: 0,
+      show: 0,
+      xDown: null, // for swiper
+      yDown: null, // for swiper
+      autoplay: false, // 是否自動輪播
+      timer: null, // auto play
+      timerDelay: 3000, // 自動輪播間隔秒數
+      toggleTimer: true, // pause auto play
+      minHeight: 0, // 抓最小高度
+      arrows: true, // 是否要有箭頭，預設 true
+      dots: true // 是否要有小點，預設 true
+      },
+
+      computed:{
+        // one(){
+        //     return this.activitys[this.index];
+        // },
+      },
+
+    methods: {
+      // 抓這個頁面當下的activity_id多少
+      getData() {                            //拆?activity_id=3
+        this.id =  window.location.search.split('?')[1].split('=')[1];
         
-//         event.preventDefault(); //prevents page from reloading every time you click a thumbnail
+        // call php的response
+        $.ajax({
+          url: '../dist/phps/getActivityList.php',
+          success: (response) => {
+            // console.log(response)
+            let obj = JSON.parse(response).find(item => item.activity_id == this.id) 
+            // 在資料庫找到我要的activity_id=3  並且JSON.parse字串轉成陣列  
+            // console.log(obj)
+            this.dataObj = obj;
 
-//         $(".first").fadeOut( 100, function() { 
-//           $(".first").attr("src", picture.full);
-//           $(".full").attr("href", picture.full);
-//           $(".full").attr("title", picture.title);
+            // (桌電)抓3裡面的imgA當大圖
+            this.img = this.dataObj.activity_imgA;
 
-//       }).fadeIn();
+            // 手機版carousel
+            this.carousels = [
+              {img:this.dataObj.activity_imgA}, 
+              {img:this.dataObj.activity_imgB}, 
+              {img:this.dataObj.activity_imgC}, 
+              {img:this.dataObj.activity_imgD}, 
+            ];
+            // console.log(this.carousels)
+            this.len = this.carousels.length;
+            //先算carousels的長度 後面才能繼續做    
+          },
+        });
 
-//     });// end on click
+        //  抓資料庫流程
+        //  1. call php?`id=${this.id}` => response
+        //  2. this.dataObj = response
+        //  this.dataObj=res.data;
+      },
 
-//     $(".full").fancybox({
-//         helpers : {
-//             title: {
-//                 type: 'inside'
-//             }
-//         },
-//         closeBtn : true,
-//     });
+      // 手機版carousel
+      toNext() {
+        console.log('toNext')
+        this.carouselName = 'carousel-next';
+        this.show + 1 >= this.len ? this.show = 0 : this.show = this.show + 1;
+      },
+      toPrev() {
+        this.carouselName = 'carousel-prev';
+        this.show - 1 < 0 ? this.show = this.len - 1 : this.show = this.show - 1;
+      },
+		  // swiper event(for mobile)
+      touchStart(e) {
+        this.xDown = e.touches[0].clientX;
+        this.yDown = e.touches[0].clientY;
+      },
+      touchMove(e) {
+        const _this = this;
+        if(!this.xDown || !this.yDown) { return; }
 
-// });
-//end doc ready
+        let xUp = e.touches[0].clientX;
+        let yUp = e.touches[0].clientY;
+
+        let xDiff = this.xDown - xUp;
+        let yDiff = this.yDown - yUp;
+
+        if(Math.abs(xDiff) > Math.abs(yDiff)) {
+          xDiff > 0 ? _this.toNext() : _this.toPrev();
+        }
+        this.xDown = null;
+        this.yDown = null;
+      },
+		  // 自動輪播
+      autoPlay() {
+        setInterval(() => {
+          if(this.toggleTimer) this.toNext();
+          // console.log("autoPlay")
+        }, this.timerDelay);
+      }
+    
+      },
+    mounted() {
+      this.getData();
+
+      //輪播遮罩
+      $('.preview').click(function () {
+        $(this).find('.mask').hide();
+        $(this).siblings().find('.mask').show();
+      });
+
+      const data = this.$refs.carousel.dataset;
+      this.autoplay = data.auto == 'true';
+      this.timerDelay = Number(data.delay) || 3000;
+      this.arrows = data.arrows == 'true';
+      this.dots = data.dots == 'true';
+
+      if(this.autoplay) this.autoPlay();
+      
+      window.addEventListener('load', () => {
+          this.minHeight = this.$refs.carousel.offsetHeight + 'px';
+        });
+      
+              /////////// 彈跳視窗速度
+
+        $('a[href="#modal_order"]').click(function(event) {
+          event.stopPropagation();
+          $(this).modal({
+            fadeDuration: 300
+          });
+        });  
+
+      },
+    
+  })	
+  
+
+  // 連資料庫
+  function getActivityList(){
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+      // console.log(JSON.parse(xhr.responseText))
+      app.activitys = JSON.parse(xhr.responseText)
+    }
+    xhr.open("get", "../dist/phps/getActivityList.php", true);
+    xhr.send(null);
+  }
+  
+  window.addEventListener("load", function(){
+    getActivityList();
+  })
+  
 
 
-
-
-// var _gaq = _gaq || [];
-// _gaq.push(['_setAccount', 'UA-36251023-1']);
-// _gaq.push(['_setDomainName', 'jqueryscript.net']);
-// _gaq.push(['_trackPageview']);
-
-// (function() {
-//   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-//   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-//   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-// })();
-
-/////////////
-
-
-
-// $('.preview').click(function () {
-//   $(this).find('.mask').hide();
-//   $(this).siblings().find('.mask').show();
-// });
-
-/////////// 彈跳視窗速度
-
-$('a[href="#modal_order"]').click(function(event) {
-    event.stopPropagation();
-    $(this).modal({
-      fadeDuration: 300
-    });
-  });

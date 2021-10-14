@@ -20,10 +20,14 @@
     <article id="app">
       <section>
         @@include('layout/farm_icon.html')
-          <form class="content_new" action="phps/backInsert_activity_info.php">
+          <form class="content_new" action="phps/backInsert_activity_info.php" method="post"  enctype="multipart/form-data">
             <input class="item_text" name="farm_id" type="hidden" :value="farm_id">
             <div class="content_new_status">
-              <p>目前行程狀態- 活動中: 筆 / 已額滿: 筆 / 已下架: 筆 </p>
+              <p>
+                目前行程狀態- 舉辦中: <span id="Normal"></span> 筆  
+                / 已下架: <span id="Cancel"></span>筆 
+              </p>
+              <!-- / 已額滿: 筆 -->
             </div>
             <div class="content_new_text">
               <div class="item">
@@ -76,127 +80,75 @@
               </div>
             </div>
           </form>
-          <div class="content">
-            <div class="for" v-for="item in activitys">
-              <div class="con_title">
-                  <div class="minus_sign">
-                      <img src="./images/common/minus-sign.svg" alt="往下">
-                      <div class="turn">
-                          <img src="./images/common/minus-sign.svg" alt="往下">
-                      </div>
+          <form action="phps/backIPull_activity_info.php" method="post"  enctype="multipart/form-data">
+            <div class="content">
+              <div class="for" v-for="item in activitys">
+                <div class="con_title">
+                    <div class="minus_sign">
+                        <img src="./images/common/minus-sign.svg" alt="往下">
+                        <div class="turn">
+                            <img src="./images/common/minus-sign.svg" alt="往下">
+                        </div>
+                    </div>
+                    <h3>行程編號: {{item.activity_id}}</h3>
+                    <p class="status">{{item.activity_status}}</p>
+                </div>
+                <div class="con_text">
+                  <div class="item">
+                    <label>行程名稱</label>
+                    <input class="item_text" type="text" :value="item.activity_name" disabled>
                   </div>
-                  <h3>行程編號: {{item.activity_id}}</h3>
-                  <p>正常舉辦</p>
+                  <div class="item">
+                    <label>行程日期</label>
+                    <input class="item_text" type="text" :value="item.activity_date" disabled>
+                  </div>
+                  <div class="item">
+                    <label>上限人數</label>
+                    <input class="item_text" name="amount" type="text" :value="item.activity_max" disabled>
+                  </div>
+                  <div class="item">
+                    <label>下限人數</label>
+                    <input class="item_text" name="amount" type="text" :value="item.activity_min" disabled>
+                  </div>
+                  <div class="item">
+                    <label>報名開始日</label>
+                    <input class="item_text" type="text" :value="item.activity_start" disabled>
+                  </div>
+                  <div class="item">
+                    <label>報名截止日</label>
+                    <input class="item_text" type="text" :value="item.activity_end" disabled>
+                  </div>
+                    <div class="item">
+                      <label>照片(1)</label>
+                      <img :src="'images/activity/' + item.activity_imgA" alt="">
+                    </div>
+                    <div class="item">
+                      <label>照片(2)</label>
+                      <img :src="'images/activity/' + item.activity_imgB" alt="">
+                    </div>
+                    <div class="item">
+                      <label>照片(3)</label>
+                      <img :src="'images/activity/' + item.activity_imgC" alt="">
+                    </div>
+                    <div class="item">
+                      <label>照片(4)</label>
+                      <img :src="'images/activity/' + item.activity_imgD" alt="">
+                    </div>
+                    <div class="btnbox">
+                      <input class="smallbtn_m"  type="submit" value="下架">
+                    </div>
+
+                    <!-- 隱藏 -->
+                    <input type="hidden" name="activity_id" :value="item.activity_id"/>
+                </div>
               </div>
-              <div class="con_text">
-                <div class="item">
-                  <label>行程名稱</label>
-                  <input class="item_text" type="text" :value="item.activity_name" disabled>
-                </div>
-                <div class="item">
-                  <label>行程日期</label>
-                  <input class="item_text" type="text" :value="item.activity_date" disabled>
-                </div>
-                <div class="item">
-                  <label>上限人數</label>
-                  <input class="item_text" name="amount" type="text" :value="item.activity_max" disabled>
-                </div>
-                <div class="item">
-                  <label>下限人數</label>
-                  <input class="item_text" name="amount" type="text" :value="item.activity_min" disabled>
-                </div>
-                <div class="item">
-                  <label>報名開始日</label>
-                  <input class="item_text" type="text" :value="item.activity_start" disabled>
-                </div>
-                <div class="item">
-                  <label>報名截止日</label>
-                  <input class="item_text" type="text" :value="item.activity_end" disabled>
-                </div>
-                  <div class="item">
-                    <label>照片(1)</label>
-                    <img :src="'images/activity/' + item.activity_imgA" alt="">
-                  </div>
-                  <div class="item">
-                    <label>照片(2)</label>
-                    <img :src="'images/activity/' + item.activity_imgB" alt="">
-                  </div>
-                  <div class="item">
-                    <label>照片(3)</label>
-                    <img :src="'images/activity/' + item.activity_imgC" alt="">
-                  </div>
-                  <div class="item">
-                    <label>照片(4)</label>
-                    <img :src="'images/activity/' + item.activity_imgD" alt="">
-                  </div>
-                  <div class="btnbox">
-                    <p>更新日期: 2021/9/15</p>
-                    <input class="smallbtn_m" type="button" value="下架">
-                  </div>
-              </div>
-            </div>
-            
+            </form>
         </div> 
       </section>
         @@include('layout/footer_back.html')
     </article>
 
-    <script type="text/javascript">
-      let app = new Vue({
-        el:"#app",
-        data:{
-          farmers:[],
-          farm_id:"",
-        },
-        computed: {
-          //抓到登入的farm_id
-          activitys() {
-            return this.farmers.filter(item => { 
-              return item.farm_id == this.farm_id
-            });
-          },
-        },
-        methods: {
-          getFarmInfo() {
-            let xhr = new XMLHttpRequest();
-            xhr.onload =  ()=> {
-              member = JSON.parse(xhr.responseText);
-              if (member.farm_email) {
-                this.farm_id = member.farm_id;
-                this.getActivityList();
-              }
-            }
-            xhr.open("get", "./phps/getFarmInfo.php", true);
-            xhr.send(null);
-          },
-          getActivityList(){
-            let xhr = new XMLHttpRequest();
-            xhr.onload = () => {
-              // console.log(JSON.parse(xhr.responseText))
-              this.farmers = JSON.parse(xhr.responseText)
-          }
-          xhr.open("get", "../dist/phps/back_activity_info.php", true);
-          xhr.send(null);
-        }
-        },
-
-        updated() {
-          //收合
-          $('.con_title').click(function () {
-            $(this).next('.con_text').slideToggle(500,"easeOutExpo");
-          }).next('.con_text').hide();
-
-          $('.con_title').click(function () {
-            $(this).find('.turn').toggleClass('turn_zero');
-          })
-        },
-        mounted() {
-          this.getFarmInfo();
-        },
-      })	
-      
-    
-      </script>
+    <script src="js/back_activity_info.min.js"></script>
 
 </body>
 
