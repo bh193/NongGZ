@@ -1,16 +1,17 @@
+
 //activity arrow change
-function setNewImageL(){
-    document.getElementById("arrow-l").src = "images/svg/left-btn-y.svg";
-}
-function setOldImageL(){
-    document.getElementById("arrow-l").src = "images/svg/left-btn-g.svg";
-}
-function setNewImageR(){
-    document.getElementById("arrow-r").src = "images/svg/right-btn-y.svg";
-}
-function setOldImageR(){
-    document.getElementById("arrow-r").src = "images/svg/right-btn-g.svg";
-}
+// function setNewImageL(){
+//     document.getElementById("arrow-l").src = "images/svg/left-btn-y.svg";
+// }
+// function setOldImageL(){
+//     document.getElementById("arrow-l").src = "images/svg/left-btn-g.svg";
+// }
+// function setNewImageR(){
+//     document.getElementById("arrow-r").src = "images/svg/right-btn-y.svg";
+// }
+// function setOldImageR(){
+//     document.getElementById("arrow-r").src = "images/svg/right-btn-g.svg";
+// }
 Vue.component('postItem',{
     props: ['postlist'],
     data(){
@@ -42,7 +43,32 @@ Vue.component('postItem',{
         </div>
     `,
 });
+Vue.component('activityItem',{
+    props:['activitylist'],
+    data(){
+        return{
 
+        }
+    },
+    template:`
+        <div class="owl-carousel owl-theme">
+            <div class="item" v-for="activity in activitylist">
+                <div class="pic">
+                    <img :src="'images/activity/' + activity.activity_imgA">
+                </div>
+                <div class="txt">
+                    <div class="word">
+                        <h2>{{activity.activity_name}}</h2>
+                        <h3>{{activity.city_name}} ┃&nbsp{{activity.farm_name}}</h3>
+                        <p>活動日期:{{activity.activity_date}}</p>
+                        <p>{{activity.activity_content}}</p>
+                        <a href="activity_detail.html"><button>我要報名</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `,
+});
 let app = new Vue({
     el:"#app",
     data:{
@@ -82,11 +108,12 @@ let app = new Vue({
         }
     },
     computed: {
-        statusImg(fruitStatus){
-            if(fruitStatus == 1){
-                return this.imgSrc1;
-            }
-        },
+    //     statusImg(fruitStatus){
+    //         if(fruitStatus == 1){
+                
+    //             point-event = "none";
+    //         }
+    //     },
     },
     mounted(){
         axios.get('../dist/phps/getFarminfon.php')
@@ -118,7 +145,38 @@ let app = new Vue({
         });
         this.getInfo();
         axios.get('../dist/phps/getFarmactivity.php')
-        .then(res => console.log(res));
+        .then(res => {
+            this.activitys = res.data;
+            Vue.nextTick(function(){
+                $('.owl-carousel').owlCarousel({
+                    loop:true,
+                    margin:10,
+                    nav:true,
+                    responsive:{
+                        0:{
+                            items:1
+                        },
+                        600:{
+                            items:1
+                        },
+                        1000:{
+                            items:1
+                        }
+                    }
+                })
+            });
+        });
+    },
+    updated() {
+        for(let i=0;i<$('.status').length;i++){
+            let statusF = $('.staus').eq(i).text();
+            if(statusF=="已認養"){
+                $('.pic').eq(i).css({
+                    "filter":"grayscale(80%)",
+                    "pointer-events":"none"
+                })
+            }
+        };
     },
 })
 //果樹
