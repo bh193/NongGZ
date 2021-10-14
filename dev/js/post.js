@@ -28,17 +28,15 @@ let app = new Vue({
         //貼文發佈
         postdata() {
             console.log('postdata2');
-            let data_info = {
-                'farm_id': this.selectedFarm,
-                'post_img': this.images,
-                'post_content': this.posttxt,
-            };
             $.ajax({
                 type: 'post',
                 url: "../dist/phps/returnPosts.php",
-                data: data_info,
+                data: JSON.stringify({
+                    farm_id: this.selectedFarm,
+                    post_img: this.images,
+                    post_content: this.posttxt,
+                }),
                 contentType:"application/json; charset=utf-8",
-                // dataType:'json',
                 success: (res) => {
                     console.log(res)
                 },
@@ -46,12 +44,12 @@ let app = new Vue({
                     console.log('error')
                 },
                 complete: () => {
-                    console.log(data_info)
+                    console.log()
                 }
             });
         },
         loadMore(){
-            console.log('load');
+            // console.log('load');
             if($(window).height() + $(window).scrollTop()+1 >= $(document).height()){
                 this.currentPage = this.currentPage+1;
             }
@@ -91,7 +89,7 @@ let app = new Vue({
     watch: {
         selectNew: function(){
             this.selectNd();
-            console.log("change")
+            // console.log("change")
         },
         // selectNew: this.selectNd,
     },

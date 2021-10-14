@@ -55,8 +55,6 @@
                                         <option :value= "farm.farm_id" v-for="farm in farms">{{farm.farm_name}}</option>
                                     </select>
                                     <a href="#modal_login" rel="modal:open"><input type="submit" value="發佈" id="modal_btn_1" class="active" @click="postdata"></a>
-                                    
-                                    <!-- @@include('layout/modal_login.html') -->
                                 </div>
                             </div>
                         </form>
@@ -113,16 +111,10 @@
                     <p>load more...</p>
                 </div>
             </article>
-            <div id="modal_login" class="modal">
-                <h3>請登入會員</h3>
-                <div class="btn">
-                    <a href="#" rel="modal:close"><button id="cancel">取消</button></a>
-                    <a href="memlogin.html"><button id="logIn">登入</button></a>
-                </div>
-            </div>
         </section>
     </div>
     @@include('layout/footer.html')
     <script src="js/post.min.js"></script>
+    @@include('layout/modal_login.html')
 </body>
 </html>
