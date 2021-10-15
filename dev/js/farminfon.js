@@ -1,17 +1,4 @@
-
-//activity arrow change
-// function setNewImageL(){
-//     document.getElementById("arrow-l").src = "images/svg/left-btn-y.svg";
-// }
-// function setOldImageL(){
-//     document.getElementById("arrow-l").src = "images/svg/left-btn-g.svg";
-// }
-// function setNewImageR(){
-//     document.getElementById("arrow-r").src = "images/svg/right-btn-y.svg";
-// }
-// function setOldImageR(){
-//     document.getElementById("arrow-r").src = "images/svg/right-btn-g.svg";
-// }
+//貼文
 Vue.component('postItem',{
     props: ['postlist'],
     data(){
@@ -20,7 +7,7 @@ Vue.component('postItem',{
         }
     },
     template: `
-        <div class="owl-carousel owl-theme">
+        <div id="owl-one" class="owl-carousel owl-theme">
             <div class="item" v-for="prodRow in postlist">
                 <div class="pic">
                     <img :src="'images/post/' + prodRow.post_img">
@@ -43,15 +30,16 @@ Vue.component('postItem',{
         </div>
     `,
 });
+//活動
 Vue.component('activityItem',{
-    props:['activitylist'],
+    props: ['activitylist'],
     data(){
         return{
 
         }
     },
-    template:`
-        <div class="owl-carousel owl-theme">
+    template: `
+        <div id="owl-two" class="owl-carousel owl-theme">
             <div class="item" v-for="activity in activitylist">
                 <div class="pic">
                     <img :src="'images/activity/' + activity.activity_imgA">
@@ -62,7 +50,7 @@ Vue.component('activityItem',{
                         <h3>{{activity.city_name}} ┃&nbsp{{activity.farm_name}}</h3>
                         <p>活動日期:{{activity.activity_date}}</p>
                         <p>{{activity.activity_content}}</p>
-                        <a href="activity_detail.html"><button>我要報名</button></a>
+                        <a href="activity_detail.html"><button class="actbtn">我要報名</button></a>
                     </div>
                 </div>
             </div>
@@ -108,19 +96,13 @@ let app = new Vue({
         }
     },
     computed: {
-    //     statusImg(fruitStatus){
-    //         if(fruitStatus == 1){
-                
-    //             point-event = "none";
-    //         }
-    //     },
     },
     mounted(){
         axios.get('../dist/phps/getFarminfon.php')
         .then(res => {
             this.prodRows = res.data;
             Vue.nextTick(function(){
-               $(".owl-carousel").owlCarousel({
+               $("#owl-one").owlCarousel({
                    stagePadding: 400,
                    loop: true,
                    margin: 150,
@@ -148,10 +130,12 @@ let app = new Vue({
         .then(res => {
             this.activitys = res.data;
             Vue.nextTick(function(){
-                $('.owl-carousel').owlCarousel({
+                $('#owl-two').owlCarousel({
                     loop:true,
                     margin:10,
-                    nav:true,
+                    nav:false,
+                    navigation:false,
+                    pagination:false,
                     responsive:{
                         0:{
                             items:1

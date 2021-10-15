@@ -5,7 +5,7 @@
         require_once("./connectNGZ.php");
         
         //執行sql指令並取得pdoStatement
-        $sql = "SELECT p.post_img, p.post_content, m.mem_img, f.farm_name, f.farm_banner, p.post_feedback
+        $sql = "SELECT p.post_img, p.post_content, m.mem_img, f.farm_name, f.farm_banner, p.post_feedback,
         from post p join member m on (p.mem_id = m.mem_id)
              join farm f on (p.farm_id = f.farm_id)
 		where f.farm_id = 1";
