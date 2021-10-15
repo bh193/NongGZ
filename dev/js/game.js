@@ -7,7 +7,7 @@ $(function () {
         $('#back').hide();
         var time;
         var SetSecond = 10;
-        var Second=10;
+        var Second = 10;
         time = setInterval(function () {
             SetSecond--;
             Second--;
@@ -17,7 +17,7 @@ $(function () {
                 $('.rule').hide();
                 $('.result').show();
             };
-            if(Second == 0){
+            if (Second == 0) {
                 $('#ok').click();
             };
             $('#Check_Txt').text(`時間計數： ${SetSecond}秒`);
@@ -148,5 +148,22 @@ $(function () {
     $('#sure').click(function () {
         history.back();
     });
+
+
+    //登入會員顯示資訊
+    let member = {};
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        member = JSON.parse(xhr.responseText);
+        if (member.mem_email) {
+            $("#text").hide();
+            $("#login").hide();
+            $("#mem_name").text('會員姓名:' + member.mem_name);
+            $("#id").val(member.mem_id);
+            $("#mem_id").text('會員編號:' + member.mem_id);
+        }
+    }
+    xhr.open("get", "./phps/getMemInfo.php", true);
+    xhr.send(null);
 
 });

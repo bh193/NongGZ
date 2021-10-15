@@ -89,4 +89,19 @@ $(function () {
     xhr.open("get", "./phps/getMemInfo.php", true);
     xhr.send(null);
 
+    //登出系統
+    $('#mem_state').click(function () {
+        if ($('#mem_state').text() == "會員") {
+            $(window).attr("location", "./memlogin.html");
+        } else { //登出
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                $('#mem_state').text("會員");
+            }
+            xhr.open("get", "./phps/logout.php", true);
+            xhr.send(null);
+        }
+    });
+
+
 });

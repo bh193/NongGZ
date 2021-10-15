@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Examples</title>
+	<style type="text/css">
+		h2 {
+			color: deeppink;
+		}
+
+		td {
+			border-bottom: 1px dotted deeppink;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		.prodImg {
+			width: 50px;
+		}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+
+<body>
+	<div style="background-color:#bfbfef;text-align:right">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="cartShow.php">檢視購物車</a>
+	</div> <br>
+
+	<table align="center" width="600" id="prodTable">
+		<tr bgcolor="#bfbfef">
+			<th>水果種類編號</th>
+			<th>水果種類名稱</th>
+			<th>果樹圖片</th>
+			<th>水果圖片</th>
+		</tr>
+		<tr v-for="prodRow in prodRows">
+			<td>{{prodRow.fruit_id}}</td>
+			<td>123</td>
+			<td><img :src="'images/' + prodRow.fruit_timg" class="prodImg"></td>
+			<td><img :src="'images/' + prodRow.fruit_fimg" class="prodImg"></td>
+		</tr>
+
+	</table>
+	<script type="text/javascript">
+		let productsTable = new Vue({
+			el: "#prodTable",
+			data: {
+				prodRows: []
+			}
+		})
+
+		function getProducts() {
+			let xhr = new XMLHttpRequest();
+			xhr.onload = function () {
+				console.log(JSON.parse(xhr.responseText))
+				productsTable.prodRows = JSON.parse(xhr.responseText)
+			}
+			xhr.open("get", "getProducts.php", true);
+			xhr.send(null);
+		}
+
+		window.addEventListener("load", function () {
+			//------------------------網頁的初始設定
+			getProducts();
+
+			//------------------------註冊事件處理器
+			let btnCartAdds = document.getElementsByClassName("btnCartAdd");
+			let prodNames = document.getElementsByClassName("prodName");
+			for (let i = 0; i < btnCartAdds.length; i++) {
+				btnCartAdds[i].onclick = function () {
+					console.log(i);
+					alert("確定購買" + prodNames[i].innerText + "商品嗎?");
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>

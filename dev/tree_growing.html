@@ -163,8 +163,7 @@
     <!-- 彈跳訂單視窗 -->
     <div id="popOrder" class="modal order">
         <h3>認養果樹確認訂單</h3>
-        <!-- <form action="./phps/insertTree_order.php" method="post" enctype="multipart/form-data"> -->
-        <form action="./phps/sample_Credit_CreateOrder.php" method="post" enctype="multipart/form-data">
+        <form action="./phps/insertTree_order.php" method="post" enctype="multipart/form-data">
             <table v-for="order in popId_order">
                 <tr>
                     <td>果樹名稱:</td>
@@ -202,12 +201,12 @@
                     <td colspan="2">
                         <select name="discount" id="discount" v-model="t_price">
                             <option value="">選擇折扣券</option>
-                            <option :value="mem.coupon_id + '-' + mem.coupon_t_price" v-for="mem in memId_coupon">
+                            <option :value="mem.coupon_id + '-' + mem.coupon_t_price" v-for="mem in memId_status">
                                 {{mem.coupon_id}}-折扣{{mem.coupon_t_price}}</option>
                         </select>
                     </td>
                     <td>
-                        <input type="hidden" name="coupon_id" :value="coupon_id">{{coupon_id}}
+                        <input type="hidden" name="coupon_id" :value="coupon_id">
                     </td>
                 </tr>
             </table>
@@ -224,13 +223,14 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input class="item_text card" type="text" name="card1" maxlength="4">
+                        <input id="card" type="hidden" name="card" value="">
+                        <input class="item_text card" type="text" id="card1" maxlength="4">
                         -
-                        <input class="item_text card" type="text" name="card2" maxlength="4">
+                        <input class="item_text card" type="text" id="card2" maxlength="4">
                         -
-                        <input class="item_text card" type="text" name="card3" maxlength="4">
+                        <input class="item_text card" type="text" id="card3" maxlength="4">
                         -
-                        <input class="item_text card" type="text" name="card4" maxlength="4">
+                        <input class="item_text card" type="text" id="card4" maxlength="4">
                     </td>
                 </tr>
                 <tr>
@@ -254,15 +254,22 @@
                     <td colspan="2">
                         <div class="btn">
                             <a href="#" rel="modal:close"><button id="cancel">取消</button></a>
-                            <button id="send">送出</button>
+                            <a id="order_send" href="" rel="modal:open">
+                                <button id="send">送出</button>
+                            </a>
+                            <input type="submit" id="sendOrder">
                         </div>
                     </td>
                 </tr>
             </table>
         </form>
-        <!-- </form> -->
     </div>
 
+    <!-- 信用卡錯誤 -->
+    <div id="error" class="modal">
+        <h3>信用卡卡號錯誤</h3>
+        <a href="#" rel="modal:close"><button id="cancel">關閉</button></a>
+    </div>
 
     @@include('layout/footer.html')
 

@@ -55,7 +55,7 @@
                     </div>
                     <div class="item">
                         <label>數量<span style="color: red;">*</span></label>
-                        <input class="item_text" name="amount" type="text" required>
+                        <input class="item_text" name="amount" type="number" required>
                     </div>
                     <div class="item">
                         <label>可認養開始日</label>
@@ -76,8 +76,8 @@
                         <input class="item_text" name="treehistory_img2" type="file" style="border:none" required>
                     </div>
                     <div class="item">
-                        <label>果樹價格(年)<span style="color: red;">*</span></label>
-                        <input class="item_text" name="tree_price" type="text" required>
+                        <label>果樹價格($/年)<span style="color: red;">*</span></label>
+                        <input class="item_text" name="tree_price" type="number" required>
                     </div>
                     <div class="btnbox">
                         <input class="smallbtn_s" id="clear" type="reset" value="清除">
@@ -131,11 +131,11 @@
                     </div>
                     <div class="item">
                         <label>數量<span style="color: red;">*</span></label>
-                        <input class="item_text amount" name="amount" type="text" :value="tree.amount">
+                        <input class="item_text amount" name="amount" type="number" :value="tree.amount">
                     </div>
                     <div class="item">
-                        <label>可認養開始日<span style="color: red;">*</span></label>
-                        <input class="item_text tree_start" name="tree_start" type="date" :value="tree.tree_start">
+                        <label>可認養開始日</label>
+                        <input class="item_text tree_start" name="tree_start" type="date" :value="tree.tree_start" disabled>
                     </div>
                     <div class="item">
                         <label>可認養結束日<span style="color: red;">*</span></label>
@@ -151,8 +151,8 @@
                         <input class="item_text" name="treehistory_img2" type="file" style="border:none">
                     </div>
                     <div class="item">
-                        <label>果樹價格(年)<span style="color: red;">*</span></label>
-                        <input class="item_text tree_price" name="tree_price" type="text" :value="tree.tree_price">
+                        <label>果樹價格($/年)<span style="color: red;">*</span></label>
+                        <input class="item_text tree_price" name="tree_price" type="number" :value="tree.tree_price">
                     </div>
                     <div class="photo">
                         <a href="#moreimg" rel="modal:open"><input class="bigbtn_s treehistory_img" type="button"

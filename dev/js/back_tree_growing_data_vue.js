@@ -47,7 +47,6 @@ let tree_data = new Vue({
       //新增--開始日為當下日期
       let date=new Date().toLocaleDateString();
       $('#tree_start').val(date);
-      $('#tree_start').text(date);
 
       //點擊"查看歷史照片"，取得該tree_id
       $('.treehistory_img').click(function () {

@@ -30,9 +30,8 @@ function sendForm() {
             // $id("spanLogin").innerText = "登出";
             // //將登入表單上的資料清空，並隱藏起來
             // $id('lightBox').style.display = 'none';
-            // $id('memId').value = '';
-            // $id('memPsw').value = '';
-            // console.log(member);
+            $id('farm_email').value = '';
+            $id('farm_psw').value = '';
             $('body').hide();
             window.location.href='./back_farminfo.html';
         } else {
@@ -52,6 +51,8 @@ function sendCom() {
 let com_email = "cfd102"
 let com_psw = "cfd102"
 if($('#con_email').val() == com_email && $('#con_psw').val() == com_psw){
+    $id('con_email').value = '';
+    $id('con_psw').value = '';
     $('body').hide();
     window.location.href='./admin_farmer.html';
 }else {
@@ -97,3 +98,5 @@ function init() {
 }; //window.onload
 
 window.addEventListener("load", init, false);
+
+

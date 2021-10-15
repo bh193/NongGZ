@@ -233,7 +233,10 @@ let popOrder = new Vue({
             return this.orders.filter(order => { return order.tree_id == tree_id });
         },
         memId_coupon() {
-            return this.mems.filter(mem => { return mem.mem_id == 1 });
+            return this.mems.filter(mem => { return mem.mem_id == $('#mem_id').text() });
+        },
+        memId_status() {
+            return this.memId_coupon.filter(mem => { return mem.coupon_status == 0 });
         },
         memId() {
             return this.memId_coupon.slice(0, 1);
@@ -292,6 +295,48 @@ let popOrder = new Vue({
                 $(this).next().focus();
             }
         });
+
+        //信用卡卡碼判定
+        $('#send').click(function () {
+            let card_number = $('#card1').val() + $('#card2').val() + $('#card3').val() + $('#card4').val(); //字串
+            //偶數位總和
+            function even() {
+                let even_sum = 0; //偶數位總和
+                for (let i = 1; i <= 13; i += 2) { //0 "1" 2 "3" 4 "5" 6 "7" 8 "9" 10 "11" 12 "13" 14 | 15->驗證碼
+                    let even_number = parseInt(card_number[i]); //parseInt() 字串轉數值
+                    even_sum += even_number; //偶數位總和
+                }
+                return even_sum; //傳值
+            }
+
+            //奇數位加權總和
+            function odd() {
+                let odd_sum = 0; //奇數位總和
+                for (let i = 0; i <= 14; i += 2) { //"0" 1 "2" 3 "4" 5 "6" 7 "8" 9 "10" 11 "12" 13 "14" | 15->驗證碼
+                    let odd_number = parseInt(card_number[i]) * 2; //parseInt() 字串轉數值 , 奇數位 *2
+                    if (odd_number >= 10) {
+                        odd_number -= 9; // >=10則需扣9
+                    }
+                    odd_sum += odd_number;
+                }
+                return odd_sum; //傳值 
+            }
+
+            let sum = even() + odd();//奇數加權總合+偶數位總和
+            let IdNum = sum % 10;//(奇數加權總合+偶數位總和)/10 取"餘數"
+            if (IdNum != 0) {
+                IdNum = 10 - IdNum; //餘數不等於0，則10-餘數
+            }
+
+            if (IdNum !== card_number[15] * 1) { //計算驗證碼不等於第16碼
+                $('#card').val(0);
+                $('#order_send').attr("href","#error");
+            } else {
+                $('#card').val(1);
+                $('#order_send').attr("href","");
+                $('#sendOrder').click();
+            }
+        })
 
         //安全碼設定
         $("#code").on("keydown", function (e) {

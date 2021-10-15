@@ -1,8 +1,8 @@
 <?php 
 if($_POST["status_all"]<6){
-	$tree_end = new Date('$_POST["tree_end"]');
-	$tree_start = new Date('$_POST["tree_start"]');
-   if($tree_end>=$tree_start){
+	$tree_end = $_POST["tree_end"];
+	$today = date('Y-m-d');
+   if(strtotime($tree_end)>=strtotime($today)){
 		//匯入照片以外資訊
 		session_start();
 		try {
@@ -15,7 +15,7 @@ if($_POST["status_all"]<6){
 			$trees->bindValue(":fruit_id", $_POST["fruit_id"]);
 			$trees->bindValue(":size", $_POST["size"]);
 			$trees->bindValue(":amount", $_POST["amount"]);
-			$trees->bindValue(":tree_start", $_POST["tree_start"]);
+			$trees->bindValue(":tree_start", $today);
 			$trees->bindValue(":tree_end", $_POST["tree_end"]);	 
 			$trees->bindValue(":tree_price", $_POST["tree_price"]);
 			$trees->bindValue(":farm_id", $_SESSION["farm_id"]);

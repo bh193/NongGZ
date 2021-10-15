@@ -90,7 +90,7 @@ section {
     margin-top: 35px;
 }
 
-#status_text{
+#status_text {
     width: 70%;
     font-size: 1.2rem;
     color: red;
@@ -213,6 +213,7 @@ section {
 
     .content_bottom {
         width: 100%;
+
         .con {
             width: 100%;
             display: flex;
@@ -222,6 +223,7 @@ section {
             padding: 1rem;
             margin-top: 1rem;
             box-sizing: border-box;
+
             .con_text {
                 width: 100%;
                 margin-bottom: 0.5rem;
@@ -303,7 +305,7 @@ section {
             z-index: 2;
             transition: all .3s linear;
 
-            .none{
+            .none {
                 width: 90%;
                 text-align: center;
                 @include positioncenter();
@@ -311,7 +313,7 @@ section {
                 background-color: red;
                 padding: 5px;
                 border-radius: 5px;
-             }
+            }
 
             &:nth-child(1) {
                 top: 42%;
@@ -478,15 +480,17 @@ section {
 
 
 //彈跳遊戲提醒視窗
-#modal_game{
+#modal_game {
     // width: 370px;
     // height: 140px;
     background-color: #F7F6F2;
     text-align: center;
-      h3{
-        margin: 14px auto;    
-      }
-      button{
+
+    h3 {
+        margin: 14px auto;
+    }
+
+    button {
         width: 100px;
         height: 35px;
         border-radius: 8px;
@@ -495,17 +499,20 @@ section {
         color: #fff;
         font-weight: bolder;
         margin: 6px 20px;
-      }
-      button:hover{
+    }
+
+    button:hover {
         opacity: .8;
-      }
-      #logIn{
+    }
+
+    #logIn {
         background-color: #BB9590;
-      }
-      #go{
-        background-color:#84A59D;
-      }
-  }
+    }
+
+    #go {
+        background-color: #84A59D;
+    }
+}
 
 //彈跳訂單視窗
 #popOrder {
@@ -522,8 +529,8 @@ section {
         border-radius: 8px;
         @include flexcenter;
     }
-    
-    form{
+
+    form {
         margin-top: 5px;
     }
 
@@ -534,11 +541,12 @@ section {
         letter-spacing: $p_letter;
         text-align: left;
         color: #3d3b3b;
-     
+
 
         tr {
             td {
                 padding: 0 10px 8px;
+
                 select {
                     @include select(20rem);
                     font-size: $p_size;
@@ -546,7 +554,7 @@ section {
                     letter-spacing: $p_letter;
                 }
 
-                .date{
+                .date {
                     width: 4.8rem;
                     margin: 0.1rem;
                 }
@@ -586,6 +594,39 @@ section {
     }
 }
 
+//信用卡錯誤視窗
+#error {
+    background-color: #F7F6F2;
+    text-align: center;
+
+    h3 {
+        margin: 14px auto;
+    }
+
+    button {
+        width: 100px;
+        height: 35px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        font-weight: bolder;
+        margin: 6px 20px;
+    }
+
+    button:hover {
+        opacity: .8;
+    }
+
+    #cancel {
+        background-color: #BB9590;
+    }
+}
+
+//修改彈窗背景z-index
+.blocker {
+    z-index: 200;
+}
 
 
 @include d {
@@ -607,10 +648,10 @@ section {
         }
     }
 
-    #status_text{
+    #status_text {
         width: 75%;
         @include positioncenter();
-        top:50%;
+        top: 50%;
     }
 
     .fruit_tree_box {
@@ -646,9 +687,9 @@ section {
             .map_tree {
                 z-index: 0;
 
-                .none{
+                .none {
                     width: auto;
-                 }
+                }
             }
         }
 

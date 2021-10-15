@@ -72,6 +72,13 @@ header {
                 cursor: pointer;
                 width: 50%;
 
+                &:hover{
+                    margin-top: -10%;
+                }
+                &:hover h4{
+                    color: $btn_m_color;
+                }          
+
                 img {
                     width: 100%;
                 }

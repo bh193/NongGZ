@@ -98,6 +98,12 @@
 
         .sign_out_name {
             width: 55%;
+            #farm_login, #con_login{
+                cursor: pointer;
+                &:hover{
+                    color: $focus_color;
+                }
+            }
         }
     }
 }
