@@ -45,9 +45,13 @@
             <input type="hidden" name="originImg" :value="item.mem_img">
             <li class="pic">
               <img id="mem_img" :src="'images/mem/' + item.mem_img"/>
-              <label class="camera">
-                <input id="updateImg" name="mem_img" type="file" style="display: none;"/>
-                <img src="images/common/update-camera.png" alt="" />
+              
+              <img :src="ShowImage" class="show_space">  
+              <!-- <img class="show_space">  -->
+
+              <label class="camera" style="border: none;">
+                <input id="updateImg" name="mem_img" type="file" style="display: none;" @change="imgchange"/>
+                <img id="camera" src="images/common/update-camera.png" alt="" />
               </label>
             </li>
             <li class="info">
@@ -358,8 +362,9 @@
           </ul>
         </div>
       </div>
+      @@include('layout/modal_password.html') 
     </div>
-    @@include('layout/modal_password.html') 
+    
     @@include('layout/footer.html')
 
    <script src="js/mem_center.min.js"></script>

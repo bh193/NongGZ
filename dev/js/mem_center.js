@@ -3,7 +3,8 @@ let app = new Vue({
   data: {
     AllMem: [],
     AllT_order: [],
-    AllA_order:[]
+    AllA_order:[],
+    ShowImage: '',
   },
   computed: {
     all() {
@@ -22,7 +23,25 @@ let app = new Vue({
       });
     }
   },
-
+  methods:{
+  //   imgchange(e) {
+  //     let file = e.target.files[0];
+  //     let readFile = new FileReader();
+  //     readFile.readAsDataURL(file);
+  //     readFile.addEventListener('load', this.loadImage);
+  //     // document.getElementsByClassName('show_space').src = URL.createObjectURL(file);
+  // },
+  //   loadImage(e) {
+  //     this.ShowImage = e.target.result;
+  // },
+  imgchange(e) {    	   
+    let show = URL.createObjectURL(e.target.files[0]);
+    this.ShowImage = show;
+    // show.style.maxWidth = '110px';
+    // show.style.maxHeight = '110px';   
+    // 怎麼修改
+  },
+  },
   mounted() {
     // 認養及體驗活動訂單的頁面切換
     $(function () {
