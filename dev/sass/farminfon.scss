@@ -164,7 +164,10 @@
             .owl-carousel .owl-stage{
                 cursor: grab;
             }
-            .item{
+            #owl-two .owl-theme .owl-nav {
+                display: none;
+            }
+            #owl-two .item{
                 .pic{
                     width: 100%;
                     img{
@@ -174,7 +177,7 @@
                 .txt{
                     width: 100%;
                     padding: 2rem 3rem 1.5rem 1.5rem;
-                    background-color: $header_color;
+                    background-color: #fff;
                     .word{
                         h2,h3{
                             padding-bottom: 1rem;
@@ -182,26 +185,13 @@
                         p{
                             padding-bottom: 0.5rem;
                         }
-                        button{
-                            @include smallbtn_m;
+                        a{
+                            .actbtn{
+                                @include smallbtn_m;
+                            }
                         }
                     }
                 }
-            }
-        }
-        .arrow{
-            display: flex;
-            .left{
-                position: absolute;
-                width: 1.25rem;
-                top: 55%;
-                left: 0;
-            }
-            .right{
-                position: absolute;
-                width: 1.25rem;
-                top: 55%;
-                right: 0;
             }
         }
     }
@@ -215,13 +205,17 @@
             margin-bottom: 3.75rem;
         }
     }
-    .item{
+    #owl-one .owl-theme .owl-nav {
+        display: none;
+    }
+    #owl-one .item{
         height: 100%;
         width: 100%;
         border-radius: 50%;
         background: #FAEEE0;
         padding: 2rem;
         position: relative;
+        margin-bottom: 3rem;
         .pic{
             width: 100%;
             height: auto;
@@ -258,7 +252,7 @@
             }
             span{
                 color: #939393;
-                font-size: $h4_size;
+                font-size: $p_size;
                 padding-left: 0.3rem;
                 padding-right: 1rem;
                 font-weight: $h2_weight;
@@ -326,16 +320,17 @@
             }
             .content{
                 width: 63.75vw;
-                height: 35vw;
+                height: 36vw;
                 background-color: $btn_m_color;
                 position: relative;
-                .item{
+                #owl-two .item{
                     display: flex;
                     align-items: center;
-                    position: absolute;
                     top: -3rem;
                     left: 3rem;
                     right: -3rem;
+                    margin-bottom: 1rem;
+                    margin-left: 2rem;
                     .pic{
                         width: 32.5vw;
                     }

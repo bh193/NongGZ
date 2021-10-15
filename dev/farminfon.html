@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-    <script src="js/vue.min.js"></script>  
+    <script src="js/vue.min.js"></script>
 </head>
 <body>
     @@include('layout/header.html')
@@ -73,7 +73,7 @@
                     <div class="fruit">
                         <div class="card" v-for="fruit in fruits">
                             <div class="pic">
-                                <a href="./tree_growing.html"><img :src="'images/tree/' + fruit.treehistory_img"></a>
+                                <a :href="'tree_growing.html?tree_id=' + fruit.tree_id"><img :src="'images/tree/' + fruit.treehistory_img"></a>
                             </div>
                             <div class="txt">
                                 <h3 class="status">{{getStatus(fruit.tree_status)}}</h3>
@@ -92,7 +92,7 @@
                     <div class="content">
                         <activity-item :activitylist="activitys">
                             <!-- <div class="owl-carousel owl-theme">
-                                <div class="item" v-for="activity in activitys">
+                                <div class="item" v-for="activity in activitylist">
                                     <div class="pic">
                                         <img :src="'images/activity/' + activity.activity_imgA">
                                     </div>
@@ -108,14 +108,6 @@
                                 </div>
                             </div> -->
                         </activity-item>
-                    </div>
-                    <div class="arrow">
-                        <div class="left" @click.prevent="toPrev">
-                            <img id="arrow-l" onmouseover="setNewImageL()" onmouseout="setOldImageL()" src="images/svg/left-btn-g.svg">
-                        </div>
-                        <div class="right" @click.prevent="toNext">
-                            <img id="arrow-r" onmouseover="setNewImageR()" onmouseout="setOldImageR()" src="images/svg/right-btn-g.svg">
-                        </div>
                     </div>
                 </div>
             </article>
