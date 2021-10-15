@@ -106,7 +106,7 @@ let app = new Vue({
                    stagePadding: 400,
                    loop: true,
                    margin: 150,
-                   nav: false,
+                   nav: true,
                    responsive: {
                        0: {
                            items: 1, 
