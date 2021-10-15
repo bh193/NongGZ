@@ -44,10 +44,9 @@
             <!-- 更新照片與否的真實位置 -->
             <input type="hidden" name="originImg" :value="item.mem_img">
             <li class="pic">
-              <img id="mem_img" :src="'images/mem/' + item.mem_img"/>
+              <!-- <img id="mem_img" :src="'images/mem/' + item.mem_img"/> -->
               
-              <img :src="ShowImage" class="show_space">  
-              <!-- <img class="show_space">  -->
+              <img :src="ShowImage ? ShowImage : 'images/mem/' + item.mem_img" class="show_space">
 
               <label class="camera" style="border: none;">
                 <input id="updateImg" name="mem_img" type="file" style="display: none;" @change="imgchange"/>
@@ -133,17 +132,17 @@
                     <img id="plus" src="images/common/plus.png" alt="" />
                     <img id="minus" src="images/common/minus.png" alt="" />
                     <span>果樹名稱：</span>
-                    <span id="tree_name">{{item.tree_name}}</span>
+                    <span>{{item.tree_name}}</span>
                   </div>
                   <div class="right">
                     <span>訂單編號：</span>
-                    <span id="t_order_id">{{item.t_order_id}}</span>
+                    <span>{{item.t_order_id}}</span>
                   </div>
                 </div>
 
                 <!-- 認養訂單內容  -->
                 <div class="detail">
-                  <section id="fruit_tree">
+                  <section>
                     <div class="fruit_tree_box">
                       <canvas class="item" width="2000" height="2000"></canvas>
                       <div class="tree_fruit_box">
@@ -238,9 +237,9 @@
                                 <h2 class="number">{{item.amount}}</h2>
                               </div>
                             </div>
-                            <span id="fruit_id" style="visibility: hidden"
+                            <!-- <span id="fruit_id" style="visibility: hidden"
                               >1</span
-                            >
+                            > -->
                             <h3 class="price">
                               認養價格: {{item.tree_price}}$/年
                             </h3>
@@ -277,7 +276,6 @@
                         <th>姓名</th>
                         <th>信箱</th>
                         <th>人數</th>
-                        <th>報名狀態</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -287,7 +285,6 @@
                         <td>{{item.mem_name}}</td>
                         <td>{{item.mem_email}}</td>
                         <td>{{item.a_order_people}}</td>
-                        <td>已報名</td>
                       </tr>
                     </tbody>
                   </table>
@@ -362,9 +359,9 @@
           </ul>
         </div>
       </div>
-      @@include('layout/modal_password.html') 
+     
     </div>
-    
+    @@include('layout/modal_password.html') 
     @@include('layout/footer.html')
 
    <script src="js/mem_center.min.js"></script>

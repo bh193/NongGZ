@@ -4,29 +4,10 @@ let app = new Vue({
     id: 0,
     dataObj: {},
     img: '',
-
+    
     //手機carousel
     carouselName: 'carousel-next',
     carousels:[],
-      // carousels: [
-      //   {
-      //     img: 'https://picsum.photos/900/506?image=508',
-      //     href: "#"
-      //   },
-      //   {
-      //     img: 'https://picsum.photos/900/506?image=1068',
-      //     href: "#"
-      //   },
-      //   {
-      //     img: 'https://picsum.photos/900/506?image=509',
-      //     href: "#"
-      //   },
-      //   {
-      //     img: 'https://picsum.photos/900/506?image=509',
-      //     href: "#"
-      //   }
-      // ],
-
       len: 0,
       show: 0,
       xDown: null, // for swiper
@@ -41,9 +22,6 @@ let app = new Vue({
       },
 
       computed:{
-        // one(){
-        //     return this.activitys[this.index];
-        // },
       },
 
     methods: {
@@ -55,7 +33,7 @@ let app = new Vue({
         $.ajax({
           url: '../dist/phps/getActivityList.php',
           success: (response) => {
-            // console.log(response)
+            console.log(response)
             let obj = JSON.parse(response).find(item => item.activity_id == this.id) 
             // 在資料庫找到我要的activity_id=3  並且JSON.parse字串轉成陣列  
             // console.log(obj)
@@ -83,9 +61,10 @@ let app = new Vue({
         //  this.dataObj=res.data;
       },
 
+
       // 手機版carousel
       toNext() {
-        console.log('toNext')
+        // console.log('toNext')
         this.carouselName = 'carousel-next';
         this.show + 1 >= this.len ? this.show = 0 : this.show = this.show + 1;
       },
@@ -144,7 +123,7 @@ let app = new Vue({
           this.minHeight = this.$refs.carousel.offsetHeight + 'px';
         });
       
-              /////////// 彈跳視窗速度
+        /////////// 彈跳視窗速度
 
         $('a[href="#modal_order"]').click(function(event) {
           event.stopPropagation();
@@ -158,20 +137,19 @@ let app = new Vue({
   })	
   
 
-  // 連資料庫
-  function getActivityList(){
+//抓右上角的mem_id
+  let member = {};
     let xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-      // console.log(JSON.parse(xhr.responseText))
-      app.activitys = JSON.parse(xhr.responseText)
+    xhr.onload = function () {
+      member = JSON.parse(xhr.responseText);
+      if (member.mem_email) {
+        $("#myName").text(member.mem_name);
+        $("#myEmail").text(member.mem_email); 
+        console.log(member)
+      }
     }
-    xhr.open("get", "../dist/phps/getActivityList.php", true);
+    xhr.open("get", "./phps/getMemInfo.php", true);
     xhr.send(null);
-  }
-  
-  window.addEventListener("load", function(){
-    getActivityList();
-  })
   
 
 
