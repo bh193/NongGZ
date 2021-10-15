@@ -26,7 +26,7 @@ select{
 // -> 地圖
 #map{
     background-color: #ccc;
-    min-height: 400px;
+    // min-height: 400px;
     .col{
         padding: 1rem;
         background-color:$second_color;
@@ -97,6 +97,48 @@ select{
             // @include margincenter();
         // }
     }
+
+}
+.mapbox{
+    max-width: 1280px;
+    min-width: 350px;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 5rem;
+    .mapitem:{width: 100%;}
+    .mapitem:nth-child(1){ //地圖
+        display: none;
+
+    }
+    .mapitem:nth-child(2){ //地點照片
+        // background-color: #fff;
+        .slider {
+            width: 80%;
+            margin: 1rem auto;
+            
+        }
+        .slick-slide {
+          margin: 0px 20px;
+        }
+        .slick-slide img {
+          width: 100%;
+        }
+        .slick-prev:before,
+        .slick-next:before {
+          color: #858585; //左右邊箭頭顏色
+        }
+        .slick-slide {
+          transition: all ease-in-out .3s;
+          opacity: .2;
+        }
+        .slick-active {
+          opacity: .5;
+        }
+        .slick-current {
+          opacity: 1;
+        }
+        
+    }
 }
 .breadcrumb{
     padding: 0;
@@ -116,7 +158,7 @@ select{
 /*RWD*/
 @include t{
     #map{
-        min-height: 450px;
+        // min-height: 450px;
     }
 
 }
