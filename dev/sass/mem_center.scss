@@ -88,12 +88,20 @@ color: #f6bd60;
       position: absolute;
       object-fit: cover;
     }
+    .show_space{
+      width: 110px;
+      height: 110px; 
+      // 在此設長寬會有border
+      border-radius: 50%;
+      position: absolute;
+      object-fit: cover;
+    }
     .camera{
       cursor: pointer;
       border: 1px solid;
       position: relative;
-      img{
-        width: 25px;
+      #camera{
+        width: 30px;
         position: absolute;
         top: 32px;
         left: 43px;
