@@ -117,6 +117,14 @@ select{
        display: flex;
     //    justify-content: space-around;
        box-sizing: border-box;
+       .swiper-slider{
+           img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+       }
         
     }
 
@@ -149,10 +157,10 @@ select{
         .box:nth-child(2){ //----------篩選框
             flex-direction: row;
             
-            .item{
+            .bred{
                 width: 100%;
             }
-            .item:nth-child(2){
+            .bred:nth-child(2){
                 // margin-right: 10rem;
             }
         }
@@ -189,7 +197,7 @@ select{
     }
 }
 
-.item >*{
+.bred >*{
     margin-right:3rem;
 }
 
