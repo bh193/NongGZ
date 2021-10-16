@@ -193,8 +193,6 @@
                             alt="果實"
                           />
                           <div style="display: none">
-                            <!-- <p id="number">{{item.amount}}</p>
-                            <p id="size">{{item.size}}</p> -->
                             <p class="fruit_id">{{item.fruit_id}}</p>
                           </div>
                         </div>
@@ -205,11 +203,11 @@
                         <p class="update">照片更新日期:2021-10-04 16:55:51</p>
                         <div class="con_imgbox">
                           <div class="img">
-                            <img src="./images/tree/8.jpg" alt="真實果樹照片" />
+                            <img :src="'images/tree/' + item.treehistory_img" alt="">
                           </div>
-                          <div class="img">
+                          <!-- <div class="img">
                             <img src="./images/tree/8.jpg" alt="真實果樹照片" />
-                          </div>
+                          </div> -->
                         </div>
                         <a href="#moreimg" rel="modal:open"
                           ><input
@@ -293,67 +291,39 @@
             </li>
             <!-- 折扣券 -->
             <li>
-              <div class="item">
-                <div class="left">
-                  <img id="plus" class="plus" src="images/common/plus.png" alt="" />
-                  <img id="minus" class="minus" src="images/common/minus.png"/>
-                  <span>折扣面額：</span>
-                  <span>$600</span>
+              <div class="for4" v-for="item in coupons">
+                <!-- 折扣券內容-->
+                <div class="item">
+                  <div class="left">
+                    <img id="plus" class="plus" src="images/common/plus.png" alt="" />
+                    <img id="minus" class="minus" src="images/common/minus.png" alt=""/>
+                    <span>折扣面額：</span>
+                    <span>${{item.coupon_t_price}}</span>
+                  </div>
+                  <div class="right">
+                    <span>折扣券序號：</span>
+                    <span>{{item.coupon_id}}</span>
+                  </div>
                 </div>
-                <div class="right">
-                  <span>折扣券序號：</span>
-                  <span>123</span>
+                <!-- 折扣券內容-->
+                <div class="detail">
+                  <table border="1" cellpadding="6">
+                    <thead>
+                      <tr>
+                        <th>折扣券序號</th>
+                        <th>折扣面額</th>
+                        <th>使用狀態</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{item.coupon_id}}</td>
+                        <td>{{item.coupon_t_price}}</td>
+                        <td>{{item.coupon_status}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-              </div>
-              <!-- 折扣券內容1-->
-              <div class="detail">
-                <table border="1" cellpadding="6">
-                  <thead>
-                    <tr>
-                      <th>折扣券序號</th>
-                      <th>折扣面額</th>
-                      <th>使用狀態</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>123</td>
-                      <td>$600</td>
-                      <td>未使用</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="item">
-                <div class="left">
-                  <img id="plus" class="plus" src="images/common/plus.png" alt="" />
-                  <img id="minus" class="minus" src="images/common/minus.png" alt=""/>
-                  <span>折扣面額：</span>
-                  <span>$100</span>
-                </div>
-                <div class="right">
-                  <span>折扣券序號：</span>
-                  <span>123</span>
-                </div>
-              </div>
-              <!-- 折扣券內容2-->
-              <div class="detail">
-                <table border="1" cellpadding="6">
-                  <thead>
-                    <tr>
-                      <th>折扣券序號</th>
-                      <th>折扣面額</th>
-                      <th>使用狀態</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>123</td>
-                      <td>$100</td>
-                      <td>未使用</td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
             </li>
           </ul>

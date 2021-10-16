@@ -1,22 +1,13 @@
 <?php 
 try {
-	//抓會員中心認養清單
+	//抓會員中心折扣券
 	require_once("./connectBooks_brian.php");
 
 	//執行sql指令並取得pdoStatement
 	
 	$sql = "SELECT * 
-	FROM member a join t_order b on a.mem_id = b.mem_id
-                join tree c on b.tree_id = c.tree_id
-                join farm d on c.farm_id = d.farm_id
-			    			join treehistory e on c.tree_id = e.tree_id
-	where treehistory_date = (
-								select max(treehistory_date)
-								from treehistory f
-								where c.tree_id = f.tree_id)
-	group by c.tree_id;";
+	FROM coupon";
 
-	
 	$products = $pdo->query($sql);
 	$prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($prodRows);
