@@ -1,5 +1,6 @@
 <?php 
 try {
+	//更改後台體驗活動狀態(下架)
 	require_once("./connectBooks_brian.php");
 	//執行sql指令
 	$sql = "UPDATE activity 
