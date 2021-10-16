@@ -1,6 +1,6 @@
 <?php 
 try {
-	//引入連線工作的檔案
+	//抓會員中心會員
 	require_once("./connectBooks_brian.php");
 
 	//執行sql指令並取得pdoStatement

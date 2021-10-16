@@ -81,8 +81,7 @@
             </div>
           </form>
           <form action="phps/backIPull_activity_info.php" method="post"  enctype="multipart/form-data">
-            <div class="content">
-              <div class="for" v-for="item in activitys">
+            <div class="content" v-for="item in activitys">
                 <div class="con_title">
                     <div class="minus_sign">
                         <img src="./images/common/minus-sign.svg" alt="往下">
@@ -141,7 +140,6 @@
                     <!-- 隱藏 -->
                     <input type="hidden" name="activity_id" :value="item.activity_id"/>
                 </div>
-              </div>
             </form>
         </div> 
       </section>
