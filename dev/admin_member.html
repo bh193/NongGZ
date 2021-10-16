@@ -1,33 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <title>[後台管理員]會員管理</title>
     <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="js/vue.min.js"></script>
+    <link rel="stylesheet" href="./css/彈跳視窗範本.css">
     <link rel="stylesheet" type="text/css" href="css/admin_mem.css">
 </head>
-
+<style>
+    .table table td:last-child{
+         text-align:center;
+        
+         }
+</style>
 <body>
-    @@include('layout/header_back_c.html')
+    <header>
+    <a href="./admin_farmer.html">
+        <div class="logo">
+            <img src="./images/common/logo.svg" alt="logo">
+        </div>
+    </a>
+    <ul id="nav">
+        <li><a href="./admin_farmer.html">果農帳號管理</a></li>
+        <li><a href="./admin_member.html">會員帳號管理</a></li>
+        <li><a href="./admin_post.html">審核檢舉貼文</a></li>
+    </ul>
+</header>
+<script src="js/header_back.min.js"></script>
+<script src="js/con_login.min.js"></script>
     <article>
-        <section>
+        <section id="memTable">
             
-    @@include('layout/controller_icon.html')
+    <div class="sign_out">
+    <div class="sign_out_icon">
+        <img src="./images/common/controller-login.svg" alt="controller_icon">
+    </div>
+    <div class="sign_out_name">
+        <p>管理員</p>
+        <a href="./index.html"><p id="con_login">登出</p></a>
+    </div>
+</div>
     <!-- 放置內文 -->
     <div class="item">
         <div class="box">
-            <input type="text">
-            <img src="./images/post/search.svg" alt="">
-            <img src="" alt="">
+            <input type="text" v-model="search">
+            <img src="./images/post/search.svg" alt="search">
         </div>
-        <!-- <div class="box">
-            <button class="btn" onclick="showinput()">修改</button>
-            <button class="btn" onclick="myFunction()">儲存</button>
-        </div> -->
     </div>
+
     <div class="table">
         <table>
             <thead>
@@ -40,56 +65,45 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>黃大銘</td>
-                  <td>aabbcc@yahoo.com.tw</td>
-                  <td>0912987645</td>
-                  <td>
-                    <div id="option" style="display: none;"> 
-                        <select name="" id="state">
-                            <option value="審核中">審核中</option>
-                            <option value="停用">停用</option>
-                            <option value="啟用">啟用</option>
-                        </select>
-                    </div>
-                    <div style="display:block;">
-                        <span id="demo">審核中</span>
-                        <a href="#modal_password" rel="modal:open"><button class="pen" id="modify"></button> 
-                        </a>
-                    </div>
-                  </td>
+                <tr v-for="(postRow,i) in filterF">
+                  <td>{{i+1}}</td>
+                  <td>{{postRow.mem_name}}</td>
+                  <td>{{postRow.mem_email}}</td>
+                  <td>{{postRow.mem_tel}}</td>
+                  <td>{{getStatus(postRow.mem_status)}}
+                      <a href="#modal_password" rel="modal:open"><button class="penimg"><img src="images/svg/pencil.svg" alt=""></button> 
+                  </a>
+                </td>
                 </tr>
               </tbody>
         </table>
-        <div id="detail" style="display: none;">
-            
-            <table>
-                <h4>農場編號1詳情</h4>
-                <thead>
-                    <tr>
-                        <th>許可證書</th>
-                        <th>城市</th>
-                        <th>地址</th>
-                        <th>緯度</th>
-                        <th>經度</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>16789</td>
-                        <td>新北市</td>
-                        <td>桃園市楊梅區楊湖路一段654巷81弄88號</td>
-                        <td>120.599</td>
-                        <td>256.999</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                                <!-- 視窗內容 -->
+                                <div id="modal_password" class="modal">
+                                        <h3>修改會員狀態</h3>
+                                            <label for="">狀態</label>
+                                             <select  v-model="selected">
+                                                <option v-for="option in options" v-bind:value="option.value" >{{option.text}}</option>
+                                            </select>
+                                    <div class="btn">
+                                            <button id="clear" type="reset">清除</button>
+                                            <button id="send" type="submit" @click="filterData(farmRow.farm_name)">送出</button>
+                                             </div>
+                                        </div>
+    
+                                   
+                                   
+                                         
+                                              </div>
     </div>
         </section>
-        @@include('layout/footer_back.html')
+        <div class="footer">
+    <div class="footer_con">
+        <p>Copyright © 2021 農果子</p>
+        <p>本網站為緯育TibaMe_前端設計工程師班第69期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]https://www.facebook.com/webindex/ ，後續會由專人協助處理。</p>
+    </div>
+</div>
     </article>
+    <script src="js/admin_member.min.js"></script>
     <!-- <script>
         function myFunction() {
          document.getElementById("option").style.display="none";

@@ -7,24 +7,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <title>[後台管理員]審核檢舉貼文</title>
     <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="js/vue.min.js"></script>
+    <link rel="stylesheet" href="./css/彈跳視窗範本.css">
     <link rel="stylesheet" type="text/css" href="css/admin_mem.css">
 </head>
-
+<style>
+    .table table td:last-child{
+         text-align:center;
+        
+         }
+</style>
 <body>
-    @@include('layout/header_back_c.html')
+    <header>
+    <a href="./admin_farmer.html">
+        <div class="logo">
+            <img src="./images/common/logo.svg" alt="logo">
+        </div>
+    </a>
+    <ul id="nav">
+        <li><a href="./admin_farmer.html">果農帳號管理</a></li>
+        <li><a href="./admin_member.html">會員帳號管理</a></li>
+        <li><a href="./admin_post.html">審核檢舉貼文</a></li>
+    </ul>
+</header>
+<script src="js/header_back.min.js"></script>
+<script src="js/con_login.min.js"></script>
     <article>
-        <section>
-            @@include('layout/controller_icon.html')
+        <section id="reportTable">
+            <div class="sign_out">
+    <div class="sign_out_icon">
+        <img src="./images/common/controller-login.svg" alt="controller_icon">
+    </div>
+    <div class="sign_out_name">
+        <p>管理員</p>
+        <a href="./index.html"><p id="con_login">登出</p></a>
+    </div>
+</div>
             <!-- 放置內文 -->
             <div class="item">
                 <div class="box">
                     <input type="text">
-                    <img src="./images/post/search.svg" alt="">
+                    <img src="./images/post/search.svg" alt="search">
                 </div>
-                <!-- <div class="box">
-                    <button class="btn" onclick="showinput()">修改</button>
-                    <button class="btn" onclick="myFunction()">儲存</button>
-                </div> -->
+
             </div>
             <div class="table">
                 <table>
@@ -33,35 +60,30 @@
                           <th scope="col">編號</th>
                           <th scope="col">貼文編號</th>
                           <th scope="col">檢舉內容</th>
-                          <th scope="col">檢舉人編號</th>
+                          <th scope="col">檢舉人帳號</th>
                           <th scope="col">狀態</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>89345</td>
-                          <td class="wordlimit"><p>這篇貼文圖片違反社群守則，請下架此貼文篇貼文圖片違反社群守則請下架此貼文</p></td>
-                          <td>0348</td>
-                          <td>
-                            <div id="option" style="display: none;"> 
-                                <select name="" id="state">
-                                    <option value="審核中">審核中</option>
-                                    <option value="停用">停用</option>
-                                    <option value="啟用">啟用</option>
-                                </select>
-                            </div>
-                            <div style="display:block;">
-                                <span id="demo">審核中</span>
-                            </div>
-                          </td>
+                        <tr v-for="(reportRow,i) in filterF">
+                          <td>{{i+1}}</td>
+                          <td>{{reportRow.post_id}}</td>
+                          <td class="wordlimit"><p>{{reportRow.report_reason}}</p></td>
+                          <td>{{reportRow.mem_email}}</td>
+                          <td>{{getStatus(reportRow.report_status)}}
+                            <a href="#modal_password" rel="modal:open"><button class="penimg"><img src="images/svg/pencil.svg" alt=""></button> </td>
                         </tr>
                       </tbody>
                 </table>
             </div>
             
         </section>
-            @@include('layout/footer_back.html')
+            <div class="footer">
+    <div class="footer_con">
+        <p>Copyright © 2021 農果子</p>
+        <p>本網站為緯育TibaMe_前端設計工程師班第69期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]https://www.facebook.com/webindex/ ，後續會由專人協助處理。</p>
+    </div>
+</div>
     </article>
     <script>
         function myFunction() {
@@ -75,6 +97,7 @@
             document.getElementById("demo").style.display="none";
         }
     </script>
+    <script src="js/admin_report.js"></script>
 </body>
 
 </html>
