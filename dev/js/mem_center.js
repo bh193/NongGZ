@@ -3,27 +3,118 @@ let app = new Vue({
   data: {
     AllMem: [],
     AllT_order: [],
-    AllA_order:[]
+    AllA_order:[],
+    ShowImage: '',
+    mem_id: '',
+    getDataCount: 0,
   },
   computed: {
     all() {
       return this.AllMem.filter((item) => {
-        return item.mem_id == $("#mem_id").text();
+        return item.mem_id == this.mem_id
       });
     },
     trees() {
       return this.AllT_order.filter((item) => {
-        return item.mem_id == $("#mem_id").text();
+        return item.mem_id == this.mem_id
       });
     },
     activitys(){
       return this.AllA_order.filter((item) => {
-        return item.mem_id == $("#mem_id").text();
+        return item.mem_id == this.mem_id
       });
     }
   },
+  methods:{
+    getMemInfo() {
+      let xhr = new XMLHttpRequest();
+      xhr.onload =  () => {
+        let member = JSON.parse(xhr.responseText);
+        if (member.mem_email) {
+          this.mem_id = member.mem_id;
+          this.getT_orderList();
+          this.getA_orderList();
+          this.getMember();
+        }
+      }
+      xhr.open("get", "../dist/phps/getMemInfo.php", true);
+      xhr.send(null);
+    },
+
+  //抓會員資料庫
+  getMember() {
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+      // console.log(JSON.parse(xhr.responseText))
+      this.AllMem = JSON.parse(xhr.responseText);
+      // console.log(this.AllMem);
+      this.getDataCount++;
+      if (this.getDataCount > 2 ) this.$nextTick(this.onCollapse);
+    };
+    xhr.open("get", "../dist/phps/onlyMemberInCenter.php", true);
+    xhr.send(null);
+  },
+    
+  //抓果樹資料庫
+  getT_orderList() {
+    let xhr = new XMLHttpRequest();
+    xhr.onload =  () => {
+      this.AllT_order = JSON.parse(xhr.responseText);
+      
+       //拿到資料後綁定下面的click
+       //計算加到>2之後做onCollapse
+      this.getDataCount++;
+      if (this.getDataCount > 2 ) this.$nextTick(this.onCollapse);
+    };
+    xhr.open("get", "../dist/phps/onlyT_orderInCenter.php", true);
+    xhr.send(null);
+  },
+
+  //抓活動資料庫
+  getA_orderList() {
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+      this.AllA_order = JSON.parse(xhr.responseText);
+      this.getDataCount++;
+      if (this.getDataCount > 2 ) this.$nextTick(this.onCollapse);
+    };
+    xhr.open("get", "../dist/phps/back_activity_order.php", true);
+    xhr.send(null);
+  },
+
+  //瀏覽上傳圖
+  imgchange(e) {    	   
+    let show = URL.createObjectURL(e.target.files[0]);
+    this.ShowImage = show;
+  },
+
+  onCollapse() {
+    $(".item").click(function (e) {
+      $(this).next(".detail").slideToggle();
+      
+      var icon = $(this).find("#plus");
+      if (icon.css("display") == "none") {
+        icon.show();
+      } else {
+        icon.hide();
+      }
+
+      var icon = $(this).find("#minus");
+      if (icon.css("display") == "none") {
+        icon.show();
+      } else {
+        icon.hide();
+      }
+    });
+  },
+  },
 
   mounted() {
+    // 1.先getMemInfo 拿到mem_id
+    // 2.拿t-order資料
+    // 3.綁定onclick
+    this.getMemInfo();
+
     // 認養及體驗活動訂單的頁面切換
     $(function () {
       var $orderSelect = $(".order-select"),
@@ -31,9 +122,9 @@ let app = new Vue({
         $page = $tabs.find("a"),
         $order = $orderSelect.find(".orders"),
         $content = $order.find("> li");
-      $page.eq(0).addClass("active");
-      $content.eq(0).show();
-      $page.on("click", function () {
+        $page.eq(0).addClass("active");
+        $content.eq(0).show();
+        $page.on("click", function () {
         var $pageIndex = $(this).index();
         $(this).addClass("active").siblings().removeClass("active");
         $content.eq($pageIndex).show().siblings().hide();
@@ -71,28 +162,18 @@ let app = new Vue({
 
  
   updated() {
-    // 單筆訂單開合與+-切換
-    $(".item").click(function (e) {
-      // let setThis = $(this);
-      $(this).next(".detail").slideToggle();
-      
-      var icon = $(this).find("#plus");
-      if (icon.css("display") == "none") {
-        icon.show();
-      } else {
-        icon.hide();
-      }
-
-      var icon = $(this).find("#minus");
-      if (icon.css("display") == "none") {
-        icon.show();
-      } else {
-        icon.hide();
-      }
+    //彈跳視窗速度
+    $('a[href="#modal_password"]').click(function(event) {
+      event.stopPropagation();
+      $(this).modal({
+        fadeDuration: 300
+      });
+      return false;
     });
 
     //果樹cavanas
     //判定水果數量與大小顆
+  
     for (i = 0; i < $(".for2").length; i++) {
       var size = $(".size").eq(i).text(); //大中小
       var id = parseInt($(".fruit_id").eq(i).text()); //水果id
@@ -208,46 +289,3 @@ let app = new Vue({
     }
   },
 });
-
-//抓會員資料庫
-function getActivityList() {
-  let xhr = new XMLHttpRequest();
-  xhr.onload = function () {
-    // console.log(JSON.parse(xhr.responseText))
-    app.AllMem = JSON.parse(xhr.responseText);
-    console.log(app.AllMem);
-  };
-  xhr.open("get", "../dist/phps/onlyMemberInCenter.php", true);
-  xhr.send(null);
-}
-window.addEventListener("load", function () {
-  getActivityList();
-});
-
-//抓果樹資料庫
-function getT_orderList() {
-  let xhr = new XMLHttpRequest();
-  xhr.onload = function () {
-    app.AllT_order = JSON.parse(xhr.responseText);
-    // console.log(app.AllT_order)
-  };
-  xhr.open("get", "../dist/phps/onlyT_orderInCenter.php", true);
-  xhr.send(null);
-}
-window.addEventListener("load", function () {
-  getT_orderList();
-});
-
-//抓活動訂單資料庫
-function getA_orderList() {
-  let xhr = new XMLHttpRequest();
-  xhr.onload = function () {
-    app.AllA_order = JSON.parse(xhr.responseText);
-  };
-  xhr.open("get", "../dist/phps/back_activity_order.php", true);
-  xhr.send(null);
-}
-window.addEventListener("load", function () {
-  getA_orderList();
-});
-

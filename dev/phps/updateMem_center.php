@@ -23,12 +23,13 @@ try {
 
 	require_once("./connectBooks_brian.php");
 	//執行sql指令
-	$sql = "UPDATE member SET mem_name=:mem_name, mem_tel=:mem_tel, mem_img=:mem_img
-	where mem_id = :mem_id";
+	$sql = "UPDATE member SET mem_name=:mem_name, mem_tel=:mem_tel, mem_img=:mem_img, mem_psw=:mem_psw
+	WHERE mem_id = :mem_id";
 	$member = $pdo->prepare($sql);
 	$member->bindValue(":mem_name", $_POST["mem_name"]);
 	$member->bindValue(":mem_tel", $_POST["mem_tel"]);
 	$member->bindValue(":mem_id", $_POST["mem_id"]);
+	$member->bindValue(":mem_psw", $_POST["mem_psw"]);
 	$member->bindValue(":mem_img", $fileName);
 	$member->execute();                       
 

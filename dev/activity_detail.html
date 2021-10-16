@@ -9,11 +9,6 @@
   
   <link rel="stylesheet" href="code/activity3_slider.css">
 
-  <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/> -->
-  <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
-
-  <!-- <link rel="stylesheet" href="css/slick-theme.css"> -->
-
   <script src="js/jquery.modal.min.js"></script>
   <link rel="stylesheet" href="code/jquery.modal.css">
 
@@ -118,49 +113,48 @@
       </div>
       <a href="#modal_order" rel="modal:open"><button id="sign">立即報名</button></a>
     </div>
-  
 
-  <div id="modal_order" class="modal order">
-    <h3>探索體驗訂單</h3>   
-      <table> 
-        <tr> 
-          <td>行程名稱:</td> 
-          <td>{{dataObj.activity_name}}</td>
-        </tr> 
-        <tr> 
-        <td>活動日期:</th> 
-        <td>{{dataObj.activity_date}}</td> 
-        </tr> 
-        <tr> 
-        <td>會員姓名:</th> 
-        <td>Biran Jiang</td> 
-        </tr>
-        <tr> 
-        <td>Email:</th> 
-        <td>good@gmail.com</td> 
-        </tr> 
-        <tr> 
-        <td>報名人數:</th> 
-        <td>
-          <select>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-          </select>
-        </td> 
-      </table>
-      <div class="btn">
-        <a href="#" rel="modal:close"><button id="cancel">取消</button></a>
-        <button id="send">報名</button>
-      </div>
+    
+<form id="modal_order" class="modal order" action="phps/insertActivity.php" method="post"  enctype="multipart/form-data">
+  <h3>探索體驗訂單</h3>   
+    <table> 
+      <tr> 
+        <td>行程名稱:</td> 
+        <td>{{dataObj.activity_name}}</td>
+      </tr> 
+      <tr> 
+      <td>活動日期:</th> 
+      <td>{{dataObj.activity_date}}</td> 
+      </tr> 
+      <tr> 
+      <td>會員姓名:</th> 
+      <td id="myName"></td> 
+      </tr>
+      <tr> 
+      <td>Email:</th> 
+      <td id="myEmail"></td> 
+      </tr> 
+      <tr> 
+      <td>報名人數:</th> 
+      <td>
+        <select>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+        </select>
+      </td> 
+    </table>
+    <div class="btn">
+      <a href="#" rel="modal:close"><button id="cancel">取消</button></a>
+      <button id="send">報名</button>
     </div>
-  </article>
+  </form>
 
-  @@include('layout/footer.html')
-  
+  </article>
+@@include('layout/footer.html')
 
 <script src="js/activity_detail.min.js"></script>
 
