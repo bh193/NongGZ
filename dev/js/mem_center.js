@@ -4,6 +4,7 @@ let app = new Vue({
     AllMem: [],
     AllT_order: [],
     AllA_order:[],
+    AllCoupon:[],
     ShowImage: '',
     mem_id: '',
     getDataCount: 0,
@@ -23,6 +24,11 @@ let app = new Vue({
       return this.AllA_order.filter((item) => {
         return item.mem_id == this.mem_id
       });
+    },
+    coupons(){
+      return this.AllCoupon.filter((item) => {
+        return item.mem_id == this.mem_id
+      });
     }
   },
   methods:{
@@ -34,6 +40,7 @@ let app = new Vue({
           this.mem_id = member.mem_id;
           this.getT_orderList();
           this.getA_orderList();
+          this.getCouponList()
           this.getMember();
         }
       }
@@ -47,9 +54,7 @@ let app = new Vue({
     xhr.onload = () => {
       // console.log(JSON.parse(xhr.responseText))
       this.AllMem = JSON.parse(xhr.responseText);
-      // console.log(this.AllMem);
-      this.getDataCount++;
-      if (this.getDataCount > 2 ) this.$nextTick(this.onCollapse);
+      
     };
     xhr.open("get", "../dist/phps/onlyMemberInCenter.php", true);
     xhr.send(null);
@@ -61,10 +66,10 @@ let app = new Vue({
     xhr.onload =  () => {
       this.AllT_order = JSON.parse(xhr.responseText);
       
-       //拿到資料後綁定下面的click
-       //計算加到>2之後做onCollapse
+      //拿到資料後綁定下面的click
+      //計算加到>2之後做onCollapse
       this.getDataCount++;
-      if (this.getDataCount > 2 ) this.$nextTick(this.onCollapse);
+      if (this.getDataCount >2 ) this.$nextTick(this.onCollapse);
     };
     xhr.open("get", "../dist/phps/onlyT_orderInCenter.php", true);
     xhr.send(null);
@@ -75,10 +80,24 @@ let app = new Vue({
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
       this.AllA_order = JSON.parse(xhr.responseText);
+      
       this.getDataCount++;
-      if (this.getDataCount > 2 ) this.$nextTick(this.onCollapse);
+      if (this.getDataCount >2 ) this.$nextTick(this.onCollapse);
     };
     xhr.open("get", "../dist/phps/back_activity_order.php", true);
+    xhr.send(null);
+  },
+
+  //抓折扣券資料庫
+  getCouponList() {
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+      this.AllCoupon = JSON.parse(xhr.responseText);
+      
+      this.getDataCount++;
+      if (this.getDataCount >2 ) this.$nextTick(this.onCollapse);
+    };
+    xhr.open("get", "../dist/phps/onlyCouponInCenter.php", true);
     xhr.send(null);
   },
 
