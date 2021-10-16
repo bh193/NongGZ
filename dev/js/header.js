@@ -84,6 +84,7 @@ $(function () {
             $("#mem_name").text(member.mem_name);
             $("#mem_state").text("登出");
             $("#mem_id").text(member.mem_id);
+            $("#catch").val(member.mem_id);
         }
     }
     xhr.open("get", "./phps/getMemInfo.php", true);

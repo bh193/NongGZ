@@ -1,15 +1,15 @@
 <?php
 try{
   require_once("./connectBooks_brian.php");
-  $sql = "select * from member where mem_psw=:mem_psw"; 
+  $sql = "SELECT * FROM member WHERE mem_psw=:mem_psw"; 
   $member = $pdo->prepare($sql);
-  $member->bindValue(":mem_psw", $_POST["old_psw"]);  //先找到原本的mem_psw
+  $member->bindValue(":mem_psw", $_POST["old_psw"]);  //先檢驗舊密碼相符與否
   $member->execute();
 
-  if( $member->rowCount()==0){ //查無此人
+  if( $member->rowCount()==0){ //查無此密碼
     echo "<script>alert('密碼錯誤!請重新輸入'); location.href = '../mem_center.html'</script>";                         
   }else{ 
-    if($_POST["new_psw"] == $_POST["check_psw"]){       //新密碼與確認密碼相符與否
+    if($_POST["new_psw"] == $_POST["check_psw"]){    //再檢驗新密碼與確認密碼相符與否
       $sql2 ="UPDATE member SET mem_psw=:mem_psw
     WHERE mem_id = :mem_id";
     $member = $pdo->prepare($sql2);

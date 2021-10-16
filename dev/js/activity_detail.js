@@ -99,11 +99,29 @@ let app = new Vue({
           if(this.toggleTimer) this.toNext();
           // console.log("autoPlay")
         }, this.timerDelay);
-      }
-    
       },
+
+      // 抓右上角的mem_id
+      findMem(){
+        let member = {};
+        let xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+          member = JSON.parse(xhr.responseText);
+          if (member.mem_email) {
+            $("#myName").text(member.mem_name);
+            $("#myEmail").text(member.mem_email); 
+            $("#myId").val(member.mem_id);
+            console.log(member)
+          }
+        }
+        xhr.open("get", "./phps/getMemInfo.php", true);
+        xhr.send(null);
+      }
+    },
+     
     mounted() {
       this.getData();
+      this.findMem();
 
       //輪播遮罩
       $('.preview').click(function () {
@@ -131,33 +149,37 @@ let app = new Vue({
             fadeDuration: 300
           });
         });  
-
     },
+
     updated(){
       // 判別是否為會員才可報名
       if($('#mem_state').text()=="會員"){
         $('#zz').attr("href","#modal_login");
       }else{
         $('#zz').attr("href","#modal_order");
-      }
+      }  
     }
+
   })	
   
 
 //抓右上角的mem_id
-  let member = {};
-    let xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-      member = JSON.parse(xhr.responseText);
-      if (member.mem_email) {
-        $("#myName").text(member.mem_name);
-        $("#myEmail").text(member.mem_email); 
-        $("#myId").val(member.mem_id);
-        console.log(member)
-      }
-    }
-    xhr.open("get", "./phps/getMemInfo.php", true);
-    xhr.send(null);
-  
+  // let member = {};
+  //   let xhr = new XMLHttpRequest();
+  //   xhr.onload = function () {
+  //     member = JSON.parse(xhr.responseText);
+  //     if (member.mem_email) {
+  //       $("#myName").text(member.mem_name);
+  //       $("#myEmail").text(member.mem_email); 
+  //       $("#myId").val(member.mem_id);
+  //       console.log(member)
+  //     }
+  //   }
+  //   xhr.open("get", "./phps/getMemInfo.php", true);
+  //   xhr.send(null);
+
+
+       
+       
 
 

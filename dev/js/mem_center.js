@@ -55,6 +55,7 @@ let app = new Vue({
       // console.log(JSON.parse(xhr.responseText))
       this.AllMem = JSON.parse(xhr.responseText);
       
+      
     };
     xhr.open("get", "../dist/phps/onlyMemberInCenter.php", true);
     xhr.send(null);
@@ -181,6 +182,16 @@ let app = new Vue({
 
  
   updated() {
+    //折扣券使用狀態改成中文
+    for (let i = 0; i < $('.status').length; i++) {
+      let status = $('.status').eq(i).text();
+      if (status == 0) {
+          $('.status').eq(i).text('未使用');
+      }else if (status == 1) {
+          $('.status').eq(i).text('已使用');
+      };
+    };
+
     //彈跳視窗速度
     $('a[href="#modal_password"]').click(function(event) {
       event.stopPropagation();
@@ -189,6 +200,9 @@ let app = new Vue({
       });
       return false;
     });
+
+
+
 
     //果樹cavanas
     //判定水果數量與大小顆
