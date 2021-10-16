@@ -1,6 +1,6 @@
 <?php 
 try {
-	//引入連線工作的檔案
+	//抓後台體驗活動清單
 	require_once("./connectBooks_brian.php");
 
 	//執行sql指令並取得pdoStatement

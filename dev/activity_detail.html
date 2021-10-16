@@ -115,7 +115,7 @@
     </div>
 
     
-<form id="modal_order" class="modal order" action="phps/insertActivity.php" method="post"  enctype="multipart/form-data">
+<form id="modal_order" class="modal order" action="phps/SignUpActivity.php" method="post"  enctype="multipart/form-data">
   <h3>探索體驗訂單</h3>   
     <table> 
       <tr> 
@@ -123,35 +123,41 @@
         <td>{{dataObj.activity_name}}</td>
       </tr> 
       <tr> 
-      <td>活動日期:</th> 
-      <td>{{dataObj.activity_date}}</td> 
+        <td>活動日期:</th> 
+        <td>{{dataObj.activity_date}}</td> 
       </tr> 
       <tr> 
-      <td>會員姓名:</th> 
-      <td id="myName"></td> 
+        <td>會員姓名:</th> 
+        <td id="myName"></td> 
       </tr>
       <tr> 
-      <td>Email:</th> 
-      <td id="myEmail"></td> 
+        <td>Email:</th> 
+        <td id="myEmail"></td> 
       </tr> 
-      <tr> 
-      <td>報名人數:</th> 
-      <td>
-        <select>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-        </select>
-      </td> 
+      <tr>
+        <td>報名人數:</th> 
+        <td>
+          <select name="a_order_people">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </td>
+      </tr>  
     </table>
     <div class="btn">
       <a href="#" rel="modal:close"><button id="cancel">取消</button></a>
-      <button id="send">報名</button>
+      <button id="send" type="submit">報名</button>
     </div>
-  </form>
+    <!-- 假的欄位 -->
+    <input id="myId" name="mem_id" style="display: none;">
+    <input :value="dataObj.activity_id" name="activity_id" style="display: none;">
+    <input :value="dataObj.activity_people" name="activity_people" style="display: none;">
+    <!-- 假的欄位 -->
+</form>
 
   </article>
 @@include('layout/footer.html')

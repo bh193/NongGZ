@@ -1,7 +1,7 @@
 <?php 
 try {
+	//新增後台體驗活動
 	require_once("./connectBooks_brian.php");
-	//執行sql指令
 
 	//.......確定是否上傳成功
 	if($_FILES["activity_imgA"]["error"] == UPLOAD_ERR_OK && 

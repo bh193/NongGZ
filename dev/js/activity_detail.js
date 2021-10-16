@@ -145,6 +145,7 @@ let app = new Vue({
       if (member.mem_email) {
         $("#myName").text(member.mem_name);
         $("#myEmail").text(member.mem_email); 
+        $("#myId").val(member.mem_id);
         console.log(member)
       }
     }
