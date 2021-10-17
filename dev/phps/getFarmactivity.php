@@ -5,7 +5,7 @@
         require_once("./connectNGZ.php");
         
         //執行sql指令並取得pdoStatement
-        $sql = "SELECT a.activity_name, a.activity_date, c.city_name, f.farm_name, substring(a.activity_content, 1, 40) as activity_content, a.activity_imgA
+        $sql = "SELECT a.activity_name, a.activity_date, c.city_name, f.farm_name, activity_content, a.activity_imgA, a.activity_id, f.farm_id
         from activity a join farm f on a.farm_id = f.farm_id
                         join city c on f.city_id = c.city_id
                         order by a.farm_id";
