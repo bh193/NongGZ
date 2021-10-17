@@ -71,9 +71,10 @@
                         <p>參與認養與農友站在同一陣線，共享種植的艱辛與喜悅，也分攤農友一部分的經濟壓力，給守護土地的農友一點鼓勵，讓我們一同選擇喜愛的果樹來認養吧</p>
                     </div>
                     <div class="fruit">
-                        <div class="card" v-for="fruit in fruits">
+                        <div class="card" v-for="fruit in filterfruits">
                             <div class="pic">
-                                <a :href="'tree_growing.html?tree_id=' + fruit.tree_id"><img :src="'images/tree/' + fruit.treehistory_img"></a>
+                                <a v-if="fruit.tree_status == 0" :href="'tree_growing.html?tree_id=' + fruit.tree_id"><img :src="'images/tree/' + fruit.treehistory_img"></a>
+                                <img v-else class="fruitStatus" :src="'images/tree/' + fruit.treehistory_img">
                             </div>
                             <div class="txt">
                                 <h3 class="status">{{getStatus(fruit.tree_status)}}</h3>
@@ -90,7 +91,7 @@
                         <p>結合土地與探索的農場，是親子旅行的好選擇，透過一系列的戶外體驗活動，瞭解果樹的生長狀態，讓大人小孩都能更貼近的認識農作物和土地</p>
                     </div>
                     <div class="content">
-                        <activity-item :activitylist="activitys">
+                        <activity-item :activitylist="filterActivity">
                             <!-- <div class="owl-carousel owl-theme">
                                 <div class="item" v-for="activity in activitylist">
                                     <div class="pic">
@@ -101,7 +102,7 @@
                                             <h2>{{activity.activity_name}}</h2>
                                             <h3>{{activity.city_name}} ┃&nbsp{{activity.farm_name}}</h3>
                                             <p>活動日期:{{activity.activity_date}}</p>
-                                            <p>{{activity.activity_content}}</p>
+                                            <p class="actdes">{{activity.activity_content}}</p>
                                             <a href="activity_detail.html"><button>我要報名</button></a>
                                         </div>
                                     </div>
@@ -117,7 +118,7 @@
                         <h2>貼文故事牆</h2>
                     </div>
                 </div>
-                <post-item :postlist="prodRows">
+                <post-item :postlist="filterPost">
                     <!-- <div class="owl-carousel owl-theme">
                         <div class="item" v-for="prodRow in prodRows">
                             <div class="pic">
@@ -146,5 +147,6 @@
     @@include('layout/footer.html')
     <link rel="stylesheet" href="css/farminfon.css">
     <script src="js/farminfon.min.js"></script>
+    @@include('layout/modal_login.html')
 </body>
 </html>

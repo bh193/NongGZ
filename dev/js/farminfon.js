@@ -49,8 +49,8 @@ Vue.component('activityItem',{
                         <h2>{{activity.activity_name}}</h2>
                         <h3>{{activity.city_name}} ┃&nbsp{{activity.farm_name}}</h3>
                         <p>活動日期:{{activity.activity_date}}</p>
-                        <p>{{activity.activity_content}}</p>
-                        <a href="activity_detail.html"><button class="actbtn">我要報名</button></a>
+                        <p class="actdes">{{activity.activity_content}}</p>
+                        <a :href="'activity_detail.html?activity_id=' + activity.activity_id"><button class="actbtn">我要報名</button></a>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@ let app = new Vue({
         fruits:[],
         activitys:[],
         infoObj:{},
-        imgSrc1:"../dist/images/farm/tree-01.svg",
+        id:0,
     },
     methods: {
         getStatus(fruitStatus){
@@ -93,11 +93,37 @@ let app = new Vue({
                     this.infoObj = obj;
                 }
             });
-        }
+        },
+        getFruits(){
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+                // console.log(JSON.parse(xhr.responseText))
+                app.fruits = JSON.parse(xhr.responseText)
+            }
+            xhr.open("get", "../dist/phps/getFarmfruit.php",true);
+            xhr.send(null);
+        },
     },
     computed: {
+        filterfruits(){
+            return this.fruits.filter(fruitssearch =>{
+                return fruitssearch.farm_id == this.id
+            });
+        },
+        filterPost(){
+            return this.prodRows.filter(postsearch =>{
+                return postsearch.farm_id == this.id
+            });
+        },
+        filterActivity(){
+            return this.activitys.filter(activitysearch =>{
+                return activitysearch.farm_id == this.id
+            });
+        },
     },
     mounted(){
+        this.getInfo();
+        this.getFruits();
         axios.get('../dist/phps/getFarminfon.php')
         .then(res => {
             this.prodRows = res.data;
@@ -106,7 +132,7 @@ let app = new Vue({
                    stagePadding: 400,
                    loop: true,
                    margin: 150,
-                   nav: true,
+                   nav: false,
                    responsive: {
                        0: {
                            items: 1, 
@@ -125,7 +151,6 @@ let app = new Vue({
                });
            });
         });
-        this.getInfo();
         axios.get('../dist/phps/getFarmactivity.php')
         .then(res => {
             this.activitys = res.data;
@@ -151,30 +176,4 @@ let app = new Vue({
             });
         });
     },
-    updated() {
-        for(let i=0;i<$('.status').length;i++){
-            let statusF = $('.staus').eq(i).text();
-            if(statusF=="已認養"){
-                $('.pic').eq(i).css({
-                    "filter":"grayscale(80%)",
-                    "pointer-events":"none"
-                })
-            }
-        };
-    },
-})
-//果樹
-function getFruits(){
-    let xhr = new XMLHttpRequest();
-    xhr.onload = function(){
-        // console.log(JSON.parse(xhr.responseText))
-        app.fruits = JSON.parse(xhr.responseText)
-    }
-    xhr.open("get", "../dist/phps/getFarmfruit.php",true);
-    xhr.send(null);
-}
-window.addEventListener("load", function(){
-    //---------------------網頁的初始設定
-    getFruits();
-    
 })

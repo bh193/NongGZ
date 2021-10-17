@@ -121,7 +121,12 @@
             border-radius: 50%;
             margin-bottom: 2rem;
             img{
-                width: 120%;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .fruitStatus{
+                filter: brightness(0.4)
             }
         }
         .txt{
@@ -185,6 +190,16 @@
                         p{
                             padding-bottom: 0.5rem;
                         }
+                        .actdes{
+                            overflow: hidden;
+                            display: -webkit-box;
+                            text-overflow: ellipsis;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            white-space: normal;
+                            margin-bottom: 1rem;
+                            padding-bottom: inherit;
+                        }
                         a{
                             .actbtn{
                                 @include smallbtn_m;
@@ -205,9 +220,9 @@
             margin-bottom: 3.75rem;
         }
     }
-    // #owl-one .owl-theme .owl-nav {
-    //     display: none;
-    // }
+    #owl-one .owl-theme .owl-nav {
+        display: none;
+    }
     #owl-one .item{
         height: 100%;
         width: 100%;

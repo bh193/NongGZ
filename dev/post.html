@@ -7,6 +7,7 @@
     <script src="js/jquery.min.js"></script>
     <!-- 引入jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <link rel="stylesheet" href="code/jquery.modal.css">
     <link rel="stylesheet" href="css/post.css">
     <script src="js/vue.min.js"></script>
@@ -31,7 +32,7 @@
                             <img src="images/mem/mugshot.png">
                         </div>
                         <div class="title">
-                            <h3>Bernice</h3>
+                            <h3 id="memname_post">農果子2</h3>
                             <h2>發佈你的貼文</h2>
                         </div>
                     </div>
@@ -54,10 +55,17 @@
                                         <option value="" selected disabled>tag農場</option>
                                         <option :value= "farm.farm_id" v-for="farm in farms">{{farm.farm_name}}</option>
                                     </select>
-                                    <a href="#modal_login" rel="modal:open"><input type="submit" value="發佈" id="modal_btn_1" class="active" @click="postdata"></a>
+                                    <a href="#sendpost" rel="modal:open" class="box_submit"><input type="submit" value="發佈"class="active" @click="post"></a>
                                 </div>
                             </div>
                         </form>
+                        <div id="sendpost" class="modal dialog">
+                            <div class="send">
+                                <h3 v-text="msg"></h3>
+                                <button class="clear">取消</button>
+                                <button class="login">登入</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -65,7 +73,7 @@
                 <div class="container">
                     <form class="item">
                         <label for="" class="search"></label>
-                        <input class="search_item" type="text" v-model="filterFarm">
+                        <input class="search_item" type="text" v-model="filterFarm" placeholder="搜尋貼文">
                         <img src="images/post/search.svg">
                     </form>
                     <select class="selectfont" v-model="selectNew" name="selectNew">
@@ -98,9 +106,9 @@
                                 <img :src="'images/post/' + prodRow.post_img">
                             </div>
                             <div class="icon">
-                                <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_heart"></button></a>
+                                <a href="#modal_login" rel="modal:open" class="box_heart"><button id="modal_btn_1" class="btn_heart"></button></a>
                                 <span>{{prodRow.post_feedback}}</span>
-                                <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_loudly"></button></a>
+                                <a href="#modal_login" rel="modal:open" class="box_loudy"><button id="modal_btn_1" class="btn_loudly"></button></a>
                             </div>
                         </div>
                     </div>
@@ -115,6 +123,6 @@
     </div>
     @@include('layout/footer.html')
     <script src="js/post.min.js"></script>
-    @@include('layout/modal_login.html')
+    <!-- @@include('layout/modal_login.html') -->
 </body>
 </html>
