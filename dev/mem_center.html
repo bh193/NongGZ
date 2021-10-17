@@ -24,7 +24,7 @@
       section {
         margin-bottom: 20px;
         display: flex;
-      }
+      } 
     </style>
   </head>
 
@@ -200,21 +200,15 @@
                     </div>
                     <div class="container">
                       <div class="content_top">
-                        <p class="update">照片更新日期:2021-10-04 16:55:51</p>
+                        <p class="update">照片更新日期:{{item.treehistory_date}}</p>
                         <div class="con_imgbox">
-                          <div class="img">
-                            <img :src="'images/tree/' + item.treehistory_img" alt="">
+                          <div class="img" style="width: 100%">
+                            <img :src="'images/tree/' + item.treehistory_img" style="width: 50%">
+                            <a href="#moreimg" rel="modal:open">
+                              <input class="smallbtn_s" type="button" value="查看更多照片"/>
+                            </a>
                           </div>
-                          <!-- <div class="img">
-                            <img src="./images/tree/8.jpg" alt="真實果樹照片" />
-                          </div> -->
                         </div>
-                        <a href="#moreimg" rel="modal:open"
-                          ><input
-                            class="smallbtn_s"
-                            type="button"
-                            value="查看更多"
-                        /></a>
                       </div>
                       <div class="content_bottom">
                         <p class="update">資訊更新日期:{{item.tree_update}}</p>
