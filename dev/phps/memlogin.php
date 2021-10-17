@@ -1,25 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>會員資料</title>
-</head>
-<body>
 <?php
 session_start();
 try{
-  require_once("./connectBooks_brian.php");
+  require_once("./connecttbame.php");
   
   $sql = "select * from member where mem_email=:mem_email and mem_psw=:mem_psw"; 
   $member = $pdo->prepare($sql);
   $member->bindValue(":mem_email", $_POST["mem_user"]);
   $member->bindValue(":mem_psw", $_POST["mem_password"]);
   $member->execute();
-
-  if( $member->rowCount()==0){ //查無此人
-    echo "帳號或密碼錯誤";
-    header('Refresh:1;url=../memlogin.html');
-  }else{ //登入成功
+  $backurl="../memlogin.html";
+  $sussurl="../mem_center.html";
+  if($member =="" || $member->rowCount()==0){
+    echo"帳號密碼空白請重新填寫";
+    echo "<script type='text/javascript'>";
+    echo "window.location.href='$backurl'";
+    echo "</script>"; 
+  }
+  // if( $member->rowCount()==0){ //查無此人
+  //   echo "帳號或密碼錯誤";
+  //   header('url=../memlogin.html');
+  else{ //登入成功
     //自資料庫中取回資料
     $memRow = $member->fetch(PDO::FETCH_ASSOC);
     //登入成功,將登入者的資料寫入session
@@ -34,12 +34,12 @@ try{
     $data= json_encode($meminfo);
     //利用urldecode將資料轉回中文
     // $mem_data=urldecode($data);
-	  echo $data;
-    header('Refresh:1;url=../mem_center.html');
+    echo "<script type='text/javascript'>";
+    echo "window.location.href='$sussurl'";
+    echo "</script>";
   }
 }catch(PDOException $e){
   echo $e->getMessage();
 }
 ?>
-</body>
-</html>
+
