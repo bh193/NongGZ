@@ -126,9 +126,40 @@
                     }
                 }
             }
+            #sendpost{
+                background-color: #F7F6F2;
+                text-align: center;
+                  h3{
+                    margin: 14px auto;    
+                  }
+                  button{
+                    width: 100px;
+                    height: 35px;
+                    border-radius: 8px;
+                    border: none;
+                    cursor: pointer;
+                    color: #fff;
+                    font-weight: bolder;
+                    margin: 6px 20px;
+                  }
+                  button:hover{
+                    opacity: .8;
+                  }
+                  .clear{
+                    background-color: #BB9590;
+                  }
+                  .login{
+                    background-color:#84A59D;
+                  }
+              //修改彈窗背景z-index
+              .blocker{ 
+                z-index: 200;
+              }
+            }
         }
     }
 }
+
 .filter{
     .container{
         @include container(0,0);
