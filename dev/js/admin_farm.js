@@ -4,6 +4,8 @@ let farmTable = new Vue({
     farmRows:[],
     farmDetails:{},
     selected:'1',
+    updatelat:'',
+    updatelon:'',
     search:'',
     options: [
         { text: '停用', value: '0' },
@@ -14,11 +16,7 @@ let farmTable = new Vue({
 },
 methods: {
     filterData(name) {
-        this.farmDetails=this.farmRows.find(data=>data.farm_name==name)
-        this.$nextTick(this.setSwiper)
-    },
-    getdata(id){
-        this.farmDetails=this.farmRows.find(data=>data.farm_name==name)
+        this.farmDetails=this.farmRows.find(data=>data.farm_name==name)  
     },
     getStatus(gets){
         switch (gets){
@@ -30,7 +28,6 @@ methods: {
                 break;
             case '2':
             return "啟用";
-                break;
             case '3':
             return "上架";
                 break;
@@ -39,16 +36,50 @@ methods: {
                 return "錯誤"
                 break;
             }
-    }
+    },
+    openmodal(){  
+        $('a[href="#popOrder"]').click(function(event) {
+            event.stopPropagation();
+            $(this).modal({
+              fadeDuration: 300
+            });
+          });
+    },
+    update(){
+        $.ajax({
+            type: 'POST',
+            url: "./phps/update_adminFarm.php",
+            data: JSON.stringify({
+                newlat:this.updatelat,
+                newlon:this.updatelon,
+                newstatus:this.selected,
+                
+            }),
+            contentType:"application/json; charset=utf-8",
+            success: (res) => {
+                console.log('更新成功')
+            },
+            error: (err) => {
+                console.log('更新失敗')
+            },
+            complete: () => { 
+
+            }
+            });
+    },
+
 },
+
 computed:{
     filterF() {
         return this.farmRows.filter(farmRow =>{return farmRow.farm_name.includes(this.search)||farmRow.farm_gm.includes(this.search)||farmRow.farm_address.includes(this.search)||farmRow.farm_tel.includes(this.search)});
         }
     },
-mounted() {
-    
-    },
+    // p1(){
+    //     return this.farmDetails.filter( p2 =>{
+    //         return p2.farm_cert == this.farmDetails
+    //     })
+    // }
 })	
 
 function getfarms(){
