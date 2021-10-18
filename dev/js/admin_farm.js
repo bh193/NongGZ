@@ -7,6 +7,8 @@ let farmTable = new Vue({
     updatelat:'',
     updatelon:'',
     search:'',
+    cert:'',
+    newstatus:'',
     options: [
         { text: '停用', value: '0' },
         { text: '審核中', value: '1' },
@@ -45,27 +47,56 @@ methods: {
             });
           });
     },
+    reload() {
+        this.isRouterAlive = false;
+        this.$nextTick(() => {
+          this.isRouterAlive = true;
+        });
+      
+    },
     update(){
-        $.ajax({
-            type: 'POST',
-            url: "./phps/update_adminFarm.php",
-            data: JSON.stringify({
+        // console.log("==========",JSON.stringify({
+        //     'cert':this.farmDetails.farm_cert,
+        //     'newlat':this.updatelat,
+        //     'newlon':this.updatelon,
+        //     'newstatus':this.selected,     
+        // }));
+        
+        axios({
+            method: 'get',
+            url: './phps/update_adminFarm.php',
+            params:{
+                cert:this.farmDetails.farm_cert,
                 newlat:this.updatelat,
                 newlon:this.updatelon,
-                newstatus:this.selected,
-                
-            }),
-            contentType:"application/json; charset=utf-8",
-            success: (res) => {
-                console.log('更新成功')
+                newstatus:this.selected,    
             },
-            error: (err) => {
-                console.log('更新失敗')
-            },
-            complete: () => { 
+        })
+        .then((response) => 
 
-            }
-            });
+            location.reload()
+        )
+        .catch((error) => console.log(error))
+        // $.ajax({
+        //     type: 'get',
+        //     url: "./phps/update_adminFarm.php",
+        //     data: {
+        //         cert:this.farmDetails.farm_cert,
+        //         newlat:this.updatelat,
+        //         newlon:this.updatelon,
+        //         newstatus:this.selected,     
+        //     },
+        //     contentType:"application/json; charset=utf-8",
+        //     success: (res) => {
+        //         console.log('更新成功')
+        //     },
+        //     error: (err) => {
+        //         console.log('更新失敗')
+        //     },
+        //     complete: () => { 
+
+        //     }
+        //     });
     },
 
 },
