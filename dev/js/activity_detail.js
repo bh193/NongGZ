@@ -163,20 +163,6 @@ let app = new Vue({
   })	
   
 
-//抓右上角的mem_id
-  // let member = {};
-  //   let xhr = new XMLHttpRequest();
-  //   xhr.onload = function () {
-  //     member = JSON.parse(xhr.responseText);
-  //     if (member.mem_email) {
-  //       $("#myName").text(member.mem_name);
-  //       $("#myEmail").text(member.mem_email); 
-  //       $("#myId").val(member.mem_id);
-  //       console.log(member)
-  //     }
-  //   }
-  //   xhr.open("get", "./phps/getMemInfo.php", true);
-  //   xhr.send(null);
 
 
        
