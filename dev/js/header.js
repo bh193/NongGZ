@@ -86,7 +86,7 @@ $(function () {
             $("#mem_id").text(member.mem_id);
             $("#catch").val(member.mem_id);
             $('#mem_center').show();
-        }else{
+        } else {
             $('#mem_center').hide();
             $("#mem_state").text("會員");
         }
@@ -95,8 +95,9 @@ $(function () {
     xhr.send(null);
 
     //登出系統
+    //點擊狀態
     $('#mem_state').click(function () {
-        if ($('#mem_state').text() == "會員") {
+        if ($('#mem_state').text() == "會員") {  //尚未登入
             $(window).attr("location", "./memlogin.html");
             $('#mem_center').hide();
         } else { //登出
@@ -105,22 +106,32 @@ $(function () {
                 $('#mem_state').text("會員");
                 location.reload();
                 $('#mem_center').show();
+                if (location.href.indexOf("mem_center.html") != -1) { //如果在會員中心登出
+                    $(window).attr("location", "./home.html"); //則回到首頁
+                } else {  //如果不在會員中心登出
+                    location.reload();  //則本頁重整
+                }
             }
             xhr.open("get", "./phps/logout.php", true);
             xhr.send(null);
-            
+
         }
     });
 
-    $('#m_img').click(function () {
-        if ($('#mem_state').text() == "會員") {
+    //點擊icon
+    $('#m_img').click(function () { 
+        if ($('#mem_state').text() == "會員") {  //尚未登入
             $('#m_img').attr("href", "./memlogin.html");
             $('#mem_center').hide();
         } else { //登出
             $('#m_img').removeAttr("href");
             $('#mem_state').text("會員");
-            location.reload();
             $('#mem_center').show();
+            if (location.href.indexOf("mem_center.html") != -1) {
+                $(window).attr("location", "./home.html");
+            } else {
+                location.reload();
+            }
         }
         xhr.open("get", "./phps/logout_m.php", true);
         xhr.send(null);
