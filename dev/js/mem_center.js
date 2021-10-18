@@ -45,6 +45,7 @@ let app = new Vue({
       this.order_treeId=$('#from_treeId').text();
     },
 
+    //會員session
     getMemInfo() {
       let xhr = new XMLHttpRequest();
       xhr.onload =  () => {
@@ -130,6 +131,7 @@ let app = new Vue({
     this.ShowImage = show;
   },
 
+  //開合
   onCollapse() {
     $(".item").click(function (e) {
       $(this).next(".detail").slideToggle();

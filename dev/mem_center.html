@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>會員中心</title>
+    <link rel="shortcut icon" href="images/common/favicon.ico" />
     <script src="js/jquery.min.js"></script>
 
     <script src="js/jquery.modal.min.js"></script>
@@ -42,7 +43,7 @@
         enctype="multipart/form-data">
           <ol class="member" v-for="item in all">
             <!-- 更新照片與否的真實位置 -->
-            <input type="hidden" name="originImg" :value="item.mem_img">
+            <!-- <input type="hidden" name="originImg" :value="item.mem_img"> -->
             <li class="pic">
               <!-- <img id="mem_img" :src="'images/mem/' + item.mem_img"/> -->
               
