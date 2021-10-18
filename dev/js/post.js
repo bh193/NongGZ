@@ -15,7 +15,7 @@ let app = new Vue({
         pagesize: 6,
         currentPage: 1,
         msg: '',
-        member:{}
+        member:{},
     },
     methods: {
         post(){
@@ -110,7 +110,8 @@ let app = new Vue({
                 console.log('member',response);
                 if(Object.keys(response).length == 0){
                     vm.member = {
-                        mem_name:'登入農果子',           //mem_img: "premem.svg",
+                        mem_name:'登入農果子',
+                        mem_img: "premem.svg",
                     }
                 }else{
                     vm.member = response;
@@ -142,7 +143,7 @@ let app = new Vue({
         },
         //關閉視窗button
         isLogout(){
-            return Object.keys(this.member).length === 0;
+            return Object.keys(this.member).length == 0;
         },
     },
     created() {
@@ -159,14 +160,5 @@ let app = new Vue({
                 $(this).modal({ fadeDuration: 300});
             })
         });
-    },
-    // updated() {
-    //     if ($("#mem_state").text() == "登出") {
-    //         $('.box_heart').removeAttr("href");
-    //         $('.box_heart').removeAttr("rel");
-    //     } else {
-    //         $('.box_heart').attr("href", "#modal_login")
-    //         $('.box_heart').attr("rel", "modal:open")
-    //     }
-    // },
+    }
 })

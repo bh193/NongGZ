@@ -6,23 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>農場資訊管理</title>
     <link rel="stylesheet" href="css/back_farminfo.css">
-
     <link rel="stylesheet" href="code/jquery.modal.css">
-
     <script src="js/jquery.min.js"></script>
-
     <script src="js/jquery.modal.min.js"></script> 
+    <script src="js/vue.min.js"></script>
 </head>
 <body>
     @@include('layout/header_back_f.html')
     <article>
         <section>
             @@include('layout/farm_icon.html')
-            <div class="wrapper">
+            <div class="wrapper" id="app">
                 <div class="info">
                     <div class="pic">
                         <div class="mem_f">
-                            <img src="images/mem/farmer.jpg">
+                            <img :src="'images/farm/' + info-1.png">
                         </div>
                         <div class="camera">
                             <label for="inputc">
@@ -30,7 +28,7 @@
                             </label>
                             <input type="file" id="inputc" hidden>
                         </div>
-                        <p>狀態：啟用</p>
+                        <p>{{farminfo.farm_status}}</p>
                     </div>
                     <form class="txt">
                         <div class="item">
@@ -125,5 +123,6 @@
         </section>
         @@include('layout/footer_back.html')
     </article>
+    <script src="js/back_farminfo.js"></script>
 </body>
 </html>
