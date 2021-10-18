@@ -153,10 +153,10 @@ let app = new Vue({
 
     updated(){
       // 判別是否為會員才可報名
-      if($('#mem_state').text()=="會員"){
-        $('#zz').attr("href","#modal_login");
+      if($('#mem_state').text() === "會員"){
+        $('#checkMem').attr("href","#modal_login");
       }else{
-        $('#zz').attr("href","#modal_order");
+        $('#checkMem').attr("href","#modal_order");
       }  
     }
 

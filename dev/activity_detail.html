@@ -18,7 +18,11 @@
 
   <script src="js/vue.min.js"></script>
 </head>
-
+<style>
+  header .header_con .logo {
+    width: 17%;
+  }
+</style>
 <body>
   @@include('layout/header.html')
   <article  id="app">
@@ -111,7 +115,7 @@
         <p>報名上限人數：</p>
         <p id="activity_max">{{dataObj.activity_max}}</p>
       </div>
-      <a href="#modal_order" rel="modal:open" id="zz"><button id="sign">立即報名</button></a>
+      <a href="#modal_order" rel="modal:open" id="checkMem"><button id="sign">立即報名</button></a>
     </div>
 
     

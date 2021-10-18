@@ -78,54 +78,25 @@
         <div class="order-select">
           <div class="tabs">
             <a class="select_1">
-              <img
-                src="images/common/tree_green.png"
-                alt=""
-                class="tree_green"
-                style="display: block"
-              />
-              <img
-                src="images/common/tree_gray.png"
-                alt=""
-                class="tree_gray"
-                style="display: none"
-              />
+              <img src="images/common/tree_green.png" class="tree_green" style="display: block"/>
+              <img src="images/common/tree_gray.png" class="tree_gray" style="display: none"/>
               <p>認養果樹訂單</p>
             </a>
             <a class="select_2">
-              <img
-                src="images/common/apple_green.png"
-                alt=""
-                class="apple_green"
-                style="display: none"
-              />
-              <img
-                src="images/common/apple_gray.png"
-                alt=""
-                class="apple_gray"
-                style="display: block"
-              />
+              <img src="images/common/apple_green.png" class="apple_green" style="display: none"/>
+              <img  src="images/common/apple_gray.png" class="apple_gray" style="display: block"/>
               <p>體驗行程訂單</p>
             </a>
             <a class="select_3">
-              <img
-                src="images/common/coupon_green.png"
-                alt=""
-                class="coupon_green"
-                style="display: none"
-              />
-              <img
-                src="images/common/coupon_gray.png"
-                alt=""
-                class="coupon_gray"
-                style="display: block"
-              />
+              <img src="images/common/coupon_green.png" class="coupon_green" style="display: none"/>
+              <img src="images/common/coupon_gray.png" class="coupon_gray" style="display: block"/>
               <p>折扣券</p>
             </a>
           </div>
           <ul class="orders">
             <!-- 認養果樹訂單 -->
             <li>
+                
               <div class="for2" v-for="item in trees">
                 <div class="item">
                   <div class="left">
@@ -147,51 +118,15 @@
                       <canvas class="item" width="2000" height="2000"></canvas>
                       <div class="tree_fruit_box">
                         <div>
-                          <img
-                            class="tree_fruit"
-                            src="images/fruit/fruit_1.svg"
-                            alt="果實"
-                          />
-                          <img
-                            class="tree_fruit"
-                            src="images/fruit/fruit_1.svg"
-                            alt="果實"
-                          />
-                          <img
-                            class="tree_fruit"
-                            src="images/fruit/fruit_1.svg"
-                            alt="果實"
-                          />
-                          <img
-                            class="tree_fruit"
-                            src="images/fruit/fruit_1.svg"
-                            alt="果實"
-                          />
-                          <img
-                            class="tree_fruit"
-                            src="images/fruit/fruit_1.svg"
-                            alt="果實"
-                          />
-                          <img
-                            class="tree_fruit"
-                            src="images/fruit/fruit_1.svg"
-                            alt="果實"
-                          />
-                          <img
-                            class="tree_fruit"
-                            src="images/fruit/fruit_1.svg"
-                            alt="果實"
-                          />
-                          <img
-                            class="tree_fruit"
-                            src="images/fruit/fruit_1.svg"
-                            alt="果實"
-                          />
-                          <img
-                            class="tree_fruit"
-                            src="images/fruit/fruit_1.svg"
-                            alt="果實"
-                          />
+                          <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實"/>
+                          <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實"/>
+                          <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實"/>
+                          <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實"/>
+                          <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實"/>
+                          <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實"/>
+                          <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實"/>
+                          <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實"/>
+                          <img class="tree_fruit" src="images/fruit/fruit_1.svg" alt="果實"/>
                           <div style="display: none">
                             <p class="fruit_id">{{item.fruit_id}}</p>
                           </div>
@@ -206,7 +141,11 @@
                             <img :src="'images/tree/' + item.treehistory_img" style="width: 50%">
                             <a href="#moreimg" rel="modal:open">
                               <input class="smallbtn_s" type="button" value="查看更多照片"/>
-                            </a>
+                              <!-- 隱藏的欄位 -->
+                            <h1 class="tree_id" style="display: none;">{{item.tree_id}}</h1>              
+                            <!-- 隱藏的欄位 -->
+                            </a> 
+                            
                           </div>
                         </div>
                       </div>
@@ -229,9 +168,6 @@
                                 <h2 class="number">{{item.amount}}</h2>
                               </div>
                             </div>
-                            <!-- <span id="fruit_id" style="visibility: hidden"
-                              >1</span
-                            > -->
                             <h3 class="price">
                               認養價格: {{item.tree_price}}$/年
                             </h3>
@@ -243,6 +179,28 @@
                 </div>
               </div>
             </li>
+            <!-- 彈跳視窗內容 -->
+            <div id="moreimg" class="modal moreimg" >
+              <!-- 隱藏的欄位 -->
+              <p id="from_treeId" style="display: none;"></p>
+               <!-- 隱藏的欄位 -->
+              <div class="con">
+                <h3>認養果樹歷史照片</h3>
+                <div class="imgbox">
+                  <table>
+                    <tr>
+                      <th>上傳時間</th>
+                      <th>照片</th>
+                    </tr>
+                    <tr v-for='item in history_img'>
+                      <td><p>{{item.treehistory_date}}</p></td>
+                      <td><img :src="'./images/tree/' + item.treehistory_img"></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>     
+            <!-- 彈跳視窗內容 -->
             <!-- 體驗行程訂單 -->
             <li>
               <div class="for3" v-for='item in activitys'>

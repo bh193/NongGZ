@@ -5,11 +5,18 @@ let app = new Vue({
     AllT_order: [],
     AllA_order:[],
     AllCoupon:[],
+    AllTreehistory:[],
+    order_treeId:'',
     ShowImage: '',
     mem_id: '',
     getDataCount: 0,
   },
   computed: {
+    history_img() {
+      return this.AllTreehistory.filter((item) => {
+        return item.tree_id == this.order_treeId;
+      });
+    },
     all() {
       return this.AllMem.filter((item) => {
         return item.mem_id == this.mem_id
@@ -29,9 +36,15 @@ let app = new Vue({
       return this.AllCoupon.filter((item) => {
         return item.mem_id == this.mem_id
       });
-    }
+    },
   },
   methods:{
+
+    // 讓data裡的order_treeId與#from_treeId相同
+    getOrder_treeId(){
+      this.order_treeId=$('#from_treeId').text();
+    },
+
     getMemInfo() {
       let xhr = new XMLHttpRequest();
       xhr.onload =  () => {
@@ -40,7 +53,7 @@ let app = new Vue({
           this.mem_id = member.mem_id;
           this.getT_orderList();
           this.getA_orderList();
-          this.getCouponList()
+          this.getCouponList();
           this.getMember();
         }
       }
@@ -54,10 +67,19 @@ let app = new Vue({
     xhr.onload = () => {
       // console.log(JSON.parse(xhr.responseText))
       this.AllMem = JSON.parse(xhr.responseText);
-      
-      
+            
     };
     xhr.open("get", "../dist/phps/onlyMemberInCenter.php", true);
+    xhr.send(null);
+  },
+
+  //抓歷史照片資料庫
+  getTreehistoryList(){
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+      this.AllTreehistory = JSON.parse(xhr.responseText)
+    }
+    xhr.open("get", "../dist/phps/onlyTreehistoryInCenter.php", true);
     xhr.send(null);
   },
     
@@ -133,8 +155,10 @@ let app = new Vue({
     // 1.先getMemInfo 拿到mem_id
     // 2.拿t-order資料
     // 3.綁定onclick
-    this.getMemInfo();
 
+    this.getMemInfo();
+    this.getTreehistoryList();
+    
     // 認養及體驗活動訂單的頁面切換
     $(function () {
       var $orderSelect = $(".order-select"),
@@ -182,6 +206,13 @@ let app = new Vue({
 
  
   updated() {
+
+    //點查看按鈕後 讓#from_treeId的text 與 抓到的id相同
+    $('.smallbtn_s').click(function(){
+      $('#from_treeId').text($(this).siblings('.tree_id').text());
+      app.getOrder_treeId();
+    })
+
     //折扣券使用狀態改成中文
     for (let i = 0; i < $('.status').length; i++) {
       let status = $('.status').eq(i).text();
@@ -322,3 +353,17 @@ let app = new Vue({
     }
   },
 });
+
+
+// function getTreehistoryList(){
+//   let xhr = new XMLHttpRequest();
+//   xhr.onload = function(){
+//     app.AllTreehistory = JSON.parse(xhr.responseText)
+//   }
+//   xhr.open("get", "../dist/phps/onlyTreehistoryInCenter.php", true);
+//   xhr.send(null);
+// }
+
+// window.addEventListener("load", function(){
+//   getTreehistoryList();
+// })
