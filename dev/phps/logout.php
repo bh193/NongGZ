@@ -4,6 +4,15 @@ unset($_SESSION["farm_id"]);
 unset($_SESSION["farm_name"]);
 unset($_SESSION["farm_gm"]);
 unset($_SESSION["farm_email"]);
+unset($_SESSION["farm_address"]);
+unset($_SESSION["farm_psw"]);
+unset($_SESSION["farm_banner"]);
+unset($_SESSION["farm_imgA"]);
+unset($_SESSION["farm_imgB"]);
+unset($_SESSION["farm_imgC"]);
+unset($_SESSION["farm_contentA"]);
+unset($_SESSION["farm_contentB"]);
+unset($_SESSION["farm_status"]);
 
 session_unset();
 session_destroy();
