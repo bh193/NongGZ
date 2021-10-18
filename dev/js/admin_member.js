@@ -11,13 +11,6 @@ let memTable = new Vue({
     },
     methods: {
     filterData(name) {
-    // console.log('filterData')
-    // console.log(name)
-    this.farmDetails=this.farmRows.find(data=>data.farm_name==name)
-    },
-    getdata(id){
-     // console.log('filterData')
-    // console.log(name)
     this.farmDetails=this.farmRows.find(data=>data.farm_name==name)
     },
     getStatus(gets){
@@ -36,7 +29,7 @@ let memTable = new Vue({
     
     },
     computed:{
-    filterF() {
+    filterM() {
     return this.memRows.filter(memRow =>{return memRow.mem_name.includes(this.search)||memRow.mem_email.includes(this.search)||memRow.mem_tel.includes(this.search)});
     }
     },
