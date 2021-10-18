@@ -72,6 +72,9 @@
                 }
             }
         }
+        .filebanner{
+            margin-bottom: 5rem;
+        }
         .farmpic{
             margin-bottom: 5rem;
             .pic{
@@ -136,6 +139,7 @@
         .farmtxt{
             display: flex;
             justify-content: space-between;
+            margin-bottom: 2rem;
             .story,.setting{
                 width: 47%;
                 textarea{
