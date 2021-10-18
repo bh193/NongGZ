@@ -8,9 +8,10 @@
     <script src="js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    <script src="js/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <link rel="stylesheet" href="./css/彈跳視窗範本.css">
     <link rel="stylesheet" type="text/css" href="css/admin_mem.css">
+    <script src="js/vue.min.js"></script>
 </head>
 <style>
         .table table td:last-child{
@@ -41,10 +42,12 @@
                 </div>
             </div>
 
+          
             <div class="item">
                 <div class="box">
-                <input type="text" v-model="search">
-                <img src="./images/post/search.svg" alt="search">
+                    <label for=""></label>
+                    <input type="text" v-model="search">  
+                    <img src="images/post/search.svg" alt="search">
                 </div>
             </div>
 
@@ -60,13 +63,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(postRow,i) in filterM">
+                        <tr v-for="(memRow,i) in filters">
                             <td>{{i+1}}</td>
-                            <td>{{postRow.mem_name}}</td>
-                            <td>{{postRow.mem_email}}</td>
-                            <td>{{postRow.mem_tel}}</td>
-                            <td>{{getStatus(postRow.mem_status)}}
-                            <a href="#modal_password" rel="modal:open"><button class="penimg"><img src="images/svg/pencil.svg" alt=""></button> 
+                            <td>{{memRow.mem_name}}</td>
+                            <td>{{memRow.mem_email}}</td>
+                            <td>{{memRow.mem_tel}}</td>
+                            <td>{{getStatus(memRow.mem_status)}}
+                            <a href="#modal_password" rel="modal:open" @click="filterData(memRow.mem_id)"><button class="penimg" ><img src="images/svg/pencil.svg" alt=""></button> 
                             </a>
                             </td>
                         </tr>
@@ -76,6 +79,8 @@
                      <div id="modal_password" class="modal">
                         <h3>修改會員狀態</h3>
                         <div class="psw">
+                            <label for="">會員姓名</label>
+                            <input type="text" :value=memDetails.mem_id disabled>
                             <label for="">狀態</label>
                             <select  v-model="selected">
                                 <option v-for="option in options" v-bind:value="option.value" >{{option.text}}</option>
@@ -83,7 +88,7 @@
                         </div>
                         <div class="btn">
                             <button id="clear" type="reset">清除</button>
-                            <button id="send" type="submit" @click="filterData(farmRow.farm_name)">送出</button>
+                            <button id="send" @click="updatemem">送出</button>
                         </div>
                      </div>
             </div>

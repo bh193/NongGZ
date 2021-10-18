@@ -4,7 +4,7 @@ try {
 	require_once("./connecttbame.php");
 
 	//執行sql指令並取得pdoStatement
-	$sql = "select mem_name, mem_email,mem_tel,mem_status from member";
+	$sql = "select mem_id,mem_name, mem_email,mem_tel,mem_status from member";
 	$member = $pdo->query($sql);
 	$memRows = $member->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($memRows);

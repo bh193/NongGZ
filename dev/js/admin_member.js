@@ -2,6 +2,7 @@ let memTable = new Vue({
     el:"#memTable",
     data:{
     memRows:[],
+    memDetails:{},
     selected:'1',
     search:'',
     options: [
@@ -10,9 +11,6 @@ let memTable = new Vue({
         ],
     },
     methods: {
-    filterData(name) {
-    this.farmDetails=this.farmRows.find(data=>data.farm_name==name)
-    },
     getStatus(gets){
     switch (gets){
         case '0':
@@ -25,13 +23,31 @@ let memTable = new Vue({
             return "錯誤"
             break;
      }
+    },
+    filterData(id) {
+        this.memDetails=this.memRows.find(data=>data.mem_id==id) 
+        
+    },
+    updatemem(){
+        axios({
+            method: 'get',
+            url: './phps/update_adminMem.php',
+            params:{
+                member:this.memDetails.mem_id,
+                newstatus:this.selected
+            },
+        })
+        .then((response) => 
+            location.reload()
+        )
+        .catch((error) => console.log(error))
     }
     
     },
     computed:{
-    filterM() {
-    return this.memRows.filter(memRow =>{return memRow.mem_name.includes(this.search)||memRow.mem_email.includes(this.search)||memRow.mem_tel.includes(this.search)});
-    }
+        filters(){
+            return this.memRows.filter(memRow =>{return memRow.mem_name.includes(this.search)||memRow.mem_email.includes(this.search)});
+        }
     },
     })	
 
@@ -41,12 +57,11 @@ let memTable = new Vue({
         console.log(JSON.parse(xhr.responseText))
         memTable.memRows = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "./phps/adminmem.php", true);
+    xhr.open("get", "./phps/adminMem.php", true);
     xhr.send(null);
     }
     
     window.addEventListener("load", function(){
-    //------------------------網頁的初始設定
     getmember();
     
     })
