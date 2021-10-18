@@ -5,7 +5,7 @@ let contactus = new Vue({
         selected:'',
         email:'',
         content:'',
-        msg:'感謝您的意見與回饋'
+        msg:'感謝您的留言'
         
     },
     methods: {
@@ -13,6 +13,9 @@ let contactus = new Vue({
             (function () {
                 emailjs.init("user_aMjH5KHo9lvpKrwcByHs4");
             })();
+        },
+        clearmail(){
+            this.email="";
         },
         clearinput(){
             this.name="";
@@ -22,7 +25,7 @@ let contactus = new Vue({
         },
         sendmail(){
             emailjs.send("service_9mcavrt","template_ymf7nzc",{
-                subject: "[農果子]問題回報",
+                subject: "<<農果子>>找農果子問題回報",
                 name: this.name,
                 selected: this.selected,
                 email: this.email,
@@ -36,18 +39,22 @@ let contactus = new Vue({
         checkform(){
             let checkemail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
+            if(!checkemail.test(this.email)){
+                this.msg = '信箱格式錯誤'
+                this.$nextTick(this.clearmail);
+                return
+                
+            }
             if(this.name == ''|| this.selected == ''|| this.email == '' || this.content == '' ){
                 this.msg = '尚有欄位未填寫'
                 return
             }
-            if(!checkemail.test(this.email)){
-                this.msg = '信箱格式錯誤'
-                return
-            }
-            else{
+            if(checkemail.test(this.email) && !this.name == '' && !this.selected == ''&& !this.email == '' & !this.content == '' )
+                this.msg="感謝您的意見與回饋"
                 this.sendmail();
                 this.$nextTick(this.clearinput);
-            }
+           
+            
         },
 
 
