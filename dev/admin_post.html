@@ -48,7 +48,7 @@
             <!-- 放置內文 -->
             <div class="item">
                 <div class="box">
-                    <input type="text">
+                    <input type="text" v-model="search">
                     <img src="./images/post/search.svg" alt="search">
                 </div>
 
@@ -65,7 +65,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(reportRow,i) in filterF">
+                        <tr v-for="(reportRow,i) in filterR">
                           <td>{{i+1}}</td>
                           <td>{{reportRow.post_id}}</td>
                           <td class="wordlimit"><p>{{reportRow.report_reason}}</p></td>
@@ -85,18 +85,6 @@
     </div>
 </div>
     </article>
-    <script>
-        function myFunction() {
-         document.getElementById("option").style.display="none";
-         document.getElementById("demo").style.display="block";    
-        var x = document.getElementById("state").value;
-        document.getElementById("demo").innerHTML =x;
-        }
-        function showinput() {
-            document.getElementById("option").style.display="block";
-            document.getElementById("demo").style.display="none";
-        }
-    </script>
     <script src="js/admin_report.js"></script>
 </body>
 

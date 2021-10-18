@@ -35,7 +35,7 @@
                     <form class="txt">
                         <div class="item">
                             <label for="">農場名稱</label>
-                            <input type="text" value="山頂厝農場" disabled>
+                            <input type="text" v-model="farm.farm_name" disabled>
                         </div>
                         <div class="item">
                             <label for="">負責人</label>
@@ -58,6 +58,17 @@
                             </div>
                         </div>
                     </form>
+                </div>
+                <div class="farmbanner">
+                    <h3>農場橫幅</h3>
+                    <div class="banner">
+                        <div>
+                            <label for="filebanner">
+                                <img src="images/farm/info-1.png">
+                            </label>
+                            <input type="file" hidden id="inputf">
+                        </div>
+                    </div>
                 </div>
                 <div class="farmpic">
                     <h3>農場照片</h3>

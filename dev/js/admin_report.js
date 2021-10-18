@@ -40,7 +40,7 @@ let reportTable = new Vue({
     
     },
     computed:{
-    filterF() {
+    filterR() {
     return this.reportRows.filter(reportRows =>{return reportRows.post_id.includes(this.search)||reportRows.report_reason.includes(this.search)});
     }
     },

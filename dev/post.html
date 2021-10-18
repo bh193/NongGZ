@@ -29,10 +29,10 @@
                 <div class="container">
                     <div class="memname">
                         <div class="pic">
-                            <img src="images/mem/mugshot.png">
+                            <img :src="fullImageUrl">
                         </div>
                         <div class="title">
-                            <h3 id="memname_post">農果子2</h3>
+                            <h3 >{{member.mem_name}}</h3>
                             <h2>發佈你的貼文</h2>
                         </div>
                     </div>
@@ -55,17 +55,28 @@
                                         <option value="" selected disabled>tag農場</option>
                                         <option :value= "farm.farm_id" v-for="farm in farms">{{farm.farm_name}}</option>
                                     </select>
-                                    <a href="#sendpost" rel="modal:open" class="box_submit"><input type="submit" value="發佈"class="active" @click="post"></a>
+                                    <a href="#sendpost" rel="modal:open" class="box_submit"><input type="submit" value="發佈" class="active" @click="post"></a>
                                 </div>
                             </div>
                         </form>
-                        <div id="sendpost" class="modal dialog">
+                        <div id="sendpost" class="modal sdpost">
                             <div class="send">
-                                <h3 v-text="msg"></h3>
-                                <button class="clear">取消</button>
-                                <button class="login">登入</button>
+                                <h3>{{msg}}</h3>
+                                <a href="post.html"  v-if="isLogout">
+                                    <button class="clear">取消</button>
+                                </a>
+                                <a href="memlogin.html"  v-if="isLogout">
+                                    <button class="login">登入</button>
+                                </a>
                             </div>
                         </div>
+                        <form id="loudlytxt" class="modal sdloudly">
+                            <div class="sendLoudly">
+                                <h3>請填寫檢舉內容</h3>
+                                <textarea id="loudlytext" placeholder="寫下說明文字⋯" ></textarea>
+                                <input type="submit" value="發送">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </article>
@@ -106,9 +117,13 @@
                                 <img :src="'images/post/' + prodRow.post_img">
                             </div>
                             <div class="icon">
-                                <a href="#modal_login" rel="modal:open" class="box_heart"><button id="modal_btn_1" class="btn_heart"></button></a>
+                                <a href="#sendpost" rel="modal:open" class="box_heart">
+                                    <button class="btn_heart"></button>
+                                </a>
                                 <span>{{prodRow.post_feedback}}</span>
-                                <a href="#modal_login" rel="modal:open" class="box_loudy"><button id="modal_btn_1" class="btn_loudly"></button></a>
+                                <a href="#sendpost" rel="modal:open" class="box_loudy">
+                                    <button class="btn_loudly"></button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -123,6 +138,5 @@
     </div>
     @@include('layout/footer.html')
     <script src="js/post.min.js"></script>
-    <!-- @@include('layout/modal_login.html') -->
 </body>
 </html>

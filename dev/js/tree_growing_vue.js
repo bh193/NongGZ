@@ -12,8 +12,8 @@ let fruit_tree = new Vue({
     updated() {
         //判定水果數量與大小顆
         var size = $('#size').text();//大中小
-        var id = parseInt($('#fruit_id').text());//水果id
-        var number = parseInt($('#number').text());//數量
+        var id =$('#fruit_id').text();//水果id
+        var number = $('#number').text();//數量
 
         //canvas
         if (id == 1) {
