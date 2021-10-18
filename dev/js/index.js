@@ -8,6 +8,8 @@ $(function () {
             });
             $('#cover_controller').hide();
             $('#cover_farm').show();
+            $('#btnLogin_f').hide();
+            $('#btnLogin_c').show();
             open = false;
         } else {
             $(this).css({
@@ -16,6 +18,8 @@ $(function () {
             });
             $('#cover_controller').show();
             $('#cover_farm').hide();
+            $('#btnLogin_c').hide();
+            $('#btnLogin_f').show();
             open = true;
         }
     });
@@ -35,5 +39,16 @@ $(function () {
     $('#con_toggle_c').click(function () {
         $('.farm_login').css({ "margin-left": 0, });
     });
+
+
+    //管理員enter登入
+    document.onkeydown = function (e) {
+        var em = document.all ? window.event : e;
+        if (em.keyCode == 13) {
+            $('#btnLogin_c').click();
+            $('#btnLogin_f').click();
+        }
+    }
+
 
 });

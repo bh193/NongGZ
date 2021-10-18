@@ -23,11 +23,11 @@ try{
     //自資料庫中取回資料
     $memRow = $member->fetch(PDO::FETCH_ASSOC);
     //登入成功,將登入者的資料寫入session
+    $_SESSION["mem_id"] = $memRow["mem_id"];
     $_SESSION["mem_email"] = $memRow["mem_email"];
     $_SESSION["mem_name"] = $memRow["mem_name"];
-    $_SESSION["mem_id"] = $memRow["mem_id"];
-    $meminfo = ["mem_email"=> $_SESSION["mem_email"],"mem_name"=> $_SESSION["mem_name"]];
-
+    $_SESSION["mem_img"] = $memRow["mem_img"];
+    $meminfo = ["mem_id"=> $_SESSION["mem_id"],"mem_email"=> $_SESSION["mem_email"],"mem_name"=> $_SESSION["mem_name"],"mem_img"=> $_SESSION["mem_img"]];
 
     //送出登入者的姓名資料
     //json_encode轉成json格式

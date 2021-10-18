@@ -85,6 +85,10 @@ $(function () {
             $("#mem_state").text("登出");
             $("#mem_id").text(member.mem_id);
             $("#catch").val(member.mem_id);
+            $('#mem_center').show();
+        }else{
+            $('#mem_center').hide();
+            $("#mem_state").text("會員");
         }
     }
     xhr.open("get", "./phps/getMemInfo.php", true);
@@ -94,15 +98,35 @@ $(function () {
     $('#mem_state').click(function () {
         if ($('#mem_state').text() == "會員") {
             $(window).attr("location", "./memlogin.html");
+            $('#mem_center').hide();
         } else { //登出
             let xhr = new XMLHttpRequest();
             xhr.onload = function () {
                 $('#mem_state').text("會員");
+                location.reload();
+                $('#mem_center').show();
             }
             xhr.open("get", "./phps/logout.php", true);
             xhr.send(null);
+            
         }
     });
+
+    $('#m_img').click(function () {
+        if ($('#mem_state').text() == "會員") {
+            $('#m_img').attr("href", "./memlogin.html");
+            $('#mem_center').hide();
+        } else { //登出
+            $('#m_img').removeAttr("href");
+            $('#mem_state').text("會員");
+            location.reload();
+            $('#mem_center').show();
+        }
+        xhr.open("get", "./phps/logout_m.php", true);
+        xhr.send(null);
+    });
+
+
 
 
 });

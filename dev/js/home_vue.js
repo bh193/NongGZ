@@ -6,9 +6,9 @@ let activity_item = new Vue({
     updated() {
       //探索體驗hover變色
       $('.con_box a').hover(function () {
-        $(this).parent().parent().parent().children('img').css("transform", "scale(1.1)");
+        $(this).closest('.con_box').children('img').css("transform", "scale(1.1)");
       }, function () {
-        $(this).parent().parent().parent().children('img').css("transform", "scale(1)");
+        $(this).closest('.con_box').children('img').css("transform", "scale(1)");
       })
     }
   })
