@@ -4,8 +4,8 @@ let farmTable = new Vue({
     farmRows:[],
     farmDetails:{},
     selected:'1',
-    updatelat:'',
-    updatelon:'',
+    updatelat:0,
+    updatelon:0,
     search:'',
     cert:'',
     newstatus:'',
@@ -61,7 +61,6 @@ methods: {
         //     'newlon':this.updatelon,
         //     'newstatus':this.selected,     
         // }));
-        
         axios({
             method: 'get',
             url: './phps/update_adminFarm.php',
