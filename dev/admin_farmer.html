@@ -109,13 +109,13 @@
             </div>
                         
             <div id="modal_password" class="modal">
-                <form method="POST" action="./phps/update_admin.php">
+                <form>
                     <h3>修改果農資訊</h3>
                     <div class="psw" id="select">
                         <label for="">農場緯度</label>
-                        <input type="text" name="farm_lat">
+                        <input type="text" name="farm_lat" v-model="updatelat">
                         <label for="">農場經度</label>
-                        <input type="text" name="farm_lon">
+                        <input type="text" name="farm_lon" v-model="updatelon">
                         <label for="">狀態</label>
                          <select v-model="selected">
                             <option v-for="option in options" v-bind:value="option.value" >{{option.text}}</option>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="btn">
                         <button id="clear" type="reset">清除</button>
-                        <button id="send" type="submit" @click="filterData(farmRow.farm_name)">送出</button>
+                        <button id="send" type="submit" @click="filterid(farmDetails.farm_cert)">送出</button>
                     </div>
                 </form>                      
                 </div>
@@ -138,14 +138,7 @@
         </div>
     </article>
 <script src="js/admin_farm.min.js"></script>
-    <!-- <script>
-        $('a[href="#popOrder"]').click(function(event) {
-          event.stopPropagation();
-          $(this).modal({
-            fadeDuration: 300
-          });
-        });
-    </script>  -->
+
 </body>
 
 </html>
