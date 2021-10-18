@@ -15,16 +15,15 @@ let app = new Vue({
         pagesize: 6,
         currentPage: 1,
         msg: '',
-        // styleClear: {display:none},
+        member:{}
     },
     methods: {
         post(){
-            if(($("#mem_state").text() == "登出") && (this.posttxt == '' || this.images == '' || this.selectedFarm == '')){
+            if((!this.isLogout) && (this.posttxt == '' || this.images == '' || this.selectedFarm == '')){
                 this.msg = "尚有內容未填寫及選擇"
                 console.log("沒有填寫")
                 return
-                
-            }else if($("#mem_state").text() == "登出" && this.posttxt != '' && this.images != '' && this.selectedFarm != ''){
+            }else if(!this.isLogout && this.posttxt != '' && this.images != '' && this.selectedFarm != ''){
                 $.ajax({
                     type: 'post',
                     url: "../dist/phps/returnPosts.php",
@@ -35,7 +34,10 @@ let app = new Vue({
                     }),
                     contentType: "application/json; charset=utf-8",
                     success: (res) => {
-                        this.msg = "貼文發佈成功"
+                        this.msg = "貼文發佈成功",
+                        this.selectedFarm = '',
+                        this.images = '',
+                        this.posttxt = '',
                         console.log(res)
                         return
                     },
@@ -61,29 +63,6 @@ let app = new Vue({
         loadImage(e) {
             this.images = e.target.result;
         },
-        //貼文發佈
-        // postdata() {
-        //     console.log('postdata2');
-        //     $.ajax({
-        //         type: 'post',
-        //         url: "../dist/phps/returnPosts.php",
-        //         data: JSON.stringify({
-        //             farm_id: this.selectedFarm,
-        //             post_img: this.images,
-        //             post_content: this.posttxt,
-        //         }),
-        //         contentType: "application/json; charset=utf-8",
-        //         success: (res) => {
-        //             console.log(res)
-        //         },
-        //         error: () => {
-        //             console.log('error')
-        //         },
-        //         complete: () => {
-        //             console.log()
-        //         }
-        //     });
-        // },
         loadMore() {
             // console.log('load');
             if ($(window).height() + $(window).scrollTop() + 1 >= $(document).height()) {
@@ -122,25 +101,49 @@ let app = new Vue({
             }
             xhr.send(null);
         },
-
+        //會員名字
+        getMember(){
+            let vm = this;
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function(){
+                const response = JSON.parse(xhr.responseText);
+                console.log('member',response);
+                if(Object.keys(response).length == 0){
+                    vm.member = {
+                        mem_name:'登入農果子',           //mem_img: "premem.svg",
+                    }
+                }else{
+                    vm.member = response;
+                }
+            }
+            xhr.open("get", "../dist/phps/getMemInfo.php", true);
+            xhr.send(null);
+        },
     },
     watch: {
         selectNew: function () {
             this.selectNd();
             // console.log("change")
-        },
-        // selectNew: this.selectNd,
+        }
     },
     computed: {
+        //變更會員大頭照
+        fullImageUrl(){
+            return "images/mem/" + this.member.mem_img;
+        },
         filterRow() {
             return this.prodRows.filter(prodRow => {
                 return prodRow.farm_name.includes(this.filterFarm) ||
-                    prodRow.mem_name.includes(this.filterFarm)
+                       prodRow.mem_name.includes(this.filterFarm)
             });
         },
         pageRows() {
             return this.filterRow.slice(0, this.currentPage * this.pagesize);
-        }
+        },
+        //關閉視窗button
+        isLogout(){
+            return Object.keys(this.member).length === 0;
+        },
     },
     created() {
         window.addEventListener("scroll", this.loadMore);
@@ -149,41 +152,21 @@ let app = new Vue({
         this.getProducts();
         this.getFarms();
         this.selectNd();
+        this.getMember();
+        Vue.nextTick(function(){
+            $('a[href="#sendpost"]').click(function(event) {
+                event.stopPropagation();
+                $(this).modal({ fadeDuration: 300});
+            })
+        });
     },
     // updated() {
     //     if ($("#mem_state").text() == "登出") {
     //         $('.box_heart').removeAttr("href");
     //         $('.box_heart').removeAttr("rel");
-    //         $('.box_loudy').removeAttr("href");
-    //         $('.box_loudy').removeAttr("rel");
-    //         $('.box_submit').removeAttr("href");
-    //         $('.box_submit').removeAttr("rel");
     //     } else {
     //         $('.box_heart').attr("href", "#modal_login")
     //         $('.box_heart').attr("rel", "modal:open")
-    //         $('.box_loudy').attr("href", "#modal_login")
-    //         $('.box_loudy').attr("rel", "modal:open")
-    //         $('.box_submit').attr("href", "#modal_login")
-    //         $('.box_submit').attr("rel", "modal:open")
     //     }
     // },
 })
-
-function switchFavorite() {
-    if (heart.src == "../dist/images/post/heart_gray.svg") {
-        heart.src = "../dist/images/post/heart_red.svg";
-    } else {
-        heart.src = "../dist/images/post/heart_gray.svg";
-    }
-}
-let heart = document.getElementsByClassName("btn_heart");
-heart.onclick = switchFavorite;
-
-window.addEventListener("load", function () {
-
-    //---------------------網頁的初始設定
-    switchFavorite();
-
-
-});
-
