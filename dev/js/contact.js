@@ -59,6 +59,12 @@ let contactus = new Vue({
     },
     mounted() {
         this.callmail();
+        Vue.nextTick(function(){
+            $('a[href="#popOrder"]').click(function(event) {
+                event.stopPropagation();
+                $(this).modal({ fadeDuration: 300});
+            })
+        });
     },
     })	
 

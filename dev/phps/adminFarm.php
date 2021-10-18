@@ -4,8 +4,8 @@ try {
 	require_once("./connecttbame.php");
 
 	//執行sql指令並取得pdoStatement
-	$sql = "SELECT  a.farm_name,a.farm_gm,a.farm_address,a.farm_status,a.farm_tel,a.farm_lat,a.farm_lon,a.farm_cert,b.city_name
-    FROM farm a join city b on a.city_id=b.city_id";
+	$sql = "SELECT  a.farm_id,a.farm_name,a.farm_gm,a.farm_address,a.farm_status,a.farm_tel,a.farm_lat,a.farm_lon,a.farm_cert,b.city_name
+    FROM farm a join city b on a.city_id=b.city_id order by farm_id";
 	$products = $pdo->query($sql);
 	$prodRows = $products->fetchAll(PDO::FETCH_ASSOC);
 	echo json_encode($prodRows);

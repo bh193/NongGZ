@@ -13,87 +13,80 @@
     <link rel="stylesheet" type="text/css" href="css/admin_mem.css">
 </head>
 <style>
-    .table table td:last-child{
-         text-align:center;
-        
-         }
+        .table table td:last-child{
+            text-align:center;
+            }
 </style>
 <body>
     <header>
-    <a href="./admin_farmer.html">
-        <div class="logo">
-            <img src="./images/common/logo.svg" alt="logo">
-        </div>
-    </a>
-    <ul id="nav">
-        <li><a href="./admin_farmer.html">果農帳號管理</a></li>
-        <li><a href="./admin_member.html">會員帳號管理</a></li>
-        <li><a href="./admin_post.html">審核檢舉貼文</a></li>
-    </ul>
-</header>
-<script src="js/header_back.min.js"></script>
-<script src="js/con_login.min.js"></script>
+        <a href="./admin_farmer.html">
+            <div class="logo"><img src="./images/common/logo.svg" alt="logo"></div>
+        </a>
+        <ul id="nav">
+            <li><a href="./admin_farmer.html">果農帳號管理</a></li>
+            <li><a href="./admin_member.html">會員帳號管理</a></li>
+            <li><a href="./admin_post.html">審核檢舉貼文</a></li>
+        </ul>
+    </header>
+    <script src="js/header_back.min.js"></script>
+    <script src="js/con_login.min.js"></script>
     <article>
-        <section id="memTable">
-            
-    <div class="sign_out">
-    <div class="sign_out_icon">
-        <img src="./images/common/controller-login.svg" alt="controller_icon">
-    </div>
-    <div class="sign_out_name">
-        <p>管理員</p>
-        <a href="./index.html"><p id="con_login">登出</p></a>
-    </div>
-</div>
-    <!-- 放置內文 -->
-    <div class="item">
-        <div class="box">
-            <input type="text" v-model="search">
-            <img src="./images/post/search.svg" alt="search">
-        </div>
-    </div>
+        <section id="memTable">       
+            <div class="sign_out">
+                <div class="sign_out_icon"><img src="./images/common/controller-login.svg" alt="controller_icon"></div>
+                <div class="sign_out_name">
+                <p>管理員</p>
+                
+                <a href="./index.html"><p id="con_login">登出</p></a>
+                </div>
+            </div>
 
-    <div class="table">
-        <table>
-            <thead>
-                <tr>
-                  <th scope="col">編號</th>
-                  <th scope="col">會員姓名</th>
-                  <th scope="col">信箱</th>
-                  <th scope="col">電話</th>
-                  <th scope="col">狀態</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="(postRow,i) in filterF">
-                  <td>{{i+1}}</td>
-                  <td>{{postRow.mem_name}}</td>
-                  <td>{{postRow.mem_email}}</td>
-                  <td>{{postRow.mem_tel}}</td>
-                  <td>{{getStatus(postRow.mem_status)}}
-                      <a href="#modal_password" rel="modal:open"><button class="penimg"><img src="images/svg/pencil.svg" alt=""></button> 
-                  </a>
-                </td>
-                </tr>
-              </tbody>
-        </table>
-                                <!-- 視窗內容 -->
-                                <div id="modal_password" class="modal">
-                                        <h3>修改會員狀態</h3>
-                                            <label for="">狀態</label>
-                                             <select  v-model="selected">
-                                                <option v-for="option in options" v-bind:value="option.value" >{{option.text}}</option>
-                                            </select>
-                                    <div class="btn">
-                                            <button id="clear" type="reset">清除</button>
-                                            <button id="send" type="submit" @click="filterData(farmRow.farm_name)">送出</button>
-                                             </div>
-                                        </div>
-    
-                                   
-                                   
-                                         
-                                              </div>
+            <div class="item">
+                <div class="box">
+                <input type="text" v-model="search">
+                <img src="./images/post/search.svg" alt="search">
+                </div>
+            </div>
+
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">編號</th>
+                            <th scope="col">會員姓名</th>
+                            <th scope="col">信箱</th>
+                            <th scope="col">電話</th>
+                            <th scope="col">狀態</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(postRow,i) in filterF">
+                            <td>{{i+1}}</td>
+                            <td>{{postRow.mem_name}}</td>
+                            <td>{{postRow.mem_email}}</td>
+                            <td>{{postRow.mem_tel}}</td>
+                            <td>{{getStatus(postRow.mem_status)}}
+                            <a href="#modal_password" rel="modal:open"><button class="penimg"><img src="images/svg/pencil.svg" alt=""></button> 
+                            </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        
+                     <div id="modal_password" class="modal">
+                        <h3>修改會員狀態</h3>
+                        <div class="psw">
+                            <label for="">狀態</label>
+                            <select  v-model="selected">
+                                <option v-for="option in options" v-bind:value="option.value" >{{option.text}}</option>
+                            </select>
+                        </div>
+                        <div class="btn">
+                            <button id="clear" type="reset">清除</button>
+                            <button id="send" type="submit" @click="filterData(farmRow.farm_name)">送出</button>
+                        </div>
+                     </div>
+            </div>
     </div>
         </section>
         <div class="footer">
