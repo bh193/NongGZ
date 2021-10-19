@@ -9,97 +9,99 @@
     <link rel="stylesheet" href="css/back_farminfo.css">
     <link rel="stylesheet" href="code/jquery.modal.css">
     <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.modal.min.js"></script> 
+    <script src="js/jquery.modal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <link rel="stylesheet" href="css/back_farminfo.css">
     <script src="js/vue.min.js"></script>
 </head>
 <body>
     @@include('layout/header_back_f.html')
     <article>
-        <section>
+        <section  id="app">
             @@include('layout/farm_icon.html')
-            <div class="wrapper" id="app">
+            <form class="wrapper" action="javascript:void(0)">
                 <div class="info">
                     <div class="pic">
                         <div class="mem_f">
-                            <img :src="'images/farm/' + info-1.png">
+                            <img :src="showImage ? showImage : 'images/farm/' + farminfo.farm_imgA">
                         </div>
                         <div class="camera">
                             <label for="inputc">
                                 <img src="images/common/update-camera.png">
                             </label>
-                            <input type="file" id="inputc" hidden>
+                            <input type="file" id="inputc" @change="imgChange"  style="display: none"/>
                         </div>
-                        <p>{{farminfo.farm_status}}</p>
+                        <p class="farmStatus">狀態：{{getStatus(farminfo.farm_status)}}</p>
                     </div>
-                    <form class="txt">
+                    <div class="txt">
                         <div class="item">
-                            <label for="">農場名稱</label>
-                            <input type="text" v-model="farm.farm_name" disabled>
+                            <label>農場名稱</label>
+                            <input type="text" :value="farminfo.farm_name" disabled>
                         </div>
                         <div class="item">
-                            <label for="">負責人</label>
-                            <input type="text" value="林阿桃" disabled>
+                            <label>負責人</label>
+                            <input type="text" :value="farminfo.farm_gm" disabled>
                         </div>
                         <div class="item">
                             <label for="">聯絡電話</label>
-                            <input type="text" value="">
+                            <input type="text" :value="farminfo.farm_tel">
+                            <!-- <input type="text" v-model="newtel"> -->
                         </div>
                         <div class="item">
-                            <label for="">電子信箱</label>
-                            <input type="text" value="vivian19@gmail.com" disabled>
+                            <label>電子信箱</label>
+                            <input type="text" :value="farminfo.farm_email" disabled>
                         </div>
                         <div class="item">
                             <label for="">農場地址</label>
                             <div>
-                                <input type="text" value="">
-                                <a href="#modal_password" rel="modal:open"><button id="psbtn">修改密碼</button></a>
-                                @@include('layout/modal_password.html')
+                                <input type="text" :value="farminfo.farm_address">
+                                <a href="#modal_password" rel="modal:open"><button id="psbtn">變更密碼</button></a>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="farmbanner">
                     <h3>農場橫幅</h3>
                     <div class="banner">
-                        <div>
-                            <label for="filebanner">
-                                <img src="images/farm/info-1.png">
-                            </label>
-                            <input type="file" hidden id="inputf">
-                        </div>
+                        <label for="filebanner">
+                            <img :src="fullImageUrl">
+                        </label>
+                        <select class="selectimg" :value="farminfo.farm_banner">
+                            <option :value="option.value" v-for="option in options">{option.text}}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="farmpic">
                     <h3>農場照片</h3>
                     <div class="pic">
                         <div class="btn btn1">
-                            <div>
+                            <div class="cutimg">
                                 <label for="inputf">
-                                    <img src="images/farm/info-1.png">
+                                    <img :src="infoImage ? infoImage : 'images/farm/' + farminfo.farm_imgA">
                                 </label>
-                                <input type="file" hidden id="inputf">
+                                <input type="file" id="inputf" @change="infoChange"  style="display: none">
                             </div>
                             <div class="spic">
                                 <h4>上傳照片</h4>
                             </div>
                         </div>
                         <div class="btn btn2">
-                            <div>
-                                <label for="inputf">
-                                    <img src="images/farm/story-1.png">
+                            <div class="cutimg">
+                                <label for="inputsto">
+                                    <img :src="storyImage ? storyImage : 'images/farm/' + farminfo.farm_imgB">
                                 </label>
-                                <input type="file" hidden id="inputf">
+                                <input type="file" id="inputsto" @change="storyChange"  style="display: none">
                             </div>
                             <div class="spic">
                                 <h4>上傳照片</h4>
                             </div>
                         </div>
                         <div class="btn btn3">
-                            <div>
-                                <label for="inputf">
-                                    <img src="images/farm/setting-1.png">
+                            <div class="cutimg">
+                                <label for="inputset">
+                                    <img :src="settingImage ? settingImage : 'images/farm/' + farminfo.farm_imgC">
                                 </label>
-                                <input type="file" hidden id="inputf">
+                                <input type="file" id="inputset" @change="settingChange"  style="display: none"/>
                             </div>
                             <div class="spic">
                                 <h4>上傳照片</h4>
@@ -109,21 +111,36 @@
                 </div>
                 <div class="farmtxt">
                     <div class="story">
-                        <h3>農場故事</h3>
-                        <textarea id="" placeholder="寫下說明文字⋯"></textarea>
+                        <h3>農場故事1</h3>
+                        <textarea id="wstory" placeholder="寫下說明文字⋯" v-model="storyTxt"></textarea>
                     </div>
                     <div class="setting">
                         <h3>農場環境</h3>
-                        <textarea id="" placeholder="寫下說明文字⋯"></textarea>
+                        <textarea id="wsetting" placeholder="寫下說明文字⋯" v-model="settingTxt"></textarea>
                     </div>
                 </div>
                 <div class="save">
-                    <button class="sfile">儲存檔案</button>
+                    <button class="sfile" @click="sendInfo">儲存檔案</button>
                 </div>
-            </div>
+            </form>
+            <form id="modal_password" class="modal" action="javascript:void(0)">
+                <h3>變更小農密碼</h3>
+                <div class="psw">
+                    <label for="">舊密碼</label>
+                    <input type="current-password" :value="farminfo.farm_psw" disabled>
+                    <label for="">新密碼</label>
+                    <input type="new-password" v-model="newPsw">
+                    <label for="">確認密碼</label>
+                    <input type="new-password" v-model="conPsw">
+                </div>
+                <div class="btn">
+                    <button class="clear" @click="clearPsw">清除</button>
+                    <input type="submit" value="送出" class="send" @click="sendPsw">
+                </div>
+            </form>
         </section>
         @@include('layout/footer_back.html')
     </article>
-    <script src="js/back_farminfo.js"></script>
+    <script src="js/back_farminfo.min.js"></script>
 </body>
 </html>

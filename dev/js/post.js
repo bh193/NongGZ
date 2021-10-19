@@ -19,11 +19,11 @@ let app = new Vue({
     },
     methods: {
         post(){
-            if((!this.isLogout) && (this.posttxt == '' || this.images == '' || this.selectedFarm == '')){
+            if((!(this.isLogout)) && (this.posttxt == '' || this.images == '' || this.selectedFarm == '')){
                 this.msg = "尚有內容未填寫及選擇"
                 console.log("沒有填寫")
                 return
-            }else if(!this.isLogout && this.posttxt != '' && this.images != '' && this.selectedFarm != ''){
+            }else if(!(this.isLogout) && this.posttxt != '' && this.images != '' && this.selectedFarm != ''){
                 $.ajax({
                     type: 'post',
                     url: "../dist/phps/returnPosts.php",
@@ -31,6 +31,7 @@ let app = new Vue({
                         farm_id: this.selectedFarm,
                         post_img: this.images,
                         post_content: this.posttxt,
+                        member:this.member.mem_id,
                     }),
                     contentType: "application/json; charset=utf-8",
                     success: (res) => {
