@@ -72,7 +72,24 @@
             }
         }
         .farmbanner{
+            width: 100%;
+            overflow: hidden;
             margin-bottom: 5rem;
+            .banner{
+                display: flex;
+                flex-direction: column;
+                img{
+                    margin-bottom: 1rem;
+                }
+                .selectimg{
+                    @include select();
+                    font-size: $p_size;
+                    color: $btn_m_color;
+                    border: 2px solid $btn_m_color;
+                    appearance: none;
+                    margin-left: 42%;
+                }
+            }
         }
         .farmpic{
             margin-bottom: 5rem;
@@ -80,7 +97,12 @@
                 display: flex;
                 justify-content: space-between;
                 .btn{
-                    width: 32%;
+                    width: 14rem;
+                    .cutimg{
+                        width: 14rem;
+                        height: 7rem;
+                        overflow: hidden;
+                    }
                     img{
                         width: 100%;
                     }
@@ -111,7 +133,7 @@
                         width: 100%;
                         background-color: rgba(0, 0, 0, 0.6);
                         h4{
-                            width: 0.2rem 1rem;
+                            padding: 0.2rem 1rem;
                         }
                     }
                 }
@@ -126,7 +148,7 @@
                         width: 100%;
                         background-color: rgba(0, 0, 0, 0.6);
                         h4{
-                            width: 0.2rem 1rem;
+                            padding: 0.2rem 1rem;
                         }
                     }
                 }
@@ -153,6 +175,55 @@
             @include flexcenter();
             .sfile{
             @include smallbtn_s;
+            }
+        }
+    }
+    #modal_password{
+        background-color: #F7F6F2;
+        h3{
+            width: 100%;    
+            height: 55px;
+            @include flexcenter;  
+            background-color: #84A59D;
+            color: #fff;
+            border-radius: 8px;
+        }
+        .psw{
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            padding: 20px;
+            label{
+                @include label;
+                padding: 5px 0;
+            }
+            input{
+                @include text;
+                width: 100%;
+            }
+        }
+        .btn{
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            input, button{
+                width: 6.5rem;
+                height: 35px;
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+                color: #fff;
+                font-weight: bolder;
+            }
+            input:hover{
+                opacity: .8;
+            }
+            .clear{
+                background-color: #BB9590;
+            }
+            .send{
+                background-color:#84A59D;
             }
         }
     }
