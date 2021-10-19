@@ -7,9 +7,11 @@ try{
   $member->execute();
 
   if( $member->rowCount()==0){ //查無此密碼
-    echo "<script>alert('密碼錯誤!請重新輸入'); location.href = '../mem_center.html'</script>";                         
+    echo "<script>alert('密碼錯誤，請重新輸入!'); location.href = '../mem_center.html'</script>";                         
   }elseif ($_POST["new_psw"] =="" || $_POST["check_psw"]==""){ //未輸入時
-    echo "<script>alert('未輸入完全!請重新輸入'); location.href = '../mem_center.html'</script>"; 
+    echo "<script>alert('未輸入完全，請重新輸入!'); location.href = '../mem_center.html'</script>"; 
+  }elseif ($_POST["old_psw"] == $_POST["new_psw"]){
+    echo "<script>alert('新密碼與目前密碼相同，請重新輸入!'); location.href = '../mem_center.html'</script>"; 
   }else{ 
     if($_POST["new_psw"] == $_POST["check_psw"]){    //再檢驗新密碼與確認密碼相符與否
       $sql2 ="UPDATE member SET mem_psw=:mem_psw

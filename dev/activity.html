@@ -45,7 +45,9 @@
       </div>
     </div>
     <div class="main">
-      <div class="post" v-for="item in result">    <!-- v-for -->
+      <!-- <div class="post" v-for="item in result">     -->
+      <!-- v-for要改成分割的函式 -->
+      <div class="post" v-for="item in loadMore">  
         <div class="background">
           <a class="pic" :href="'activity_detail.html?activity_id=' + item.activity_id">
             <img id="activity_imgA" :src="'images/activity/' + item.activity_imgA" alt="">

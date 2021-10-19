@@ -7,6 +7,15 @@ let app = new Vue({
       farm:'',
       date:''
     },
+    scroll_index:1 
+  },
+  methods:{
+    // 螢幕高度+滾軸最高點的高度 = 網頁高度
+    handleScroll() {
+      if ($( window ).height() + $(window).scrollTop()+1 >= $( document ).height()) {
+          this.scroll_index=this.scroll_index+1;
+      }
+    },
   },
   computed:{
     // 篩選器情況
@@ -52,7 +61,16 @@ let app = new Vue({
         return this.activitys
       }
     },
-  }
+
+    //把全部內容切割3 3 3... 
+    loadMore() {
+      return this.result.slice(0, 3*this.scroll_index);
+    },
+  },
+  created() {
+    // 監聽滾軸
+    window.addEventListener("scroll", this.handleScroll);
+  },
 })	
 
 function getActivityList(){
