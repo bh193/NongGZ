@@ -19,7 +19,10 @@ let farmTable = new Vue({
 methods: {
     filterData(name) {
         this.farmDetails=this.farmRows.find(data=>data.farm_name==name) 
-        
+        this.updatelat=this.farmDetails.farm_lat
+        this.updatelon=this.farmDetails.farm_lon
+        this.selected=this.farmDetails.farm_status
+
     },
     getStatus(gets){
         switch (gets){
@@ -101,13 +104,9 @@ computed:{
         }
     },
 mounted() {
-    this.openmodal;
+    this.openmodal();
 },
-    // p1(){
-    //     return this.farmDetails.filter( p2 =>{
-    //         return p2.farm_cert == this.farmDetails
-    //     })
-    // }
+
 })	
 
 function getfarms(){
