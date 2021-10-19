@@ -108,19 +108,23 @@ a{text-decoration: none;}
 
     }
     .mapitem:nth-child(2){ //地點照片
-     background-color: antiquewhite;
        display: flex;
     //    justify-content: space-around;
        box-sizing: border-box;
-       .swiper-slider{
-           width: 80px;
-           height: 80px;
-           img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+       .swiper-container {/* 設定幻燈片寬度跟高度 */
+        // max-width: 1280px;
+        // min-width: 350px;
+        // width: 100%;
+            
     }
+    .swiper-slide {
+        width:80px;
+        height:80px;
+        }
+        .swiper-container img {
+            width:80px;
+        
+        }
        }
         
     }
@@ -147,13 +151,12 @@ a{text-decoration: none;}
         // min-height: 450px;
     }
 
+
 }
 @include d{
     .wrap{
-    
         .box:nth-child(2){ //----------篩選框
             flex-direction: row;
-
         }
 
     }
