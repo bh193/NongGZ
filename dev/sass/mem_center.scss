@@ -73,7 +73,13 @@ color: #f6bd60;
   background-position: 100%;
   margin: -2rem auto 0;
 }
+.pic:hover{
+  filter: brightness(.95);
+}
 
+#camera:active{
+  transform: translateY(1px);
+}
 .member{
   position: relative;
   @include flexcenter;
@@ -87,16 +93,27 @@ color: #f6bd60;
       border-radius: 50%;
       position: absolute;
       object-fit: cover;
+      border: 2px solid #fff;
     }
     .camera{
       cursor: pointer;
       border: 1px solid;
       position: relative;
       #camera{
-        width: 25px;
+        width: 20px;
         position: absolute;
-        top: 32px;
-        right: 45px;
+        top: 2.5rem;
+        left: 4rem;
+      }
+      &::before {
+        content: "";
+        width: 28px;
+        height: 28px;
+        background-color: #dcdee0;
+        position: absolute;
+        left: 3.7rem;
+        top: 2.2rem;
+        border-radius: 50%;
       }
     }
   }
@@ -155,6 +172,9 @@ color: #f6bd60;
             &:nth-child(2){
               margin: 0 20px;
             }  
+        }
+        >*:active{
+          transform: translateY(4px);
         }
         a.active{
           background: #FFF;
@@ -256,31 +276,25 @@ table{
   .orders li:nth-child(2) .detail{
     overflow: auto;
   }
-  // .detail{
-    // >*{
-      // width: 240px;
-      // border: 1px solid red;
-    // }
-    // >*:nth-child(odd){
-    //   margin-right: 26px;
-    // }
-  // }
-
-
 }
 
 @include d{
   .orders li:nth-child(2) .detail{
     overflow: auto;
   }
-  // .detail{
-  //   >*{
-      // width: 340px;
-      // border: 1px solid blue;
-    // }
-    // >*:nth-child(odd){
-    //   margin-right: 26px;
-    // }
-  // }
-  
+  .member{
+    .pic{
+      .camera{
+        #camera{
+          top: 2rem;
+          left: 3.1rem;
+        }
+        &::before{
+          left: 2.8rem;
+          top: 1.8rem;
+        }
+      }
+    }
+  }
 }
+

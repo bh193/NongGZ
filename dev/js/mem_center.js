@@ -359,10 +359,47 @@ let app = new Vue({
     }
   },
 
-   
-  
 });
 
+ 
+// $(".toggle_eye").click(() =>{
+//   if($(this).siblings().prop('type', 'password')){
+//     $(this).siblings().prop('type', 'text')
+//   }
+// })
+
+let toggleEye = document.querySelector('.toggle_eye');
+let password = document.querySelector('#psw');
+
+toggleEye.addEventListener('click', function (e) {
+  // 切換input type
+  let type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+  password.setAttribute('type', type);
+  // toggle 眼睛icon(bi-eye / bi-eye-slash)
+  this.classList.toggle('bi-eye');
+});
+
+let toggleEye1 = document.querySelector('.toggle_eye1');
+let password1 = document.querySelector('#psw1');
+
+toggleEye1.addEventListener('click', function (e) {
+  // 切換input type
+  let type = password1.getAttribute('type') === 'password' ? 'text' : 'password';
+  password1.setAttribute('type', type);
+  // toggle 眼睛icon(bi-eye / bi-eye-slash)
+  this.classList.toggle('bi-eye');
+});
+
+let toggleEye2 = document.querySelector('.toggle_eye2');
+let password2 = document.querySelector('#psw2');
+
+toggleEye2.addEventListener('click', function (e) {
+  // 切換input type
+  let type = password2.getAttribute('type') === 'password' ? 'text' : 'password';
+  password2.setAttribute('type', type);
+  // toggle 眼睛icon(bi-eye / bi-eye-slash)
+  this.classList.toggle('bi-eye');
+});
 
 // function getTreehistoryList(){
 //   let xhr = new XMLHttpRequest();

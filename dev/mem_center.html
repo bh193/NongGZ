@@ -18,6 +18,8 @@
 
     <link rel="stylesheet" href="code/jquery.modal.css" />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
     <script src="js/vue.min.js"></script>
 
     <style>
@@ -42,8 +44,8 @@
         <form action="phps/updateMem_center.php" method="post"
         enctype="multipart/form-data">
           <ol class="member" v-for="item in all">
-            <!-- 更新照片與否的真實位置 -->
-            <!-- <input type="hidden" name="originImg" :value="item.mem_img"> -->
+            <!-- 是否更新照片 的真實位置 -->
+            <input type="hidden" name="originImg" :value="item.mem_img">
             <li class="pic">
               <!-- <img id="mem_img" :src="'images/mem/' + item.mem_img"/> -->
               
