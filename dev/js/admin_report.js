@@ -2,29 +2,23 @@ let reportTable = new Vue({
     el:"#reportTable",
     data:{
     reportRows:[],
+    reportDetails:{},
     selected:'0',
     search:'',
     options: [
-        { text: '未審核', value: '0' },
+        { text: '待審核', value: '0' },
         { text: '通過', value: '1' },
         { text: '未通過', value: '2' },
         ],
     },
     methods: {
-    filterData(name) {
-    // console.log('filterData')
-    // console.log(name)
-    this.farmDetails=this.farmRows.find(data=>data.farm_name==name)
-    },
-    getdata(id){
-     // console.log('filterData')
-    // console.log(name)
-    this.farmDetails=this.farmRows.find(data=>data.farm_name==name)
+    filterData(id) {
+    this.reportDetails=this.reportRows.find(data=>data.post_id==id)
     },
     getStatus(gets){
     switch (gets){
         case '0':
-        return "未審核";
+        return "待審核";
             break;
         case '1':
         return "通過";
@@ -35,14 +29,32 @@ let reportTable = new Vue({
         default:
             return "錯誤"
             break;
-     }
-    }
+            }
+        },
+        updatepost(){
+            axios({
+                method: 'get',
+                url: 'phps/update_adminPost.php',
+                params:{
+                    postid:this.reportDetails.post_id,
+                    newstatus:this.selected
+                },
+            })
+            .then((response) => 
+                location.reload()
+                // console.log(response)
+            )
+            .catch((error) => console.log(error))
+        }   
     
     },
     computed:{
-    filterR() {
-    return this.reportRows.filter(reportRows =>{return reportRows.post_id.includes(this.search)||reportRows.report_reason.includes(this.search)});
-    }
+        filterRow() {
+            return this.reportRows.filter(reportRow => {
+                return reportRow.report_reason.includes(this.search) ||
+                reportRow.mem_email.includes(this.search)||reportRow.post_id.includes(this.search)
+            });
+        },
     },
     })	
 
@@ -52,12 +64,12 @@ let reportTable = new Vue({
         console.log(JSON.parse(xhr.responseText))
         reportTable.reportRows = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "./phps/adminReport.php", true);
+    xhr.open("get", "phps/adminReport.php", true);
     xhr.send(null);
     }
     
     window.addEventListener("load", function(){
-    //------------------------網頁的初始設定
+
     getreport();
     
     })

@@ -10,6 +10,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script src="js/vue.min.js"></script>
     <link rel="stylesheet" href="./css/彈跳視窗範本.css">
     <link rel="stylesheet" type="text/css" href="css/admin_mem.css">
@@ -46,7 +47,7 @@
         <a href="./index.html"><p id="con_login">登出</p></a>
     </div>
 </div>
-            <!-- 放置內文 -->
+           
             <div class="item">
                 <div class="box">
                     <input type="text" v-model="search">
@@ -66,16 +67,31 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr v-for="(reportRow,i) in filterR">
+                        <tr v-for="(reportRow,i) in filterRow">
                           <td>{{i+1}}</td>
                           <td>{{reportRow.post_id}}</td>
                           <td class="wordlimit"><p>{{reportRow.report_reason}}</p></td>
                           <td>{{reportRow.mem_email}}</td>
                           <td>{{getStatus(reportRow.report_status)}}
-                            <a href="#modal_password" rel="modal:open"><button class="penimg"><img src="images/svg/pencil.svg" alt=""></button> </td>
+                            <a href="#modal_password" rel="modal:open" @click="filterData(reportRow.post_id)"><button class="penimg"><img src="images/svg/pencil.svg" alt=""></button> </td>
                         </tr>
                       </tbody>
                 </table>
+                <div id="modal_password" class="modal">
+                    <h3>修改會員狀態</h3>
+                    <div class="psw">
+                        <label for="">貼文編號</label>
+                        <input type="text" :value=reportDetails.post_id disabled>
+                        <label for="">狀態</label>
+                        <select  v-model="selected">
+                            <option v-for="option in options" v-bind:value="option.value" >{{option.text}}</option>
+                        </select>
+                    </div>
+                    <div class="btn">
+                        <button id="clear" type="reset">清除</button>
+                        <button id="send" type="submit" @click="updatepost">送出</button>
+                    </div>
+                 </div>
             </div>
             
         </section>
@@ -86,7 +102,7 @@
     </div>
 </div>
     </article>
-    <script src="js/admin_report.js"></script>
+    <script src="js/admin_report.min.js"></script>
 </body>
 
 </html>

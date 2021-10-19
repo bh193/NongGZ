@@ -7,22 +7,16 @@
         $decoded = json_decode($content, true);
         // echo $decoded; 
         // exit();
-        
-        
         // print_r($decoded);
        
-        $update_cert =$_GET['cert'];
-        $update_lat = $_GET['newlat'];
-        $update_lon = $_GET['newlon'];
-        $update_select = $_GET['newstatus'];
+        $update_id =$_GET['postid'];
+        $update_status = $_GET['newstatus'];
         
         // 執行sql指令並取得pdoStatement
-        $sql = "UPDATE farm SET farm_lat =:farm_lat, farm_lon=:farm_lon, farm_status=:farm_status WHERE farm_cert = :farm_cert";
+        $sql = "UPDATE report SET report_status=:report_status WHERE post_id = $update_id";
         $updatefarm = $pdo->prepare($sql);
-        $updatefarm -> bindValue(":farm_cert", $update_cert);
-        $updatefarm -> bindValue(":farm_lat",  $update_lat);
-        $updatefarm -> bindValue(":farm_lon",  $update_lon);
-        $updatefarm -> bindValue(":farm_status",$update_select);
+        // $updatefarm -> bindValue(":mem_status",$update_status);
+        $updatefarm -> bindValue(":report_status",$update_status);
         $updatefarm -> execute();
         echo "ok";
     } catch (PDOException $e) {
