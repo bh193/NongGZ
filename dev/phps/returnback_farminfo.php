@@ -4,19 +4,22 @@
         //引入連線工作的檔案
         require_once("./connectNGZ.php");
 
-        $content =trim(file_get_contents("php://input"));
+        $content = trim(file_get_contents("php://input"));
         $decoded = json_decode($content, true);
-        $farmId = $decoded['farm_id'];
-        $data = $decoded['post_img'];
-        $farmContent = $decoded['post_content'];
-        $member = $decoded['member'];
+        $farmtel = $decoded['tel'];
+        $farmaddress = $decoded['address'];
+        $data = $decoded['infoPic'];
+        $farmstoryPic = $decoded['storyPic'];
+        $farmsettingPic = $decoded['settingPic'];
+        $farmwstory = $decoded['wstory'];
+        $farmwsetting = $decoded['wsetting'];
+        $update_id = $decoded['farmId'];
 
-        $dir = "../images/post";
+        $dir = "../images/farm";
 
         if(file_exists($dir) == false){
             mkdir($dir);
         }
-        // $data = $_POST["post_img"];
         if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
             $data = substr($data, strpos($data, ',') + 1);
             $type = strtolower($type[1]);
@@ -34,21 +37,20 @@
             throw new \Exception('did not match data URI with image data');
         }
         $dname = uniqid();
-        $today = date('Y-m-d');
         file_put_contents("$dir/"."$dname".".{$type}", $data);
         $putFile = "$dname".".{$type}";
 
         // 執行sql指令並取得pdoStatement
-        $sql = "INSERT into post(post_date, post_img, post_content, farm_id, mem_id)
-        values(:post_date, :post_img, :post_content, :farm_id, :mem_id)";
-        $post = $pdo->prepare($sql);
-        $post -> bindValue(":post_img", $putFile);
-        $post -> bindValue(":post_content", $farmContent);
-        $post -> bindValue(":farm_id", $farmId);
-        $post -> bindValue(":post_date", $today);
-        $post -> bindValue(":mem_id", $member);
-        $post -> execute();
-        echo "異動成功";
+        $sql = "UPDATE farm SET farm_tel = :farm_tel, farm_address = :farm_address, farm_imgA = :farm_imgA, farm_imgB = :farm_imgB, farm_imgC = :farm_imgC, farm_contentA = :farm_contentA, farm_contentB = :farm_contentB WHERE farm_id = $update_id ";
+        $updatefarm = $pdo->prepare($sql);
+        $updatefarm -> bindValue(":farm_tel", $update_tel);
+        $updatefarm -> bindValue(":farm_address", $update_address);
+        $updatefarm -> bindValue(":farm_imgA", $putFile);
+        $updatefarm -> bindValue(":farm_imgB", $update_storyPic);
+        $updatefarm -> bindValue(":farm_imgC", $update_settingPic);
+        $updatefarm -> bindValue(":farm_contentA", $update_wstory);
+        $updatefarm -> bindValue(":farm_contentB", $update_wsetting);
+        $updatefarm -> execute();
     } catch (PDOException $e) {
         $pdo->rollBack();
         $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";

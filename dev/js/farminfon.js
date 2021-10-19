@@ -21,9 +21,9 @@ Vue.component('postItem',{
                         <a :href="'farminfon.html?farm_id=' + prodRow.farm_id">#{{prodRow.farm_name}}</a> 
                     </div>
                     <div class="icon">
-                        <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_heart"></button></a>
+                        <button id="modal_btn_1" class="btn_heart"></button>
                         <span>{{prodRow.post_feedback}}</span>
-                        <a href="#modal_login" rel="modal:open"><button id="modal_btn_1" class="btn_loudly"></button></a>
+                        <button id="modal_btn_1" class="btn_loudly"></button>
                     </div>
                 </div>
             </div>
