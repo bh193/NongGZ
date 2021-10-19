@@ -31,7 +31,7 @@ let memTable = new Vue({
     updatemem(){
         axios({
             method: 'get',
-            url: './phps/update_adminMem.php',
+            url: 'phps/update_adminMem.php',
             params:{
                 member:this.memDetails.mem_id,
                 newstatus:this.selected
@@ -57,7 +57,7 @@ let memTable = new Vue({
         console.log(JSON.parse(xhr.responseText))
         memTable.memRows = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "./phps/adminMem.php", true);
+    xhr.open("get", "phps/adminMem.php", true);
     xhr.send(null);
     }
     

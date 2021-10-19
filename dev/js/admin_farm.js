@@ -4,8 +4,8 @@ let farmTable = new Vue({
     farmRows:[],
     farmDetails:{},
     selected:'1',
-    updatelat:0,
-    updatelon:0,
+    updatelat:'',
+    updatelon:'',
     search:'',
     cert:'',
     newstatus:'',
@@ -18,7 +18,8 @@ let farmTable = new Vue({
 },
 methods: {
     filterData(name) {
-        this.farmDetails=this.farmRows.find(data=>data.farm_name==name)  
+        this.farmDetails=this.farmRows.find(data=>data.farm_name==name) 
+        
     },
     getStatus(gets){
         switch (gets){
@@ -47,14 +48,8 @@ methods: {
             });
           });
     },
-    reload() {
-        this.isRouterAlive = false;
-        this.$nextTick(() => {
-          this.isRouterAlive = true;
-        });
-      
-    },
-    update(){
+
+    updatefarm(){
         // console.log("==========",JSON.stringify({
         //     'cert':this.farmDetails.farm_cert,
         //     'newlat':this.updatelat,
@@ -63,7 +58,7 @@ methods: {
         // }));
         axios({
             method: 'get',
-            url: './phps/update_adminFarm.php',
+            url: 'phps/update_adminFarm.php',
             params:{
                 cert:this.farmDetails.farm_cert,
                 newlat:this.updatelat,
@@ -105,6 +100,9 @@ computed:{
         return this.farmRows.filter(farmRow =>{return farmRow.farm_name.includes(this.search)||farmRow.farm_gm.includes(this.search)||farmRow.farm_address.includes(this.search)||farmRow.farm_tel.includes(this.search)});
         }
     },
+mounted() {
+    this.openmodal;
+},
     // p1(){
     //     return this.farmDetails.filter( p2 =>{
     //         return p2.farm_cert == this.farmDetails
@@ -118,7 +116,7 @@ xhr.onload = function(){
     console.log(JSON.parse(xhr.responseText))
     farmTable.farmRows = JSON.parse(xhr.responseText)
 }
-xhr.open("get", "./phps/adminFarm.php", true);
+xhr.open("get", "phps/adminFarm.php", true);
 xhr.send(null);
 }
 
