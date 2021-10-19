@@ -8,7 +8,6 @@ try {
 	from treehistory a join tree b on a.tree_id = b.tree_id 
 	                   join fruit c on b.fruit_id = c.fruit_id 
 					   join farm d on b.farm_id = d.farm_id 
-					   join city e on d.city_id = e.city_id
 	where treehistory_date=( 
 							select max(treehistory_date) 
 							from treehistory f 

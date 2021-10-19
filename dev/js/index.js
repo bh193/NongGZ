@@ -45,8 +45,11 @@ $(function () {
     document.onkeydown = function (e) {
         var em = document.all ? window.event : e;
         if (em.keyCode == 13) {
-            $('#btnLogin_c').click();
-            $('#btnLogin_f').click();
+            if($('#btnLogin_c').css("display")=="none"){
+                $('#btnLogin_f').mousedown();
+            }else{
+                $('#btnLogin_c').mousedown();
+            }
         }
     }
 

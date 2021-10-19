@@ -12,11 +12,13 @@ let tree_list = new Vue({
         index:1,
     },
     methods: {
+        //與首頁一同養樹取得水果id連結
         getdata() {
             if (window.location.search != 0) {
                 this.input.typefruit = window.location.search.split("?")[1].split("=")[1]
             }
         },
+        //滾動至底部查看更多
         handleScroll() {
             if ($( window ).height() + $(window).scrollTop()+1 >= $( document ).height()) {
                 this.index=this.index+1;
@@ -24,9 +26,11 @@ let tree_list = new Vue({
         },
     },
     computed: {
+        //一次more多少
         more_trees() {
             return this.sequence.slice(0, 6*this.index);
         },
+        //篩選
         select() {
             if (this.input.typefruit != '' && this.input.typecity != '') {
                 return this.trees.filter(tree => {

@@ -112,7 +112,7 @@ $(function () {
                     location.reload();  //則本頁重整
                 }
             }
-            xhr.open("get", "./phps/logout.php", true);
+            xhr.open("get", "./phps/logout_m.php", true);
             xhr.send(null);
 
         }
