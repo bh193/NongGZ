@@ -16,6 +16,7 @@ let app = new Vue({
         currentPage: 1,
         msg: '',
         member:{},
+        loudlytxt:'',
     },
     methods: {
         post(){
@@ -121,6 +122,19 @@ let app = new Vue({
             xhr.open("get", "../dist/phps/getMemInfo.php", true);
             xhr.send(null);
         },
+        sendloudy(){
+            axios({
+                method: 'get',
+                url:'../dist/phps/returnrepost.php',
+                params:{
+                    reporttxt:this.loudlytxt,
+                    memId:this.member.mem_id,
+                    postId:this.prodRows.post_id,
+                }
+            })
+            .then((response) => location.reload())
+            .catch((error) => console.log(error))
+        }
     },
     watch: {
         selectNew: function () {
@@ -144,7 +158,8 @@ let app = new Vue({
         },
         //關閉視窗button
         isLogout(){
-            return Object.keys(this.member).length == 0;
+            // return Object.keys(this.member.mem_email).length == 0;
+            return !this.member.mem_email;
         },
     },
     created() {

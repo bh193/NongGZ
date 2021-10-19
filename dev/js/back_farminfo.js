@@ -1,7 +1,22 @@
 let app = new Vue({
     el: "#app",
     data: {
-        farminfo: {},
+        farminfo: {
+            farm_id: '',
+            farm_name: '',
+            farm_gm: '',
+            city_id: '',
+            farm_address: '',
+            farm_tel: '',
+            farm_imgA: '',
+            farm_imgB: '',
+            farm_imgC: '',
+            farm_contentA: '',
+            farm_contentB: '',
+            farm_banner: '',
+            farm_status:'',
+            farm_email:'',
+        },
         showImage: '',
         newtel:'',
         newPsw: '',
@@ -27,7 +42,7 @@ let app = new Vue({
             let xhr = new XMLHttpRequest();
             xhr.onload = function(){
                 console.log(JSON.parse(xhr.responseText))
-                app.farminfo = JSON.parse(xhr.responseText);
+                app.farminfo = JSON.parse(xhr.responseText)
             }
             xhr.open("get", "../dist/phps/getFarmInfo.php", true);
             xhr.send(null);
@@ -38,22 +53,32 @@ let app = new Vue({
             this.showImage = show;
         },
         //info照片
-        infoChange(e) {
-            let infoshow = URL.createObjectURL(e.target.files[0]);
-            this.infoImage = infoshow;
+        infoChange(e, index) {
+            let file = e.target.files[0];
+            let readFile = new FileReader();
+            readFile.readAsDataURL(file);
+            readFile.addEventListener('load', (e) => {
+                if(index == 1){
+                    this.infoImage = e.target.result;
+                } else if(index == 2){
+                    this.storyImage = e.target.result;
+                }else{
+                    this.settingImage = e.target.result;
+                }
+            });
         },
         //story照片
-        storyChange(e) {
-            let storyshow = URL.createObjectURL(e.target.files[0]);
-            this.storyImage = storyshow;
-        },
+        // storyChange(e) {
+        //     let storyshow = URL.createObjectURL(e.target.files[0]);
+        //     this.storyImage = storyshow;
+        // },
         //setting照片
-        settingChange(e) {
-            let settingshow = URL.createObjectURL(e.target.files[0]);
-            this.settingImage = settingshow;
-        },
-        getStatus(farmStatus) {
-            switch(farmStatus) {
+        // settingChange(e) {
+        //     let settingshow = URL.createObjectURL(e.target.files[0]);
+        //     this.settingImage = settingshow;
+        // },
+        getStatus(farm_status) {
+            switch(farm_status) {
                 case'0':
                 return "停用";
                     break;
@@ -84,62 +109,29 @@ let app = new Vue({
                 .catch((error) => console.log(error))
             }
         },
-        // sendInfo(){
-        //     axios({
-        //         methods: 'get',
-        //         url: '../dist/phps/returnback_farminfo.php',
-        //         params:{
-        //             tel:this.farminfo.farm_tel,
-        //             address:this.farminfo.farm_address,
-        //             infoPic:this.infoImage,
-        //             storyPic:this.storyImage,
-        //             settingPic:this.settingImage,
-        //             wstory:this.storyTxt,
-        //             wsetting:this.settingTxt,
-        //             farmId:this.farminfo.farm_id,
-        //         },
-        //     })
-        //     .then((response) => console.log(response))
-        //     .catch((error) => console.log(error))
-        // },
         sendInfo(){
-            $.ajax({
-                type: 'post',
+            axios({
+                type: 'get',
                 url: "../dist/phps/returnback_farminfo.php",
-                data: JSON.stringify({
+                params:{
                     tel:this.farminfo.farm_tel,
                     address:this.farminfo.farm_address,
-                    infoPic:this.infoImage,
-                    storyPic:this.storyImage,
-                    settingPic:this.settingImage,
-                    wstory:this.storyTxt,
-                    wsetting:this.settingTxt,
-                    farmId:this.farminfo.farm_id,
-                }),
-                contentType: "application/json; charset=utf-8",
-                success: (res) => {
-                    console.log(res)
+                    wstory:this.farminfo.farm_contentA,
+                    wsetting:this.farminfo.farm_contentB,
+                    banner:this.farminfo.farm_banner,
+                    imageA:this.infoImage,
+                    imageB:this.storyImage,
+                    imageC:this.settingImage,
+                    farmId:this.farminfo.farm_id,    
                 },
-                error: () => {
-                    console.log('error')
-                },
-                complete: () => {
-                    console.log()
-                }
-            });
+            })
+            .then((response) => console.log(response))
+            .catch((error) => console.log(error))
         },
         clearPsw(){
             this.newPsw = '',
             this.conPsw = ''
         },
-        // getBanner(){
-        //     let xhr = new XMLHttpRequest();
-        //     xhr.onload = function () {
-        //         app.options = JSON.parse(xhr.responseText)
-        //     }
-        //     xhr.open("get", "../dist/phps/getFarmbanner.php", true);
-        //     xhr.send(null);
-        // }
     },
     computed:{
         fullImageUrl(){
@@ -148,7 +140,6 @@ let app = new Vue({
     },
     mounted() {
         this.getFarminfo();
-        // this.getBanner();
         Vue.nextTick(function(){
             $('a[href="#modal_password"]').click(function(event) {
                 event.stopPropagation();
