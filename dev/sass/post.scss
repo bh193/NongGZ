@@ -291,7 +291,7 @@
         z-index: 200;
     }
 }
-.sdloudly{
+.sendLoudly{
     background-color: #F7F6F2;
     text-align: center;
     h3{
@@ -307,6 +307,11 @@
         font-weight: bolder;
         margin: 6px 20px;
         background-color:#84A59D;
+    }
+    textarea{
+        width: 25rem;
+        height: 7.5rem;
+        resize: none;
     }
 }
 @include t{

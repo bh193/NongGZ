@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>農場資訊管理</title>
-    <link rel="shortcut icon" href="images/common/logo.png" />
-    <link rel="stylesheet" href="css/back_farminfo.css">
     <link rel="stylesheet" href="code/jquery.modal.css">
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.modal.min.js"></script>
@@ -36,25 +34,24 @@
                     <div class="txt">
                         <div class="item">
                             <label>農場名稱</label>
-                            <input type="text" :value="farminfo.farm_name" disabled>
+                            <input type="text" v-model="farminfo.farm_name" disabled>
                         </div>
                         <div class="item">
                             <label>負責人</label>
-                            <input type="text" :value="farminfo.farm_gm" disabled>
+                            <input type="text" v-model="farminfo.farm_gm" disabled>
                         </div>
                         <div class="item">
                             <label for="">聯絡電話</label>
-                            <input type="text" :value="farminfo.farm_tel">
-                            <!-- <input type="text" v-model="newtel"> -->
+                            <input type="text" v-model="farminfo.farm_tel">
                         </div>
                         <div class="item">
                             <label>電子信箱</label>
-                            <input type="text" :value="farminfo.farm_email" disabled>
+                            <input type="text" v-model="farminfo.farm_email" disabled>
                         </div>
                         <div class="item">
                             <label for="">農場地址</label>
                             <div>
-                                <input type="text" :value="farminfo.farm_address">
+                                <input type="text" v-model="farminfo.farm_address">
                                 <a href="#modal_password" rel="modal:open"><button id="psbtn">變更密碼</button></a>
                             </div>
                         </div>
@@ -66,8 +63,8 @@
                         <label for="filebanner">
                             <img :src="fullImageUrl">
                         </label>
-                        <select class="selectimg" :value="farminfo.farm_banner">
-                            <option :value="option.value" v-for="option in options">{option.text}}</option>
+                        <select class="selectimg" v-model="farminfo.farm_banner">
+                            <option :value="option.value" v-for="option in options">{{option.text}}</option>
                         </select>
                     </div>
                 </div>
@@ -79,7 +76,7 @@
                                 <label for="inputf">
                                     <img :src="infoImage ? infoImage : 'images/farm/' + farminfo.farm_imgA">
                                 </label>
-                                <input type="file" id="inputf" @change="infoChange"  style="display: none">
+                                <input type="file" id="inputf" @change="infoChange($event, 1)"  style="display: none">
                             </div>
                             <div class="spic">
                                 <h4>上傳照片</h4>
@@ -90,7 +87,7 @@
                                 <label for="inputsto">
                                     <img :src="storyImage ? storyImage : 'images/farm/' + farminfo.farm_imgB">
                                 </label>
-                                <input type="file" id="inputsto" @change="storyChange"  style="display: none">
+                                <input type="file" id="inputsto" @change="infoChange($event, 2)"  style="display: none">
                             </div>
                             <div class="spic">
                                 <h4>上傳照片</h4>
@@ -101,7 +98,7 @@
                                 <label for="inputset">
                                     <img :src="settingImage ? settingImage : 'images/farm/' + farminfo.farm_imgC">
                                 </label>
-                                <input type="file" id="inputset" @change="settingChange"  style="display: none"/>
+                                <input type="file" id="inputset" @change="infoChange($event, 3)"  style="display: none"/>
                             </div>
                             <div class="spic">
                                 <h4>上傳照片</h4>
@@ -111,12 +108,12 @@
                 </div>
                 <div class="farmtxt">
                     <div class="story">
-                        <h3>農場故事1</h3>
-                        <textarea id="wstory" placeholder="寫下說明文字⋯" v-model="storyTxt"></textarea>
+                        <h3>農場故事</h3>
+                        <textarea id="wstory" placeholder="寫下說明文字⋯" v-model="farminfo.farm_contentA"></textarea>
                     </div>
                     <div class="setting">
                         <h3>農場環境</h3>
-                        <textarea id="wsetting" placeholder="寫下說明文字⋯" v-model="settingTxt"></textarea>
+                        <textarea id="wsetting" placeholder="寫下說明文字⋯" v-model="farminfo.farm_contentB"></textarea>
                     </div>
                 </div>
                 <div class="save">
@@ -127,7 +124,7 @@
                 <h3>變更小農密碼</h3>
                 <div class="psw">
                     <label for="">舊密碼</label>
-                    <input type="current-password" :value="farminfo.farm_psw" disabled>
+                    <input type="current-password" v-model="farminfo.farm_psw" disabled>
                     <label for="">新密碼</label>
                     <input type="new-password" v-model="newPsw">
                     <label for="">確認密碼</label>

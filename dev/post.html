@@ -43,7 +43,7 @@
                             <textarea id="wpost" placeholder="寫下說明文字及tag農場⋯" v-model="posttxt" name="post_content"></textarea>
                             <div class="fileupload">
                                 <div class="fileimg">
-                                    <img :src="images" id="image" name="post_img">
+                                    <img v-if="images" :src="images" id="image" name="post_img">
                                 </div>
                                 <div class="btn">
                                     <div class="filebtn">
@@ -71,11 +71,22 @@
                                 </a>
                             </div>
                         </div>
-                        <form id="loudlytxt" class="modal sdloudly">
+                        <div id="sendpost2" class="modal sdpost">
+                            <div class="send">
+                                <h3>請登入會員</h3>
+                                <a href="post.html" >
+                                    <button class="clear">取消</button>
+                                </a>
+                                <a href="memlogin.html">
+                                    <button class="login">登入</button>
+                                </a>
+                            </div>
+                        </div>
+                        <form id="loudlybox" class="modal sdloudly">
                             <div class="sendLoudly">
-                                <h3>請填寫檢舉內容</h3>
-                                <textarea id="loudlytext" placeholder="寫下說明文字⋯" ></textarea>
-                                <input type="submit" value="發送">
+                                <h3>填寫檢舉內容</h3>
+                                <textarea id="loudlytext" placeholder="寫下說明文字⋯" v-model="loudlytxt"></textarea>
+                                <input type="submit" value="發送" @click="sendloudy">
                             </div>
                         </form>
                     </div>
@@ -122,7 +133,7 @@
                                     <button class="btn_heart"></button>
                                 </a>
                                 <span>{{prodRow.post_feedback}}</span>
-                                <a href="#sendpost" rel="modal:open" class="box_loudy">
+                                <a :href="isLogout? '#sendpost2' :'#loudlybox'" rel="modal:open" class="box_loudy">
                                     <button class="btn_loudly"></button>
                                 </a>
                             </div>

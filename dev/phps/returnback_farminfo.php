@@ -6,30 +6,25 @@
 
         $content = trim(file_get_contents("php://input"));
         $decoded = json_decode($content, true);
-        $farmtel = $decoded['tel'];
-        $farmaddress = $decoded['address'];
-        $data = $decoded['infoPic'];
-        $farmstoryPic = $decoded['storyPic'];
-        $farmsettingPic = $decoded['settingPic'];
-        $farmwstory = $decoded['wstory'];
-        $farmwsetting = $decoded['wsetting'];
-        $update_id = $decoded['farmId'];
+
+        $data = $decoded['infoImage'];
+        $dataB = $decoded['storyImage'];
+        $dataC = $decoded['settingImage'];
 
         $dir = "../images/farm";
-
         if(file_exists($dir) == false){
             mkdir($dir);
         }
         if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
             $data = substr($data, strpos($data, ',') + 1);
             $type = strtolower($type[1]);
-        
+
             if (!in_array($type, [ 'jpg', 'jpeg', 'gif', 'png' ])) {
                 throw new \Exception('invalid image type');
             }
             $data = str_replace( ' ', '+', $data );
             $data = base64_decode($data);
-        
+
             if ($data === false) {
                 throw new \Exception('base64_decode failed');
             }
@@ -38,21 +33,73 @@
         }
         $dname = uniqid();
         file_put_contents("$dir/"."$dname".".{$type}", $data);
-        $putFile = "$dname".".{$type}";
+        $imgA = "$dname".".{$type}";
+
+        if (preg_match('/^data:image\/(\w+);base64,/', $dataB, $type)) {
+            $data = substr($dataB, strpos($dataB, ',') + 1);
+            $type = strtolower($type[1]);
+
+            if (!in_array($type, [ 'jpg', 'jpeg', 'gif', 'png' ])) {
+                throw new \Exception('invalid image type');
+            }
+            $dataB = str_replace( ' ', '+', $dataB );
+            $dataB = base64_decode($dataB);
+
+            if ($dataB === false) {
+                throw new \Exception('base64_decode failed');
+            }
+        } else {
+            throw new \Exception('did not match data URI with image data');
+        }
+        $dnameA = uniqid();
+        file_put_contents("$dir/"."$dnameA".".{$type}", $dataB);
+        $imgB = "$dnameA".".{$type}";
+
+        if (preg_match('/^data:image\/(\w+);base64,/', $dataC, $type)) {
+            $dataC = substr($dataC, strpos($dataC, ',') + 1);
+            $type = strtolower($type[1]);
+
+            if (!in_array($type, [ 'jpg', 'jpeg', 'gif', 'png' ])) {
+                throw new \Exception('invalid image type');
+            }
+            $dataC = str_replace( ' ', '+', $dataC );
+            $dataC = base64_decode($dataC);
+
+            if ($dataC === false) {
+                throw new \Exception('base64_decode failed');
+            }
+        } else {
+            throw new \Exception('did not match data URI with image data');
+        }
+        $dnameB = uniqid();
+        file_put_contents("$dir/"."$dnameB".".{$type}", $dataC);
+        $imgC = "$dnameB".".{$type}";
+
+
+        $farmtel = $GET['tel'];
+        $farmaddress = $GET['address'];
+        $farmcontentA = $GET['wstory'];
+        $farmcontentB = $GET['wsetting'];
+        $farmbanner = $GET['banner'];
+        $infoImage = $imgA;
+        $storyImage = $imgB;
+        $settingImage = $imgC;
+        $farmid = $GET['farmId'];
 
         // 執行sql指令並取得pdoStatement
-        $sql = "UPDATE farm SET farm_tel = :farm_tel, farm_address = :farm_address, farm_imgA = :farm_imgA, farm_imgB = :farm_imgB, farm_imgC = :farm_imgC, farm_contentA = :farm_contentA, farm_contentB = :farm_contentB WHERE farm_id = $update_id ";
+        $sql = "UPDATE farm SET farm_tel = :farm_tel, farm_address = :farm_address, farm_contentA = :farm_contentA, farm_contentB = :farm_contentB, farm_banner = :farm_banner, farm_imgA = :farm_imgA, farm_imgB = :farm_imgB, farm_imgC = :farm_imgC WHERE farm_id  = $farmid";
         $updatefarm = $pdo->prepare($sql);
-        $updatefarm -> bindValue(":farm_tel", $update_tel);
-        $updatefarm -> bindValue(":farm_address", $update_address);
-        $updatefarm -> bindValue(":farm_imgA", $putFile);
-        $updatefarm -> bindValue(":farm_imgB", $update_storyPic);
-        $updatefarm -> bindValue(":farm_imgC", $update_settingPic);
-        $updatefarm -> bindValue(":farm_contentA", $update_wstory);
-        $updatefarm -> bindValue(":farm_contentB", $update_wsetting);
+        $updatefarm -> bindValue(":farm_tel", $farmtel);
+        $updatefarm -> bindValue(":farm_address", $farmaddress);
+        $updatefarm -> bindValue(":farm_contentA", $farmcontentA);
+        $updatefarm -> bindValue(":farm_contentB", $farmcontentB);
+        $updatefarm -> bindValue(":farm_banner", $farmbanner);
+        $updatefarm -> bindValue(":farm_imgA", $infoImage);
+        $updatefarm -> bindValue(":farm_imgB", $storyImage);
+        $updatefarm -> bindValue(":farm_imgC", $settingImage);
         $updatefarm -> execute();
     } catch (PDOException $e) {
-        $pdo->rollBack();
+        // $pdo->rollBack();
         $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
         $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";	
         echo $errMsg;
