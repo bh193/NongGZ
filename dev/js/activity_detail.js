@@ -155,17 +155,26 @@ let app = new Vue({
           this.minHeight = this.$refs.carousel.offsetHeight + 'px';
         });
       
-        /////////// 彈跳視窗速度
-
-        $('a[href="#modal_order"]').click(function(event) {
-          event.stopPropagation();
-          $(this).modal({
-            fadeDuration: 300
-          });
-        });  
+        
     },
 
     updated(){
+      /////////// 彈跳視窗速度
+      $('a[href="#modal_order"]').click(function(event) {
+        event.stopPropagation();
+        $(this).modal({
+          fadeDuration: 300
+        });
+        return false;
+      });  
+
+      $('a[href="#modal_login"]').click(function(event) {
+        event.stopPropagation();
+        $(this).modal({
+          fadeDuration: 300
+        });
+        return false;
+      });  
     }
 
   })	

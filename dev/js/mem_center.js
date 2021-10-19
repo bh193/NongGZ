@@ -211,9 +211,6 @@ let app = new Vue({
  
   updated() {
     
-
-   
-
     //點查看按鈕後 讓#from_treeId的text 與 抓到的id相同
     $('.smallbtn_s').click(function(){
       $('#from_treeId').text($(this).siblings('.tree_id').text());
@@ -235,6 +232,14 @@ let app = new Vue({
       event.stopPropagation();
       $(this).modal({
         fadeDuration: 300
+      });
+      return false;
+    });
+
+    $('a[href="#moreimg"]').click(function (event) {
+      event.stopPropagation();
+      $(this).modal({
+          fadeDuration: 300
       });
       return false;
     });

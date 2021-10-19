@@ -19,7 +19,9 @@
 //   background-attachment: fixed;
 //   background-size: cover;
 // }
-
+.blocker{
+  z-index: 999;
+}
 .header .header_con #nav li {
   font-size: 19.2px;
 }
