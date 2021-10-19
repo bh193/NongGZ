@@ -4,6 +4,7 @@ let app = new Vue({
     id: 0,
     dataObj: {},
     img: '',
+    isLogin: false,
     
     //手機carousel
     carouselName: 'carousel-next',
@@ -23,7 +24,18 @@ let app = new Vue({
 
       computed:{
       },
-
+      
+      watch:{
+        // 先在dala設isLogin:false
+        // 判斷是否登入
+        isLogin(newValue, oldValue){
+          if(!newValue){
+            $('#checkMem').attr("href","#modal_login");
+          }else{
+            $('#checkMem').attr("href","#modal_order");
+          }
+        }
+      },
     methods: {
       // 抓這個頁面當下的activity_id多少
       getData() {                            //拆?activity_id=3
@@ -112,6 +124,8 @@ let app = new Vue({
             $("#myEmail").text(member.mem_email); 
             $("#myId").val(member.mem_id);
             console.log(member)
+            this.isLogin = true; 
+            //抓到mem_id後讓他為真，後面由此判斷是否登入
           }
         }
         xhr.open("get", "./phps/getMemInfo.php", true);
@@ -152,12 +166,6 @@ let app = new Vue({
     },
 
     updated(){
-      // 判別是否為會員才可報名
-      if($('#mem_state').text() === "會員"){
-        $('#checkMem').attr("href","#modal_login");
-      }else{
-        $('#checkMem').attr("href","#modal_order");
-      }  
     }
 
   })	
