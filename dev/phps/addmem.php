@@ -1,7 +1,7 @@
 <?php
     try{
         //引入連線工作的檔案
-        require_once("./connecttbame.php");
+        require_once("./connectBooks_brian.php");
         
         $content =trim(file_get_contents("php://input"));
         $decoded = json_decode($content, true);
@@ -9,8 +9,8 @@
         $email = $decoded['usermail'];
         $mpsw = $decoded['userpsn'];
         // 執行sql指令並取得pdoStatement
-        $sql = "insert into member(mem_name, mem_email, mem_psw)
-        values(:mem_name, :mem_email, :mem_psw)";
+        $sql = "insert into member(mem_name, mem_email, mem_psw, mem_img)
+        values(:mem_name, :mem_email, :mem_psw, 'premem.svg')";
         $register = $pdo->prepare($sql);
         $register -> bindValue(":mem_name", $user);
         $register -> bindValue(":mem_email", $email);

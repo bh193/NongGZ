@@ -377,10 +377,10 @@ for(let i = 0; i < toggleEyes.length; i++){
   toggleEyes[i].addEventListener('click', function (e) {
     // 切換input type
     let input = e.target.previousElementSibling 
-    console.log(input)
+    // console.log(input)
 
     let test = e.target.previousSibling
-    console.log(test)
+    // console.log(test)
 
     let type = input.getAttribute('type') === 'password' ? 'text' : 'password';
     input.setAttribute('type', type);
@@ -403,12 +403,3 @@ for(let i = 0; i < toggleEyes.length; i++){
 // window.addEventListener("load", function(){
 //   getTreehistoryList();
 // })
-
-// var renewPic = document.querySelector('.show_space');
-// if(renewPic.getAttribute('src') == 'images/mem/null'){
-//   alert("xxx");
-//   console(renewPic)
-// }
-
-// let renewPic = document.querySelector(".show_space");
-// let imgSrc = renewPic.setAttribute("src", 'images/mem/farmer.jpg');
