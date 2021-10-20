@@ -56,7 +56,7 @@ a{text-decoration: none;}
 
 .wrap{
     @include container();
-     
+    margin: 7rem auto 2rem;
     .box:nth-child(1){//----------麵包屑
         .breadcrumb{
             // padding: 0 0.5rem 1rem;
@@ -91,6 +91,21 @@ a{text-decoration: none;}
     .box:nth-child(2){ //----------篩選框
         width: 100%;
         margin: 2.3rem 0 2rem 0;
+        display: flex;
+
+        .location{
+            width: 100%;
+            // margin-left: ;
+            
+        }
+        .location:nth-child(2){
+            margin-left: 1rem;
+            
+        }
+        .location:nth-child(3){
+            margin-left: 1rem;
+            
+        }
 
     }
 
@@ -108,19 +123,23 @@ a{text-decoration: none;}
 
     }
     .mapitem:nth-child(2){ //地點照片
-     background-color: antiquewhite;
        display: flex;
     //    justify-content: space-around;
        box-sizing: border-box;
-       .swiper-slider{
-           width: 80px;
-           height: 80px;
-           img{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+       .swiper-container {/* 設定幻燈片寬度跟高度 */
+        // max-width: 1280px;
+        // min-width: 350px;
+        // width: 100%;
+            
     }
+    .swiper-slide {
+        width:80px;
+        height:80px;
+        }
+        .swiper-container img {
+            width:80px;
+        
+        }
        }
         
     }
@@ -147,13 +166,12 @@ a{text-decoration: none;}
         // min-height: 450px;
     }
 
+
 }
 @include d{
     .wrap{
-    
         .box:nth-child(2){ //----------篩選框
             flex-direction: row;
-
         }
 
     }

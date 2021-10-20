@@ -25,7 +25,8 @@ let memTable = new Vue({
      }
     },
     filterData(id) {
-        this.memDetails=this.memRows.find(data=>data.mem_id==id) 
+        this.memDetails=this.memRows.find(data=>data.mem_id==id)
+        this.selected=this.memDetails.mem_status
         
     },
     updatemem(){
