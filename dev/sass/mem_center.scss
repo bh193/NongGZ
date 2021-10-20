@@ -158,6 +158,7 @@ color: #f6bd60;
       @include flexcenter;
         >*{
           width: 33.3%;
+          height: 50px;
           background-color: #EDECEC;
           cursor: pointer;
           box-sizing: border-box;

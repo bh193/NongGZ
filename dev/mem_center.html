@@ -49,7 +49,7 @@
             <li class="pic">
               <!-- <img id="mem_img" :src="'images/mem/' + item.mem_img"/> -->
               
-              <img :src="ShowImage ? ShowImage : 'images/mem/' + item.mem_img" class="show_space">
+              <img :src="ShowImage ? 'images/mem/premem.svg' : 'images/mem/' + item.mem_img" class="show_space">
 
               <label class="camera" style="border: none;">
                 <input id="updateImg" name="mem_img" type="file" style="display: none;" @change="imgchange"/>
