@@ -63,10 +63,10 @@
                         <div id="sendpost" class="modal sdpost">
                             <div class="send">
                                 <h3>{{msg}}</h3>
-                                <a href="post.html"  v-if="isLogout">
+                                <a href="post.html" v-if="isLogout">
                                     <button class="clear">取消</button>
                                 </a>
-                                <a href="memlogin.html"  v-if="isLogout">
+                                <a href="memlogin.html" v-if="isLogout">
                                     <button class="login">登入</button>
                                 </a>
                             </div>
@@ -74,10 +74,10 @@
                         <div id="sendpost2" class="modal sdpost">
                             <div class="send">
                                 <h3>請登入會員</h3>
-                                <a href="post.html" >
+                                <a href="post.html" v-if="isLogout">
                                     <button class="clear">取消</button>
                                 </a>
-                                <a href="memlogin.html">
+                                <a href="memlogin.html" v-if="isLogout">
                                     <button class="login">登入</button>
                                 </a>
                             </div>
@@ -130,7 +130,7 @@
                             </div>
                             <div class="icon">
                                 <a href="#sendpost" rel="modal:open" class="box_heart">
-                                    <button class="btn_heart"></button>
+                                    <button class="btn_heart" @click="sendHeart"></button>
                                 </a>
                                 <span>{{prodRow.post_feedback}}</span>
                                 <a :href="isLogout? '#sendpost2' :'#loudlybox'" rel="modal:open" class="box_loudy">

@@ -122,18 +122,71 @@ let app = new Vue({
             xhr.open("get", "../dist/phps/getMemInfo.php", true);
             xhr.send(null);
         },
+        //檢舉貼文
         sendloudy(){
-            axios({
-                method: 'get',
-                url:'../dist/phps/returnrepost.php',
-                params:{
-                    reporttxt:this.loudlytxt,
-                    memId:this.member.mem_id,
-                    postId:this.prodRows.post_id,
+            console.log('23333')
+            $.ajax({
+                type:'post',
+                url:"../dist/phps/returnrepost.php",
+                data:JSON.stringify({
+                    reporttxt: this.loudlytxt,
+                    memId: this.member.mem_id,
+                    postId: this.pageRows.post_id,
+                }),
+                contentType: "application/json; charset=utf-8",
+                success: (res) => {
+                    console.log(res)
+                },
+                error: () => {
+                    console.log('error')
+                },
+                complete: () => {
+                    console.log()
                 }
-            })
-            .then((response) => location.reload())
-            .catch((error) => console.log(error))
+            });
+            // axios({
+            //     method: 'get',
+            //     url:'../dist/phps/returnrepost.php',
+            //     params:{
+            //         reporttxt:this.loudlytxt,
+            //         memId:this.member.mem_id,
+            //         postId:this.prodRows.post_id,
+            //     }
+            // })
+            // .then((response) => console.log(response))
+            // .catch((error) => console.log(error))
+        },
+        //按讚
+        sendHeart(){
+            if(!(this.isLogout)){
+                $.ajax({
+                    type: 'post',
+                    url: "../dist/phps/returnHeart.php",
+                    data: JSON.stringify({
+                        member: this.member.mem_id,
+                        num: this.prodRows.post_feedback,
+                        postId: this.prodRows.post_id,
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    success: (res) => {
+                        this.msg = "按讚成功",
+                        console.log(res)
+                        return
+                    },
+                    error: () => {
+                        this.msg = "按讚失敗",
+                        console.log('error')
+                        return
+                    },
+                    complete: () => {
+                        console.log()
+                    }
+                });
+            }
+            else{
+                this.msg = "請登入會員"
+                return
+            }
         }
     },
     watch: {

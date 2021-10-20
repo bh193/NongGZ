@@ -10,15 +10,16 @@
         
         // print_r($decoded);
        
-        $update_cert =$_GET['cert'];
-        $update_lat = $_GET['newlat'];
-        $update_lon = $_GET['newlon'];
-        $update_select = $_GET['newstatus'];
+        $member =$_GET['member'];
+        $heartNum = $_GET['num'];
+        $postId = $_GET['postId'];
         
         // 執行sql指令並取得pdoStatement
         $sql = "UPDATE post SET post_feedback =:post_feedback+1  WHERE post_id = :post_id";
         $post = $pdo->prepare($sql);
-        $post -> bindValue(":post_id", $post_id);
+        $post -> bindValue(":post_id", $postId);
+        $post -> bindValue(":post_feedback", $heartNum);
+        $post -> bindValue(":mem_id", $member);
         $updatefarm -> execute();
         echo "ok";
     } catch (PDOException $e) {

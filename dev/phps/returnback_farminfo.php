@@ -76,15 +76,15 @@
         $imgC = "$dnameB".".{$type}";
 
 
-        $farmtel = $GET['tel'];
-        $farmaddress = $GET['address'];
-        $farmcontentA = $GET['wstory'];
-        $farmcontentB = $GET['wsetting'];
-        $farmbanner = $GET['banner'];
+        $farmtel = $GET["tel"];
+        $farmaddress = $GET["address"];
+        $farmcontentA = $GET"'wstory"];
+        $farmcontentB = $GET["wsetting"];
+        $farmbanner = $GET["banner"];
         $infoImage = $imgA;
         $storyImage = $imgB;
         $settingImage = $imgC;
-        $farmid = $GET['farmId'];
+        $farmid = $GET["farmId"];
 
         // 執行sql指令並取得pdoStatement
         $sql = "UPDATE farm SET farm_tel = :farm_tel, farm_address = :farm_address, farm_contentA = :farm_contentA, farm_contentB = :farm_contentB, farm_banner = :farm_banner, farm_imgA = :farm_imgA, farm_imgB = :farm_imgB, farm_imgC = :farm_imgC WHERE farm_id  = $farmid";

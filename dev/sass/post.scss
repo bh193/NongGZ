@@ -130,7 +130,6 @@
                     }
                 }
             }
-            
         }
     }
 }
@@ -309,7 +308,7 @@
         background-color:#84A59D;
     }
     textarea{
-        width: 25rem;
+        width: 20rem;
         height: 7.5rem;
         resize: none;
     }
@@ -356,8 +355,8 @@
             .card{
                 width: 48%;
             }
-            .card:last-child:nth-child(2n - 1) {
-                margin-right: calc(48% + 4% / 1);
+            &:nth-child(2n){
+                margin-right: 4%;
             }
         }
     }
@@ -381,11 +380,11 @@
             .card{
                 width: 31.25%;
             }
-            .card:last-child:nth-child(3n - 1) {
-                margin-right: calc(31.25% + 6.25% / 2);
+            &:nth-child(3n+2){
+                margin-right: 3.125%;
             }
-            .card:last-child:nth-child(3n - 2) {
-                margin-right: calc(62.5% + 12.5% / 2);
+            &:nth-child(3n){
+                margin-right: 3.125%;
             }
         }
     }
