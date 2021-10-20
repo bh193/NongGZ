@@ -142,7 +142,7 @@ Vue.component('register',{
         </div>
         <div class="text">
             <input type="checkbox" v-model="selected">
-            <label for="check">點擊註冊代表您同意 之 <a href="">會員條款</a> 與<a href="#">客戶隱私權條款</a></label>
+            <label for="check">點擊註冊代表您同意 之 <a href="./policy.html">會員條款</a> 與<a href="./privacy.html">客戶隱私權條款</a></label>
 
         </div>
        

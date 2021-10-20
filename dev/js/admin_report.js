@@ -14,6 +14,7 @@ let reportTable = new Vue({
     methods: {
     filterData(id) {
     this.reportDetails=this.reportRows.find(data=>data.post_id==id)
+    this.selected=this.reportDetails.report_status
     },
     getStatus(gets){
     switch (gets){
@@ -34,7 +35,7 @@ let reportTable = new Vue({
         updatepost(){
             axios({
                 method: 'get',
-                url: 'phps/update_adminPost.php',
+                url: './phps/update_adminPost.php',
                 params:{
                     postid:this.reportDetails.post_id,
                     newstatus:this.selected
@@ -64,7 +65,7 @@ let reportTable = new Vue({
         console.log(JSON.parse(xhr.responseText))
         reportTable.reportRows = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "phps/adminReport.php", true);
+    xhr.open("get", "./phps/adminReport.php", true);
     xhr.send(null);
     }
     

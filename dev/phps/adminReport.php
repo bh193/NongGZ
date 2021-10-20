@@ -1,7 +1,7 @@
 <?php 
 try {
 	//引入連線工作的檔案
-	require_once("./connecttbame.php");
+	require_once("./connectBooks.php");
 
 	//執行sql指令並取得pdoStatement
 	$sql = "select a.post_id,a.report_reason,a.report_reason,b.mem_email,a.report_status from report a join member b where a.mem_id=b.mem_id order by post_id";
