@@ -1,7 +1,7 @@
 <?php 
 try {
 	//更新會員中心個人資料
-
+	session_start();
 	//----------------------------檢查是否有選新的頭像
 	if( $_FILES["mem_img"]["error"] == UPLOAD_ERR_OK){
 		//決定檔案名稱

@@ -412,4 +412,3 @@ for(let i = 0; i < toggleEyes.length; i++){
 
 // let renewPic = document.querySelector(".show_space");
 // let imgSrc = renewPic.setAttribute("src", 'images/mem/farmer.jpg');
-// console.log(imgSrc)
