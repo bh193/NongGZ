@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>來農場吧</title>
-    <!-- 引入jQuery Modal -->
     <script src="js/jquery.min.js"></script>
     <title>農場資訊頁</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
@@ -13,7 +12,53 @@
     <script src="js/vue.min.js"></script>  
 
 </head>
+<style>
+     .swiper {
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        cursor: grab;
+        
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        width: 100px;
+        border-radius: 10px;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+      }
+      .col{
+
+      }
+      .item{
+        display: flex;
+      }
+</style>
 <body>
+  @@include('layout/header.html')
     <script src="js/jquery.mousewheel.min.js"></script>
 <header>
     <div class="header_con">
@@ -41,143 +86,62 @@
     </div>
 </header>
 <script src="js/header.min.js"></script>
-    <div class="wrap">
-      <div class="box">
-        <div class="breadcrumb">
-          <ol>
-              <li><a href="./home.html">首頁</a></li>
-              <li><a href="./farmsearch.html">來農場吧</a></li>
+<article id="farm">
+  <div class="wrap">
+    <div class="box">
+      <div class="breadcrumb">
+        <ol>
+            <li><a href="./home.html">首頁</a></li>
+            <li><a href="./farmsearch.html">來農場吧</a></li>
 
-          </ol>
-      </div>
-      </div>
-            <div class="box">
-              <div class="select">
-               
-                <select>
-                    <option selected disabled>選擇水果</option>
-                    <option>橘子</option>
-                    <option>蘋果</option>
-                    <option>水蜜桃</option>
-                    <option>芒果</option>
-                    <option>紅棗</option>
-                </select>
-                <select id="city">
-                  <option selected disabled>選擇地區</option>
-                    <option>台北</option>
-                    <option>新北</option>
-                    <option>桃園</option>
+        </ol>
+    </div>
+    </div>
+          <div class="box">
 
-                </select>
-              </div>
 
+              <!-- <select v-model="selected">
+                <option value="" disabled>選擇水果</option>
+                <option v-for="fruit in fruits" v-bind:value="fruit.value">{{fruit.text}}</option>
+            </select> -->
+            <div class="location">
+              <button @click="option1">台北</button>
+            
+            </div>
+            <div class="location">
+              <button @click="option2">新北</button>
+            
+            </div>
+            <div class="location">
+              <button @click="option3">桃園</button>
+            
             </div>
 
-    </div>
-    <div class="mapbox" id="farm">
-      <div  class="mapitem" id="map"></div>
-      <div class="mapitem">
-       <map-list :mapimg="farmRow"></map-list></div>
+            
+            <!-- 
+            <select v-model="selected2">
+              <option value="" disabled>選擇地區</option>
+              <option v-for="city in citys" v-bind:value="city.value">{{city.text}}</option>
+          </select> -->
 
 
- </div>
+          </div>
+
+  </div>
+  <div class="mapbox" >
+    <div  class="mapitem" id="map"></div>
+    <div class="mapitem">
+     <map-list :mapimg="farmRow"></map-list></div>
+
+
+</div>
+</article>
+
     <div class="footer">
     <div class="footer_con">
         <p>Copyright © 2021 農果子</p>
         <p>本網站為緯育TibaMe_前端設計工程師班第69期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]https://www.facebook.com/webindex/ ，後續會由專人協助處理。</p>
-    </div>
-</div>
- 
-
-    <!-- <script>
-      const googleMap = new Vue({
-        el: '#app',
-        data: {
-          map: null,
-          hideBusiness: 'hide',// 隱藏商周：hide隱藏
-          hideStyle: [{
-            featureType: 'poi.business',
-            elementType: "all",
-            stylers: [{
-              visibility: 'off'
-            }]
-          }],
-          features: [], // 存入每一個地點
-          infowindowAll: {} // 存入每一個marker上的info windows
-        },
-        methods: {
-          
-          initMap() {
-            
-            // 預設顯示的地點：山頂厝
-            let location = {
-              lat: 24.946224700000002, // 經度
-              lng: 121.4520012 // 緯度
-            };
-            
-            this.map = new google.maps.Map(document.getElementById('map'), {
-              center: location,
-              zoom: 11,
-              mapTypeId: 'roadmap',
-              mapTypeControl: false,
-              streetViewControl: false,
-              fullscreenControl: false,
-              
-
-            });
-
-            
-            fetch('./json/map.geojson')
-              .then(results => results.json())
-              .then(result => {
-                this.features = result.features;
-                Array.prototype.forEach.call(this.features, r => {
-                  let latLng = new google.maps.LatLng(r.geometry.coordinates[0], r.geometry.coordinates[1]);
-                  let marker = new google.maps.Marker({
-                    position: latLng,
-                    map: this.map,
-                    animation: google.maps.Animation.DROP
-                    
-                  });
-
-                  // info window
-                  let infowindow = new google.maps.InfoWindow({
-                    
-                    content: `<div class="col">
-                        <div class="img" style="background-image: url('${r.properties.image}');"></div>
-                        <div class="info">
-                            <h3>${r.properties.name}</h3>
-                            <p>地址：<br>${r.properties.site}</p>
-                            <div class="btn">
-                            <button onclick="window.location.href='${r.properties.location}'">農場詳情</button></div>
-                        </div>
-                    </div>` 
-                  });
-                   //點擊第二個視窗，第一個會關閉
-                    marker.addListener('click', e => {
-                    if (this.infowindow) this.infowindow.close();
-                    infowindow.open(this.map, marker);
-                    this.infowindow = infowindow;
-                
-                  });
-
-                });
-
-            });
-
-          },
-          
-
-        },
-        created() {
-          window.addEventListener('load', () => {
-            this.initMap();
-          });
-        }
-      });
-    </script> -->
-
-   
+    </div>   
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv2stNGlktQxxtTVKeDxvMrizohjEK1uI" async defer></script>
     <link rel="stylesheet" href="css/farmsearch.css">

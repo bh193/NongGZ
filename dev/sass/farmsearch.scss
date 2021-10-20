@@ -56,7 +56,7 @@ a{text-decoration: none;}
 
 .wrap{
     @include container();
-     
+    margin: 7rem auto 2rem;
     .box:nth-child(1){//----------麵包屑
         .breadcrumb{
             // padding: 0 0.5rem 1rem;
@@ -91,6 +91,21 @@ a{text-decoration: none;}
     .box:nth-child(2){ //----------篩選框
         width: 100%;
         margin: 2.3rem 0 2rem 0;
+        display: flex;
+
+        .location{
+            width: 100%;
+            // margin-left: ;
+            
+        }
+        .location:nth-child(2){
+            margin-left: 1rem;
+            
+        }
+        .location:nth-child(3){
+            margin-left: 1rem;
+            
+        }
 
     }
 
