@@ -35,6 +35,11 @@ try {
 	$member->bindValue(":mem_img", $fileName);
 	$member->execute();                       
 
+	//----------------------------------
+
+	$meminfo = ["mem_id"=> $_POST["mem_id"],"mem_email"=> $_POST["mem_email"],"mem_name"=> $_POST["mem_name"],"mem_img"=> $_POST["mem_img"]];
+
+	//----------------------------------
 	echo "<script>alert('個人資料已更新!'); location.href = '../mem_center.html'</script>";
 
 } catch (PDOException $e) {

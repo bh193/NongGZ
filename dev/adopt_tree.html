@@ -23,12 +23,12 @@
         <div class="search">
             <div class="select">
                 <select name="fruit" id="fruit" v-model="input.typefruit">
-                    <option value="">選擇水果</option>
+                    <option value="">全部水果</option>
                     <option :value="fruit.fruit_id" v-for="fruit in fruits">{{fruit.fruit_name}}</option>
                 </select>
 
                 <select name="city" id="city" v-model="input.typecity">
-                    <option value="">選擇地區</option>
+                    <option value="">全部地區</option>
                     <option :value="city.city_id" v-for="city in citys">{{city.city_name}}</option>
                 </select>
 
@@ -62,7 +62,6 @@
             </div>
 
         </section>
-        <p class="load">load more...</p>
     </article>
     @@include('layout/footer.html')
 

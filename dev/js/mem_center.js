@@ -131,6 +131,7 @@ let app = new Vue({
     this.ShowImage = show;
   },
 
+ 
   //開合
   onCollapse() {
     $(".item").click(function (e) {
@@ -402,3 +403,13 @@ for(let i = 0; i < toggleEyes.length; i++){
 // window.addEventListener("load", function(){
 //   getTreehistoryList();
 // })
+
+// var renewPic = document.querySelector('.show_space');
+// if(renewPic.getAttribute('src') == 'images/mem/null'){
+//   alert("xxx");
+//   console(renewPic)
+// }
+
+// let renewPic = document.querySelector(".show_space");
+// let imgSrc = renewPic.setAttribute("src", 'images/mem/farmer.jpg');
+// console.log(imgSrc)
