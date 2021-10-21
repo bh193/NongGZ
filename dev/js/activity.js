@@ -12,6 +12,7 @@ let app = new Vue({
   methods:{
     // 螢幕高度+滾軸最高點的高度 = 網頁高度
     handleScroll() {
+      // $('.post').css("opacity",1);
       if ($( window ).height() + $(window).scrollTop()+1 >= $( document ).height()) {
           this.scroll_index=this.scroll_index+1;
       }

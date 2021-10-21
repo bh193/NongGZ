@@ -60,7 +60,7 @@
               <label>會員名稱</label>
               <input type="text" name="mem_name" :value="item.mem_name"/>
               <label>電子信箱</label>
-              <input type="text" name="mem_email" :value="item.mem_email" readonly/>
+              <input type="text" name="mem_email" :value="item.mem_email" readonly style="background-color: #dadada;"/>
               <label>連絡電話</label>
               <input type="text" name="mem_tel" :value="item.mem_tel"/>
              
@@ -71,9 +71,9 @@
               <!-- 假的欄位 -->
             </li>
             <li class="btn">
-              <a href="#modal_password" rel="modal:open"
-                ><button id="edit">變更密碼</button></a
-              >
+              <a href="#modal_password" rel="modal:open">
+                <button id="edit">變更密碼</button>
+              </a>
               <button id="save" type="submit">更新資料</button>
             </li>
           </ol>
@@ -288,7 +288,7 @@
     </div>
     @@include('layout/modal_password.html') 
     @@include('layout/footer.html')
-
+    
    <script src="js/mem_center.min.js"></script>
   </body>
 </html>
