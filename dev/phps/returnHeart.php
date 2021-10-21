@@ -10,9 +10,9 @@
         
         // print_r($decoded);
        
-        $member =$_GET['member'];
-        $heartNum = $_GET['num'];
-        $postId = $_GET['postId'];
+        $member =$decoded['member'];
+        $heartNum = $decoded['num'];
+        $postId = $decoded['postId'];
         
         // 執行sql指令並取得pdoStatement
         $sql = "UPDATE post SET post_feedback =:post_feedback+1  WHERE post_id = :post_id";

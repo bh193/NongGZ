@@ -83,6 +83,7 @@ let app = new Vue({
                     break;
             }
         },
+        //農場分頁
         getInfo(){
             this.id = window.location.search.split('?')[1].split('=')[1];
             //call php的response
@@ -94,6 +95,7 @@ let app = new Vue({
                 }
             });
         },
+        //果樹認養
         getFruits(){
             let xhr = new XMLHttpRequest();
             xhr.onload = function(){
@@ -117,7 +119,7 @@ let app = new Vue({
         },
         filterActivity(){
             return this.activitys.filter(activitysearch =>{
-                return activitysearch.farm_id == this.id
+                return activitysearch.farm_id == this.id8
             });
         },
     },
