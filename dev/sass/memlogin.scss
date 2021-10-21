@@ -104,11 +104,11 @@ input{
                 width: 100%;
                 display: flex;
                 justify-content: space-evenly; 
-                .btn:nth-child(1){@include smallbtn_s;}
-                .btn:nth-child(2){@include smallbtn_m;}
+                .btn{@include smallbtn_s;}
             }
             .btngrenn{@include smallbtn_m;}
         }
+
         .register{
             .text:nth-child(5){ //input checkbox
                 max-width: 350px;
