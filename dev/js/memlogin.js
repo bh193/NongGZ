@@ -3,30 +3,78 @@ Vue.component('login',{
         return{
             user: '',
             userpassword:'',
-            loginmsg:'',
+            loginmsg:'系統發生錯誤，請聯絡農果子',
         }
     },
     methods: {
+        clearinput(){
+            this.user="";
+            this.userpassword="";
+        },
+        openmodal(){
+            $('a[href="#loginbox"]').click(function(event) {
+                event.stopPropagation();
+                $(this).modal({ fadeDuration: 300});
+            })
+        },
+
+        checkmember(){
+            if(this.user ==''||this.userpassword  == ''){
+                this.loginmsg="尚有欄位未填寫"
+                return
+            }
+            $.ajax({
+                type: 'post',
+                url: "./phps/memlogin.php",
+                data: JSON.stringify({
+                    usermail: this.user, 
+                    userpsw:this.userpassword,   
+                }),
+                contentType:"application/json; charset=utf-8",
+                success: (res) => {
+                    if(res == 1){
+                        this.loginmsg="帳號或密碼錯誤"
+                        this.$nextTick(this.clearinput);
+                    }
+                    else{
+                        // this.loginmsg="登入成功，前往會員中心"
+                        window.location.href='http://localhost/phpLab/20_dist/dist/mem_center.html'
+                    }
+                },
+                error: () => {
+                this.loginmsg="系統發生錯誤，請聯絡農果子"
+                this.$nextTick(this.clearinput);
+                },
+                complete: () => {
+                
+                }
+                });
+        }
     },
-
+    mounted() {
+        this.openmodal();
+    },
     template:`
-    <div  id="login">
-        <form  class="login" action="./phps/memlogin.php" method="post">
+    <div id="login">
+        <div  class="login">
             <div class="text">
-                <label for="">電子信箱</label>
-                <input type="mail" v-model="user" name="mem_user">
+                <label for="email">電子信箱</label>
+                <input type="mail" v-model="user" name="mem_user" id="email">
             </div>
             <div class="text">
-                <label for="">密碼</label>
-                <input type="password" v-model="userpassword" name="mem_password" >
+                <label for="psw">密碼</label>
+                <input type="password" v-model="userpassword" name="mem_password" id="psw" >
             </div>
             <div class="text">
-                    <button type="reset" class="btn">清除</button>
-                    <button class="btn" type="submit">登入</button>
-                    <div class="erromis" v-text="loginmsg"></div>
-
+                    <button class="btn" @click="clearinput">清除</button>
+                    <a href="#loginbox" rel="modal:open" @click="checkmember"><button class="btngrenn">登入</button></a>
+                        
             </div>
-        </form>
+        </div>
+        <div id="loginbox" class="modal dialog">
+        <div class="msg"><a><h3 v-text="loginmsg"></h3></a></div>
+     </div>
+        
     </div>
     `,
 });
@@ -38,26 +86,41 @@ Vue.component('register',{
             psw:'',
             psw2:'',
             selected:false,
-            error:'',
-            msg:'註冊成功，歡迎加入農果子',          
+            msg:'系統發生錯誤，請聯絡農果子',          
         }
     },
     methods: {
-
+        openmodal(){
+            $('a[href="#sendmail"]').click(function(event) {
+                event.stopPropagation();
+                $(this).modal({ fadeDuration: 300});
+            })
+        },
+        clearinput(){
+            this.username="";
+            this.mail="";
+            this.psw="";
+            this.psw2="";
+            this.selected="";
+        },
         check(){
         let checkemail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
 
-        if(this.username == ''|| this.mail == ''|| this.psw == '' || this.psw2 == '' ){
+        if(this.username == ''|| this.mail == ''|| this.psw == '' || this.psw2 == '' ||this.selected == false){
             this.msg = '尚有欄位未填寫'
             return
         }
         if(!checkemail.test(this.mail)){
             this.msg = '信箱格式錯誤'
+            this.mail=""
             return
         }
         if(this.psw != this.psw2){
             this.msg  = '確認密碼不一致'
+            this.psw="";
+            this.psw2="";
+            this.selected="";
             return
         }
         if(this.selected == false){
@@ -77,6 +140,8 @@ Vue.component('register',{
             success: (res) => {
                 if(res == 1){
                     this.msg="信箱已被使用過"
+                    this.$nextTick(this.clearinput);
+
                 }else{
                         $.ajax({
                         type: 'POST',
@@ -88,13 +153,16 @@ Vue.component('register',{
                         }),
                         contentType:"application/json; charset=utf-8",                
                         success: (res) => {
-                        this.msg="註冊成功，歡迎加入農果子"
+                        this.msg="註冊成功，請重新登入"
+                        // this.$nextTick(this.clearinput);
+                        window.location.href='../memlogin.html'
+                        
                         },
                         error: (res,err) => {
                             console.log(res,err)
                         },
                         complete: () => { //都會執行這行
-                    
+                            
                         }
                         });
                 }
@@ -118,39 +186,39 @@ Vue.component('register',{
 
     },
     mounted() {
-
+        this.openmodal();
 
     },
     template:`
     <div id="register">
-    <form  class="register">
+    <div  class="register">
         <div class="text">
-            <label for="">姓名</label>
-            <input type="text" v-model="username" name="mem_name">
+            <label for="username">姓名</label>
+            <input type="text" v-model="username" name="mem_name" id="username">
         </div>
         <div class="text">
-            <label for="">電子信箱</label>
-            <input type="text" v-model="mail" name="mem_email">
+            <label for="usermail">電子信箱</label>
+            <input type="text" v-model="mail" name="mem_email" id="usermail">
         </div>
         <div class="text">
-            <label for="">密碼</label>
-            <input type="password" v-model="psw" name="mem_psw">
+            <label for="userpsw">密碼</label>
+            <input type="password" v-model="psw" name="mem_psw" id="userpsw">
         </div>
         <div class="text">
-            <label for="">確認密碼</label>
-            <input type="password" v-model="psw2" name="psw2">
+            <label for="userpsw2">確認密碼</label>
+            <input type="password" v-model="psw2" name="psw2" id="userpsw2">
         </div>
         <div class="text">
-            <input type="checkbox" v-model="selected">
+            <input type="checkbox" v-model="selected" id="check">
             <label for="check">點擊註冊代表您同意 之 <a href="./policy.html">會員條款</a> 與<a href="./privacy.html">客戶隱私權條款</a></label>
 
         </div>
        
         <div class="text">
-            <button class="btn" type="reset">清除</button>
+            <button class="btn"  @click="clearinput">清除</button>
             <a href="#sendmail" rel="modal:open" @click="check"><button class="btngrenn">送出</button></a>
         </div>
-     </form>
+     </div>
      <div id="sendmail" class="modal dialog">
      <div class="msg"><h3 v-text="msg"></h3></div>
   </div>
@@ -175,4 +243,7 @@ let mem= new Vue({
 
     
     },
+    computed:{
+
+    }
 });

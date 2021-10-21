@@ -11,6 +11,7 @@
     <script src="js/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <link rel="stylesheet" href="code/jquery.modal.css">
+    <link rel="stylesheet" href="css/farmregister.css">
 </head>
 <body>
     <script src="js/jquery.mousewheel.min.js"></script>
@@ -50,46 +51,46 @@
         <div class="box" id="farmR">
             <form  action="javascript:void(0)">
                 <div class="item">
-                    <label for="">農場名稱</label>
-                    <input type="text" v-model="fname" name="farm_name">
+                    <label for="farm_name">農場名稱</label>
+                    <input type="text" v-model="fname" name="farm_name" id="farm_name">
                 </div>
                 <div class="item">
-                    <label for="">負責人</label>
-                    <input type="text" v-model="fgm"  name="farm_gm">
+                    <label for="person">負責人</label>
+                    <input type="text" v-model="fgm"  name="farm_gm" id="person">
                 </div>
                 <div class="item">
-                    <label for="">城市</label>
-                    <select v-model="selected">
+                    <label for="select">城市</label>
+                    <select v-model="selected" id="select">
                         <option value="" selected disabled>請選擇</option>
                         <option v-for="city in cityRows" :value="city.city_id">{{city.city_name}}</option>
                     </select>
                 </div>
                 <div class="item">
-                    <label for="">農場地址</label>
-                    <input type="text" v-model="faddress" name="farm_address">
+                    <label for="addr">農場地址</label>
+                    <input type="text" v-model="faddress" name="farm_address" id="addr">
                 </div>
                 <div class="item">
-                    <label for="">許可證號</label>
-                    <input type="text" v-model="fcert" name="farm_cert" >
+                    <label for="cert">許可證號</label>
+                    <input type="text" v-model="fcert" name="farm_cert" id="cert">
                 </div>
                 <div class="item">
-                    <label for="">農場電話</label>
-                    <input type="text" v-model="fphone" name="farm_tel">
+                    <label for="phone">農場電話</label>
+                    <input type="text" v-model="fphone" name="farm_tel" id="phone">
                 </div>
                 <div class="item">
-                    <label for="">電子信箱</label>
-                    <input type="text" v-model="fmail" name="farm_email">
+                    <label for="mail">電子信箱</label>
+                    <input type="text" v-model="fmail" name="farm_email" id="mail">
                 </div>
                 <div class="item">
-                    <label for="">密碼</label>
-                    <input type="password" v-model="psw" name="farm_psw">
+                    <label for="psw">密碼</label>
+                    <input type="password" v-model="psw" name="farm_psw" id="psw">
                 </div>
                 <div class="item">
-                    <label for="">確認密碼</label>
-                    <input type="password" v-model="psw2" name="farm_psw2">
+                    <label for="psw2">確認密碼</label>
+                    <input type="password" v-model="psw2" name="farm_psw2" id="psw2">
                 </div>
                 <div class="item">
-                    <input type="checkbox"  v-model="checked" >
+                    <input type="checkbox"  v-model="checked" id="check" >
                     <label for="check">點擊註冊代表您同意 之 <a href="./policy.html">會員條款</a> 與<a href="./privacy.html">客戶隱私權條款</a></label>
                   
                 </div>
@@ -113,7 +114,7 @@
                 </div>       
         </div>
     </div>
-    <link rel="stylesheet" href="css/farmregister.css">
+
     <!-- <script>
         $('a[href="#sendmail"]').click(function(event) {
             event.stopPropagation();
