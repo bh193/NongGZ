@@ -64,9 +64,12 @@
             margin-bottom: 2rem;
             .pic{
                 width: 6.56rem;
+                height: 6.56rem;
+                overflow: hidden;
+                border-radius: 50%;
+                margin-right: 1.25rem;
                 img{
                     width: 100%;
-                    padding-right: 1.25rem;
                 }
             }
             h3{
@@ -166,7 +169,7 @@
         @include container(0,0);
         @include flexcenter();
         flex-direction: column;
-        justify-content: space-between;
+        // justify-content: space-between;
         .card{
             width: 85%;
             border-radius: 0.5rem;
@@ -317,7 +320,6 @@
     .post{
         .container{
             .memname{
-                align-items: end;
                 h2{
                     font-size: $h2_size;
                 }
@@ -352,11 +354,12 @@
             flex-wrap: wrap;
             flex-direction: row;
             align-items: initial;
+            justify-content: flex-start;
             .card{
                 width: 48%;
-            }
-            &:nth-child(2n){
-                margin-right: 4%;
+                &:nth-child(2n){
+                    margin-left: 4%;
+                }
             }
         }
     }
@@ -379,12 +382,16 @@
         .container{
             .card{
                 width: 31.25%;
-            }
-            &:nth-child(3n+2){
-                margin-right: 3.125%;
-            }
-            &:nth-child(3n){
-                margin-right: 3.125%;
+                &:nth-child(2n){
+                    margin-left: 0;
+                }
+                width: 31.25%;
+                &:nth-child(3n+2){
+                    margin-left: 3.125%;
+                }
+                &:nth-child(3n){
+                    margin-left: 3.125%;
+                }
             }
         }
     }

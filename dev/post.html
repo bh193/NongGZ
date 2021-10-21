@@ -82,9 +82,10 @@
                                 </a>
                             </div>
                         </div>
-                        <form id="loudlybox" class="modal sdloudly">
+                        <form id="loudlybox" class="modal sdloudly" action="javascript:void(0)">
                             <div class="sendLoudly">
                                 <h3>填寫檢舉內容</h3>
+                                <!-- <p>{{filterId.post_id}}</p> -->
                                 <textarea id="loudlytext" placeholder="寫下說明文字⋯" v-model="loudlytxt"></textarea>
                                 <input type="submit" value="發送" @click="sendloudy">
                             </div>
@@ -133,7 +134,7 @@
                                     <button class="btn_heart" @click="sendHeart"></button>
                                 </a>
                                 <span>{{prodRow.post_feedback}}</span>
-                                <a :href="isLogout? '#sendpost2' :'#loudlybox'" rel="modal:open" class="box_loudy">
+                                <a :href="isLogout? '#sendpost2' :'#loudlybox'" rel="modal:open" class="box_loudy" @click="filterdata(prodRow.post_id)">
                                     <button class="btn_loudly"></button>
                                 </a>
                             </div>

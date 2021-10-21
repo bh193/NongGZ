@@ -125,7 +125,22 @@ let app = new Vue({
                     farmId:this.farminfo.farm_id,    
                 },
             })
-            .then((response) => console.log(response))
+            .then((response) => console.log(response)
+                // axios({
+                //     type: 'get',
+                //     url: "../dist/phps/returnback_farminfo.php",
+                //     params:{
+                //         tel:this.farminfo.farm_tel,
+                //         address:this.farminfo.farm_address,
+                //         wstory:this.farminfo.farm_contentA,
+                //         wsetting:this.farminfo.farm_contentB,
+                //         banner:this.farminfo.farm_banner,
+                //         imageA:this.infoImage,
+                //         imageB:this.storyImage,
+                //         imageC:this.settingImage,
+                //         farmId:this.farminfo.farm_id,    
+                //     },
+            )
             .catch((error) => console.log(error))
         },
         clearPsw(){

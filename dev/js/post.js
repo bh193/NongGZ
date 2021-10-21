@@ -17,13 +17,14 @@ let app = new Vue({
         msg: '',
         member:{},
         loudlytxt:'',
+        filterId:{},
     },
     methods: {
         post(){
             if((!(this.isLogout)) && (this.posttxt == '' || this.images == '' || this.selectedFarm == '')){
                 this.msg = "尚有內容未填寫及選擇"
                 console.log("沒有填寫")
-                return
+                // return
             }else if(!(this.isLogout) && this.posttxt != '' && this.images != '' && this.selectedFarm != ''){
                 $.ajax({
                     type: 'post',
@@ -122,39 +123,31 @@ let app = new Vue({
             xhr.open("get", "../dist/phps/getMemInfo.php", true);
             xhr.send(null);
         },
+        //搜尋id
+        filterdata(findId){
+            this.filterId = this.prodRows.find(data => data.post_id == findId)
+        },
         //檢舉貼文
         sendloudy(){
-            console.log('23333')
             $.ajax({
                 type:'post',
                 url:"../dist/phps/returnrepost.php",
                 data:JSON.stringify({
                     reporttxt: this.loudlytxt,
                     memId: this.member.mem_id,
-                    postId: this.pageRows.post_id,
+                    postId: this.filterId.post_id,
                 }),
                 contentType: "application/json; charset=utf-8",
                 success: (res) => {
-                    console.log(res)
+                    location.reload;
                 },
                 error: () => {
-                    console.log('error')
+                    console.log(error)
                 },
                 complete: () => {
                     console.log()
                 }
             });
-            // axios({
-            //     method: 'get',
-            //     url:'../dist/phps/returnrepost.php',
-            //     params:{
-            //         reporttxt:this.loudlytxt,
-            //         memId:this.member.mem_id,
-            //         postId:this.prodRows.post_id,
-            //     }
-            // })
-            // .then((response) => console.log(response))
-            // .catch((error) => console.log(error))
         },
         //按讚
         sendHeart(){
@@ -164,7 +157,9 @@ let app = new Vue({
                     url: "../dist/phps/returnHeart.php",
                     data: JSON.stringify({
                         member: this.member.mem_id,
+                        //this.prodRows[i].post_feedback找不到
                         num: this.prodRows.post_feedback,
+                        //this.prodRows[i].post_id找不到
                         postId: this.prodRows.post_id,
                     }),
                     contentType: "application/json; charset=utf-8",
