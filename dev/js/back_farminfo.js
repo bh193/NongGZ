@@ -105,43 +105,42 @@ let app = new Vue({
                         farmId:this.farminfo.farm_id,
                     },
                 })
-                .then((response) => location.reload())
+                .then((response) => {
+                    alert("更新成功");
+                    location.reload();
+
+                })
                 .catch((error) => console.log(error))
             }
         },
         sendInfo(){
-            axios({
-                type: 'get',
+            let data = {
+                tel:this.farminfo.farm_tel,
+                address:this.farminfo.farm_address,
+                wstory:this.farminfo.farm_contentA,
+                wsetting:this.farminfo.farm_contentB,
+                banner:this.farminfo.farm_banner,
+                imageA:this.infoImage,
+                imageB:this.storyImage,
+                imageC:this.settingImage,
+                farmId:this.farminfo.farm_id,
+            }
+            $.ajax({
+                type: 'post',
                 url: "../dist/phps/returnback_farminfo.php",
-                params:{
-                    tel:this.farminfo.farm_tel,
-                    address:this.farminfo.farm_address,
-                    wstory:this.farminfo.farm_contentA,
-                    wsetting:this.farminfo.farm_contentB,
-                    banner:this.farminfo.farm_banner,
-                    imageA:this.infoImage,
-                    imageB:this.storyImage,
-                    imageC:this.settingImage,
-                    farmId:this.farminfo.farm_id,    
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: (res) => {
+                    alert("更新成功")
                 },
-            })
-            .then((response) => console.log(response)
-                // axios({
-                //     type: 'get',
-                //     url: "../dist/phps/returnback_farminfo.php",
-                //     params:{
-                //         tel:this.farminfo.farm_tel,
-                //         address:this.farminfo.farm_address,
-                //         wstory:this.farminfo.farm_contentA,
-                //         wsetting:this.farminfo.farm_contentB,
-                //         banner:this.farminfo.farm_banner,
-                //         imageA:this.infoImage,
-                //         imageB:this.storyImage,
-                //         imageC:this.settingImage,
-                //         farmId:this.farminfo.farm_id,    
-                //     },
-            )
-            .catch((error) => console.log(error))
+                error: () => {
+                    console.log('error')
+                },
+                complete: () => {
+                    console.log()
+                }
+            });
+            
         },
         clearPsw(){
             this.newPsw = '',

@@ -119,7 +119,7 @@ let app = new Vue({
         },
         filterActivity(){
             return this.activitys.filter(activitysearch =>{
-                return activitysearch.farm_id == this.id8
+                return activitysearch.farm_id == this.id
             });
         },
     },

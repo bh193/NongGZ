@@ -18,11 +18,12 @@ let app = new Vue({
         member:{},
         loudlytxt:'',
         filterId:{},
+        currentPostIndex: 0,
     },
     methods: {
         post(){
             if((!(this.isLogout)) && (this.posttxt == '' || this.images == '' || this.selectedFarm == '')){
-                this.msg = "尚有內容未填寫及選擇"
+                this.msg = "貼文內容、照片及tag農場都要填寫才可以發佈喔"
                 console.log("沒有填寫")
                 // return
             }else if(!(this.isLogout) && this.posttxt != '' && this.images != '' && this.selectedFarm != ''){
@@ -77,7 +78,13 @@ let app = new Vue({
             let xhr = new XMLHttpRequest();
             xhr.onload = function () {
                 console.log(JSON.parse(xhr.responseText))
-                app.prodRows = JSON.parse(xhr.responseText)
+                let array1 = JSON.parse(xhr.responseText)
+                for(let i = 0; i< array1.length; i++){
+                    array1[i].heart = 0;
+                    array1[i].loudly = 0;
+                }
+                console.log('array1',array1)
+                app.prodRows = array1;
             }
             xhr.open("get", "../dist/phps/getPosts.php?page=1", true);
             xhr.send(null);
@@ -124,8 +131,9 @@ let app = new Vue({
             xhr.send(null);
         },
         //搜尋id
-        filterdata(findId){
+        filterdata(findId, index){
             this.filterId = this.prodRows.find(data => data.post_id == findId)
+            this.currentPostIndex = index;
         },
         //檢舉貼文
         sendloudy(){
@@ -139,7 +147,8 @@ let app = new Vue({
                 }),
                 contentType: "application/json; charset=utf-8",
                 success: (res) => {
-                    location.reload;
+                    this.prodRows[this.currentPostIndex].loudly = 1;
+                    this.loudlytxt = '';
                 },
                 error: () => {
                     console.log(error)
@@ -151,37 +160,26 @@ let app = new Vue({
         },
         //按讚
         sendHeart(){
-            if(!(this.isLogout)){
-                $.ajax({
-                    type: 'post',
-                    url: "../dist/phps/returnHeart.php",
-                    data: JSON.stringify({
-                        member: this.member.mem_id,
-                        //this.prodRows[i].post_feedback找不到
-                        num: this.prodRows.post_feedback,
-                        //this.prodRows[i].post_id找不到
-                        postId: this.prodRows.post_id,
-                    }),
-                    contentType: "application/json; charset=utf-8",
-                    success: (res) => {
-                        this.msg = "按讚成功",
-                        console.log(res)
-                        return
-                    },
-                    error: () => {
-                        this.msg = "按讚失敗",
-                        console.log('error')
-                        return
-                    },
-                    complete: () => {
-                        console.log()
-                    }
-                });
-            }
-            else{
-                this.msg = "請登入會員"
-                return
-            }
+            $.ajax({
+                type: 'post',
+                url: "../dist/phps/returnHeart.php",
+                data: JSON.stringify({
+                    postId: this.filterId.post_id,
+                }),
+                contentType: "application/json; charset=utf-8",
+                success: (res) => {
+                    console.log(res)
+                    let num = +this.prodRows[this.currentPostIndex].post_feedback
+                    this.prodRows[this.currentPostIndex].post_feedback = num + 1;
+                    this.prodRows[this.currentPostIndex].heart = 1;
+                },
+                error: () => {
+                    console.log('error')
+                },
+                complete: () => {
+                    console.log()
+                }
+            });
         }
     },
     watch: {

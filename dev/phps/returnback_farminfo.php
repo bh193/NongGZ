@@ -7,9 +7,16 @@
         $content = trim(file_get_contents("php://input"));
         $decoded = json_decode($content, true);
 
-        $data = $decoded['infoImage'];
-        $dataB = $decoded['storyImage'];
-        $dataC = $decoded['settingImage'];
+        $data = $decoded['imageA'];
+        $dataB = $decoded['imageB'];
+        $dataC = $decoded['imageC'];
+        $farmtel = $decoded["tel"];
+        $farmaddress = $decoded["address"];
+        $farmcontentA = $decoded["wstory"];
+        $farmcontentB = $decoded["wsetting"];
+        $farmbanner = $decoded["banner"];
+        $farmid = $decoded["farmId"];
+
 
         $dir = "../images/farm";
         if(file_exists($dir) == false){
@@ -36,7 +43,7 @@
         $imgA = "$dname".".{$type}";
 
         if (preg_match('/^data:image\/(\w+);base64,/', $dataB, $type)) {
-            $data = substr($dataB, strpos($dataB, ',') + 1);
+            $dataB = substr($dataB, strpos($dataB, ',') + 1);
             $type = strtolower($type[1]);
 
             if (!in_array($type, [ 'jpg', 'jpeg', 'gif', 'png' ])) {
@@ -75,17 +82,9 @@
         file_put_contents("$dir/"."$dnameB".".{$type}", $dataC);
         $imgC = "$dnameB".".{$type}";
 
-
-        $farmtel = $GET["tel"];
-        $farmaddress = $GET["address"];
-        $farmcontentA = $GET"'wstory"];
-        $farmcontentB = $GET["wsetting"];
-        $farmbanner = $GET["banner"];
         $infoImage = $imgA;
         $storyImage = $imgB;
         $settingImage = $imgC;
-        $farmid = $GET["farmId"];
-
         // 執行sql指令並取得pdoStatement
         $sql = "UPDATE farm SET farm_tel = :farm_tel, farm_address = :farm_address, farm_contentA = :farm_contentA, farm_contentB = :farm_contentB, farm_banner = :farm_banner, farm_imgA = :farm_imgA, farm_imgB = :farm_imgB, farm_imgC = :farm_imgC WHERE farm_id  = $farmid";
         $updatefarm = $pdo->prepare($sql);

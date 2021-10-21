@@ -1,26 +1,19 @@
 <?php
     try{
         //引入連線工作的檔案
-        require_once("./returnHeart.php");   
+        require_once("./connectNGZ.php");   
         
         $content =trim(file_get_contents("php://input"));
         $decoded = json_decode($content, true);
-        // echo $decoded; 
         
-        
-        // print_r($decoded);
-       
-        $member =$decoded['member'];
-        $heartNum = $decoded['num'];
+        // $heartNum = $decoded['num'];
         $postId = $decoded['postId'];
-        
+
         // 執行sql指令並取得pdoStatement
-        $sql = "UPDATE post SET post_feedback =:post_feedback+1  WHERE post_id = :post_id";
+        $sql = "UPDATE post SET post_feedback = post_feedback +1  WHERE post_id = :post_id";
         $post = $pdo->prepare($sql);
         $post -> bindValue(":post_id", $postId);
-        $post -> bindValue(":post_feedback", $heartNum);
-        $post -> bindValue(":mem_id", $member);
-        $updatefarm -> execute();
+        $post -> execute();
         echo "ok";
     } catch (PDOException $e) {
         echo "錯誤行號 : ", $e->getLine(), "<br>";
