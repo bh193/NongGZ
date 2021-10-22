@@ -70,7 +70,38 @@ Vue.component('mapList',{
     }
   },
   methods: {
+    title(){
+      const tabList = document.querySelector(".tablist");
+      const tabs = document.querySelectorAll(".tablist__tab");
+      const activeTab = document.querySelector(".tablist__tab.is-active");
+      const selectionBar = document.querySelector(".selection-bar");
+      
+      const toggleTabClass = (target, elements) => {
+      Array.from(elements).forEach((element) =>
+          element.classList.remove("is-active")
+      );
+      target.classList.add("is-active");
+};
 
+const moveTabSelectionBar = (targetTab) => {
+const rectTargetTab = targetTab.getBoundingClientRect();
+const rectTabList = tabList.getBoundingClientRect();
+const selectionBarWidth = rectTargetTab.width / rectTabList.width;
+const selectionBarPosition = rectTargetTab.left - rectTabList.left;
+
+selectionBar.style.transform = `matrix(${selectionBarWidth}, 0, 0, 1, ${selectionBarPosition}, 1)`;
+};
+
+Array.from(tabs).forEach((tab) => {
+tab.addEventListener("click", (event) => {
+  toggleTabClass(event.target, tabs);
+  moveTabSelectionBar(event.target);
+});
+});
+
+moveTabSelectionBar(activeTab);
+
+    },
       filter(id){
         if(id == 0) return this.farm = this.farmRow;
 
@@ -89,6 +120,9 @@ Vue.component('mapList',{
               center: location,
               zoom: loc.zoom,
               mapTypeId: 'roadmap',
+                
+
+
               mapTypeControl: false,
               streetViewControl: false,
               fullscreenControl: false,
@@ -102,7 +136,11 @@ Vue.component('mapList',{
                 position: latLng,
                 map: this.map,
                 animation: google.maps.Animation.DROP,
-                
+                icon:{
+                  url:"../dist/images/svg/index_before.svg",
+                  scaledSize: new google.maps.Size(45, 45), 
+                }
+          
               });
           
           // this.farmRow.foreach((r,i)=>{
@@ -159,6 +197,7 @@ Vue.component('mapList',{
     .then(res => { 
     this.farmRow=res.data;
     this.initMap();
+    this.title();
    
     
 });

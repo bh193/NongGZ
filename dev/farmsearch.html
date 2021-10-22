@@ -16,7 +16,44 @@
 
 </head>
 <style>
-     
+     .tabs {
+        position: relative;
+      }
+
+      .selection-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 0;
+        border-bottom: 2px #606060 solid;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform;
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
+
+      .tablist {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .tablist__tab {
+        padding: 0.9rem 1.75rem;
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: #727070;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .tablist__tab:hover ,.tablist__tab.is-active{
+        color: #84a59d;
+      }
+
 
 </style>
 <body>
@@ -61,7 +98,16 @@
 
   </div>
   <div class="citybox">
-    <div class="local">
+    <div class="tabs">
+      <div class="selection-bar"></div>
+      <ul class="tablist">
+        <li class="tablist__tab is-active" @click="tab = 0">全部</li>
+        <li class="tablist__tab" @click="tab = 110">台北</li>
+        <li class="tablist__tab"@click="tab = 220">新北</li>
+        <li class="tablist__tab" @click="tab = 330">桃園</li>
+      </ul>
+    </div>
+    <!-- <div class="local">
       <button @click="tab = 0">全部</button>
     
     </div>
@@ -76,7 +122,7 @@
     <div class="local">
       <button @click="tab = 330">桃園</button>
     
-    </div>
+    </div> -->
 
   </div>
   <div class="mapbox" >
