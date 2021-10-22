@@ -136,7 +136,6 @@
         }
     }
 }
-
 .filter{
     .container{
         @include container(0,0);
@@ -169,7 +168,6 @@
         @include container(0,0);
         @include flexcenter();
         flex-direction: column;
-        // justify-content: space-between;
         .card{
             width: 85%;
             border-radius: 0.5rem;
@@ -183,6 +181,14 @@
             &:hover{
                 transform: scale(1.1);
                 transition: all 0.5s;
+            }
+            &:nth-child(n+7){
+                animation: cardIn 1.5s;
+                transition: all 1.5s;
+            }
+            @keyframes cardIn {
+                  0% {opacity: 0;}
+                100% {opacity: 1;}
             }
             .txt{
                 padding: 2rem 1.25rem 0;
@@ -422,7 +428,6 @@
                 &:nth-child(2n){
                     margin-left: 0;
                 }
-                width: 31.25%;
                 &:nth-child(3n+2){
                     margin-left: 3.125%;
                 }

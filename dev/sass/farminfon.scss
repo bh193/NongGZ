@@ -112,6 +112,9 @@
         flex-wrap: wrap;
         .card{
             width: 16.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin-bottom: 4.5rem;
         }
         .pic{
@@ -126,7 +129,7 @@
                 object-fit: cover;
             }
             .fruitStatus{
-                filter: brightness(0.4)
+                filter: grayscale(0.9);
             }
         }
         .txt{
@@ -142,10 +145,10 @@
                     width: 1rem;
                 }
                 &::before{
-                    left: 23%;
+                    left: -1rem;
                 }
                 &::after{
-                    right: 23%;
+                    right:-1rem;
                 }
             }
         }
@@ -188,7 +191,7 @@
                             padding-bottom: 1rem;
                         }
                         p{
-                            padding-bottom: 0.5rem;
+                            padding-bottom: .5rem;
                         }
                         .actdes{
                             overflow: hidden;
@@ -247,19 +250,19 @@
             position: absolute;
             width: 25%;
             top: 1rem;
-            left: -0.5rem;
+            left: -.5rem;
         }
         .txt{
             width: 70%;
             padding: 2rem 1.5rem 1rem;
-            border-radius: 0.5rem;
+            border-radius: .5rem;
             background-color: #fff;
             opacity: 0.9;
             position: absolute;
             bottom: 0;
             right: 0;
             .tag{
-                padding-bottom: 0.5rem;
+                padding-bottom: .5rem;
                 margin-top: 1rem;
                 a{
                     color: #939393;
@@ -268,7 +271,7 @@
             span{
                 color: #939393;
                 font-size: $p_size;
-                padding-left: 0.3rem;
+                padding-left: .3rem;
                 padding-right: 1rem;
                 font-weight: $h2_weight;
             }
@@ -300,7 +303,13 @@
 @include t{
     .adopt{
         .fruit{
-            justify-content: space-evenly;
+            justify-content: flex-start;
+            .card{
+                width: 40%;
+                &:nth-child(2n){
+                    margin-left: 20%;
+                }
+            }
         }
     }
 }
@@ -322,7 +331,19 @@
             width: 45rem;
         }
         .fruit{
-            justify-content: space-between;
+            .card{
+                width: 27.5%;
+                &:nth-child(2n){
+                    margin-left: 0;
+                }
+                width: 27.5%;
+                &:nth-child(3n+2){
+                    margin-left: 8.75%;
+                }
+                &:nth-child(3n){
+                    margin-left: 8.75%;
+                }
+            }
         }
     }
     .activity{

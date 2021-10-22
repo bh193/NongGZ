@@ -42,7 +42,7 @@
                         </div>
                         <div class="item">
                             <label for="">聯絡電話</label>
-                            <input type="text" v-model="farminfo.farm_tel">
+                            <input type="text" v-model="farminfo.farm_tel" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength=10>
                         </div>
                         <div class="item">
                             <label>電子信箱</label>
