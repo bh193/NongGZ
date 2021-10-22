@@ -24,7 +24,6 @@ let app = new Vue({
         storyTxt: '',
         settingTxt: '',
         selectbanner: '',
-        // options: '',
         options: [
             {text: "banner-1", value: 'banner-1.png'},
             {text: "banner-2", value: 'banner-2.png'},
