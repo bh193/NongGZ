@@ -83,8 +83,6 @@ a{text-decoration: none;}
             }
         }
     }
-
-
 }
     .citybox{
         max-width: 1280px;
@@ -93,7 +91,6 @@ a{text-decoration: none;}
         width: 100%;
         margin: auto; 
         justify-content: space-evenly;
-        background-color: $btn_m_color;
         position: relative;
      
         .local{
@@ -128,14 +125,44 @@ a{text-decoration: none;}
         }
     .mapitem:nth-child(2){ //地點照片
        display: flex;
-    //    justify-content: space-around;
        box-sizing: border-box;
-       .swiper-container {/* 設定幻燈片寬度跟高度 */
-        // max-width: 1280px;
-        // min-width: 350px;
-        // width: 100%;
-            
-    }
+       .swiper {
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        cursor: grab;
+        
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* width: 100px; */
+        border-radius: 10px;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+      }
     .swiper-slide {
         width:100px;
         height:100px;
@@ -144,9 +171,9 @@ a{text-decoration: none;}
             width:80px;
         
         }
-       }
-        
     }
+        
+}
 
 
 .breadcrumb{
@@ -190,6 +217,9 @@ a{text-decoration: none;}
             
         }
         .mapitem:nth-child(2){ //地點照片
+            .swiper-slide img {
+                height: 150px;
+              }
             
         }
     }
@@ -205,6 +235,7 @@ a{text-decoration: none;}
             }
         }
     }
+
 }
 
 .bred >*{
