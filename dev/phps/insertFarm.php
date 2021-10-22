@@ -16,8 +16,8 @@
         $farm_psw = $json_decod['farm_psw'];
 
         // 執行sql指令並取得pdoStatement
-        $sql = "insert into farm(farm_name, farm_gm, farm_address,city_id, farm_tel, farm_email,farm_psw,farm_cert)
-        values(:farm_name, :farm_gm, :farm_address,:city_id, :farm_tel, :farm_email,:farm_psw,:farm_cert)";
+        $sql = "insert into farm(farm_name, farm_gm, farm_address,city_id, farm_tel, farm_email,farm_psw,farm_cert,farm_imgA,farm_imgB,far_imgc)
+        values(:farm_name, :farm_gm, :farm_address,:city_id, :farm_tel, :farm_email,:farm_psw,:farm_cert,','premem.svg','premem.svg','premem.svg')";
         $register = $pdo->prepare($sql);
         $register -> bindValue(":farm_name",$farmname);
         $register -> bindValue(":farm_gm", $farmuser);
