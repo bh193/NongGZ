@@ -12,7 +12,7 @@ let fruit_tree = new Vue({
     updated() {
         //判定水果數量與大小顆
         var size = $('#size').text();//大中小
-        var id =$('#fruit_id').text();//水果id
+        var id = $('#fruit_id').text();//水果id
         var number = $('#number').text();//數量
 
         //canvas
@@ -330,10 +330,10 @@ let popOrder = new Vue({
 
             if (IdNum !== card_number[15] * 1) { //計算驗證碼不等於第16碼
                 $('#card').val(0);
-                $('#order_send').attr("href","#error");
+                $('#order_send').attr("href", "#error");
             } else {
                 $('#card').val(1);
-                $('#order_send').attr("href","");
+                $('#order_send').attr("href", "");
                 $('#sendOrder').click();
             }
         })
@@ -376,57 +376,29 @@ let farm_map = new Vue({
     },
     updated() {
         //光圈
-        let tq = window.matchMedia("(min-width: 1024px)");
-        if (tq.matches) {
-            $('.map').mousemove(function (event) {
-                var map_offset = $(".black_bg").offset();
-                var map_w = $(".black_bg").outerWidth();
-                var map_h = $(".black_bg").outerHeight();
-                var x = event.pageX;
-                var cursor_x = x - map_offset.left - 75;
-                var y = event.pageY;
-                var cursor_y = y - map_offset.top - 75;
-                if (y >= (map_offset.top + 75) && y <= (map_offset.top + map_h - 75)) {
-                    $(".cursor").css({
-                        "top": cursor_y + "px",
-                    });
-                } else {
-                    return false;
-                }
-                if (x >= (map_offset.left + 75) && x <= (map_offset.left + map_w - 75)) {
-                    $(".cursor").css({
-                        "left": cursor_x + "px"
-                    });
-                } else {
-                    return false;
-                }
-            });
-        } else {
-            $('.map').on('touchmove', function (e) {
-                var map_offset = $(".black_bg").offset();
-                var map_w = $(".black_bg").outerWidth();
-                var map_h = $(".black_bg").outerHeight();
-                var touch = e.originalEvent.targetTouches[0];
-                var x = touch.pageX;
-                var cursor_x = x - map_offset.left - 75;
-                var y = touch.pageY;
-                var cursor_y = y - map_offset.top - 75;
-                if (y >= (map_offset.top + 75) && y <= (map_offset.top + map_h - 75)) {
-                    $(".cursor").css({
-                        "top": cursor_y + "px",
-                    });
-                } else {
-                    return false;
-                }
-                if (x >= (map_offset.left + 75) && x <= (map_offset.left + map_w - 75)) {
-                    $(".cursor").css({
-                        "left": cursor_x + "px"
-                    });
-                } else {
-                    return false;
-                }
-            });
-        }
+        $('.map').mousemove(function (event) {
+            var map_offset = $(".black_bg").offset();//錨點
+            var map_w = $(".black_bg").width();
+            var map_h = $(".black_bg").height();
+            var x = event.pageX;
+            var cursor_x = x - map_offset.left - 75;
+            var y = event.pageY;
+            var cursor_y = y - map_offset.top - 75;
+            if (y >= (map_offset.top + 75) && y <= (map_offset.top + map_h - 75)) {
+                $(".cursor").css({
+                    "top": cursor_y + "px",
+                });
+            } else {
+                return false;
+            }
+            if (x >= (map_offset.left + 75) && x <= (map_offset.left + map_w - 75)) {
+                $(".cursor").css({
+                    "left": cursor_x + "px"
+                });
+            } else {
+                return false;
+            }
+        });
 
         //判斷認養果樹狀態
         for (let i = 0; i < $('.tree_status').length; i++) {
@@ -456,12 +428,6 @@ let more_farm = new Vue({
     el: "#more_farm",
     data: {
         farms: []
-    },
-    updated() {
-        //點選顯示目前位置
-        $('.more_btnbox .bigbtn_s').click(function () {
-            $(this).addClass('active').siblings().removeClass('active')
-        });
     },
 })
 

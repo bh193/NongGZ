@@ -9,7 +9,6 @@
     <link rel="shortcut icon" href="images/common/logo.png"/>
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.ui.touch-punch.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="js/vue.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
@@ -119,7 +118,7 @@
                     </div>
                 </div>
                 <div class="map_text" v-for="farm in farm">
-                    <h2>{{farm.farm_name}}</h2>
+                  <h2>{{farm.farm_name}}</h2><a :href="'farminfon.html?farm_id=' + farm.farm_id"><span>農場資訊 >></span></a>
                     <p>歡迎來到{{farm.farm_name}}，請點選你想認養之果樹~</p>
                 </div>
             </div>
@@ -206,6 +205,8 @@
                                 {{mem.coupon_id}}-折扣{{mem.coupon_t_price}}</option>
                         </select>
                     </td>
+
+                    <!-- 選擇之折扣券id -->
                     <td>
                         <input type="hidden" name="coupon_id" :value="coupon_id">
                     </td>

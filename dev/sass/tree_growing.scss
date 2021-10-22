@@ -42,6 +42,10 @@
     }
 }
 
+a {
+    text-decoration: none;
+}
+
 #go_game {
     display: none;
 }
@@ -374,6 +378,25 @@ section {
         position: absolute;
         top: 2rem;
         left: 2rem;
+h2{
+    display: inline;
+}
+
+
+            a {
+                span {
+                    font-size: 1rem;
+                    color: $btn_m_color;
+                    font-weight: 600;
+                    margin-left: 0.5rem;
+                    &:hover {
+                        color: $focus_color;
+                    }
+                }
+            }
+
+
+
     }
 
     .black_bg {
@@ -455,9 +478,11 @@ section {
             &:nth-child(odd) {
                 background-color: #fff;
             }
+
             &:nth-child(even) {
                 background-color: #e9e9e9;
             }
+
             th {
                 padding: 5px 0;
             }
