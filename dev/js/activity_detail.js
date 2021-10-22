@@ -43,7 +43,7 @@ let app = new Vue({
         
         // call php的response
         $.ajax({
-          url: '../dist/phps/getActivityList.php',
+          url: './phps/getActivityList.php',
           success: (response) => {
             // console.log(response)
             let obj = JSON.parse(response).find(item => item.activity_id == this.id) 

@@ -32,7 +32,7 @@ let app = new Vue({
         // console.log(JSON.parse(xhr.responseText))
         this.farmers = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "../dist/phps/back_activity_info.php", true);
+    xhr.open("get", "./phps/back_activity_info.php", true);
     xhr.send(null);
   }
   },

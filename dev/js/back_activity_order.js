@@ -32,7 +32,7 @@
       console.log(JSON.parse(xhr.responseText))
       app.farmers = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "../dist/phps/back_activity_order.php", true);
+    xhr.open("get", "./phps/back_activity_order.php", true);
     xhr.send(null);
     }
 

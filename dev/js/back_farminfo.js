@@ -44,7 +44,7 @@ let app = new Vue({
                 console.log(JSON.parse(xhr.responseText))
                 app.farminfo = JSON.parse(xhr.responseText)
             }
-            xhr.open("get", "../dist/phps/getFarmInfo.php", true);
+            xhr.open("get", "./phps/getFarmInfo.php", true);
             xhr.send(null);
         },
         //大頭照照片
@@ -99,7 +99,7 @@ let app = new Vue({
             }else{
                 axios({
                     method: 'get',
-                    url: '../dist/phps/returnback_farmPsw.php',
+                    url: './phps/returnback_farmPsw.php',
                     params:{
                         psw:this.newPsw,
                         farmId:this.farminfo.farm_id,
@@ -127,7 +127,7 @@ let app = new Vue({
             }
             $.ajax({
                 type: 'post',
-                url: "../dist/phps/returnback_farminfo.php",
+                url: "./phps/returnback_farminfo.php",
                 data: JSON.stringify(data),
                 contentType: "application/json; charset=utf-8",
                 success: (res) => {

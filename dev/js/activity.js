@@ -79,7 +79,7 @@ function getActivityList(){
     console.log(JSON.parse(xhr.responseText))
     app.activitys = JSON.parse(xhr.responseText)
   }
-  xhr.open("get", "../dist/phps/getActivityList.php", true);
+  xhr.open("get", "./phps/getActivityList.php", true);
   xhr.send(null);
 }
 
