@@ -26,6 +26,15 @@ let tree_list = new Vue({
                
             }
         },
+
+        //篩選是否有東西
+        select_num(){
+            if(this.more_trees!=0){
+                $('#data').text("");
+            }else{
+                $('#data').text("尚無可認養果樹資料");
+            }
+        }
     },
     computed: {
         //一次more多少
@@ -64,11 +73,14 @@ let tree_list = new Vue({
             }
         },
     },
-    created() {
+    created(){
         window.addEventListener("scroll", this.handleScroll);
     },
     mounted() {
         this.getdata();
+    },
+    updated() {
+        this.select_num();
     },
 })
 
