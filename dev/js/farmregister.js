@@ -75,7 +75,7 @@ let farmR = new Vue({
                 }),
                 contentType:"application/json; charset=utf-8",
                 success: (res) => {
-                this.msg="申請為小農需2-3個工作天待審核通過後會寄送信件至您填寫的信箱。 謝謝!返回首頁"
+                this.msg="申請為小農需2-3個工作天待審核通過後會寄送信件至您填寫的信箱。 謝謝!正在返回首頁"
                 this.clearinput();
                 console.log('ok')
                 window.setTimeout("window.location='../home.html'",4000);
