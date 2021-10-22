@@ -88,7 +88,7 @@
                                 <h3 v-if="fruit.tree_status == 1" style="color:#b5b5b5" class="status">{{getStatus(fruit.tree_status)}}</h3>
                                 <h3 v-else style="color:#3d3b3b" class="status">
                                     {{getStatus(fruit.tree_status)}}</h3>
-                                <p>{{fruit.tree_name}}</p>
+                                <p v-if="fruit.tree_status == 1" style="color:#b5b5b5">{{fruit.tree_name}}</p>
                             </div>
                         </div>
                     </div>
