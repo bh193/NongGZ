@@ -7,11 +7,12 @@
     <title>來農場吧</title>
     <script src="js/jquery.min.js"></script>
     <title>農場資訊頁</title>
-    <link rel="shortcut icon" href="images/common/logo.png"/>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script src="js/vue.min.js"></script>  
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv2stNGlktQxxtTVKeDxvMrizohjEK1uI"  defer></script>
     <link rel="stylesheet" href="css/farmsearch.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </head>
 <style>
@@ -27,7 +28,7 @@
         text-align: center;
         font-size: 18px;
         background: #fff;
-        width: 100px;
+        /* width: 100px; */
         border-radius: 10px;
 
         /* Center slide text vertically */
@@ -52,13 +53,67 @@
         object-fit: cover;
         border-radius: 15px;
       }
-
       .item{
         display: flex;
       }
+
+
+
+    label, #slider {
+      display: inline-block;
+      font-weight: bold;
+      text-align: center;
+      color: #AAA;
+      width: 150px;
+      height: auto;
+      padding: 20px 0px;
+    }
+
+    label:hover {
+      color: white;
+      cursor: pointer;
+    }
+
+    .tabs [type=radio] {
+      display: none;   
+    }
+
+
+
+    #slider {
+      background-color: transparent;
+      border-bottom: 3px solid white;
+      margin: 7px 10px;
+      transition: transform 0.5s;
+      width: 130px;
+    }
+    [type=radio],#r0:checked ~ #slider {
+      transform: translate(-600px, 0px);
+    }
+    [type=radio],#r1:checked ~ #slider {
+      transform: translate(-450px, 0px);
+    }
+
+    [type=radio],#r2:checked ~ #slider {
+      transform: translate(-300px, 0px);
+    }
+
+    [type=radio],#r3:checked ~ #slider {
+      transform: translate(-150px, 0px);
+    }
+    [type=radio],#r4:checked ~ #slider {
+      transform: translate(0px, 0px);
+    }
+
+    [type=radio]:checked + label {
+      color: white;
+    }
+
+    [type=radio]:checked + label + .content {
+      display: inline-block;
+    }
 </style>
 <body>
-  @@include('layout/header.html')
     <script src="js/jquery.mousewheel.min.js"></script>
 <header>
     <div class="header_con">
@@ -97,41 +152,38 @@
         </ol>
     </div>
     </div>
-          <div class="box">
-
-
-              <!-- <select v-model="selected">
-                <option value="" disabled>選擇水果</option>
-                <option v-for="fruit in fruits" v-bind:value="fruit.value">{{fruit.text}}</option>
-            </select> -->
-            <div class="location">
-              <button @click="option1">台北</button>
-            
-            </div>
-            <div class="location">
-              <button @click="option2">新北</button>
-            
-            </div>
-            <div class="location">
-              <button @click="option3">桃園</button>
-            
-            </div>
-
-            
-            <!-- 
-            <select v-model="selected2">
-              <option value="" disabled>選擇地區</option>
-              <option v-for="city in citys" v-bind:value="city.value">{{city.text}}</option>
-          </select> -->
-
-
-          </div>
 
   </div>
+  <div class="citybox">
+    <div class='tabs'>
+      <input type='radio' id='r0' name='t' 
+     ><label for='r0'>Tab</label
+     >
+     <input type='radio' id='r1' name='t' checked
+     ><label for='r1'>Tab</label
+     ><input type='radio' id='r2' name='t'
+     ><label for='r2'>Tib</label
+     ><input type='radio' id='r3' name='t'><label for='r3'>Tub</label>
+   
+     <div id='slider'></div>
+   </div>
+    <!-- <div class="local">
+      <button @click="tab = 110">台北</button>
+    
+    </div>
+    <div class="local">
+      <button @click="tab = 220">新北</button>
+    
+    </div>
+    <div class="local">
+      <button @click="tab = 330">桃園</button>
+    
+    </div> -->
+  </div>
   <div class="mapbox" >
-    <div  class="mapitem" id="map"></div>
+    <!-- <div  class="mapitem" id="map"></div> -->
     <div class="mapitem">
-     <map-list :mapimg="farmRow"></map-list></div>
+     <!-- <map-list :mapimg="farmRow"></map-list></div> -->
 
 
 </div>
@@ -142,8 +194,6 @@
         <p>Copyright © 2021 農果子</p>
         <p>本網站為緯育TibaMe_前端設計工程師班第69期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]https://www.facebook.com/webindex/ ，後續會由專人協助處理。</p>
     </div>   
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv2stNGlktQxxtTVKeDxvMrizohjEK1uI" async defer></script>
 
     <script src="js/farmsearch.min.js"></script>
 </body>

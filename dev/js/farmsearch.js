@@ -29,23 +29,28 @@ Vue.component('mapList',{
   el:"#farm",
   data:{
       farmRow:[],
+      farm:[],
       swiper:null,
       map:null,
-      fruits: [
-        { text: '橘子', value: '0' },
-        { text: '蘋果', value: '1' },
-        { text: '水蜜桃', value: '2' },
-        { text: '芒果', value: '3' },
-        { text: '紅棗', value: '4' },
-    ],
-      citys: [
-        { text: '台北', value: '0' },
-        { text: '新北', value: '1' },
-        { text: '桃園', value: '2' },
+    //   fruits: [
+    //     { text: '橘子', value: '0' },
+    //     { text: '蘋果', value: '1' },
+    //     { text: '水蜜桃', value: '2' },
+    //     { text: '芒果', value: '3' },
+    //     { text: '紅棗', value: '4' },
+    // ],
+      findcity: [
+        { lat:24.9757452, lon:121.4921768, zoom:10,  value: '0'   },
+        { lat:25.04541,   lon:121.54781,   zoom: 13, value: '110' },
+        { lat:24.995186,  lon:121.478812,  zoom: 13, value: '220' },
+        { lat:24.852503,  lon:121.271133,  zoom: 12, value: '330' },
 
     ],
+
     selected:'',
     selected2:'',
+    tab: 0,
+  
     // hideBusiness: 'hide', 
     //     hideStyle: [
     //       {
@@ -55,35 +60,51 @@ Vue.component('mapList',{
     //         }]
     //       }
     //     ]
-
-      
-
   },
   computed:{
 
   },
-
+  watch:{
+    tab() {
+      this.initMap();
+    }
+  },
   methods: {
+      // citybar(){
+      //   $("#tile-1 .nav-tabs a").click(function() {
+      //     var position = $(this).parent().position();
+      //     var width = $(this).parent().width();
+      //       $("#tile-1 .slider").css({"left":+ position.left,"width":width});
+      //   });
+      //   var actWidth = $("#tile-1 .nav-tabs").find(".active").parent("li").width();
+      //   var actPosition = $("#tile-1 .nav-tabs .active").position();
+      //   $("#tile-1 .slider").css({"left":+ actPosition.left,"width": actWidth});
+      // },
+      filter(id){
+        if(id == 0) return this.farm = this.farmRow;
+
+        this.farm=this.farmRow.filter(data=>data.city_id == id)
+
+      },
       initMap(){
-          let location = {   //預設中心點位置
-              lat: 24.9049523, // 經度
-              lng: 121.4753259 // 緯度
-              
-              
+        this.filter(this.tab)
+        let loc = this.findcity.find(data=>data.value == this.tab)
+        console.log(loc)
+        let location = {   //預設中心點位置
+              lat: loc.lat, // 經度
+              lng: loc.lon // 緯度
             };
             this.map = new google.maps.Map(document.getElementById('map'), {
               center: location,
-              zoom: 11,
+              zoom: 10,
               mapTypeId: 'roadmap',
               mapTypeControl: false,
               streetViewControl: false,
               fullscreenControl: false,
             });
 
-          axios.get('./phps/map.php')
-          .then(res => { 
-          this.farmRow=res.data;
-          Array.prototype.forEach.call(this.farmRow, r => {
+         
+          this.farm.forEach(r => {
           let latLng = new google.maps.LatLng(r.farm_lat,r.farm_lon);  
           let marker = new google.maps.Marker({
                 position: latLng,
@@ -91,8 +112,9 @@ Vue.component('mapList',{
                 animation: google.maps.Animation.DROP,
                 
               });
-              // info window
-
+          
+          // this.farmRow.foreach((r,i)=>{
+          // })
               let infowindow = new google.maps.InfoWindow({
                 
                 content: `<div class="col">
@@ -115,6 +137,11 @@ Vue.component('mapList',{
                 infowindow.open(this.map, marker);
                 this.infowindow = infowindow;
               });
+              marker.addListener('click', e => {
+                if (this.infowindow) this.infowindow.close();
+                infowindow.open(this.map, marker);
+                this.infowindow = infowindow;
+              });
 
 
 
@@ -122,9 +149,6 @@ Vue.component('mapList',{
             });
         
           this.$nextTick(this.setSwiper)//呼叫setSwiper()
-          
-      });
-
       },
       option1(){
         let location = {   //預設中心點位置
@@ -187,8 +211,6 @@ Vue.component('mapList',{
       
   });
       },
-
-      //
       option2(){
         let location = {   //預設中心點位置
           lat: 24.995186, // 經度
@@ -328,9 +350,15 @@ Vue.component('mapList',{
             });
         }
      },
-  created() {
-      window.addEventListener('load', () => {
-        this.initMap();
-      });
-    }
+   mounted() {
+    axios.get('./phps/map.php')
+    .then(res => { 
+    this.farmRow=res.data;
+    this.initMap();
+    this.citybar();
+   
+    
+});
+   }, 
+
 })
