@@ -26,7 +26,7 @@ let app = new Vue({
       },
       
       watch:{
-        // 先在dala設isLogin:false
+        // 先在data設isLogin:false
         // 判斷是否登入
         isLogin(newValue, oldValue){
           if(!newValue){
@@ -45,7 +45,7 @@ let app = new Vue({
         $.ajax({
           url: '../dist/phps/getActivityList.php',
           success: (response) => {
-            console.log(response)
+            // console.log(response)
             let obj = JSON.parse(response).find(item => item.activity_id == this.id) 
             // 在資料庫找到我要的activity_id=3  並且JSON.parse字串轉成陣列  
             // console.log(obj)
@@ -123,7 +123,7 @@ let app = new Vue({
             $("#myName").text(member.mem_name);
             $("#myEmail").text(member.mem_email); 
             $("#myId").val(member.mem_id);
-            console.log(member)
+            // console.log(member)
             this.isLogin = true; 
             //抓到mem_id後讓他為真，後面由此判斷是否登入
           }
