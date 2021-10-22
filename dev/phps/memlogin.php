@@ -8,7 +8,7 @@ try{
   $member_id =$decoded['usermail'];
   $member_psw = $decoded['userpsw'];
 
-  $sql = "select * from member where mem_email=:mem_email and mem_psw=:mem_psw"; 
+  $sql = "select * from member where mem_email=:mem_email and mem_psw=:mem_psw and mem_status=1"; 
   $member = $pdo->prepare($sql);
   $member->bindValue(":mem_email", $member_id);
   $member->bindValue(":mem_psw", $member_psw);
@@ -16,7 +16,6 @@ try{
 
   if($member =="" || $member->rowCount()==0){
     echo"1";
-
   }
 
   else{ //登入成功

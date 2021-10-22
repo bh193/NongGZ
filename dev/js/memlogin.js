@@ -33,7 +33,7 @@ Vue.component('login',{
                 contentType:"application/json; charset=utf-8",
                 success: (res) => {
                     if(res == 1){
-                        this.loginmsg="帳號或密碼錯誤"
+                        this.loginmsg="登入失敗，帳號密碼錯誤或帳號停用中"
                         this.$nextTick(this.clearinput);
                     }
                     else{
