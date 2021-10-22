@@ -59,10 +59,12 @@
                     label{
                        @include label; 
                        font-size: 1rem;
-                    //    line-height: 2;
                     }
                     input{
                         @include text;
+                    }
+                    .bcgdis{
+                        background-color: #ddd;
                     }
                     button{
                         @include smallbtn_s;
