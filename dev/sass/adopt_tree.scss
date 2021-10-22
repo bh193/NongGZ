@@ -88,6 +88,10 @@ section {
     overflow: hidden;
     margin-bottom: 1.5rem;
     cursor: pointer;
+    transition: all 1.5s;
+    &:nth-child(n+7){
+        opacity: 0;
+    }
 
     .con_img {
         width: 100%;

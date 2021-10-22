@@ -20,8 +20,10 @@ let tree_list = new Vue({
         },
         //滾動至底部查看更多
         handleScroll() {
+            $('.content').css("opacity",1);
             if ($( window ).height() + $(window).scrollTop()+1 >= $( document ).height()) {
                 this.index=this.index+1;
+               
             }
         },
     },

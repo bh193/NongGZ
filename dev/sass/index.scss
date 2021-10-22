@@ -107,8 +107,8 @@
     }
 
     100% {
-        top: 78.8%;
-        left: 209%;
+        top: 76%;
+        left: 208.5%;
         transform: rotate(4turn);
     }
 }
@@ -217,7 +217,7 @@
     }
 
     100% {
-        top: 151%;
+        top: 150.5%;
         left: 77%;
         transform: rotate(4turn);
     }
@@ -240,10 +240,6 @@ article {
     .tree_back {
         width: 100%;
         position: relative;
-
-        img {
-            width: 100%;
-        }
 
         .fruit {
             width: 9%;
@@ -318,7 +314,7 @@ article {
         margin-top: -60%;
         margin-bottom: 1rem;
         padding: 2rem;
- 
+
         .before {
             width: 50%;
             align-self: flex-start;
@@ -464,13 +460,15 @@ article {
 
 //帳密錯誤跳窗
 
-#error{
+#error {
     background-color: #F7F6F2;
     text-align: center;
-      h3{
-        margin: 14px auto;    
-      }
-      button{
+
+    h3 {
+        margin: 14px auto;
+    }
+
+    button {
         width: 100px;
         height: 35px;
         border-radius: 8px;
@@ -479,19 +477,34 @@ article {
         color: #fff;
         font-weight: bolder;
         margin: 6px 20px;
-      }
-      button:hover{
+    }
+
+    button:hover {
         opacity: .8;
-      }
-      #cancel{
+    }
+
+    #cancel {
         background-color: #BB9590;
-      }
-  }
-  
-  //修改彈窗背景z-index
-  .blocker{ 
+    }
+}
+
+//修改彈窗背景z-index
+.blocker {
     z-index: 200;
-  }
+}
+
+//footer
+.footer {
+    padding: 0 0.5rem .2rem;
+
+    .footer_con {
+        p {
+            &:last-child {
+                text-align: start;
+            }
+        }
+    }
+}
 
 
 @include t {
@@ -499,10 +512,18 @@ article {
     article {
         flex-wrap: nowrap;
         justify-content: space-between;
-        align-content:stretch;
+        align-content: stretch;
 
         .tree_back {
             width: 43%;
+
+            .tree {
+                height: 500px;
+
+                img {
+                    height: 100%;
+                }
+            }
 
             .fruit {
                 animation: fruit_wave 1s 2, fruit_fall .5s 1s forwards, fruit_up .5s 1.5s forwards;
@@ -527,7 +548,7 @@ article {
 
         .text {
             width: 15%;
-            order:0;
+            order: 0;
         }
 
         section {
@@ -571,7 +592,7 @@ article {
 
             .after {
                 width: 25%;
-                margin-top:0;
+                margin-top: 0;
                 position: absolute;
                 transform: translate(-50%, -50%);
                 top: 50%;
@@ -694,6 +715,11 @@ article {
 
     .close {
         width: 3%;
+    }
+
+    //footer
+    .footer {
+        padding: 0 3rem .6rem;
     }
 
 }
