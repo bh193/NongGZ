@@ -78,7 +78,7 @@ a{text-decoration: none;}
                 font-weight: $h3_weight;
                 
                 &:hover{
-                    color: $main_color;
+                    color: $btn_m_color;
                 }
             }
         }
@@ -92,10 +92,26 @@ a{text-decoration: none;}
         display: flex;
         width: 100%;
         margin: auto; 
-            .tabs {
-                width:100%;
-                background-color: $main_color;
+        justify-content: space-evenly;
+        background-color: $btn_m_color;
+        position: relative;
+     
+        .local{
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem;
+            box-sizing: border-box;
+           
+            button{
+                @include smallbtn_m;
+                background: none;
+                &:hover {
+                    background: none;
+                    border: none;
+                  }
             }
+            
+        }
 
     }
     .mapbox{
@@ -157,13 +173,16 @@ a{text-decoration: none;}
 
 }
 @include d{
+    .local{
+        font-size: 18px;
+    }
     .wrap{
         .box:nth-child(2){ //----------篩選框
             flex-direction: row;
         }
 
     }
-    .mapbox{
+    .mapbox,.citybox{
         width: 90%;
         .mapitem:nth-child(1){ //地圖
            
