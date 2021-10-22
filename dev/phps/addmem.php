@@ -11,6 +11,7 @@
         // 執行sql指令並取得pdoStatement
         $sql = "insert into member(mem_name, mem_email, mem_psw, mem_img)
         values(:mem_name, :mem_email, :mem_psw, 'premem.svg')";
+                                                //設註冊會員後的預設大頭照
         $register = $pdo->prepare($sql);
         $register -> bindValue(":mem_name", $user);
         $register -> bindValue(":mem_email", $email);
