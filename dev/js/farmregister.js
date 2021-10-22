@@ -15,6 +15,25 @@ let farmR = new Vue({
         msg:'',
     },
     methods: {
+        clearinput(){
+            this.farm_name="";
+            this.farm_gm="";
+            this.city_id="";
+            this.farm_address="";
+            this.farm_cert="";
+            this.farm_tel="";
+            this.farm_email="";
+            this.farm_psw="";
+            this.farm_psw2="";
+            this.farm_psw2="";
+            this.checked=false;
+        },
+        openmodal(){
+            $('a[href="#sendmail"]').click(function(event) {
+                event.stopPropagation();
+                $(this).modal({ fadeDuration: 300});
+                })
+        },
         addfarmer(){
         // let xhr = new XMLHttpRequest();
         // xhr.open("post", "../dist/phps/returnPosts.php", true);
@@ -57,7 +76,9 @@ let farmR = new Vue({
                 contentType:"application/json; charset=utf-8",
                 success: (res) => {
                 this.msg="申請為小農需2-3個工作天待審核通過後會寄送信件至您填寫的信箱。 謝謝"
-                console.log(res)
+                thiis.clearinput();
+                window.setTimeout("window.location='../index.html'",4000);
+                
                 },
                 error: () => {
                 this.msg="系統發生錯誤，請聯絡農果子"
@@ -76,6 +97,7 @@ let farmR = new Vue({
         
     },
     mounted() {
+        this.openmodal();
         // axios.get('./phps/city_select.php')
         //                  .then(res =>
         //                      console.log(res.data)
