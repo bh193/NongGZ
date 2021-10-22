@@ -161,7 +161,7 @@ Vue.component('register',{
                         error: (res,err) => {
                             console.log(res,err)
                         },
-                        complete: () => { //都會執行這行
+                        complete: () => { 
                             
                         }
                         });
@@ -170,7 +170,7 @@ Vue.component('register',{
             error: (err) => {
              
             },
-            complete: () => { //都會執行這行
+            complete: () => { 
 
             }
             });
