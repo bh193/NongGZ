@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>引導頁</title>
-    <link rel="shortcut icon" href="images/common/logo.png"/>
+    <link rel="shortcut icon" href="images/common/logo.png" />
     <script src="js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
@@ -18,7 +18,9 @@
 <body>
     <article>
         <div class="tree_back">
-            <img src="./images/svg/index_tree.svg" alt="果樹">
+            <div class="tree">
+                <img src="./images/svg/index_tree.svg" alt="果樹">
+            </div>
             <div class="fruit">
                 <img src="./images/svg/index_fruit.svg" alt="橘子">
             </div>
@@ -50,8 +52,9 @@
                 <h2>後台</h2>
             </div>
         </section>
-    </article>
 
+    </article>
+    @@include('layout/footer.html')
     <div class="backstage_login">
         <div class="farm_login">
             <form class="content">
@@ -98,7 +101,8 @@
                 </div>
                 <div class="con_btnbox" id="con_btn">
                     <input class="smallbtn_s" type="reset" value="清除">
-                    <a id="login_con"><input id="btnLogin_c" class="smallbtn_m" type="button" value="登入" style="display: none;"></a>
+                    <a id="login_con"><input id="btnLogin_c" class="smallbtn_m" type="button" value="登入"
+                            style="display: none;"></a>
                 </div>
                 <div class="con_toggle" id="con_toggle_c">❮❮ 小農進入</div>
             </form>
@@ -126,6 +130,7 @@
         <h3>帳密錯誤</h3>
         <a href="#" rel="modal:close"><button id="cancel">關閉</button></a>
     </div>
+
 
 
 

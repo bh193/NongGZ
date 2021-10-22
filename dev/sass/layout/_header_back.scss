@@ -58,15 +58,6 @@
                 background-color: $main_color;
             }
         }
-
-        .web_up {
-            flex-grow: 1;
-            @include flexcenter();
-
-            .bigbtn_m {
-                @include bigbtn_m
-            }
-        }
     }
 
     article {
