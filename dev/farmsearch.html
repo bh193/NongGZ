@@ -6,41 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>來農場吧</title>
     <script src="js/jquery.min.js"></script>
-    <title>農場資訊頁</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script src="js/vue.min.js"></script>  
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv2stNGlktQxxtTVKeDxvMrizohjEK1uI"  defer></script>
     <link rel="stylesheet" href="css/farmsearch.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
 </head>
+
 <style>
-     .tabs {
+      .tabs{
         position: relative;
       }
-
       .selection-bar {
         position: absolute;
-        bottom: 0;
+        bottom: 1px;
         left: 0;
         right: 0;
         height: 0;
-        border-bottom: 2px #606060 solid;
+        border-bottom: 0.3rem #84a59d solid;
         transform: scaleX(0);
         transform-origin: left center;
         transition: transform;
         transition-duration: 0.2s;
         transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
       }
-
       .tablist {
         display: flex;
         list-style: none;
         margin: 0;
         padding: 0;
       }
-
       .tablist__tab {
         padding: 0.9rem 1.75rem;
         font-weight: bold;
@@ -49,13 +45,14 @@
         text-transform: uppercase;
         cursor: pointer;
       }
-
-      .tablist__tab:hover ,.tablist__tab.is-active{
+      .tablist__tab:hover{
+        color: #17C3B2;
+      }
+      .tablist__tab.is-active{
         color: #84a59d;
       }
-
-
 </style>
+
 <body>
     <script src="js/jquery.mousewheel.min.js"></script>
 <header>
@@ -83,63 +80,47 @@
         </div>
     </div>
 </header>
+
 <script src="js/header.min.js"></script>
+
 <article id="farm">
-  <div class="wrap">
-    <div class="box">
-      <div class="breadcrumb">
-        <ol>
-            <li><a href="./home.html">首頁</a></li>
-            <li><a href="./farmsearch.html">來農場吧</a></li>
-
-        </ol>
-    </div>
-    </div>
-
+    <div class="wrap">
+        <div class="box">
+            <div class="breadcrumb">
+            <ol>
+              <li><a href="./home.html">首頁</a></li>
+              <li><a href="./farmsearch.html">來農場吧</a></li>
+            </ol>
+          </div>
+      </div>
   </div>
+
   <div class="citybox">
-    <div class="tabs">
-      <div class="selection-bar"></div>
-      <ul class="tablist">
-        <li class="tablist__tab is-active" @click="tab = 0">全部</li>
-        <li class="tablist__tab" @click="tab = 110">台北</li>
-        <li class="tablist__tab"@click="tab = 220">新北</li>
-        <li class="tablist__tab" @click="tab = 330">桃園</li>
-      </ul>
-    </div>
-    <!-- <div class="local">
-      <button @click="tab = 0">全部</button>
-    
-    </div>
-    <div class="local">
-      <button @click="tab = 110">台北</button>
-    
-    </div>
-    <div class="local">
-      <button @click="tab = 220">新北</button>
-    
-    </div>
-    <div class="local">
-      <button @click="tab = 330">桃園</button>
-    
-    </div> -->
-
+      <div class="tabs">
+          <div class="selection-bar"></div>
+              <ul class="tablist">
+                  <li class="tablist__tab is-active" @click="tab = 0">全部</li>
+                  <li class="tablist__tab" @click="tab = 110">台北</li>
+                  <li class="tablist__tab"@click="tab = 220">新北</li>
+                  <li class="tablist__tab" @click="tab = 330">桃園</li>
+              </ul>
+      </div>
   </div>
-  <div class="mapbox" >
-    <div  class="mapitem" id="map"></div>
-    <div class="mapitem">
-     <map-list :mapimg="farmRow"></map-list></div>
-
-
-</div>
+  
+  <div class="mapbox">
+      <div class="mapitem" id="map"></div>
+      <div class="mapitem">
+          <map-list :mapimg="farmRow"></map-list>
+      </div>
+  </div>
 </article>
 
     <div class="footer">
-    <div class="footer_con">
-        <p>Copyright © 2021 農果子</p>
-        <p>本網站為緯育TibaMe_前端設計工程師班第69期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]https://www.facebook.com/webindex/ ，後續會由專人協助處理。</p>
-    </div>   
-
-    <script src="js/farmsearch.min.js"></script>
+      <div class="footer_con">
+          <p>Copyright © 2021 農果子</p>
+          <p>本網站為緯育TibaMe_前端設計工程師班第69期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]https://www.facebook.com/webindex/ ，後續會由專人協助處理。</p>
+      </div>   
+  <script src="js/farmsearch.min.js"></script>
+  
 </body>
 </html>
