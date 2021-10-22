@@ -67,16 +67,6 @@ let app = new Vue({
                 }
             });
         },
-        //story照片
-        // storyChange(e) {
-        //     let storyshow = URL.createObjectURL(e.target.files[0]);
-        //     this.storyImage = storyshow;
-        // },
-        //setting照片
-        // settingChange(e) {
-        //     let settingshow = URL.createObjectURL(e.target.files[0]);
-        //     this.settingImage = settingshow;
-        // },
         getStatus(farm_status) {
             switch(farm_status) {
                 case'0':
