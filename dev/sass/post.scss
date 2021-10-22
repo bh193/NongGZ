@@ -136,7 +136,6 @@
         }
     }
 }
-
 .filter{
     .container{
         @include container(0,0);
@@ -169,7 +168,6 @@
         @include container(0,0);
         @include flexcenter();
         flex-direction: column;
-        // justify-content: space-between;
         .card{
             width: 85%;
             border-radius: 0.5rem;
@@ -184,6 +182,14 @@
                 transform: scale(1.1);
                 transition: all 0.5s;
             }
+            &:nth-child(n+7){
+                animation: cardIn 1.5s;
+                transition: all 1.5s;
+            }
+            @keyframes cardIn {
+                  0% {opacity: 0;}
+                100% {opacity: 1;}
+            }
             .txt{
                 padding: 2rem 1.25rem 0;
                 .memname{
@@ -191,10 +197,13 @@
                     align-items: center;
                     padding-bottom: 1.25rem;
                     .pic{
-                        width: 6.5rem;
+                        width: 5.5rem;
+                        height: 5.5rem;
+                        overflow: hidden;
+                        border-radius: 50%;
+                        margin-right: 1rem;
                         img{
                             width: 100%;
-                            padding-right: 1rem;
                         }
                     }
                 }
@@ -229,12 +238,26 @@
                     .btn_heart{
                         background: url("../images/post/heart_gray.svg") no-repeat;
                         border: 0;
+                        height: 1.3rem ;
+                        width: 1.3rem;
+                        cursor: pointer;
+                    }
+                    .btn_heart__click{
+                        background: url("../images/post/heart_red.svg") no-repeat;
+                        border: 0;
                         height: 1.2rem ;
                         width: 1.2rem;
                         cursor: pointer;
                     }
                     .btn_loudly{
                         background: url("../images/post/loudly_gray.svg") no-repeat;
+                        border: 0;
+                        height: 1.2rem ;
+                        width: 1.2rem;
+                        cursor: pointer;
+                    }
+                    .btn_loudly__click{
+                        background: url("../images/post/loudly_blue.svg") no-repeat;
                         border: 0;
                         height: 1.2rem ;
                         width: 1.2rem;
@@ -316,6 +339,26 @@
         resize: none;
     }
 }
+.sdheart{
+    background-color: #F7F6F2;
+    text-align: center;
+    img{
+        width: 2rem;
+        display: block;
+        margin: 0 auto 1rem;
+    }
+    input{
+        width: 100px;
+        height: 35px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        font-weight: bolder;
+        margin: 6px 20px;
+        background-color:#84A59D;
+    }
+}
 @include t{
     .post{
         .container{
@@ -385,7 +428,6 @@
                 &:nth-child(2n){
                     margin-left: 0;
                 }
-                width: 31.25%;
                 &:nth-child(3n+2){
                     margin-left: 3.125%;
                 }

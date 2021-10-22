@@ -7,58 +7,56 @@
     <title>來農場吧</title>
     <script src="js/jquery.min.js"></script>
     <title>農場資訊頁</title>
-    <link rel="shortcut icon" href="images/common/logo.png"/>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script src="js/vue.min.js"></script>  
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv2stNGlktQxxtTVKeDxvMrizohjEK1uI"  defer></script>
     <link rel="stylesheet" href="css/farmsearch.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 </head>
 <style>
-     .swiper {
-        width: 100%;
-        height: 100%;
-        padding: 2rem;
-        cursor: grab;
-        
+     .tabs {
+        position: relative;
       }
 
-      .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        width: 100px;
-        border-radius: 10px;
+      .selection-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 0;
+        border-bottom: 2px #606060 solid;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform;
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
 
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
+      .tablist {
         display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
       }
 
-      .swiper-slide img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 15px;
+      .tablist__tab {
+        padding: 0.9rem 1.75rem;
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: #727070;
+        text-transform: uppercase;
+        cursor: pointer;
       }
 
-      .item{
-        display: flex;
+      .tablist__tab:hover ,.tablist__tab.is-active{
+        color: #84a59d;
       }
+
+
 </style>
 <body>
-  @@include('layout/header.html')
     <script src="js/jquery.mousewheel.min.js"></script>
 <header>
     <div class="header_con">
@@ -97,35 +95,34 @@
         </ol>
     </div>
     </div>
-          <div class="box">
 
-
-              <!-- <select v-model="selected">
-                <option value="" disabled>選擇水果</option>
-                <option v-for="fruit in fruits" v-bind:value="fruit.value">{{fruit.text}}</option>
-            </select> -->
-            <div class="location">
-              <button @click="option1">台北</button>
-            
-            </div>
-            <div class="location">
-              <button @click="option2">新北</button>
-            
-            </div>
-            <div class="location">
-              <button @click="option3">桃園</button>
-            
-            </div>
-
-            
-            <!-- 
-            <select v-model="selected2">
-              <option value="" disabled>選擇地區</option>
-              <option v-for="city in citys" v-bind:value="city.value">{{city.text}}</option>
-          </select> -->
-
-
-          </div>
+  </div>
+  <div class="citybox">
+    <div class="tabs">
+      <div class="selection-bar"></div>
+      <ul class="tablist">
+        <li class="tablist__tab is-active" @click="tab = 0">全部</li>
+        <li class="tablist__tab" @click="tab = 110">台北</li>
+        <li class="tablist__tab"@click="tab = 220">新北</li>
+        <li class="tablist__tab" @click="tab = 330">桃園</li>
+      </ul>
+    </div>
+    <!-- <div class="local">
+      <button @click="tab = 0">全部</button>
+    
+    </div>
+    <div class="local">
+      <button @click="tab = 110">台北</button>
+    
+    </div>
+    <div class="local">
+      <button @click="tab = 220">新北</button>
+    
+    </div>
+    <div class="local">
+      <button @click="tab = 330">桃園</button>
+    
+    </div> -->
 
   </div>
   <div class="mapbox" >
@@ -142,8 +139,6 @@
         <p>Copyright © 2021 農果子</p>
         <p>本網站為緯育TibaMe_前端設計工程師班第69期學員專題成果作品，本平台僅供學習、展示之用。若有抵觸有關著作權，或有第三人主張侵害智慧財產權等情事，均由學員負法律上責任，緯育公司概不負責。若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]https://www.facebook.com/webindex/ ，後續會由專人協助處理。</p>
     </div>   
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBv2stNGlktQxxtTVKeDxvMrizohjEK1uI" async defer></script>
 
     <script src="js/farmsearch.min.js"></script>
 </body>

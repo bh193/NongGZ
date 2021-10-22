@@ -17,7 +17,7 @@
     <article>
         <section  id="app">
             @@include('layout/farm_icon.html')
-            <form class="wrapper" action="javascript:void(0)">
+            <form class="wrapper"  action="javascript:void(0)" >
                 <div class="info">
                     <div class="pic">
                         <div class="mem_f">
@@ -42,7 +42,7 @@
                         </div>
                         <div class="item">
                             <label for="">聯絡電話</label>
-                            <input type="text" v-model="farminfo.farm_tel">
+                            <input type="text" v-model="farminfo.farm_tel" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength=10>
                         </div>
                         <div class="item">
                             <label>電子信箱</label>

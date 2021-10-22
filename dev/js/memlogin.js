@@ -38,7 +38,7 @@ Vue.component('login',{
                     }
                     else{
                         // this.loginmsg="登入成功，前往會員中心"
-                        window.location.href='http://localhost/phpLab/20_dist/dist/mem_center.html'
+                        window.location.href='../mem_center.html'
                     }
                 },
                 error: () => {
@@ -161,7 +161,7 @@ Vue.component('register',{
                         error: (res,err) => {
                             console.log(res,err)
                         },
-                        complete: () => { //都會執行這行
+                        complete: () => { 
                             
                         }
                         });
@@ -170,7 +170,7 @@ Vue.component('register',{
             error: (err) => {
              
             },
-            complete: () => { //都會執行這行
+            complete: () => { 
 
             }
             });

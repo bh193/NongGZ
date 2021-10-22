@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,15 +10,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="code/jquery.modal.css">
     <title>農場資訊頁</title>
-    <link rel="shortcut icon" href="images/common/logo.png"/>
+    <link rel="shortcut icon" href="images/common/logo.png" />
     <!-- 引入owl -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <link rel="stylesheet" href="css/farminfon.css">
     <script src="js/vue.min.js"></script>
 </head>
+
 <body>
     @@include('layout/header.html')
     <div class="page" id="app">
@@ -43,7 +46,8 @@
                         </div>
                         <div class="txt">
                             <h2>{{infoObj.farm_name}}</h2>
-                            <p>農場地址：{{infoObj.farm_address}}<br>連絡電話：{{infoObj.farm_tel}}<br>電子信箱：{{infoObj.farm_email}}</p>
+                            <p>農場地址：{{infoObj.farm_address}}<br>連絡電話：{{infoObj.farm_tel}}<br>電子信箱：{{infoObj.farm_email}}
+                            </p>
                         </div>
                     </div>
                     <div class="info">
@@ -75,12 +79,17 @@
                     <div class="fruit">
                         <div class="card" v-for="fruit in filterfruits">
                             <div class="pic">
-                                <a v-if="fruit.tree_status == 0" :href="'tree_growing.html?tree_id=' + fruit.tree_id"><img :src="'images/tree/' + fruit.treehistory_img"></a>
+                                <a v-if="fruit.tree_status == 0"
+                                    :href="'tree_growing.html?tree_id=' + fruit.tree_id"><img
+                                        :src="'images/tree/' + fruit.treehistory_img"></a>
                                 <img v-else class="fruitStatus" :src="'images/tree/' + fruit.treehistory_img">
                             </div>
                             <div class="txt">
-                                <h3 class="status">{{getStatus(fruit.tree_status)}}</h3>
-                                <p>{{fruit.tree_name}}</p>
+                                <h3 v-if="fruit.tree_status == 1" style="color:#b5b5b5" class="status">{{getStatus(fruit.tree_status)}}</h3>
+                                <h3 v-else style="color:#3d3b3b" class="status">
+                                    {{getStatus(fruit.tree_status)}}</h3>
+                                <p v-if="fruit.tree_status == 1" style="color:#b5b5b5">{{fruit.tree_name}}</p>
+                                <p v-else style="color:#3d3b3b">{{fruit.tree_name}}</p>
                             </div>
                         </div>
                     </div>
@@ -149,4 +158,5 @@
     @@include('layout/footer.html')
     <script src="js/farminfon.min.js"></script>
 </body>
+
 </html>

@@ -11,11 +11,6 @@
 @import 'layout/header';
 @import 'layout/footer';
 
-button{
-    @include smallbtn_s;
-    outline:none;
-
-}
 label{
     @include label;
 
@@ -83,55 +78,91 @@ a{text-decoration: none;}
                 font-weight: $h3_weight;
                 
                 &:hover{
-                    color: $main_color;
+                    color: $btn_m_color;
                 }
             }
         }
     }
-    .box:nth-child(2){ //----------篩選框
-        width: 100%;
-        margin: 2.3rem 0 2rem 0;
-        display: flex;
-
-        .location{
-            width: 100%;
-            // margin-left: ;
-            
-        }
-        .location:nth-child(2){
-            margin-left: 1rem;
-            
-        }
-        .location:nth-child(3){
-            margin-left: 1rem;
-            
-        }
-
-    }
-
 }
-.mapbox{
-    max-width: 1280px;
-    min-width: 350px;
-    width: 100%;
-    margin: auto;
-    margin-bottom: 5rem;
-    .mapitem{width: 100%;}
-    .mapitem:nth-child(1){ //地圖
-        background-color: #ccc;
-        height: 400px;
+    .citybox{
+        max-width: 1280px;
+        min-width: 350px;
+        display: flex;
+        width: 100%;
+        margin: auto; 
+        justify-content: space-evenly;
+        position: relative;
+     
+        .local{
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem;
+            box-sizing: border-box;
+           
+            button{
+                @include smallbtn_m;
+                background: none;
+                &:hover {
+                    background: none;
+                    border: none;
+                  }
+            }
+            
+        }
 
     }
+    .mapbox{
+        max-width: 1280px;
+        min-width: 350px;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 5rem;
+        .mapitem{width: 100%;}
+        .mapitem:nth-child(1){ //地圖
+            background-color: #ccc;
+            height: 400px;
+
+        }
     .mapitem:nth-child(2){ //地點照片
        display: flex;
-    //    justify-content: space-around;
        box-sizing: border-box;
-       .swiper-container {/* 設定幻燈片寬度跟高度 */
-        // max-width: 1280px;
-        // min-width: 350px;
-        // width: 100%;
-            
-    }
+       .swiper {
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        cursor: grab;
+        
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* width: 100px; */
+        border-radius: 10px;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+      }
     .swiper-slide {
         width:100px;
         height:100px;
@@ -140,9 +171,9 @@ a{text-decoration: none;}
             width:80px;
         
         }
-       }
-        
     }
+        
+}
 
 
 .breadcrumb{
@@ -169,13 +200,16 @@ a{text-decoration: none;}
 
 }
 @include d{
+    .local{
+        font-size: 18px;
+    }
     .wrap{
         .box:nth-child(2){ //----------篩選框
             flex-direction: row;
         }
 
     }
-    .mapbox{
+    .mapbox,.citybox{
         width: 90%;
         .mapitem:nth-child(1){ //地圖
            
@@ -183,6 +217,9 @@ a{text-decoration: none;}
             
         }
         .mapitem:nth-child(2){ //地點照片
+            .swiper-slide img {
+                height: 150px;
+              }
             
         }
     }
@@ -198,6 +235,7 @@ a{text-decoration: none;}
             }
         }
     }
+
 }
 
 .bred >*{

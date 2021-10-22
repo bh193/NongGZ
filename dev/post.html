@@ -85,9 +85,15 @@
                         <form id="loudlybox" class="modal sdloudly" action="javascript:void(0)">
                             <div class="sendLoudly">
                                 <h3>填寫檢舉內容</h3>
-                                <!-- <p>{{filterId.post_id}}</p> -->
+                                <!-- <p>{{filterId.post_id}}</p>-->
                                 <textarea id="loudlytext" placeholder="寫下說明文字⋯" v-model="loudlytxt"></textarea>
                                 <input type="submit" value="發送" @click="sendloudy">
+                            </div>
+                        </form>
+                        <form id="heartbox" class="modal sdheart" action="javascript:void(0)">
+                            <div class="sendHeart">
+                                <img src="./images/post/heart_red.svg">
+                                <input type="submit" value="發送" @click="sendHeart">
                             </div>
                         </form>
                     </div>
@@ -107,7 +113,7 @@
             </article>
             <article class="mempost">
                 <div class="container">
-                    <div class="card" v-for="prodRow in pageRows">
+                    <div class="card" v-for="(prodRow, index) in pageRows">
                         <div class="txt">
                             <div class="memname">
                                 <div class="pic">
@@ -130,12 +136,12 @@
                                 <img :src="'images/post/' + prodRow.post_img">
                             </div>
                             <div class="icon">
-                                <a href="#sendpost" rel="modal:open" class="box_heart">
-                                    <button class="btn_heart" @click="sendHeart"></button>
+                                <a :href="isLogout? '#sendpost2' :'#heartbox'" rel="modal:open" class="box_heart" @click="filterdata(prodRow.post_id, index)">
+                                    <button class="btn_heart" :class="{'btn_heart__click': prodRow.heart == 1}"></button>
                                 </a>
                                 <span>{{prodRow.post_feedback}}</span>
-                                <a :href="isLogout? '#sendpost2' :'#loudlybox'" rel="modal:open" class="box_loudy" @click="filterdata(prodRow.post_id)">
-                                    <button class="btn_loudly"></button>
+                                <a :href="isLogout? '#sendpost2' :'#loudlybox'" rel="modal:open" class="box_loudy" @click="filterdata(prodRow.post_id, index)">
+                                    <button class="btn_loudly" :class="{'btn_loudly__click' : prodRow.loudly == 1}"></button>
                                 </a>
                             </div>
                         </div>
@@ -144,7 +150,7 @@
             </article>
             <article class="more">
                 <div class="container">
-                    <p>load more...</p>
+                    <p></p>
                 </div>
             </article>
         </section>
