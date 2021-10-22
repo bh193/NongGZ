@@ -71,7 +71,7 @@
                 </div>
                 <div class="item">
                     <label for="cert">許可證號</label>
-                    <input type="text" v-model="fcert" name="farm_cert" id="cert">
+                    <input type="text" v-model="fcert" name="farm_cert" id="cert" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength=6>
                 </div>
                 <div class="item">
                     <label for="phone">農場電話</label>
@@ -96,7 +96,7 @@
                 </div>
            
                 <div class="btnbox">
-                    <button type="reset"class="btn">清除</button>
+                    <button type="reset"class="btn" @click="clearinput">清除</button>
                     <a href="#sendmail" rel="modal:open" @click="addfarmer"><button  class="btn">送出</button></a>
                   </form>  
                     <div id="sendmail" class="modal dialog">
@@ -114,18 +114,6 @@
                 </div>       
         </div>
     </div>
-
-    <!-- <script>
-        $('a[href="#sendmail"]').click(function(event) {
-            event.stopPropagation();
-            $(this).modal({ fadeDuration: 300});
-            })
-    </script>
-    <script>
-         $(window).ready(() => {
-            $('#popOrder').modal({fadeDuration: 300})
-        })
-      </script> -->
       <script src="js/farmregister.min.js"></script>
 
 

@@ -81,7 +81,7 @@ select{
         }
     }
     .box:nth-child(2){
-        h3{color:#248427;}
+        h3{color:$focus_color;}
     }
     .box:nth-child(3){
         .item{@include margincenter($var:1rem);}
