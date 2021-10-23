@@ -18,7 +18,7 @@ label{
 select{
     @include select;
 }
-button{@include smallbtn_m;}
+button{@include smallbtn_m;} 
 a{text-decoration: none;}
 #city{margin-left: 3rem;}
 // -> 地圖
