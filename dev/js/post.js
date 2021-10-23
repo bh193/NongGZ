@@ -29,7 +29,7 @@ let app = new Vue({
             }else if(!(this.isLogout) && this.posttxt != '' && this.images != '' && this.selectedFarm != ''){
                 $.ajax({
                     type: 'post',
-                    url: "../dist/phps/returnPosts.php",
+                    url: "./phps/returnPosts.php",
                     data: JSON.stringify({
                         farm_id: this.selectedFarm,
                         post_img: this.images,
@@ -86,7 +86,7 @@ let app = new Vue({
                 console.log('array1',array1)
                 app.prodRows = array1;
             }
-            xhr.open("get", "../dist/phps/getPosts.php?page=1", true);
+            xhr.open("get", "./phps/getPosts.php?page=1", true);
             xhr.send(null);
         },
         //農場下拉式選單
@@ -95,7 +95,7 @@ let app = new Vue({
             xhr.onload = function () {
                 app.farms = JSON.parse(xhr.responseText)
             }
-            xhr.open("get", "../dist/phps/getFarms.php", true);
+            xhr.open("get", "./phps/getFarms.php", true);
             xhr.send(null);
         },
         //排序篩選
@@ -105,9 +105,9 @@ let app = new Vue({
                 app.prodRows = JSON.parse(xhr.responseText)
             }
             if (this.selectNew == 2) {
-                xhr.open("get", "../dist/phps/getPosts_2.php", true);
+                xhr.open("get", "./phps/getPosts_2.php", true);
             } else {
-                xhr.open("get", "../dist/phps/getPosts.php", true);
+                xhr.open("get", "./phps/getPosts.php", true);
             }
             xhr.send(null);
         },
@@ -127,7 +127,7 @@ let app = new Vue({
                     vm.member = response;
                 }
             }
-            xhr.open("get", "../dist/phps/getMemInfo.php", true);
+            xhr.open("get", "./phps/getMemInfo.php", true);
             xhr.send(null);
         },
         //搜尋id
@@ -139,7 +139,7 @@ let app = new Vue({
         sendloudy(){
             $.ajax({
                 type:'post',
-                url:"../dist/phps/returnrepost.php",
+                url:"./phps/returnrepost.php",
                 data:JSON.stringify({
                     reporttxt: this.loudlytxt,
                     memId: this.member.mem_id,
@@ -162,7 +162,7 @@ let app = new Vue({
         sendHeart(){
             $.ajax({
                 type: 'post',
-                url: "../dist/phps/returnHeart.php",
+                url: "./phps/returnHeart.php",
                 data: JSON.stringify({
                     postId: this.filterId.post_id,
                 }),

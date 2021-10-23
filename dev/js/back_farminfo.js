@@ -24,7 +24,6 @@ let app = new Vue({
         storyTxt: '',
         settingTxt: '',
         selectbanner: '',
-        // options: '',
         options: [
             {text: "banner-1", value: 'banner-1.png'},
             {text: "banner-2", value: 'banner-2.png'},
@@ -44,7 +43,7 @@ let app = new Vue({
                 console.log(JSON.parse(xhr.responseText))
                 app.farminfo = JSON.parse(xhr.responseText)
             }
-            xhr.open("get", "../dist/phps/getFarmInfo.php", true);
+            xhr.open("get", "./phps/getFarmInfo.php", true);
             xhr.send(null);
         },
         //大頭照照片
@@ -67,16 +66,6 @@ let app = new Vue({
                 }
             });
         },
-        //story照片
-        // storyChange(e) {
-        //     let storyshow = URL.createObjectURL(e.target.files[0]);
-        //     this.storyImage = storyshow;
-        // },
-        //setting照片
-        // settingChange(e) {
-        //     let settingshow = URL.createObjectURL(e.target.files[0]);
-        //     this.settingImage = settingshow;
-        // },
         getStatus(farm_status) {
             switch(farm_status) {
                 case'0':
@@ -99,7 +88,7 @@ let app = new Vue({
             }else{
                 axios({
                     method: 'get',
-                    url: '../dist/phps/returnback_farmPsw.php',
+                    url: './phps/returnback_farmPsw.php',
                     params:{
                         psw:this.newPsw,
                         farmId:this.farminfo.farm_id,
@@ -127,7 +116,7 @@ let app = new Vue({
             }
             $.ajax({
                 type: 'post',
-                url: "../dist/phps/returnback_farminfo.php",
+                url: "./phps/returnback_farminfo.php",
                 data: JSON.stringify(data),
                 contentType: "application/json; charset=utf-8",
                 success: (res) => {

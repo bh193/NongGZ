@@ -58,7 +58,7 @@ let app = new Vue({
           this.getMember();
         }
       }
-      xhr.open("get", "../dist/phps/getMemInfo.php", true);
+      xhr.open("get", "./phps/getMemInfo.php", true);
       xhr.send(null);
     },
 
@@ -70,7 +70,7 @@ let app = new Vue({
       this.AllMem = JSON.parse(xhr.responseText);
             
     };
-    xhr.open("get", "../dist/phps/onlyMemberInCenter.php", true);
+    xhr.open("get", "./phps/onlyMemberInCenter.php", true);
     xhr.send(null);
   },
 
@@ -80,7 +80,7 @@ let app = new Vue({
     xhr.onload = () => {
       this.AllTreehistory = JSON.parse(xhr.responseText)
     }
-    xhr.open("get", "../dist/phps/onlyTreehistoryInCenter.php", true);
+    xhr.open("get", "./phps/onlyTreehistoryInCenter.php", true);
     xhr.send(null);
   },
     
@@ -95,7 +95,7 @@ let app = new Vue({
       this.getDataCount++;
       if (this.getDataCount >2 ) this.$nextTick(this.onCollapse);
     };
-    xhr.open("get", "../dist/phps/onlyT_orderInCenter.php", true);
+    xhr.open("get", "./phps/onlyT_orderInCenter.php", true);
     xhr.send(null);
   },
 
@@ -108,7 +108,7 @@ let app = new Vue({
       this.getDataCount++;
       if (this.getDataCount >2 ) this.$nextTick(this.onCollapse);
     };
-    xhr.open("get", "../dist/phps/back_activity_order.php", true);
+    xhr.open("get", "./phps/back_activity_order.php", true);
     xhr.send(null);
   },
 
@@ -121,7 +121,7 @@ let app = new Vue({
       this.getDataCount++;
       if (this.getDataCount >2 ) this.$nextTick(this.onCollapse);
     };
-    xhr.open("get", "../dist/phps/onlyCouponInCenter.php", true);
+    xhr.open("get", "./phps/onlyCouponInCenter.php", true);
     xhr.send(null);
   },
 

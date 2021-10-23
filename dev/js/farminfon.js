@@ -88,7 +88,7 @@ let app = new Vue({
             this.id = window.location.search.split('?')[1].split('=')[1];
             //call php的response
             $.ajax({
-                url:'../dist/phps/getFarmdes.php',
+                url:'./phps/getFarmdes.php',
                 success:(response) =>{
                     let obj = JSON.parse(response).find(prodRow => prodRow.farm_id == this.id)
                     this.infoObj = obj;
@@ -102,7 +102,7 @@ let app = new Vue({
                 // console.log(JSON.parse(xhr.responseText))
                 app.fruits = JSON.parse(xhr.responseText)
             }
-            xhr.open("get", "../dist/phps/getFarmfruit.php",true);
+            xhr.open("get", "./phps/getFarmfruit.php",true);
             xhr.send(null);
         },
     },
@@ -126,7 +126,7 @@ let app = new Vue({
     mounted(){
         this.getInfo();
         this.getFruits();
-        axios.get('../dist/phps/getFarminfon.php')
+        axios.get('./phps/getFarminfon.php')
         .then(res => {
             this.prodRows = res.data;
             Vue.nextTick(function(){
@@ -153,7 +153,7 @@ let app = new Vue({
                });
            });
         });
-        axios.get('../dist/phps/getFarmactivity.php')
+        axios.get('./phps/getFarmactivity.php')
         .then(res => {
             this.activitys = res.data;
             Vue.nextTick(function(){
