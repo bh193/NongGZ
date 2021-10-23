@@ -3,7 +3,7 @@ Vue.component('login',{
         return{
             user: '',
             userpassword:'',
-            loginmsg:'系統發生錯誤，請聯絡農果子',
+            loginmsg:'',
         }
     },
     methods: {
@@ -37,8 +37,8 @@ Vue.component('login',{
                         this.$nextTick(this.clearinput);
                     }
                     else{
-                        // this.loginmsg="登入成功，前往會員中心"
-                        window.location.href='../mem_center.html'
+                        // this.loginmsg="登入成功，正在前往會員中心"
+                        window.location='mem_center.html'
                     }
                 },
                 error: () => {
@@ -86,7 +86,7 @@ Vue.component('register',{
             psw:'',
             psw2:'',
             selected:false,
-            msg:'系統發生錯誤，請聯絡農果子',          
+            msg:'',          
         }
     },
     methods: {
@@ -155,7 +155,7 @@ Vue.component('register',{
                         success: (res) => {
                         this.msg="註冊成功，請重新登入"
                         // this.$nextTick(this.clearinput);
-                        window.location.href='../memlogin.html'
+                        window.setTimeout("window.location='mem_login.html'",3000);
                         
                         },
                         error: (res,err) => {
