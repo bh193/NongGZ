@@ -137,7 +137,7 @@ moveTabSelectionBar(activeTab);
                 map: this.map,
                 animation: google.maps.Animation.DROP,
                 icon:{
-                  url:"./images/svg/index_before.svg",
+                  url:"../images/svg/index_before.svg",
                   scaledSize: new google.maps.Size(45, 45), 
                 }
           
