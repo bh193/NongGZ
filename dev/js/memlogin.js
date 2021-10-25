@@ -3,7 +3,7 @@ Vue.component('login',{
         return{
             user: '',
             userpassword:'',
-            loginmsg:'',
+            loginmsg:'登入成功，正在前往會員中心',
         }
     },
     methods: {
@@ -37,8 +37,8 @@ Vue.component('login',{
                         this.$nextTick(this.clearinput);
                     }
                     else{
-                        // this.loginmsg="登入成功，正在前往會員中心"
-                        window.location='mem_center.html'
+                     
+                        window.setTimeout("window.location='mem_center.html'",2000);
                     }
                 },
                 error: () => {
@@ -86,7 +86,7 @@ Vue.component('register',{
             psw:'',
             psw2:'',
             selected:false,
-            msg:'',          
+            msg:'註冊成功，請重新登入', 
         }
     },
     methods: {
@@ -153,9 +153,9 @@ Vue.component('register',{
                         }),
                         contentType:"application/json; charset=utf-8",                
                         success: (res) => {
-                        this.msg="註冊成功，請重新登入"
+                
                         // this.$nextTick(this.clearinput);
-                        window.setTimeout("window.location='mem_login.html'",3000);
+                        window.setTimeout("window.location='memlogin.html'",2000);
                         
                         },
                         error: (res,err) => {

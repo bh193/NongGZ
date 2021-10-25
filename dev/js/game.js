@@ -14,11 +14,8 @@ $(function () {
             if (SetSecond < 0) {
                 SetSecond = 0;
                 $('#back').show();
+                $('.result').css("display","block");
                 $('.rule').hide();
-                $('.result').show();
-            };
-            if (Second == 0) {
-                $('#ok').click();
             };
             $('#Check_Txt').text(`時間計數： ${SetSecond}秒`);
         }, 1000);
@@ -138,15 +135,17 @@ $(function () {
     }
 
     $('#again').click(function () {
-        window.location.reload();
+        $('#ok').click();
+        window.setTimeout("self.location=document.referrer",500);
     });
 
     $('#cancel').click(function () {
-        location.go(-1);
+        self.location=document.referrer;
     });
 
     $('#sure').click(function () {
-        history.back();
+        $('#ok').click();
+        window.setTimeout("history.go(-2);location.reload();",500);
     });
 
 
