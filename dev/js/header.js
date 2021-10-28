@@ -2,12 +2,12 @@ $(function () {
     //滾動捲軸事件
     var bodyClass = document.body.classList,
         lastScrollY = 0;
-    window.addEventListener('scroll', function () {
+    $(window).scroll(function () {
         var st = this.scrollY;
         if (st < lastScrollY) {
             bodyClass.remove('hideUp');//top:0//出現//上拉
         } else {
-            bodyClass.add('hideUp');//top:-30%//消失//下拉
+            bodyClass.add('hideUp');//top:-35%//消失//下拉
         }
         lastScrollY = st;
     });
@@ -19,6 +19,8 @@ $(function () {
     } else {
         //手機板
         //漢堡選單js
+        //恢復滾動捲軸事件
+
         var open = false; //宣告為關閉狀態
         $('.hamberger').click(function () {
             if (open == false) { //目前狀態為關閉時
@@ -60,8 +62,9 @@ $(function () {
                 $('#line_2').show();
                 open = false; //關閉狀態
 
-                //恢復滾動捲軸事件
-                window.addEventListener('scroll', function () {
+                var bodyClass = document.body.classList,
+                    lastScrollY = 0;
+                $(window).scroll(function () {
                     var st = this.scrollY;
                     if (st < lastScrollY) {
                         bodyClass.remove('hideUp');//top:0//出現//上拉
@@ -119,7 +122,7 @@ $(function () {
     });
 
     //點擊icon
-    $('#m_img').click(function () { 
+    $('#m_img').click(function () {
         if ($('#mem_state').text() == "會員") {  //尚未登入
             $('#m_img').attr("href", "./memlogin.html");
             $('#mem_center').hide();
